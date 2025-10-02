@@ -13,7 +13,7 @@
         }
 
         :root {
-            --gold: #C9A961;
+            --gold: #C8A14A;
             --dark: #1a1a1a;
             --cream: #f5f1e8;
             --text: #333;
@@ -36,7 +36,8 @@
             height: 100%;
             background-image: url('https://i.imgur.com/bHRDUYD.jpeg');
             background-repeat: no-repeat;
-            background-size: 300px;
+            background-size: cover;
+            background-position: center;
             opacity: 0.25;
             pointer-events: none;
             z-index: 9998;
@@ -266,13 +267,18 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            margin-top: 20px;
-            background: var(--cream);
+            margin-top: 0;
+            padding-top: 20px;
+            background: transparent;
             min-width: 1200px;
-            padding: 40px;
             display: none;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             z-index: 200;
+        }
+
+        .mega-menu-content {
+            background: var(--cream);
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
         .menu-item:hover .mega-menu {
@@ -344,6 +350,34 @@
             color: var(--gold);
             cursor: pointer;
             font-size: 16px;
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* Hero Slider */
@@ -792,21 +826,121 @@
 
         @media (max-width: 768px) {
             .header-main {
-                flex-direction: column;
-                gap: 20px;
+                position: relative;
+            }
+
+            .hamburger {
+                display: flex;
+                order: -1;
+            }
+
+            .logo {
+                order: 0;
+            }
+
+            .search-bar {
+                order: 1;
+                width: 120px;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: var(--dark);
+                z-index: 999;
+                transition: left 0.3s ease;
+                padding: 80px 20px 20px;
+                overflow-y: auto;
+                display: block !important;
+            }
+
+            nav.active {
+                left: 0;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 15px;
+                gap: 0;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            nav > ul > li {
+                width: 100%;
+                border-bottom: 1px solid rgba(201,169,97,0.2);
+                padding: 0;
+            }
+
+            nav > ul > li > a {
+                display: block;
+                padding: 15px 0;
+                width: 100%;
+                color: var(--cream) !important;
+                font-size: 16px !important;
+            }
+
+            .menu-item:hover .mega-menu {
+                display: none;
+            }
+
+            .mega-menu {
+                position: static !important;
+                transform: none !important;
+                min-width: auto !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: transparent !important;
+                display: none !important;
+                box-shadow: none !important;
+            }
+
+            .mega-menu.active {
+                display: block !important;
+            }
+
+            .mega-menu-content {
+                background: rgba(40,40,40,0.95) !important;
+                padding: 15px !important;
+                box-shadow: none !important;
+            }
+
+            .mega-menu-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .mega-menu-column h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+                color: var(--gold) !important;
+            }
+
+            .mega-menu-column ul li {
+                margin-bottom: 8px;
+            }
+
+            .mega-menu-column a {
+                color: var(--cream) !important;
+                font-size: 14px !important;
+                opacity: 1 !important;
             }
 
             .slide h1 {
-                font-size: 42px;
+                font-size: 36px;
+            }
+
+            .slide h1::before,
+            .slide h1::after {
+                display: none;
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .section-title::before,
@@ -814,13 +948,11 @@
                 display: none;
             }
 
-            .mega-menu {
-                min-width: 100%;
-                left: 0;
-                transform: none;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
 
-            .footer-content {
+            .product-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -860,15 +992,22 @@
             </div>
         </div>
         <div class="header-main">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <a href="#" class="logo">
                 [LOGO PLACEHOLDER]
             </a>
             
-            <nav>
+            <nav id="navMenu">
                 <ul>
                     <li class="menu-item">
-                        <a>Shop By ▾</a>
-                        <div class="mega-menu">
+                        <a onclick="toggleMobileMenu(event, 'shopMenu')">Shop By ▾</a>
+                        <div class="mega-menu" id="shopMenu">
+                            <div class="mega-menu-content">
                             <div class="mega-menu-grid">
                                 <div class="mega-menu-column">
                                     <h3>Type</h3>
@@ -903,11 +1042,13 @@
                                     </ul>
                                 </div>
                             </div>
+                            </div>
                         </div>
                     </li>
                     <li class="menu-item">
-                        <a>Pairings ▾</a>
-                        <div class="mega-menu">
+                        <a onclick="toggleMobileMenu(event, 'pairingsMenu')">Pairings ▾</a>
+                        <div class="mega-menu" id="pairingsMenu">
+                            <div class="mega-menu-content">
                             <div class="mega-menu-grid">
                                 <div class="mega-menu-column">
                                     <h3>Favorites</h3>
@@ -940,6 +1081,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            </div>
                         </div>
                     </li>
                     <li><a href="#merch">Merch</a></li>
@@ -960,6 +1102,7 @@
                                         <li><a href="#private">Private Tastings</a></li>
                                     </ul>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </li>
@@ -1147,6 +1290,32 @@
         setInterval(() => {
             showSlide(currentSlide + 1);
         }, 5000);
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Mobile submenu toggle
+        function toggleMobileMenu(event, menuId) {
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                const menu = document.getElementById(menuId);
+                menu.classList.toggle('active');
+            }
+        }
     </script>
 </body>
 </html>
