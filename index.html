@@ -41,25 +41,10 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            opacity: 0.25;
+            opacity: 0.15;
             pointer-events: none;
-            z-index: 9998;
+            z-index: 1;
             mix-blend-mode: multiply;
-        }
-
-        /* Subtle noise texture for text */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: overlay;
         }
 
         /* Age Verification Popup */
@@ -158,7 +143,7 @@
             text-transform: uppercase;
             font-weight: 400;
             position: relative;
-            filter: blur(0.2px);
+            z-index: 99;
         }
 
         .promo-close {
@@ -230,9 +215,10 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 200px 1fr 220px;
             align-items: center;
+            gap: 40px;
         }
 
         .logo {
@@ -249,7 +235,6 @@
         }
 
         nav {
-            flex: 1;
             display: flex;
             justify-content: center;
         }
@@ -274,8 +259,6 @@
             transition: color 0.3s;
             position: relative;
             cursor: pointer;
-            filter: blur(0.2px);
-            text-shadow: 0.3px 0.3px 0.8px rgba(0,0,0,0.3);
         }
 
         nav a:hover {
@@ -291,7 +274,8 @@
             margin-top: 0;
             padding-top: 20px;
             background: transparent;
-            min-width: 1200px;
+            min-width: 900px;
+            max-width: 1000px;
             display: none;
             z-index: 200;
         }
@@ -345,6 +329,7 @@
         .search-bar {
             position: relative;
             width: 200px;
+            justify-self: end;
         }
 
         .search-bar input {
@@ -455,11 +440,6 @@
             letter-spacing: 6px;
             position: relative;
             display: inline-block;
-            filter: blur(0.3px) contrast(1.1);
-            text-shadow: 
-                0.5px 0.5px 0.5px rgba(0,0,0,0.1),
-                -0.3px -0.3px 0.5px rgba(255,255,255,0.1),
-                1px 1px 2px rgba(0,0,0,0.05);
         }
 
         .slide h1::before,
@@ -486,8 +466,6 @@
             color: var(--off-white);
             margin-bottom: 40px;
             max-width: 600px;
-            filter: blur(0.2px);
-            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.2);
         }
 
         .cta-btn {
@@ -541,6 +519,8 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 80px 40px;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
@@ -552,10 +532,6 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             position: relative;
-            filter: blur(0.3px) contrast(1.1);
-            text-shadow: 
-                0.5px 0.5px 1px rgba(0,0,0,0.05),
-                -0.3px -0.3px 0.5px rgba(255,255,255,0.3);
         }
 
         .section-title::before,
@@ -630,15 +606,12 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            filter: blur(0.25px);
-            text-shadow: 0.3px 0.3px 0.8px rgba(0,0,0,0.05);
         }
 
         .product-card p {
             font-size: 16px;
             color: var(--text);
             margin-bottom: 15px;
-            filter: blur(0.2px);
         }
 
         .product-price {
@@ -756,7 +729,7 @@
         }
 
         .footer-section a {
-            color: var(--cream);
+            color: var(--off-white);
             text-decoration: none;
             font-size: 15px;
             transition: color 0.3s;
@@ -859,22 +832,40 @@
             color: rgba(245,241,232,0.7);
         }
 
+        @media (max-width: 1024px) {
+            .header-main {
+                grid-template-columns: 180px 1fr 180px;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 25px;
+            }
+
+            .mega-menu {
+                min-width: 700px;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-main {
-                position: relative;
+                grid-template-columns: auto 1fr auto;
+                gap: 15px;
             }
 
             .hamburger {
                 display: flex;
-                order: -1;
+                grid-column: 1;
             }
 
             .logo {
-                order: 0;
+                grid-column: 2;
+                width: 150px;
+                height: 50px;
             }
 
             .search-bar {
-                order: 1;
+                grid-column: 3;
                 width: 120px;
             }
 
@@ -891,6 +882,7 @@
                 padding: 80px 20px 20px;
                 overflow-y: auto;
                 display: block !important;
+                grid-column: 1 / -1;
             }
 
             nav.active {
@@ -939,7 +931,7 @@
             }
 
             .mega-menu-content {
-                background: rgba(40,40,40,0.95) !important;
+                background: rgba(245,241,232,0.98) !important;
                 padding: 15px !important;
                 box-shadow: none !important;
             }
@@ -952,7 +944,7 @@
             .mega-menu-column h3 {
                 font-size: 16px;
                 margin-bottom: 10px;
-                color: var(--gold) !important;
+                color: var(--dark) !important;
             }
 
             .mega-menu-column ul li {
@@ -960,7 +952,7 @@
             }
 
             .mega-menu-column a {
-                color: var(--cream) !important;
+                color: var(--text) !important;
                 font-size: 14px !important;
                 opacity: 1 !important;
             }
@@ -1122,8 +1114,9 @@
                     <li><a href="#merch">Merch</a></li>
                     <li><a href="#bodega">Bodega</a></li>
                     <li class="menu-item">
-                        <a>Events ▾</a>
-                        <div class="mega-menu">
+                        <a onclick="toggleMobileMenu(event, 'eventsMenu')">Events ▾</a>
+                        <div class="mega-menu" id="eventsMenu">
+                            <div class="mega-menu-content">
                             <div class="mega-menu-grid">
                                 <div class="mega-menu-column">
                                     <h3>B! Anywhere</h3>
