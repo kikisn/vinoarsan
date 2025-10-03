@@ -6,957 +6,7 @@
     <title>Vino Arsan - Est. 2009</title>
     <link rel="icon" type="image/png" href="favicon-VA.png">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700;800;900&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #C8A14A;
-            --dark: #2a2a2a;
-            --cream: #f5f1e8;
-            --text: #3a3a3a;
-            --off-white: #f5f1e8;
-            --off-black: #2a2a2a;
-        }
-
-        body {
-            font-family: 'Jost', sans-serif;
-            font-weight: 300;
-            color: var(--text);
-            background: var(--cream);
-            position: relative;
-        }
-
-        /* Halftone texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('background-texture.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 1;
-            mix-blend-mode: multiply;
-        }
-
-        /* Age Verification Popup */
-        .age-verify {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        .age-verify.hidden {
-            display: none;
-        }
-
-        .age-verify-content {
-            background: var(--dark);
-            padding: 60px 80px;
-            text-align: center;
-            border: 3px solid var(--gold);
-            max-width: 600px;
-            position: relative;
-        }
-
-        .age-verify-content::before,
-        .age-verify-content::after {
-            content: '✦';
-            position: absolute;
-            color: var(--gold);
-            font-size: 24px;
-        }
-
-        .age-verify-content::before {
-            top: 20px;
-            left: 20px;
-        }
-
-        .age-verify-content::after {
-            bottom: 20px;
-            right: 20px;
-        }
-
-        .age-verify h2 {
-            font-family: 'Alegreya SC', serif;
-            color: var(--gold);
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .age-verify p {
-            color: var(--cream);
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .age-verify-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .age-verify button {
-            font-family: 'Jost', sans-serif;
-            font-weight: 400;
-            padding: 15px 40px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 2px solid var(--gold);
-            background: transparent;
-            color: var(--gold);
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .age-verify button:hover {
-            background: var(--gold);
-            color: var(--dark);
-        }
-
-        /* Promotion Bar */
-        .promo-bar {
-            background: var(--gold);
-            color: var(--off-black);
-            text-align: center;
-            padding: 12px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 400;
-            position: relative;
-            z-index: 99;
-        }
-
-        .promo-close {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        /* Header */
-        header {
-            background: var(--dark);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .header-top {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 15px 40px 10px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 20px;
-            border-bottom: 1px solid rgba(201,169,97,0.2);
-        }
-
-        .user-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .login-link, .cart-link {
-            color: var(--cream);
-            text-decoration: none;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s;
-        }
-
-        .login-link:hover, .cart-link:hover {
-            color: var(--gold);
-        }
-
-        .cart-count {
-            background: var(--gold);
-            color: var(--dark);
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        .header-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: grid;
-            grid-template-columns: 200px 1fr 220px;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .logo {
-            width: 180px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-            align-items: center;
-        }
-
-        nav > ul > li {
-            position: relative;
-        }
-
-        nav a {
-            color: var(--off-white);
-            text-decoration: none;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s;
-            position: relative;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        /* Mega Menu */
-        .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 0;
-            padding-top: 20px;
-            background: transparent;
-            min-width: 400px;
-            max-width: 500px;
-            display: none;
-            z-index: 200;
-        }
-
-        .mega-menu-content {
-            background: var(--cream);
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        .menu-item:hover .mega-menu {
-            display: block;
-        }
-
-        .mega-menu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .mega-menu-column h3 {
-            font-family: 'Alegreya SC', serif;
-            color: var(--dark);
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .mega-menu-column ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            align-items: flex-start;
-        }
-
-        .mega-menu-column ul li {
-            margin-bottom: 15px;
-            text-align: left;
-            width: 100%;
-        }
-
-        .mega-menu-column a {
-            color: var(--text);
-            font-size: 15px;
-            text-transform: none;
-            letter-spacing: 0.5px;
-            display: block;
-            text-align: left;
-        }
-
-        .mega-menu-column a:hover {
-            color: var(--gold);
-        }
-
-        .search-bar {
-            position: relative;
-            width: 200px;
-            justify-self: end;
-        }
-
-        .search-bar input {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid var(--gold);
-            padding: 10px 40px 10px 15px;
-            color: var(--cream);
-            font-family: 'Jost', sans-serif;
-            font-weight: 300;
-            width: 100%;
-        }
-
-        .search-bar input::placeholder {
-            color: rgba(245,241,232,0.5);
-        }
-
-        .search-bar button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--gold);
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        /* Mobile Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--gold);
-            transition: all 0.3s;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Hero Slider */
-        .hero-slider {
-            position: relative;
-            height: 600px;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide-1 {
-            background: linear-gradient(135deg, var(--dark) 0%, #3a2a1a 100%);
-        }
-
-        .slide-2 {
-            background: linear-gradient(135deg, #2a1a1a 0%, var(--dark) 100%);
-        }
-
-        .slide-3 {
-            background: linear-gradient(135deg, #1a1a2a 0%, var(--dark) 100%);
-        }
-
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .slide h1 {
-            font-family: 'Alegreya SC', serif;
-            font-size: 72px;
-            color: var(--gold);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .slide h1::before,
-        .slide h1::after {
-            content: '';
-            display: none;
-        }
-
-        .slide p {
-            font-size: 24px;
-            color: var(--off-white);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .cta-btn {
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            padding: 18px 50px;
-            font-family: 'Alegreya SC', serif;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-block;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .cta-btn:hover {
-            background: var(--cream);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(201,169,97,0.4);
-        }
-
-        .slider-controls {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 3;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border: 2px solid var(--gold);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-            transform: rotate(45deg);
-        }
-
-        .slider-dot.active {
-            background: var(--gold);
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-title {
-            font-family: 'Alegreya SC', serif;
-            font-size: 48px;
-            color: var(--off-black);
-            text-align: center;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            position: relative;
-        }
-
-        .section-title::before,
-        .section-title::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 150px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .section-title::before {
-            left: 0;
-        }
-
-        .section-title::after {
-            right: 0;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(201,169,97,0.2);
-            position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
-            background-image: url('sun.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #f0e6d2 0%, #e6dcc8 100%);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Alegreya SC', serif;
-            color: var(--gold);
-            font-size: 24px;
-        }
-
-        .product-card h3 {
-            font-family: 'Alegreya SC', serif;
-            font-size: 24px;
-            color: var(--off-black);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .product-card p {
-            font-size: 16px;
-            color: var(--text);
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            font-family: 'Alegreya SC', serif;
-            font-size: 22px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .add-to-cart {
-            background: var(--dark);
-            color: var(--cream);
-            border: none;
-            padding: 12px 30px;
-            cursor: pointer;
-            font-family: 'Jost', sans-serif;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 13px;
-            transition: all 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background: var(--gold);
-            color: var(--dark);
-        }
-
-        /* Footer Illustration Border */
-        .footer-illustration {
-            width: 100%;
-            height: 180px;
-            background: var(--dark);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 40px;
-        }
-
-        .footer-sun {
-            width: 140px;
-            height: 140px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .footer-sun img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--cream);
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Alegreya SC', serif;
-            font-size: 24px;
-            color: var(--gold);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section a {
-            color: var(--off-white);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--gold);
-        }
-
-        .newsletter {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .newsletter p {
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .newsletter input {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid var(--gold);
-            padding: 12px 15px;
-            color: var(--cream);
-            font-family: 'Jost', sans-serif;
-            font-weight: 300;
-        }
-
-        .newsletter input::placeholder {
-            color: rgba(245,241,232,0.5);
-        }
-
-        .newsletter button {
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            font-family: 'Alegreya SC', serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .newsletter button:hover {
-            background: var(--cream);
-        }
-
-        .footer-logo-section {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .footer-logo-sm {
-            width: 120px;
-            height: auto;
-        }
-
-        .footer-logo-sm img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: var(--gold);
-            color: var(--dark);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px 40px 0;
-            border-top: 1px solid rgba(201,169,97,0.3);
-            text-align: center;
-            font-size: 13px;
-            color: rgba(245,241,232,0.7);
-        }
-
-        @media (max-width: 1024px) {
-            .header-main {
-                grid-template-columns: 180px 1fr 180px;
-                gap: 20px;
-            }
-
-            nav ul {
-                gap: 25px;
-            }
-
-            .mega-menu {
-                min-width: 700px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-main {
-                grid-template-columns: auto 1fr auto;
-                gap: 15px;
-            }
-
-            .hamburger {
-                display: flex;
-                grid-column: 1;
-            }
-
-            .logo {
-                grid-column: 2;
-                width: 150px;
-                height: 50px;
-            }
-
-            .search-bar {
-                grid-column: 3;
-                width: 120px;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 350px;
-                height: 100vh;
-                background: var(--dark);
-                z-index: 999;
-                transition: left 0.3s ease;
-                padding: 80px 20px 20px;
-                overflow-y: auto;
-                display: block !important;
-                grid-column: 1 / -1;
-            }
-
-            nav.active {
-                left: 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                align-items: flex-start;
-                width: 100%;
-            }
-
-            nav > ul > li {
-                width: 100%;
-                border-bottom: 1px solid rgba(201,169,97,0.2);
-                padding: 0;
-            }
-
-            nav > ul > li > a {
-                display: block;
-                padding: 15px 0;
-                width: 100%;
-                color: var(--cream) !important;
-                font-size: 16px !important;
-            }
-
-            .menu-item:hover .mega-menu {
-                display: none;
-            }
-
-            .mega-menu {
-                position: static !important;
-                transform: none !important;
-                min-width: auto !important;
-                width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: transparent !important;
-                display: none !important;
-                box-shadow: none !important;
-            }
-
-            .mega-menu.active {
-                display: block !important;
-            }
-
-            .mega-menu-content {
-                background: rgba(245,241,232,0.98) !important;
-                padding: 15px !important;
-                box-shadow: none !important;
-            }
-
-            .mega-menu-grid {
-                grid-template-columns: 1fr !important;
-                gap: 15px !important;
-            }
-
-            .mega-menu-column h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
-                color: var(--dark) !important;
-            }
-
-            .mega-menu-column ul li {
-                margin-bottom: 8px;
-            }
-
-            .mega-menu-column a {
-                color: var(--text) !important;
-                font-size: 14px !important;
-                opacity: 1 !important;
-            }
-
-            .slide h1 {
-                font-size: 36px;
-            }
-
-            .slide h1::before,
-            .slide h1::after {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .section-title::before,
-            .section-title::after {
-                display: none;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Age Verification Popup -->
@@ -1005,27 +55,54 @@
             <nav id="navMenu">
                 <ul>
                     <li class="menu-item">
-                        <a onclick="toggleMobileMenu(event, 'shopMenu')">Shop By ▾</a>
-                        <div class="mega-menu" id="shopMenu">
+                        <a onclick="toggleMobileMenu(event, 'exploreMenu')">Explore Our Collection ▾</a>
+                        <div class="mega-menu" id="exploreMenu">
                             <div class="mega-menu-content">
                             <div class="mega-menu-grid">
                                 <div class="mega-menu-column">
-                                    <h3>Type</h3>
+                                    <h3>Our Wines & Spirits</h3>
                                     <ul>
-                                        <li><a href="#red-wine">Red Wine</a></li>
-                                        <li><a href="#white-wine">White Wine</a></li>
-                                        <li><a href="#fruit-wine">Fruit Wine</a></li>
-                                        <li><a href="#tropical-wine">Tropical Wine</a></li>
+                                        <li><a href="#red-wine">Red Wines</a></li>
+                                        <li><a href="#white-wine">White Wines</a></li>
+                                        <li><a href="#fruit-wine">Fruit Wines</a></li>
+                                        <li><a href="#tropical-wine">Tropical Sips</a></li>
                                         <li><a href="#spirits">Spirits</a></li>
                                     </ul>
                                 </div>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a onclick="toggleMobileMenu(event, 'perfectPourMenu')">Find the Perfect Pour ▾</a>
+                        <div class="mega-menu mega-menu-wide" id="perfectPourMenu">
+                            <div class="mega-menu-content">
+                            <div class="mega-menu-grid mega-menu-grid-three">
                                 <div class="mega-menu-column">
-                                    <h3>Mood & Occasion</h3>
+                                    <h3>Flavor Profile</h3>
                                     <ul>
-                                        <li><a href="#celebrations">Celebrations</a></li>
-                                        <li><a href="#casual-gatherings">Casual Gatherings</a></li>
-                                        <li><a href="#romantic-dinners">Romantic Dinners</a></li>
-                                        <li><a href="#gifts">Gifts & Special Occasions</a></li>
+                                        <li><a href="#bold-rich">Bold & Rich</a></li>
+                                        <li><a href="#fruity-sweet">Fruity & Sweet</a></li>
+                                        <li><a href="#bright-zesty">Bright & Zesty</a></li>
+                                        <li><a href="#smooth-versatile">Smooth & Versatile</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Food Pairings</h3>
+                                    <ul>
+                                        <li><a href="#grilled-meats">For Grilled & Hearty Meats</a></li>
+                                        <li><a href="#spicy-asian">For Spicy & Asian Cuisine</a></li>
+                                        <li><a href="#appetizers-light">For Appetizers & Lighter Fare</a></li>
+                                        <li><a href="#social-sipping">For Social Sipping & Parties</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Experience</h3>
+                                    <ul>
+                                        <li><a href="#adventurer">The Adventurer's Pick</a></li>
+                                        <li><a href="#crowd-pleaser">The Crowd-Pleaser</a></li>
+                                        <li><a href="#patio-sipper">The Perfect Patio Sipper</a></li>
+                                        <li><a href="#digestif">After-Dinner Digestif</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1074,124 +151,129 @@
         </div>
     </section>
 
+    <!-- Page Description Section -->
+    <section class="page-description container" id="pageDescription" style="display: none;">
+        <p class="description-text"></p>
+    </section>
+
     <!-- Featured Products -->
     <section class="container" id="shop">
         <h2 class="section-title">Featured Wines</h2>
         <div class="product-grid">
             <!-- Red Wines -->
-            <div class="product-card" data-category="red-wine celebrations romantic-dinners">
+            <div class="product-card" data-category="red-wine bold-rich grilled-meats adventurer digestif">
                 <div class="product-image">
                     <img src="bignay-pitaya-porto.jpg" alt="Bignay Pitaya Porto Vino" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Bignay - Pitaya Porto Vino</h3>
-                <p>Rich porto-style wine, perfect for intimate settings and special celebrations</p>
+                <p class="card-description">Rich porto-style wine. <span class="extra-info" style="display:none;">Its rich, port-like character is perfect for steak, lamb, or strong cheeses.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="red-wine romantic-dinners">
+            <div class="product-card" data-category="red-wine fruity-sweet social-sipping crowd-pleaser">
                 <div class="product-image">
                     <img src="malibugold-medium-sweet.jpg" alt="Malibugold Medium Sweet" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Malibugold Red Wine</h3>
-                <p>Medium Sweet - Sweeter red wine ideal for romantic evenings</p>
+                <p class="card-description">Medium Sweet. <span class="extra-info" style="display:none;">Versatile and crowd-pleasing, great for pizza, pasta, or a casual cheese board.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="red-wine gifts">
+            <div class="product-card" data-category="red-wine smooth-versatile social-sipping">
                 <div class="product-image">
                     <img src="malibugold-medium-dry.jpg" alt="Malibugold Medium Dry" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Malibugold Red Wine</h3>
-                <p>Medium Dry - Premium option for discerning wine enthusiasts</p>
+                <p class="card-description">Medium Dry</p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- White Wines -->
-            <div class="product-card" data-category="white-wine casual-gatherings">
+            <div class="product-card" data-category="white-wine bright-zesty spicy-asian patio-sipper">
                 <div class="product-image">
                     <img src="calamansi-white.jpg" alt="Calamansi White Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Calamansi White Wine</h3>
-                <p>Citrusy and refreshing, perfect for casual sipping and outdoor events</p>
+                <p class="card-description">Citrusy and refreshing. <span class="extra-info" style="display:none;">Its bright acidity and citrus notes are ideal for cutting through the richness of fried foods, seafood, and Filipino dishes like sinigang or pancit.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="white-wine casual-gatherings">
+            <div class="product-card" data-category="white-wine fruity-sweet spicy-asian crowd-pleaser">
                 <div class="product-image">
                     <img src="mango-white.jpg" alt="Mango White Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Mango White Wine</h3>
-                <p>Tropical and easygoing, a crowd-pleaser for informal get-togethers</p>
+                <p class="card-description">Tropical and easygoing</p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- Fruit Wines -->
-            <div class="product-card" data-category="fruit-wine celebrations">
+            <div class="product-card" data-category="fruit-wine bright-zesty appetizers-light adventurer">
                 <div class="product-image">
                     <img src="dragonfruit-wine.jpg" alt="Dragonfruit Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Dragonfruit Wine</h3>
-                <p>Visually stunning and exotic, perfect for special moments and celebrations</p>
+                <p class="card-description">Visually stunning and exotic</p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="fruit-wine casual-gatherings">
+            <div class="product-card" data-category="fruit-wine fruity-sweet spicy-asian patio-sipper">
                 <div class="product-image">
                     <img src="watermelon-wine.jpg" alt="Watermelon Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Watermelon Wine</h3>
-                <p>Light and refreshing, ideal for outdoor summer gatherings and BBQs</p>
+                <p class="card-description">Light and refreshing</p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- Tropical Wines -->
-            <div class="product-card" data-category="tropical-wine celebrations">
+            <div class="product-card" data-category="tropical-wine fruity-sweet appetizers-light patio-sipper">
                 <div class="product-image">
                     <img src="honey-lemon.jpg" alt="Honey Wine with Lemon" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Honey Wine with Lemon</h3>
-                <p>Medium Sweet - Sweet and celebratory, perfect for toasts and milestones</p>
+                <p class="card-description">Medium Sweet - Sweet and celebratory</p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="tropical-wine celebrations">
+            <div class="product-card" data-category="tropical-wine smooth-versatile social-sipping crowd-pleaser">
                 <div class="product-image">
                     <img src="mescolare-sangria.jpg" alt="Mescolare Sangria" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Mescolare Sangria</h3>
-                <p>Festive and vibrant, ideal for celebrations and social gatherings</p>
+                <p class="card-description">Festive and vibrant. <span class="extra-info" style="display:none;">The ultimate party drink. Perfect for picnics, large gatherings, and tapas-style meals.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- Spirits -->
-            <div class="product-card" data-category="spirits romantic-dinners">
+            <div class="product-card" data-category="spirits bold-rich grilled-meats digestif">
                 <div class="product-image">
                     <img src="lolo-art-brandy.jpg" alt="Lolo Art Brandy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Lolo Art Brandy</h3>
-                <p>Premium digestif for after-dinner sipping and intimate moments</p>
+                <p class="card-description">Premium digestif. <span class="extra-info" style="display:none;">Excellent as a digestif after a rich meal or paired with dark chocolate.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="spirits gifts">
+            <div class="product-card" data-category="spirits bold-rich grilled-meats adventurer">
                 <div class="product-image">
                     <img src="lolo-art-whiskey.jpg" alt="Lolo Art Whiskey" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Lolo Art Whiskey</h3>
-                <p>Upscale spirit gift for the discerning connoisseur</p>
+                <p class="card-description">Upscale spirit. <span class="extra-info" style="display:none;">Excellent as a digestif after a rich meal or paired with dark chocolate.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="spirits gifts">
+            <div class="product-card" data-category="spirits appetizers-light digestif">
                 <div class="product-image">
                     <img src="coco-brandy.jpg" alt="Coco Brandy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Coco Brandy</h3>
-                <p>Unique local specialty, a thoughtful gift for any occasion</p>
+                <p class="card-description">Unique local specialty. <span class="extra-info" style="display:none;">Can be paired with tropical-inspired appetizers or enjoyed in a cocktail.</span></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
@@ -1251,108 +333,6 @@
         </div>
     </footer>
 
-    <script>
-        // Age Verification
-        function verifyAge(isOfAge) {
-            if (isOfAge) {
-                document.getElementById('ageVerify').classList.add('hidden');
-            } else {
-                alert('Sorry, you must be of legal drinking age to access this site.');
-            }
-        }
-
-        // Hero Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = n;
-            if (currentSlide >= slides.length) currentSlide = 0;
-            if (currentSlide < 0) currentSlide = slides.length - 1;
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function goToSlide(n) {
-            showSlide(n);
-        }
-
-        // Auto-advance slider
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Mobile submenu toggle
-        function toggleMobileMenu(event, menuId) {
-            if (window.innerWidth <= 768) {
-                event.preventDefault();
-                const menu = document.getElementById(menuId);
-                menu.classList.toggle('active');
-            }
-        }
-
-        // Filter products by category
-        function filterProducts(category) {
-            const productCards = document.querySelectorAll('.product-card');
-            
-            if (category === 'all') {
-                productCards.forEach(card => {
-                    card.style.display = 'block';
-                });
-            } else {
-                productCards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    if (categories.includes(category)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-        }
-
-        // Add click handlers to menu links
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuLinks = document.querySelectorAll('.mega-menu a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const href = link.getAttribute('href');
-                    const category = href.replace('#', '');
-                    filterProducts(category);
-                    
-                    // Update page title
-                    const sectionTitle = document.querySelector('.section-title');
-                    const linkText = link.textContent;
-                    sectionTitle.textContent = linkText;
-                    
-                    // Scroll to products section
-                    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
