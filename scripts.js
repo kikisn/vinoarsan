@@ -72,22 +72,70 @@ function toggleMobileMenu(event, menuId) {
 // ============================================
 // FILTER PRODUCTS BY CATEGORY
 // ============================================
-function filterProducts(category) {
+function filterProducts(category, pageCopy, menuTitle) {
     const productCards = document.querySelectorAll('.product-card');
+    const pageDescription = document.getElementById('pageDescription');
+    const pageDescriptionContent = pageDescription.querySelector('.page-description-content');
     
     if (category === 'all') {
         productCards.forEach(card => {
             card.style.display = 'block';
-        });
-    } else {
-        productCards.forEach(card => {
-            const categories = card.getAttribute('data-category').split(' ');
-            if (categories.includes(category)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
+            // Hide all pairing info
+            const pairingInfo = card.querySelector('.pairing-info');
+            if (pairingInfo) {
+                pairingInfo.style.display = 'none';
             }
         });
+        pageDescription.style.display = 'none';
+        return;
+    }
+    
+    // Filter products
+    let visibleCount = 0;
+    productCards.forEach(card => {
+        const categories = JSON.parse(card.getAttribute('data-categories') || '[]');
+        
+        if (categories.includes(category)) {
+            card.style.display = 'block';
+            visibleCount++;
+            
+            // Show pairing info if applicable
+            const pairingInfo = card.querySelector('.pairing-info');
+            if (pairingInfo) {
+                const specificPairing = pairingInfo.getAttribute(`data-${category}`);
+                if (specificPairing) {
+                    pairingInfo.textContent = specificPairing;
+                    pairingInfo.style.display = 'block';
+                } else {
+                    pairingInfo.style.display = 'none';
+                }
+            }
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show page description if there is page copy
+    if (pageCopy && pageCopy.trim() !== '') {
+        pageDescriptionContent.innerHTML = `
+            <h2>${menuTitle}</h2>
+            <p>${pageCopy}</p>
+        `;
+        pageDescription.style.display = 'block';
+    } else {
+        pageDescription.style.display = 'none';
+    }
+    
+    // Update section title
+    const sectionTitle = document.querySelector('.section-title');
+    sectionTitle.textContent = menuTitle || 'Featured Wines';
+    
+    // Scroll to products section
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+    
+    // Show message if no products found
+    if (visibleCount === 0) {
+        console.log('No products found for this category');
     }
 }
 
@@ -95,23 +143,36 @@ function filterProducts(category) {
 // ADD CLICK HANDLERS TO MENU LINKS
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    const menuLinks = document.querySelectorAll('.mega-menu a');
+    const menuLinks = document.querySelectorAll('.mega-menu a[data-filter]');
+    
     menuLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const href = link.getAttribute('href');
-            const category = href.replace('#', '');
-            filterProducts(category);
             
-            // Update page title
-            const sectionTitle = document.querySelector('.section-title');
-            const linkText = link.textContent;
-            sectionTitle.textContent = linkText;
+            const category = link.getAttribute('data-filter');
+            const pageCopy = link.getAttribute('data-page-copy') || '';
+            const menuTitle = link.textContent.trim();
             
-            // Scroll to products section
-            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+            // Close mega menus
+            document.querySelectorAll('.mega-menu').forEach(menu => {
+                menu.classList.remove('active');
+            });
+            
+            // Close mobile menu if open
+            if (navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+            
+            // Filter products
+            filterProducts(category, pageCopy, menuTitle);
         });
     });
+    
+    // Reset view button (optional - can be added to UI)
+    window.resetFilters = function() {
+        filterProducts('all', '', 'Featured Wines');
+    };
 });
 
 // ============================================
@@ -161,11 +222,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 productCards.forEach(card => {
                     const title = card.querySelector('h3').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const description = card.querySelector('.description').textContent.toLowerCase();
+                    const wineType = card.querySelector('.wine-type') ? card.querySelector('.wine-type').textContent.toLowerCase() : '';
                     
-                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    if (title.includes(searchTerm) || description.includes(searchTerm) || wineType.includes(searchTerm)) {
                         card.style.display = 'block';
                         foundCount++;
+                        
+                        // Hide pairing info during search
+                        const pairingInfo = card.querySelector('.pairing-info');
+                        if (pairingInfo) {
+                            pairingInfo.style.display = 'none';
+                        }
                     } else {
                         card.style.display = 'none';
                     }
@@ -174,6 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update section title
                 const sectionTitle = document.querySelector('.section-title');
                 sectionTitle.textContent = `Search Results for "${searchTerm}" (${foundCount} found)`;
+                
+                // Hide page description
+                document.getElementById('pageDescription').style.display = 'none';
                 
                 // Scroll to products
                 document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
@@ -215,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // SMOOTH SCROLL FOR ANCHOR LINKS
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]:not(.mega-menu a)');
+    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([data-filter])');
     
     anchorLinks.forEach(link => {
         link.addEventListener('click', (e) => {
