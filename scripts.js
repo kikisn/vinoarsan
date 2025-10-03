@@ -75,7 +75,9 @@ function toggleMobileMenu(event, menuId) {
 function filterProducts(category, pageCopy, menuTitle) {
     const productCards = document.querySelectorAll('.product-card');
     const pageDescription = document.getElementById('pageDescription');
+    const pageTitle = pageDescription.querySelector('.page-title');
     const pageDescriptionContent = pageDescription.querySelector('.page-description-content');
+    const defaultTitle = document.querySelector('.default-title');
     
     if (category === 'all') {
         productCards.forEach(card => {
@@ -87,6 +89,7 @@ function filterProducts(category, pageCopy, menuTitle) {
             }
         });
         pageDescription.style.display = 'none';
+        defaultTitle.style.display = 'block';
         return;
     }
     
@@ -115,23 +118,25 @@ function filterProducts(category, pageCopy, menuTitle) {
         }
     });
     
-    // Show page description if there is page copy
+    // Show page description with title if there is page copy
     if (pageCopy && pageCopy.trim() !== '') {
-        pageDescriptionContent.innerHTML = `
-            <h2>${menuTitle}</h2>
-            <p>${pageCopy}</p>
-        `;
+        pageTitle.textContent = menuTitle || 'Featured Wines';
+        pageDescriptionContent.innerHTML = `<p>${pageCopy}</p>`;
         pageDescription.style.display = 'block';
+        defaultTitle.style.display = 'none';
+        
+        // Scroll to page description
+        pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-        pageDescription.style.display = 'none';
+        // If no page copy, just update the default title
+        pageTitle.textContent = menuTitle || 'Featured Wines';
+        pageDescription.style.display = 'block';
+        defaultTitle.style.display = 'none';
+        pageDescriptionContent.innerHTML = '';
+        
+        // Scroll to page description
+        pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    
-    // Update section title
-    const sectionTitle = document.querySelector('.section-title');
-    sectionTitle.textContent = menuTitle || 'Featured Wines';
-    
-    // Scroll to products section
-    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
     
     // Show message if no products found
     if (visibleCount === 0) {
@@ -218,6 +223,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (searchTerm) {
                 const productCards = document.querySelectorAll('.product-card');
+                const pageDescription = document.getElementById('pageDescription');
+                const pageTitle = pageDescription.querySelector('.page-title');
+                const defaultTitle = document.querySelector('.default-title');
                 let foundCount = 0;
                 
                 productCards.forEach(card => {
@@ -239,15 +247,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 
-                // Update section title
-                const sectionTitle = document.querySelector('.section-title');
-                sectionTitle.textContent = `Search Results for "${searchTerm}" (${foundCount} found)`;
+                // Update title
+                pageTitle.textContent = `Search Results for "${searchTerm}" (${foundCount} found)`;
+                pageDescription.style.display = 'block';
+                pageDescription.querySelector('.page-description-content').innerHTML = '';
+                defaultTitle.style.display = 'none';
                 
-                // Hide page description
-                document.getElementById('pageDescription').style.display = 'none';
-                
-                // Scroll to products
-                document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+                // Scroll to page description
+                pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
         
