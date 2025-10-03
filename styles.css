@@ -1,3 +1,5 @@
+/* Vino Arsan - Atomic Age Wine Shop Styles */
+
 /* ============================================
    BASE STYLES & VARIABLES
    ============================================ */
@@ -471,14 +473,23 @@ nav a:hover {
 
 .slide-1 {
     background: linear-gradient(135deg, var(--dark) 0%, #3a2a1a 100%);
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 .slide-2 {
     background: linear-gradient(135deg, #2a1a1a 0%, var(--dark) 100%);
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 .slide-3 {
     background: linear-gradient(135deg, #1a1a2a 0%, var(--dark) 100%);
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 .slide-content {
@@ -500,16 +511,26 @@ nav a:hover {
 
 .slide h1 {
     font-family: 'Alegreya SC', serif;
-    font-size: 72px;
-    color: var(--gold);
+    font-size: 32.5px;
+    color: var(--off-black);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 6px;
     position: relative;
     display: inline-block;
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.8);
-    text-stroke: 2px rgba(0, 0, 0, 0.8);
-    paint-order: stroke fill;
+    max-width: 50%;
+}
+
+.slide h2 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 32.5px;
+    color: var(--off-black);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    position: relative;
+    display: inline-block;
+    max-width: 50%;
 }
 
 .slide h1::before,
@@ -519,7 +540,7 @@ nav a:hover {
 }
 
 .slide p {
-    font-size: 24px;
+    font-size: 21px;
     color: rgba(42, 42, 42, 0.85);
     margin-bottom: 40px;
     max-width: 600px;
@@ -1103,6 +1124,11 @@ footer {
     .slide h1::before,
     .slide h1::after {
         display: none;
+    }
+
+    .slide h2 {
+        font-size: 28px;
+        max-width: 90%;
     }
 
     .slide-content-right {
