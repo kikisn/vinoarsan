@@ -1,4 +1,3 @@
-/* Vino Arsan - Atomic Age Wine Shop Styles */
 
 /* ============================================
    BASE STYLES & VARIABLES
@@ -284,10 +283,18 @@ nav a:hover {
     margin-top: 0;
     padding-top: 20px;
     background: transparent;
-    min-width: 400px;
-    max-width: 500px;
     display: none;
     z-index: 200;
+}
+
+.mega-menu-single {
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.mega-menu-wide {
+    min-width: 700px;
+    max-width: 900px;
 }
 
 .mega-menu-content {
@@ -300,9 +307,39 @@ nav a:hover {
     display: block;
 }
 
-.mega-menu-grid {
+/* Single column layout for Explore Our Collection */
+.mega-menu-single-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-menu-single-column ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mega-menu-single-column ul li {
+    margin-bottom: 15px;
+}
+
+.mega-menu-single-column a {
+    color: var(--text);
+    font-size: 15px;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.mega-menu-single-column a:hover {
+    color: var(--gold);
+}
+
+/* Three column layout for Find the Perfect Pour */
+.mega-menu-three-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
 
@@ -530,6 +567,36 @@ nav a:hover {
 }
 
 /* ============================================
+   PAGE DESCRIPTION (FOR FILTERED VIEWS)
+   ============================================ */
+.page-description {
+    background: linear-gradient(135deg, var(--gold) 0%, #B8942E 100%);
+    padding: 40px;
+    text-align: center;
+    color: var(--dark);
+    position: relative;
+    z-index: 2;
+}
+
+.page-description-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-description-content h2 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.page-description-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ============================================
    MAIN CONTENT
    ============================================ */
 .container {
@@ -632,10 +699,31 @@ nav a:hover {
     letter-spacing: 2px;
 }
 
-.product-card p {
+.product-card .wine-type {
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-card .description {
     font-size: 16px;
     color: var(--text);
     margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.product-card .pairing-info {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--dark);
+    margin-bottom: 15px;
+    padding: 12px;
+    background: rgba(200, 161, 74, 0.1);
+    border-left: 3px solid var(--gold);
+    text-align: left;
+    line-height: 1.5;
 }
 
 .product-price {
@@ -844,8 +932,13 @@ footer {
         gap: 25px;
     }
 
-    .mega-menu {
-        min-width: 700px;
+    .mega-menu-wide {
+        min-width: 600px;
+    }
+
+    .mega-menu-three-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
@@ -938,7 +1031,8 @@ footer {
         box-shadow: none !important;
     }
 
-    .mega-menu-grid {
+    .mega-menu-three-columns,
+    .mega-menu-single-column {
         grid-template-columns: 1fr !important;
         gap: 15px !important;
     }
@@ -949,11 +1043,13 @@ footer {
         color: var(--dark) !important;
     }
 
-    .mega-menu-column ul li {
+    .mega-menu-column ul li,
+    .mega-menu-single-column ul li {
         margin-bottom: 8px;
     }
 
-    .mega-menu-column a {
+    .mega-menu-column a,
+    .mega-menu-single-column a {
         color: var(--text) !important;
         font-size: 14px !important;
         opacity: 1 !important;
@@ -983,5 +1079,13 @@ footer {
 
     .product-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-description-content h2 {
+        font-size: 24px;
+    }
+
+    .page-description-content p {
+        font-size: 16px;
     }
 }
