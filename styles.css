@@ -1,5 +1,3 @@
-/* Vino Arsan - Atomic Age Wine Shop Styles */
-
 /* ============================================
    BASE STYLES & VARIABLES
    ============================================ */
@@ -494,6 +492,11 @@ nav a:hover {
     justify-content: center;
 }
 
+.slide-content-right {
+    align-items: flex-end;
+    text-align: right;
+}
+
 .slide h1 {
     font-family: 'Alegreya SC', serif;
     font-size: 72px;
@@ -513,7 +516,7 @@ nav a:hover {
 
 .slide p {
     font-size: 24px;
-    color: var(--off-white);
+    color: rgba(42, 42, 42, 0.85);
     margin-bottom: 40px;
     max-width: 600px;
 }
@@ -522,7 +525,7 @@ nav a:hover {
     background: var(--gold);
     color: var(--dark);
     border: none;
-    padding: 18px 50px;
+    padding: 18px 40px;
     font-family: 'Alegreya SC', serif;
     font-size: 16px;
     text-transform: uppercase;
@@ -532,6 +535,8 @@ nav a:hover {
     display: inline-block;
     text-decoration: none;
     font-weight: 700;
+    width: auto;
+    white-space: nowrap;
 }
 
 .cta-btn:hover {
@@ -1094,6 +1099,15 @@ footer {
     .slide h1::before,
     .slide h1::after {
         display: none;
+    }
+
+    .slide-content-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .slide p {
+        font-size: 18px;
     }
 
     .section-title {
