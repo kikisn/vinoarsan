@@ -54,34 +54,67 @@
             
             <nav id="navMenu">
                 <ul>
+                    <!-- Explore Our Collection -->
                     <li class="menu-item">
-                        <a onclick="toggleMobileMenu(event, 'shopMenu')">Shop By ▾</a>
-                        <div class="mega-menu" id="shopMenu">
+                        <a onclick="toggleMobileMenu(event, 'exploreMenu')">Explore Our Collection ▾</a>
+                        <div class="mega-menu mega-menu-single" id="exploreMenu">
                             <div class="mega-menu-content">
-                            <div class="mega-menu-grid">
-                                <div class="mega-menu-column">
-                                    <h3>Type</h3>
+                                <div class="mega-menu-single-column">
                                     <ul>
-                                        <li><a href="#red-wine">Red Wine</a></li>
-                                        <li><a href="#white-wine">White Wine</a></li>
-                                        <li><a href="#fruit-wine">Fruit Wine</a></li>
-                                        <li><a href="#tropical-wine">Tropical Wine</a></li>
-                                        <li><a href="#spirits">Spirits</a></li>
+                                        <li><a href="#" data-filter="red-wines">Red Wines</a></li>
+                                        <li><a href="#" data-filter="white-wines">White Wines</a></li>
+                                        <li><a href="#" data-filter="fruit-wines">Fruit Wines</a></li>
+                                        <li><a href="#" data-filter="tropical-sips">Tropical Sips</a></li>
+                                        <li><a href="#" data-filter="spirits">Spirits</a></li>
                                     </ul>
                                 </div>
-                                <div class="mega-menu-column">
-                                    <h3>Mood & Occasion</h3>
-                                    <ul>
-                                        <li><a href="#celebrations">Celebrations</a></li>
-                                        <li><a href="#casual-gatherings">Casual Gatherings</a></li>
-                                        <li><a href="#romantic-dinners">Romantic Dinners</a></li>
-                                        <li><a href="#gifts">Gifts & Special Occasions</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </li>
+                    
+                    <!-- Find the Perfect Pour -->
+                    <li class="menu-item">
+                        <a onclick="toggleMobileMenu(event, 'pourMenu')">Find the Perfect Pour ▾</a>
+                        <div class="mega-menu mega-menu-wide" id="pourMenu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-three-columns">
+                                    <!-- Flavor Profile -->
+                                    <div class="mega-menu-column">
+                                        <h3>Flavor Profile</h3>
+                                        <ul>
+                                            <li><a href="#" data-filter="bold-rich" data-page-copy="Wines for those who appreciate depth, intensity, and a full-bodied character. These selections make a statement with every sip.">Bold & Rich</a></li>
+                                            <li><a href="#" data-filter="fruity-sweet" data-page-copy="Naturally sweet and bursting with fruit flavors. Perfect for those who enjoy approachable, easy-drinking wines.">Fruity & Sweet</a></li>
+                                            <li><a href="#" data-filter="bright-zesty" data-page-copy="Crisp, refreshing wines with vibrant citrus notes that awaken the palate. Ideal for warm weather and lively occasions.">Bright & Zesty</a></li>
+                                            <li><a href="#" data-filter="smooth-versatile" data-page-copy="Balanced wines that pair well with almost anything. These are your go-to choices for any occasion.">Smooth & Versatile</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Food Pairings -->
+                                    <div class="mega-menu-column">
+                                        <h3>Food Pairings</h3>
+                                        <ul>
+                                            <li><a href="#" data-filter="grilled-meats" data-page-copy="Bold wines and spirits that stand up to rich, smoky flavors. These selections complement the char and heartiness of grilled dishes.">For Grilled & Hearty Meats</a></li>
+                                            <li><a href="#" data-filter="spicy-asian" data-page-copy="The fruity sweetness of these wines beautifully cools the heat and richness of Asian or Mexican cuisine.">For Spicy & Asian Cuisine</a></li>
+                                            <li><a href="#" data-filter="appetizers" data-page-copy="These are fantastic "apéritif" wines—great on their own or with light salads, fresh fruit, and soft cheeses.">For Appetizers & Lighter Fare</a></li>
+                                            <li><a href="#" data-filter="social-sipping" data-page-copy="Crowd-pleasing wines perfect for sharing. These bottles bring people together and keep the good times flowing.">For Social Sipping & Parties</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Experience -->
+                                    <div class="mega-menu-column">
+                                        <h3>Experience</h3>
+                                        <ul>
+                                            <li><a href="#" data-filter="adventurer" data-page-copy="For trying something unique">The Adventurer's Pick</a></li>
+                                            <li><a href="#" data-filter="crowd-pleaser" data-page-copy="Safe bets everyone will enjoy">The Crowd-Pleaser</a></li>
+                                            <li><a href="#" data-filter="patio-sipper" data-page-copy="Refreshing for warm weather">The Perfect Patio Sipper</a></li>
+                                            <li><a href="#" data-filter="digestif" data-page-copy="To sip slowly after a meal">After-Dinner Digestif</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
                     <li><a href="#merch">Merch</a></li>
                     <li><a href="#private-tastings">Private Tastings</a></li>
                 </ul>
@@ -124,124 +157,160 @@
         </div>
     </section>
 
+    <!-- Page Description (shows when filters are active) -->
+    <div id="pageDescription" class="page-description" style="display: none;">
+        <div class="page-description-content"></div>
+    </div>
+
     <!-- Featured Products -->
     <section class="container" id="shop">
         <h2 class="section-title">Featured Wines</h2>
         <div class="product-grid">
             <!-- Red Wines -->
-            <div class="product-card" data-category="red-wine celebrations romantic-dinners">
+            <div class="product-card" data-categories='["red-wines","bold-rich","grilled-meats","adventurer","digestif"]'>
                 <div class="product-image">
                     <img src="bignay-pitaya-porto.jpg" alt="Bignay Pitaya Porto Vino" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Bignay - Pitaya Porto Vino</h3>
-                <p>Rich porto-style wine, perfect for intimate settings and special celebrations</p>
+                <p class="wine-type">Red Wine</p>
+                <p class="description">Rich porto-style wine, perfect for intimate settings and special celebrations</p>
+                <p class="pairing-info" data-grilled-meats="Its rich, port-like character is perfect for steak, lamb, or strong cheeses." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="red-wine romantic-dinners">
+
+            <div class="product-card" data-categories='["red-wines","fruity-sweet","social-sipping","crowd-pleaser"]'>
                 <div class="product-image">
                     <img src="malibugold-medium-sweet.jpg" alt="Malibugold Medium Sweet" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Malibugold Red Wine</h3>
-                <p>Medium Sweet - Sweeter red wine ideal for romantic evenings</p>
+                <p class="wine-type">Red Wine</p>
+                <p class="description">Medium Sweet - Sweeter red wine ideal for romantic evenings</p>
+                <p class="pairing-info" data-social-sipping="Versatile and crowd-pleasing, great for pizza, pasta, or a casual cheese board." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="red-wine gifts">
+
+            <div class="product-card" data-categories='["red-wines","smooth-versatile","social-sipping"]'>
                 <div class="product-image">
                     <img src="malibugold-medium-dry.jpg" alt="Malibugold Medium Dry" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Malibugold Red Wine</h3>
-                <p>Medium Dry - Premium option for discerning wine enthusiasts</p>
+                <p class="wine-type">Red Wine</p>
+                <p class="description">Medium Dry - Premium option for discerning wine enthusiasts</p>
+                <p class="pairing-info" style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- White Wines -->
-            <div class="product-card" data-category="white-wine casual-gatherings">
+            <div class="product-card" data-categories='["white-wines","bright-zesty","spicy-asian","patio-sipper"]'>
                 <div class="product-image">
                     <img src="calamansi-white.jpg" alt="Calamansi White Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Calamansi White Wine</h3>
-                <p>Citrusy and refreshing, perfect for casual sipping and outdoor events</p>
+                <p class="wine-type">White Wine</p>
+                <p class="description">Citrusy and refreshing, perfect for casual sipping and outdoor events</p>
+                <p class="pairing-info" data-spicy-asian="Its bright acidity and citrus notes are ideal for cutting through the richness of fried foods, seafood, and Filipino dishes like sinigang or pancit" style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="white-wine casual-gatherings">
+
+            <div class="product-card" data-categories='["white-wines","fruity-sweet","spicy-asian","crowd-pleaser"]'>
                 <div class="product-image">
                     <img src="mango-white.jpg" alt="Mango White Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Mango White Wine</h3>
-                <p>Tropical and easygoing, a crowd-pleaser for informal get-togethers</p>
+                <p class="wine-type">White Wine</p>
+                <p class="description">Tropical and easygoing, a crowd-pleaser for informal get-togethers</p>
+                <p class="pairing-info" style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- Fruit Wines -->
-            <div class="product-card" data-category="fruit-wine celebrations">
+            <div class="product-card" data-categories='["fruit-wines","bright-zesty","appetizers","adventurer"]'>
                 <div class="product-image">
                     <img src="dragonfruit-wine.jpg" alt="Dragonfruit Wine" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Dragonfruit Wine</h3>
-                <p>Visually stunning and exotic, perfect for special moments and celebrations</p>
-                <div class="product-price">₱550.00</div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card" data-category="fruit-wine casual-gatherings">
-                <div class="product-image">
-                    <img src="watermelon-wine.jpg" alt="Watermelon Wine" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <h3>Watermelon Wine</h3>
-                <p>Light and refreshing, ideal for outdoor summer gatherings and BBQs</p>
+                <p class="wine-type">Fruit Wine</p>
+                <p class="description">Visually stunning and exotic, perfect for special moments and celebrations</p>
+                <p class="pairing-info" style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
-            <!-- Tropical Wines -->
-            <div class="product-card" data-category="tropical-wine celebrations">
+            <div class="product-card" data-categories='["fruit-wines","fruity-sweet","spicy-asian","patio-sipper"]'>
+                <div class="product-image">
+                    <img src="watermelon-wine.jpg" alt="Watermelon Wine" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <h3>Watermelon Wine</h3>
+                <p class="wine-type">Fruit Wine</p>
+                <p class="description">Light and refreshing, ideal for outdoor summer gatherings and BBQs</p>
+                <p class="pairing-info" style="display:none;"></p>
+                <div class="product-price">₱550.00</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Tropical Sips -->
+            <div class="product-card" data-categories='["tropical-sips","fruity-sweet","appetizers","patio-sipper"]'>
                 <div class="product-image">
                     <img src="honey-lemon.jpg" alt="Honey Wine with Lemon" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Honey Wine with Lemon</h3>
-                <p>Medium Sweet - Sweet and celebratory, perfect for toasts and milestones</p>
+                <p class="wine-type">Tropical Wine</p>
+                <p class="description">Medium Sweet - Sweet and celebratory, perfect for toasts and milestones</p>
+                <p class="pairing-info" style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="tropical-wine celebrations">
+
+            <div class="product-card" data-categories='["tropical-sips","smooth-versatile","social-sipping","crowd-pleaser"]'>
                 <div class="product-image">
                     <img src="mescolare-sangria.jpg" alt="Mescolare Sangria" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Mescolare Sangria</h3>
-                <p>Festive and vibrant, ideal for celebrations and social gatherings</p>
+                <p class="wine-type">Tropical Wine</p>
+                <p class="description">Festive and vibrant, ideal for celebrations and social gatherings</p>
+                <p class="pairing-info" data-social-sipping="The ultimate party drink. Perfect for picnics, large gatherings, and tapas-style meals." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
 
             <!-- Spirits -->
-            <div class="product-card" data-category="spirits romantic-dinners">
+            <div class="product-card" data-categories='["spirits","bold-rich","grilled-meats","digestif"]'>
                 <div class="product-image">
                     <img src="lolo-art-brandy.jpg" alt="Lolo Art Brandy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Lolo Art Brandy</h3>
-                <p>Premium digestif for after-dinner sipping and intimate moments</p>
+                <p class="wine-type">Spirit</p>
+                <p class="description">Premium digestif for after-dinner sipping and intimate moments</p>
+                <p class="pairing-info" data-grilled-meats="Excellent as a digestif after a rich meal or paired with dark chocolate." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="spirits gifts">
+
+            <div class="product-card" data-categories='["spirits","bold-rich","grilled-meats","adventurer"]'>
                 <div class="product-image">
                     <img src="lolo-art-whiskey.jpg" alt="Lolo Art Whiskey" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Lolo Art Whiskey</h3>
-                <p>Upscale spirit gift for the discerning connoisseur</p>
+                <p class="wine-type">Spirit</p>
+                <p class="description">Upscale spirit gift for the discerning connoisseur</p>
+                <p class="pairing-info" data-grilled-meats="Excellent as a digestif after a rich meal or paired with dark chocolate." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
-            <div class="product-card" data-category="spirits gifts">
+
+            <div class="product-card" data-categories='["spirits","appetizers","digestif"]'>
                 <div class="product-image">
                     <img src="coco-brandy.jpg" alt="Coco Brandy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <h3>Coco Brandy</h3>
-                <p>Unique local specialty, a thoughtful gift for any occasion</p>
+                <p class="wine-type">Spirit</p>
+                <p class="description">Unique local specialty, a thoughtful gift for any occasion</p>
+                <p class="pairing-info" data-appetizers="Can be paired with tropical-inspired appetizers or enjoyed in a cocktail." style="display:none;"></p>
                 <div class="product-price">₱550.00</div>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
