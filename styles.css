@@ -1,0 +1,900 @@
+/* Vino Arsan - Atomic Age Wine Shop Styles */
+
+/* ============================================
+   BASE STYLES & VARIABLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #C8A14A;
+    --dark: #2a2a2a;
+    --cream: #f5f1e8;
+    --text: #3a3a3a;
+    --off-white: #f5f1e8;
+    --off-black: #2a2a2a;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    background: var(--cream);
+    position: relative;
+}
+
+/* Background texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background-texture.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+/* ============================================
+   AGE VERIFICATION
+   ============================================ */
+.age-verify {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.age-verify.hidden {
+    display: none;
+}
+
+.age-verify-content {
+    background: var(--dark);
+    padding: 60px 80px;
+    text-align: center;
+    border: 3px solid var(--gold);
+    max-width: 600px;
+    position: relative;
+}
+
+.age-verify-content::before,
+.age-verify-content::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.age-verify-content::before {
+    top: 20px;
+    left: 20px;
+}
+
+.age-verify-content::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+.age-verify h2 {
+    font-family: 'Alegreya SC', serif;
+    color: var(--gold);
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.age-verify p {
+    color: var(--cream);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.age-verify-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.age-verify-buttons button {
+    padding: 15px 50px;
+    font-size: 16px;
+    font-family: 'Jost', sans-serif;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.age-verify-buttons button:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+/* ============================================
+   PROMOTION BAR
+   ============================================ */
+.promo-bar {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 999;
+}
+
+.promo-close {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 998;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.user-actions {
+    display: flex;
+    gap: 30px;
+}
+
+.user-actions a {
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.user-actions a:hover {
+    color: var(--gold);
+}
+
+.cart-count {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   MEGA MENU
+   ============================================ */
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--cream);
+    border-top: 2px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 997;
+}
+
+.mega-menu.active {
+    display: block;
+}
+
+.mega-menu-content {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mega-menu-grid {
+    display: grid;
+    gap: 40px;
+}
+
+.mega-menu-single-column {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+}
+
+.mega-menu-three-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mega-menu-column h3 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.mega-menu-column ul {
+    list-style: none;
+}
+
+.mega-menu-column ul li {
+    margin-bottom: 12px;
+}
+
+.mega-menu-column ul li a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.mega-menu-column ul li a:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+
+/* ============================================
+   HERO SLIDER
+   ============================================ */
+.hero-slider {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(44, 24, 16, 0.7) 0%, rgba(128, 0, 32, 0.5) 100%);
+    z-index: 1;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    color: var(--cream);
+    max-width: 800px;
+    padding: 40px;
+}
+
+.slide h1 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 72px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    position: relative;
+    display: inline-block;
+    
+    /* Vintage newspaper texture effect */
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>');
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: contrast(1.1);
+    text-shadow: 
+        1px 1px 1px rgba(0,0,0,0.2),
+        -0.5px -0.5px 0.5px rgba(255,255,255,0.1);
+}
+
+.slide h1::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: -1;
+    color: rgba(200, 161, 74, 0.3);
+    filter: blur(1px);
+}
+
+.slide p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid var(--gold);
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--cream);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.2);
+}
+
+/* ============================================
+   PAGE DESCRIPTION (for filter results)
+   ============================================ */
+.page-description {
+    background: linear-gradient(135deg, var(--gold) 0%, #B8942E 100%);
+    padding: 40px;
+    text-align: center;
+    color: var(--dark);
+}
+
+.page-description-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-description-content h2 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.page-description-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   PRODUCTS SECTION
+   ============================================ */
+.section {
+    padding: 80px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Alegreya SC', serif;
+    font-size: 48px;
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    
+    /* Vintage newspaper texture effect */
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>');
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: contrast(1.1);
+    text-shadow: 
+        1px 1px 1px rgba(0,0,0,0.15),
+        -0.5px -0.5px 0.5px rgba(255,255,255,0.1);
+}
+
+.section-title::before,
+.section-title::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.section-title::before {
+    left: calc(50% - 350px);
+}
+
+.section-title::after {
+    right: calc(50% - 350px);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: var(--cream);
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-card .vintage {
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-card .description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.product-card .pairing-info {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(200, 161, 74, 0.1);
+    border-left: 3px solid var(--gold);
+}
+
+.product-price {
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 12px;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Jost', sans-serif;
+}
+
+.add-to-cart:hover {
+    background: var(--dark);
+    color: var(--cream);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   FOOTER ILLUSTRATION
+   ============================================ */
+.footer-illustration {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--dark) 100%);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-sun {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-sun img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 60px 40px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Alegreya SC', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--gold);
+}
+
+.footer-logo-sm img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--cream);
+    font-size: 20px;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+.newsletter p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.newsletter input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+}
+
+.newsletter input::placeholder {
+    color: rgba(245, 241, 232, 0.5);
+}
+
+.newsletter button {
+    width: 100%;
+    padding: 12px;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: 'Jost', sans-serif;
+}
+
+.newsletter button:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(245, 241, 232, 0.2);
+    font-size: 14px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .mega-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--cream);
+        padding: 80px 30px 30px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mega-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .mega-menu-content {
+        padding: 20px 0;
+    }
+
+    .mega-menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .slide h1 {
+        font-size: 42px;
+        letter-spacing: 3px;
+    }
+
+    .slide p {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .header-main {
+        padding: 15px 20px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .age-verify-content {
+        padding: 40px 30px;
+    }
+
+    .age-verify h2 {
+        font-size: 32px;
+    }
+
+    .slide h1 {
+        font-size: 28px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+}
