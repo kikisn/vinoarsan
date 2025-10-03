@@ -1,3 +1,4 @@
+/* Vino Arsan - Atomic Age Wine Shop Styles */
 
 /* ============================================
    BASE STYLES & VARIABLES
@@ -570,12 +571,42 @@ nav a:hover {
    PAGE DESCRIPTION (FOR FILTERED VIEWS)
    ============================================ */
 .page-description {
-    background: linear-gradient(135deg, var(--gold) 0%, #B8942E 100%);
-    padding: 40px;
+    background: transparent;
+    padding: 0;
+    padding-bottom: 60px;
     text-align: center;
-    color: var(--dark);
+    color: var(--text);
     position: relative;
     z-index: 2;
+}
+
+.page-description .page-title {
+    font-family: 'Alegreya SC', serif;
+    font-size: 48px;
+    color: var(--off-black);
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.page-description .page-title::before,
+.page-description .page-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 150px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.page-description .page-title::before {
+    left: 0;
+}
+
+.page-description .page-title::after {
+    right: 0;
 }
 
 .page-description-content {
@@ -583,17 +614,18 @@ nav a:hover {
     margin: 0 auto;
 }
 
-.page-description-content h2 {
-    font-family: 'Alegreya SC', serif;
-    font-size: 36px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
 .page-description-content p {
     font-size: 18px;
     line-height: 1.6;
+    color: var(--text);
+}
+
+.default-title {
+    display: block;
+}
+
+.page-description:not([style*="display: none"]) ~ .default-title {
+    display: none;
 }
 
 /* ============================================
