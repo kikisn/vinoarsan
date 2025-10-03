@@ -38,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('background-paper-texture.jpg');
+            background-image: url('background-texture.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -277,15 +277,15 @@
             margin-top: 0;
             padding-top: 20px;
             background: transparent;
-            min-width: 900px;
-            max-width: 1000px;
+            min-width: 400px;
+            max-width: 500px;
             display: none;
             z-index: 200;
         }
 
         .mega-menu-content {
             background: var(--cream);
-            padding: 40px;
+            padding: 30px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
 
@@ -295,7 +295,7 @@
 
         .mega-menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
 
@@ -312,10 +312,13 @@
 
         .mega-menu-column ul {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
         }
 
         .mega-menu-column ul li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .mega-menu-column a {
@@ -646,20 +649,9 @@
             justify-content: center;
         }
 
-        .footer-illustration::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: none;
-            z-index: 1;
-        }
-
         .footer-sun {
-            width: 140px;
-            height: 140px;
+            width: 100%;
+            height: 100%;
             position: relative;
             z-index: 2;
         }
@@ -667,7 +659,7 @@
         .footer-sun img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         /* Footer */
@@ -1014,72 +1006,20 @@
                                 <div class="mega-menu-column">
                                     <h3>Type</h3>
                                     <ul>
-                                        <li><a href="#red">Red Wine</a></li>
-                                        <li><a href="#orange">Orange Wine</a></li>
-                                        <li><a href="#white">White Wine</a></li>
-                                        <li><a href="#rose">Rosé Wine</a></li>
-                                        <li><a href="#petnat">Pét-Nat Wine</a></li>
-                                        <li><a href="#mezcal">Mezcal</a></li>
-                                        <li><a href="#sake">Sake</a></li>
+                                        <li><a href="#red-wine">Red Wine</a></li>
+                                        <li><a href="#white-wine">White Wine</a></li>
+                                        <li><a href="#fruit-wine">Fruit Wine</a></li>
+                                        <li><a href="#tropical-wine">Tropical Wine</a></li>
+                                        <li><a href="#spirits">Spirits</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-menu-column">
                                     <h3>Mood & Occasion</h3>
                                     <ul>
-                                        <li><a href="#beach">Beach Chuggers</a></li>
-                                        <li><a href="#afternoon">Afternoon Delights</a></li>
-                                        <li><a href="#night">Night Caps</a></li>
-                                        <li><a href="#treat">Treat Yo' Self</a></li>
-                                        <li><a href="#drink">I Need A Drink</a></li>
-                                        <li><a href="#homies">Hangin' With The Homies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-column">
-                                    <h3>Accessories</h3>
-                                    <ul>
-                                        <li><a href="#stopper">Wine Stopper</a></li>
-                                        <li><a href="#skin">Wine Skin</a></li>
-                                        <li><a href="#key">Wine Key</a></li>
-                                        <li><a href="#gift">Gift Wrapping</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <a onclick="toggleMobileMenu(event, 'pairingsMenu')">Pairings ▾</a>
-                        <div class="mega-menu" id="pairingsMenu">
-                            <div class="mega-menu-content">
-                            <div class="mega-menu-grid">
-                                <div class="mega-menu-column">
-                                    <h3>Favorites</h3>
-                                    <ul>
-                                        <li><a href="#burgers">Burgers</a></li>
-                                        <li><a href="#steak">Steak Night!</a></li>
-                                        <li><a href="#pizza">Pizza & Pasta</a></li>
-                                        <li><a href="#salad">Salad or Greens</a></li>
-                                        <li><a href="#sushi">Sushi</a></li>
-                                        <li><a href="#tacos">Tacos</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-column">
-                                    <h3>Flavors</h3>
-                                    <ul>
-                                        <li><a href="#bold">Bold and Funky</a></li>
-                                        <li><a href="#fruity">Fruity</a></li>
-                                        <li><a href="#savory">Savory</a></li>
-                                        <li><a href="#spicey">Spicey</a></li>
-                                        <li><a href="#tarty">Tarty</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-column">
-                                    <h3>Food Categories</h3>
-                                    <ul>
-                                        <li><a href="#filipino">Filipino Food</a></li>
-                                        <li><a href="#seafood">Seafood</a></li>
-                                        <li><a href="#white-meat">White Meat</a></li>
-                                        <li><a href="#red-meat">Red Meat</a></li>
+                                        <li><a href="#celebrations">Celebrations</a></li>
+                                        <li><a href="#casual-gatherings">Casual Gatherings</a></li>
+                                        <li><a href="#romantic-dinners">Romantic Dinners</a></li>
+                                        <li><a href="#gifts">Gifts & Special Occasions</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1087,28 +1027,7 @@
                         </div>
                     </li>
                     <li><a href="#merch">Merch</a></li>
-                    <li><a href="#bodega">Bodega</a></li>
-                    <li class="menu-item">
-                        <a onclick="toggleMobileMenu(event, 'eventsMenu')">Events ▾</a>
-                        <div class="mega-menu" id="eventsMenu">
-                            <div class="mega-menu-content">
-                            <div class="mega-menu-grid">
-                                <div class="mega-menu-column">
-                                    <h3>B! Anywhere</h3>
-                                    <ul>
-                                        <li><a href="#anywhere">Book B! Anywhere</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-column">
-                                    <h3>Private Events</h3>
-                                    <ul>
-                                        <li><a href="#private">Private Tastings</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </li>
+                    <li><a href="#private-tastings">Private Tastings</a></li>
                 </ul>
             </nav>
 
@@ -1187,7 +1106,7 @@
     <!-- Footer Illustration Border -->
     <div class="footer-illustration">
         <div class="footer-sun">
-            <img src="sun-footer.png" alt="Vino Arsan Sun">
+            <img src="sun-footer.png" alt="Vino Arsan">
         </div>
     </div>
 
