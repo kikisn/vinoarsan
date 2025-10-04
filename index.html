@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vino Arsan - Est. 2009</title>
+    
+    <!-- PASSWORD PROTECTION -->
+    <script>
+        (function() {
+            var correctPassword = "vino2025";
+            var enteredPassword = sessionStorage.getItem('demoAccess');
+            
+            if (enteredPassword !== correctPassword) {
+                enteredPassword = prompt("This is a private demo. Please enter the password:");
+                
+                if (enteredPassword === correctPassword) {
+                    sessionStorage.setItem('demoAccess', correctPassword);
+                } else {
+                    alert("Incorrect password. Access denied.");
+                    document.body.innerHTML = "<h1 style='text-align:center; margin-top:100px;'>Access Denied</h1>";
+                    throw new Error("Access denied");
+                }
+            }
+        })();
+    </script>
+    <!-- END PASSWORD PROTECTION -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vino Arsan - Est. 2009</title>
