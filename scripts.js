@@ -211,6 +211,7 @@ function initScrollAnimations() {
 function initMobileMenu() {
     const headerContainer = document.querySelector('.header-container');
     const nav = document.querySelector('nav');
+    const headerIcons = document.querySelector('.header-icons');
 
     // Only create mobile menu button on mobile devices
     if (window.innerWidth <= 768) {
@@ -228,20 +229,35 @@ function initMobileMenu() {
                 color: var(--text-dark);
                 cursor: pointer;
                 padding: 10px;
-                position: absolute;
-                right: 60px;
-                top: 50%;
-                transform: translateY(-50%);
+                grid-column: 2;
+                justify-self: end;
+                z-index: 10;
             `;
 
             headerContainer.appendChild(mobileMenuBtn);
 
+            // Clone header icons for mobile menu if not already done
+            if (nav && !nav.querySelector('.mobile-nav-icons')) {
+                const mobileIcons = headerIcons.cloneNode(true);
+                mobileIcons.className = 'mobile-nav-icons';
+                mobileIcons.style.cssText = `
+                    display: flex;
+                    gap: 20px;
+                    justify-content: center;
+                    padding-top: 20px;
+                    margin-top: 20px;
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                `;
+                nav.appendChild(mobileIcons);
+            }
+
             // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                const isOpen = nav.style.display === 'flex';
+                nav.style.display = isOpen ? 'none' : 'flex';
 
-                if (nav.style.display === 'flex') {
+                if (!isOpen) {
                     nav.style.cssText = `
                         display: flex;
                         flex-direction: column;
@@ -252,9 +268,11 @@ function initMobileMenu() {
                         background: var(--cream);
                         padding: 20px;
                         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        z-index: 999;
                     `;
                     mobileMenuBtn.innerHTML = '✕';
                 } else {
+                    nav.style.display = 'none';
                     mobileMenuBtn.innerHTML = '☰';
                 }
             });
@@ -272,6 +290,11 @@ function initMobileMenu() {
         const existingBtn = document.querySelector('.mobile-menu-btn');
         if (existingBtn) {
             existingBtn.remove();
+        }
+        // Remove cloned icons from nav
+        const mobileNavIcons = nav?.querySelector('.mobile-nav-icons');
+        if (mobileNavIcons) {
+            mobileNavIcons.remove();
         }
         // Reset nav display
         if (nav) {

@@ -2934,6 +2934,7 @@ footer {
         grid-template-columns: 1fr auto;
         gap: 15px;
         padding: 15px 20px;
+        position: relative;
     }
 
     .logo-text {
@@ -2950,7 +2951,7 @@ footer {
     }
 
     .header-icons {
-        gap: 15px;
+        display: none;
     }
 
     .icon-link {
