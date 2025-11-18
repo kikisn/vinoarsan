@@ -1,0 +1,1 @@
+All requests should consider the md files found under /VA - MEDIUM/references/

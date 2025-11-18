@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version 2: Tropical Style</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - UPDATED TO TROPICAL THEME */
+        :root {
+            /* Primary Colors - Tropical Theme */
+            --color-forest-green: #3D5F3E;
+            --color-forest-green-dark: #2A4230;
+            --color-sage-green: #5A7556;
+            --color-coral: #D77563;
+            --color-coral-light: #E89B8D;
+            --color-salmon: #E8A094;
+            
+            /* Accent Colors from Fruit Illustrations */
+            --color-pink-bugnay: #E84B8C;
+            --color-purple-mangosteen: #9B4F96;
+            --color-yellow-mango: #F9C74F;
+            --color-orange-calamansi: #F4A261;
+            --color-pink-dragonfruit: #E85D75;
+            --color-purple-mulberry: #7B5E7B;
+            
+            /* Neutral Colors */
+            --color-cream: #F5F1E8;
+            --color-beige: #EDE7DC;
+            --color-light-beige: #F8F5EF;
+            --color-warm-white: #FAF8F3;
+            --color-text-dark: #2C2420;
+            --color-charcoal: #3D3D3D;
+            --color-white: #FFFFFF;
+            
+            /* Decorative */
+            --color-gold-pattern: #B8A56A;
+            --color-olive-pattern: #717C5A;
+            --color-black-pattern: #1A1A1A;
+            
+            /* Typography */
+            --font-serif: 'Fondamento', cursive;
+            --font-sans: 'Noto Sans', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            --space-4xl: 8rem;
+            
+            /* Layout */
+            --container-max: 1440px;
+            --container-padding: 3rem;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text-dark);
+            background: var(--color-warm-white);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Style Guide Container */
+        .style-guide {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--container-padding);
+        }
+        
+        /* Style Guide Header */
+        .sg-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 2px solid var(--color-beige);
+            position: relative;
+        }
+        
+        /* Decorative fruit illustration images in header */
+        .sg-header-fruit-left,
+        .sg-header-fruit-right {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+            object-fit: contain;
+        }
+
+        .sg-header-fruit-left {
+            left: 10%;
+            top: 0;
+        }
+
+        .sg-header-fruit-right {
+            right: 10%;
+            top: 0;
+        }
+        
+        .sg-header h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .sg-header p {
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            font-weight: 300;
+        }
+        
+        .sg-header .update-notice {
+            display: inline-block;
+            margin-top: var(--space-md);
+            padding: 0.5rem 1rem;
+            background: var(--color-coral);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Section Styles */
+        .sg-section {
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .sg-section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: var(--space-2xl);
+            color: var(--color-text-dark);
+        }
+        
+        .sg-subsection-title {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 400;
+            margin-bottom: var(--space-lg);
+            margin-top: var(--space-xl);
+            color: var(--color-text-dark);
+        }
+        
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .color-swatch {
+            text-align: center;
+        }
+        
+        .color-box {
+            height: 150px;
+            border-radius: 8px;
+            margin-bottom: var(--space-sm);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .color-name {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .color-hex {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            color: var(--color-charcoal);
+            font-weight: 400;
+        }
+        
+        .color-usage {
+            font-size: 0.75rem;
+            color: var(--color-charcoal);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+        
+        /* Typography Specimens */
+        .typography-specimen {
+            margin-bottom: var(--space-xl);
+            padding: var(--space-lg);
+            background: var(--color-light-beige);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .specimen-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+        }
+        
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .h1-example {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        
+        .h2-example {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+        
+        .h3-example {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+        
+        .h4-example {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        
+        .body-large {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+        
+        .body-regular {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .body-small {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        /* Buttons - TROPICAL THEME */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .button-example {
+            text-align: center;
+        }
+        
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.875rem 2rem;
+            border-radius: 25px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--color-coral);
+            color: var(--color-white);
+            border: 2px solid var(--color-coral);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-coral-light);
+            border-color: var(--color-coral-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(215, 117, 99, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text-dark);
+            border: 2px solid var(--color-text-dark);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-text-dark);
+            color: var(--color-white);
+        }
+        
+        .btn-tertiary {
+            background: var(--color-cream);
+            color: var(--color-text-dark);
+            border: 2px solid var(--color-cream);
+        }
+        
+        .btn-tertiary:hover {
+            background: var(--color-beige);
+            border-color: var(--color-beige);
+        }
+        
+        /* Product Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .product-card {
+            background: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--color-beige);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--color-sage-green) 0%, var(--color-forest-green) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+        }
+        
+        .product-card:hover .product-image::after {
+            content: 'ADD TO CART';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(215, 117, 99, 0.95);
+            color: white;
+            padding: 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .product-info {
+            padding: var(--space-md);
+        }
+        
+        .product-name {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-dark);
+        }
+        
+        .product-price {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            font-weight: 400;
+        }
+        
+        /* Navigation */
+        .nav-example {
+            background: var(--color-cream);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: var(--space-md) var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-2xl);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+        
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-coral);
+        }
+        
+        /* Hero Example */
+        .hero-example {
+            background: var(--color-cream);
+            padding: var(--space-4xl) var(--space-xl);
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Decorative fruit elements */
+        .hero-example::before,
+        .hero-example::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--color-pink-bugnay);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .hero-example::before {
+            top: -50px;
+            left: -50px;
+        }
+        
+        .hero-example::after {
+            bottom: -50px;
+            right: -50px;
+            background: var(--color-yellow-mango);
+        }
+        
+        .hero-example .hero-headline {
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-subtext {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-example .btn {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Decorative Pattern Section */
+        .pattern-section {
+            background: var(--color-black-pattern);
+            padding: var(--space-2xl) var(--space-xl);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-gold-pattern) 10px, var(--color-gold-pattern) 11px),
+                repeating-linear-gradient(-45deg, transparent, transparent 10px, var(--color-olive-pattern) 10px, var(--color-olive-pattern) 11px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .pattern-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Spacing Examples */
+        .spacing-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+        
+        .spacing-example {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+        
+        .spacing-box {
+            background: var(--color-sage-green);
+            height: 40px;
+            border-radius: 4px;
+        }
+        
+        .spacing-label {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 500;
+            min-width: 120px;
+        }
+        
+        /* Fruit Illustration Section */
+        .fruit-illustrations {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: var(--space-2xl) 0;
+        }
+
+        .fruit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .fruit-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .fruit-label {
+            font-family: var(--font-serif);
+            font-size: 1.125rem;
+            color: var(--color-text-dark);
+            text-align: center;
+        }
+
+        .fruit-filename {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--color-charcoal);
+            font-style: italic;
+        }
+        
+        /* Code Snippets */
+        .code-snippet {
+            background: #1a1a1a;
+            color: #f5f5f5;
+            padding: var(--space-lg);
+            border-radius: 8px;
+            margin-top: var(--space-md);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .code-comment {
+            color: #888;
+        }
+        
+        /* Green Section Example */
+        .green-section {
+            background: var(--color-forest-green);
+            padding: var(--space-3xl) var(--space-xl);
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+        
+        .green-section h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .green-section p {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+            
+            .h1-example {
+                font-size: 2.25rem;
+            }
+            
+            .h2-example {
+                font-size: 2rem;
+            }
+            
+            .h3-example {
+                font-size: 1.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            
+            .color-grid,
+            .card-grid,
+            .fruit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="style-guide">
+        <!-- Header -->
+        <div class="sg-header">
+                <img src="Bignay.png" alt="Bignay fruit" class="sg-header-fruit-left">
+                <img src="Mango.png" alt="Mango fruit" class="sg-header-fruit-right">
+            <h1>Version 2: Tropical Style</h1>
+            <p>Complete style guide for the tropical style version of the Vino Arsan website</p>
+        </div>
+
+        <!-- Color Palette Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Color Palette</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Nature-inspired tropical color scheme with botanical greens, warm corals, and vibrant fruit accents</p>
+            
+            <h3 class="sg-subsection-title">Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #3D5F3E; color: white;">Aa</div>
+                    <div class="color-name">Forest Green</div>
+                    <div class="color-hex">#3D5F3E</div>
+                    <div class="color-usage">Primary sections, headers</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #5A7556; color: white;">Aa</div>
+                    <div class="color-name">Sage Green</div>
+                    <div class="color-hex">#5A7556</div>
+                    <div class="color-usage">Secondary elements, accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #D77563; color: white;">Aa</div>
+                    <div class="color-name">Coral</div>
+                    <div class="color-hex">#D77563</div>
+                    <div class="color-usage">Primary buttons, CTAs</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #E8A094; color: white;">Aa</div>
+                    <div class="color-name">Salmon</div>
+                    <div class="color-hex">#E8A094</div>
+                    <div class="color-usage">Hover states, highlights</div>
+                </div>
+            </div>
+            
+            <h3 class="sg-subsection-title">Fruit Accent Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #E84B8C; color: white;">Aa</div>
+                    <div class="color-name">Bugnay Pink</div>
+                    <div class="color-hex">#E84B8C</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #9B4F96; color: white;">Aa</div>
+                    <div class="color-name">Mangosteen Purple</div>
+                    <div class="color-hex">#9B4F96</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F9C74F; color: #1A1A1A;">Aa</div>
+                    <div class="color-name">Mango Yellow</div>
+                    <div class="color-hex">#F9C74F</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F4A261; color: white;">Aa</div>
+                    <div class="color-name">Calamansi Orange</div>
+                    <div class="color-hex">#F4A261</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #E85D75; color: white;">Aa</div>
+                    <div class="color-name">Dragon Fruit Pink</div>
+                    <div class="color-hex">#E85D75</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #7B5E7B; color: white;">Aa</div>
+                    <div class="color-name">Mulberry Purple</div>
+                    <div class="color-hex">#7B5E7B</div>
+                    <div class="color-usage">Decorative accents</div>
+                </div>
+            </div>
+            
+            <h3 class="sg-subsection-title">Neutral Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #2C2420; color: white;">Aa</div>
+                    <div class="color-name">Text Dark</div>
+                    <div class="color-hex">#2C2420</div>
+                    <div class="color-usage">Primary text</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #3D3D3D; color: white;">Aa</div>
+                    <div class="color-name">Charcoal</div>
+                    <div class="color-hex">#3D3D3D</div>
+                    <div class="color-usage">Secondary text</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F5F1E8; color: #1A1A1A;">Aa</div>
+                    <div class="color-name">Cream</div>
+                    <div class="color-hex">#F5F1E8</div>
+                    <div class="color-usage">Light backgrounds, cards</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #EDE7DC; color: #1A1A1A;">Aa</div>
+                    <div class="color-name">Beige</div>
+                    <div class="color-hex">#EDE7DC</div>
+                    <div class="color-usage">Borders, dividers</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FAF8F3; color: #1A1A1A;">Aa</div>
+                    <div class="color-name">Warm White</div>
+                    <div class="color-hex">#FAF8F3</div>
+                    <div class="color-usage">Main backgrounds</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FFFFFF; color: #1A1A1A; border: 1px solid #E0E0E0;">Aa</div>
+                    <div class="color-name">White</div>
+                    <div class="color-hex">#FFFFFF</div>
+                    <div class="color-usage">Product cards, overlays</div>
+                </div>
+            </div>
+            
+            <h3 class="sg-subsection-title">Decorative Pattern Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #B8A56A; color: white;">Aa</div>
+                    <div class="color-name">Gold Pattern</div>
+                    <div class="color-hex">#B8A56A</div>
+                    <div class="color-usage">Decorative borders</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #717C5A; color: white;">Aa</div>
+                    <div class="color-name">Olive Pattern</div>
+                    <div class="color-hex">#717C5A</div>
+                    <div class="color-usage">Decorative borders</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #1A1A1A; color: white;">Aa</div>
+                    <div class="color-name">Black Pattern</div>
+                    <div class="color-hex">#1A1A1A</div>
+                    <div class="color-usage">Dark section backgrounds</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Typography</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Fondamento (serif) for headlines, Noto Sans for body text</p>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">Hero Headline (64px / 4rem) - Fondamento Regular</div>
+                <div class="hero-headline">DISCOVER WINES FROM THE PHILIPPINE JUNGLE</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">H1 - Section Title (48px / 3rem) - Fondamento Regular</div>
+                <div class="h1-example">What Do You Pair with the Unfamiliar?</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">H2 - Subsection Title (40px / 2.5rem) - Fondamento Regular</div>
+                <div class="h2-example">Stories from Flavor Explorers</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">H3 - Card Title (32px / 2rem) - Fondamento Regular</div>
+                <div class="h3-example">Calamansi White Wine</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">H4 - Product Name (24px / 1.5rem) - Fondamento Regular</div>
+                <div class="h4-example">Malibugold Red Wine</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">Large Body Text (16px / 1rem) - Noto Sans Regular</div>
+                <div class="body-large">Internationally-awarded wines crafted from unique Filipino fruits like Lipote and Mangosteen. Explore pairing guides for our unique Filipino fruit wines.</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">Regular Body Text (14px / 0.875rem) - Noto Sans Regular</div>
+                <div class="body-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+            </div>
+            
+            <div class="typography-specimen">
+                <div class="specimen-label">Small Text / Button Labels (12px / 0.75rem) - Noto Sans Medium Uppercase</div>
+                <div class="body-small">Shop Now</div>
+            </div>
+            
+            <div class="typography-specimen" style="background: var(--color-forest-green); color: white;">
+                <div class="specimen-label" style="color: rgba(255, 255, 255, 0.7);">White Text on Forest Green Backgrounds</div>
+                <div class="h2-example" style="color: white;">What Do You Pair with the Unfamiliar?</div>
+                <p style="color: rgba(255, 255, 255, 0.9); margin-top: var(--space-md); font-size: 1rem;">This white text is used on dark green section backgrounds throughout the site for optimal readability and tropical elegance.</p>
+            </div>
+        </section>
+
+        <!-- Buttons Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Buttons</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Rounded buttons with coral primary color and clean hover states</p>
+            
+            <div class="button-grid">
+                <div class="button-example">
+                    <button class="btn btn-primary">Shop Now</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Primary Button<br><small>Coral with white text</small></p>
+                </div>
+                <div class="button-example">
+                    <button class="btn btn-secondary">Shop All</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Secondary Button<br><small>Outlined style</small></p>
+                </div>
+                <div class="button-example">
+                    <button class="btn btn-tertiary">Explore</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Tertiary Button<br><small>Cream background</small></p>
+                </div>
+            </div>
+            
+            <div class="button-grid">
+                <div class="button-example">
+                    <button class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.6875rem;">Add to Cart</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Small Button</p>
+                </div>
+                <div class="button-example">
+                    <button class="btn btn-secondary" style="padding: 0.625rem 1.5rem; font-size: 0.6875rem;">Learn More</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Small Secondary</p>
+                </div>
+                <div class="button-example">
+                    <button class="btn btn-primary" style="padding: 1rem 3rem;">Subscribe</button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-charcoal);">Large Button</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Cards Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Product Cards</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Clean white cards with green gradient placeholder and coral "Add to Cart" overlay on hover</p>
+            
+            <div class="card-grid">
+                <div class="product-card">
+                    <div class="product-image">Wine Bottle</div>
+                    <div class="product-info">
+                        <div class="product-name">Malibugold</div>
+                        <div class="product-price">₱500 (750ml)</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">Wine Bottle</div>
+                    <div class="product-info">
+                        <div class="product-name">Calamansi White Wine</div>
+                        <div class="product-price">₱450 (750ml)</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">Wine Bottle</div>
+                    <div class="product-info">
+                        <div class="product-name">Bignay-Pitaya Porto</div>
+                        <div class="product-price">₱450 (750ml)</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">Wine Bottle</div>
+                    <div class="product-info">
+                        <div class="product-name">Dragon Fruit Wine</div>
+                        <div class="product-price">₱400 (750ml)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Navigation</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Clean header with cream background and coral hover states</p>
+            
+            <div class="nav-example">
+                <nav class="nav-container">
+                    <div style="font-family: var(--font-serif); font-size: 1rem; font-weight: 400; letter-spacing: 0.02em;">Vino Arsan</div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="nav-link">Home</a></li>
+                        <li><a href="#" class="nav-link">Shop</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                        <li><a href="#" class="nav-link">About</a></li>
+                        <li><a href="#" class="nav-link">Pairings</a></li>
+                    </ul>
+                    <ul class="nav-links">
+                        <li><a href="#" class="nav-link">🛒</a></li>
+                        <li><a href="#" class="nav-link">🔍</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+       <!-- Fruit Illustrations Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Filipino Fruit Illustrations</h2>
+            <p class="sg-subsection-subtitle">SVG illustrations of Filipino fruits used as decorative elements throughout the site</p>
+            
+            <div class="fruit-illustrations">
+                <div class="fruit-item">
+                    <img src="bugnay.svg" alt="Bugnay" class="fruit-icon">
+                    <div class="fruit-label">Bugnay</div>
+                    <div class="fruit-filename">bugnay.svg</div>
+                </div>
+                
+                <div class="fruit-item">
+                    <img src="calamansi.svg" alt="Calamansi" class="fruit-icon">
+                    <div class="fruit-label">Calamansi</div>
+                    <div class="fruit-filename">calamansi.svg</div>
+                </div>
+                
+                <div class="fruit-item">
+                    <img src="dragonfruit.svg" alt="Dragon Fruit" class="fruit-icon">
+                    <div class="fruit-label">Dragon Fruit</div>
+                    <div class="fruit-filename">dragonfruit.svg</div>
+                </div>
+                
+                <div class="fruit-item">
+                    <img src="mango.svg" alt="Mango" class="fruit-icon">
+                    <div class="fruit-label">Mango</div>
+                    <div class="fruit-filename">mango.svg</div>
+                </div>
+                
+                <div class="fruit-item">
+                    <img src="mangosteen new.svg" alt="Mangosteen" class="fruit-icon">
+                    <div class="fruit-label">Mangosteen</div>
+                    <div class="fruit-filename">mangosteen new.svg</div>
+                </div>
+                
+                <div class="fruit-item">
+                    <img src="mulberry.svg" alt="Mulberry" class="fruit-icon">
+                    <div class="fruit-label">Mulberry</div>
+                    <div class="fruit-filename">mulberry.svg</div>
+                </div>
+            </div>
+            
+            <div style="padding: var(--space-xl); background: var(--color-light-beige); border-radius: 8px; margin-top: var(--space-xl);">
+                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-md);">Usage Guidelines</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2; font-size: 0.875rem;">
+                    <li><strong>Hero Section:</strong> Fruits positioned around edges as decorative framing elements</li>
+                    <li><strong>Section Dividers:</strong> Scattered fruits between major sections for visual interest</li>
+                    <li><strong>Backgrounds:</strong> Subtle fruit illustrations at reduced opacity as background elements</li>
+                    <li><strong>Cards:</strong> Small fruit icons can be used to indicate wine flavor profiles</li>
+                    <li><strong>Color Matching:</strong> Use fruit illustration colors for corresponding wine types</li>
+                    <li><strong>Size Guidelines:</strong> Keep decorative fruits between 80px-150px width for optimal visual balance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Hero Example Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Hero Section</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Cream background with fruit illustrations as decorative framing elements</p>
+            
+            <div style="margin-bottom: var(--space-lg);">
+                <img src="v2-hero-slider.jpg" alt="Awards Timeline" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+        </section>
+
+        <!-- Green Section Example -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Forest Green Sections</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Rich forest green backgrounds for pairing guides and featured content</p>
+            
+            <div style="margin-bottom: var(--space-lg);">
+                <img src="v2-green-section.jpg" alt="Awards Timeline" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+        </section>
+
+        <!-- Decorative Pattern Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Decorative Patterns</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">Traditional geometric patterns for Limited Releases section</p>
+            
+            <div style="margin-bottom: var(--space-lg);">
+                <img src="v2-limited-releases.jpg" alt="Awards Timeline" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+            </div>
+            
+            <p style="font-size: 0.875rem; color: var(--color-charcoal); margin-top: var(--space-md);"><em>Black textured background using existing assets from the bottle label</em></p>
+        </section>
+
+        <!-- Spacing Section -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Spacing System</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-charcoal);">8px base grid system for consistent spacing</p>
+            
+            <div class="spacing-grid">
+                <div class="spacing-example">
+                    <div class="spacing-label">Extra Small (8px)</div>
+                    <div class="spacing-box" style="width: 8px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">Small (16px)</div>
+                    <div class="spacing-box" style="width: 16px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">Medium (24px)</div>
+                    <div class="spacing-box" style="width: 24px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">Large (32px)</div>
+                    <div class="spacing-box" style="width: 32px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">Extra Large (48px)</div>
+                    <div class="spacing-box" style="width: 48px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">2X Large (64px)</div>
+                    <div class="spacing-box" style="width: 64px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">3X Large (96px)</div>
+                    <div class="spacing-box" style="width: 96px;"></div>
+                </div>
+                <div class="spacing-example">
+                    <div class="spacing-label">4X Large (128px)</div>
+                    <div class="spacing-box" style="width: 128px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Notes -->
+        <section class="sg-section">
+            <h2 class="sg-section-title">Implementation Notes</h2>
+            
+            <div style="padding: var(--space-xl); background: var(--color-light-beige); border-radius: 8px; margin-bottom: var(--space-lg);">
+                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-md);">Key Design Updates (October 2025 - Tropical Theme)</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Color Shift:</strong> From charcoal black/gold to forest green/coral with tropical fruit accents</li>
+                    <li><strong>Botanical Elements:</strong> Filipino fruit illustrations (bugnay, calamansi, dragon fruit, mango, mangosteen, mulberry) as decorative elements</li>
+                    <li><strong>Natural Aesthetic:</strong> Cream/beige backgrounds creating warm, organic feel</li>
+                    <li><strong>Typography:</strong> Fondamento (serif) and Noto Sans pairing for elegant yet approachable tone</li>
+                    <li><strong>Section Variety:</strong> Mix of light cream sections and rich forest green sections for visual rhythm</li>
+                    <li><strong>Decorative Patterns:</strong> Ornate geometric borders on dark sections (Limited Releases)</li>
+                    <li><strong>Buttons:</strong> Soft coral primary buttons with rounded corners (25px border-radius)</li>
+                    <li><strong>Product Cards:</strong> Clean white cards with subtle borders and green gradient placeholders</li>
+                    <li><strong>Interactive Elements:</strong> Carousel sliders for pairing guides and limited releases</li>
+                    <li><strong>Cultural Connection:</strong> Design celebrates Filipino heritage through indigenous fruit imagery</li>
+                </ul>
+            </div>
+            
+            <div style="padding: var(--space-xl); background: var(--color-cream); border-radius: 8px;">
+                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-md);">CSS Variables (Root)</h3>
+                <div class="code-snippet">
+:root {
+    <span class="code-comment">/* Primary Colors - Tropical Theme */</span>
+    --color-forest-green: #3D5F3E;
+    --color-forest-green-dark: #2A4230;
+    --color-sage-green: #5A7556;
+    --color-coral: #D77563;
+    --color-coral-light: #E89B8D;
+    --color-salmon: #E8A094;
+    
+    <span class="code-comment">/* Fruit Accent Colors */</span>
+    --color-pink-bugnay: #E84B8C;
+    --color-purple-mangosteen: #9B4F96;
+    --color-yellow-mango: #F9C74F;
+    --color-orange-calamansi: #F4A261;
+    --color-pink-dragonfruit: #E85D75;
+    --color-purple-mulberry: #7B5E7B;
+    
+    <span class="code-comment">/* Neutral Colors */</span>
+    --color-cream: #F5F1E8;
+    --color-beige: #EDE7DC;
+    --color-text-dark: #2C2420;
+    --color-white: #FFFFFF;
+    
+    <span class="code-comment">/* Typography */</span>
+    --font-serif: 'Fondamento', cursive;
+    --font-sans: 'Noto Sans', sans-serif;
+}
+                </div>
+            </div>
+        </section>
+
+        <!-- Complete Page Layout Example -->
+        <section class="sg-section" style="margin-top: var(--space-4xl); padding-top: var(--space-4xl); border-top: 3px solid var(--color-sage-green);">
+            <h2 class="sg-section-title" style="text-align: center; margin-bottom: var(--space-md);">Complete Homepage Flow</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto var(--space-3xl); color: var(--color-charcoal); font-size: 1.125rem;">
+                Overview of how the tropical design system creates a cohesive brand experience from header to footer.
+            </p>
+
+            <!-- Section Flow Description -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">1. Header Navigation</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Cream background with simple navigation links. Logo uses Fondamento serif font.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">2. Hero Section</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Cream background with large headline, wine bottle image, and fruit illustrations framing the content.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">3. Pairing Section</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Forest green background with white text. Card carousel showing wine + food pairings with images.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">4. About Sections</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Cream background with image + text layouts. Fruit illustrations as decorative elements.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">5. Limited Releases</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Black background with ornate gold borders. White text with product carousel.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">6. Testimonials</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Green background with decorative fruit border frame. Customer quotes in serif font.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">7. Custom Orders</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Forest green background with white text. Contact information and CTA for bulk orders.</p>
+                </div>
+                
+                <div style="padding: var(--space-lg); background: var(--color-light-beige); border-radius: 8px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: var(--space-sm); color: var(--color-forest-green);">8. Footer</h3>
+                    <p style="font-size: 0.875rem; line-height: 1.6;">Clean white footer with minimal links and social media icons (Google, Facebook, Instagram).</p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>

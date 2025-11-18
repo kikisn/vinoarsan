@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vino Arsan - Award-Winning Filipino Wines & Spirits</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="vino-arsan-logo.svg">
+    <link rel="icon" type="image/png" href="vino-arsan-logo@2x.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="spicy-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="vino-arsan-logo.svg" alt="Vino Arsan" class="logo-image">
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#collections" class="nav-link">Red Wines</a></li>
+                <li><a href="#collections" class="nav-link">White Wines</a></li>
+                <li><a href="#collections" class="nav-link">Limited Releases</a></li>                
+                <li><a href="#custom" class="nav-link">Custom</a></li>
+            </ul>
+            
+            <ul class="nav-links" id="navLinksRight">
+                <li><a href="#" class="nav-link">Search</a></li>
+                <li><a href="#" class="nav-link">My account</a></li>
+                <li><a href="#" class="nav-link">Cart (0)</a></li>
+            </ul>
+            
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero">
+        <picture class="hero-slide hero-slide-1 active">
+            <source media="(min-width: 1024px)" srcset="hero-slide-1-desktop.webp">
+            <source media="(min-width: 768px)" srcset="hero-slide-1-tablet.webp">
+            <img src="hero-slide-1-mobile.webp" alt="Vino Arsan Wine Collection" loading="eager">
+        </picture>
+        
+        <picture class="hero-slide hero-slide-2">
+            <source media="(min-width: 1024px)" srcset="hero-slide-2-desktop.webp">
+            <source media="(min-width: 768px)" srcset="hero-slide-2-tablet.webp">
+            <img src="hero-slide-2-mobile.webp" alt="Wine Tasting Experience" loading="lazy">
+        </picture>
+        
+        <div class="hero-content">
+            <h1 class="hero-headline">Indulge in our <br><em>award-winning</em><br>Filipino Wines</h1>
+            <p class="hero-subtext">Vino Arsan promotes Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines. Proudly Handcrafted. Proudly Filipino.</p>
+            <a href="#collections" class="btn btn-primary">Shop Now</a>
+            
+            <div class="hero-controls">
+                <button class="hero-arrow" id="prevSlide" aria-label="Previous slide">←</button>
+                <button class="hero-arrow" id="nextSlide" aria-label="Next slide">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wine Pairing Slider with Deck Animation -->
+    <section class="wine-slider-section">
+        <div class="wine-slider-container">
+            <div class="wine-deck" id="wineDeck">
+                <!-- Wine Card 1 - Malibugold -->
+                <div class="wine-card active" data-index="0">
+                    <div class="wine-card-image">
+                        <img src="wine-malibugold.webp" alt="Malibugold Wine Bottle" loading="lazy">
+                    </div>
+                    <div class="wine-card-content">
+                        <div class="wine-rating">★ Award-Winning</div>
+                        <h3 class="wine-card-title">Malibugold<br><em>Semi-Dry Red Wine</em></h3>
+                        <p class="wine-card-description">Our award-winning semi-dry red wine made from a blend of Mangosteen, Lipote, and Bugnay. Rich and complex, this unique Filipino blend pairs beautifully with bold flavors. Perfect pairings include Grilled Meats & BBQ, Aged Cheese Platter, Pasta with Rich Tomato Sauce, and Beef Caldereta.</p>
+                        <button class="btn btn-primary">Explore This Wine</button>
+                    </div>
+                </div>
+                
+                <!-- Wine Card 2 - Calamansi -->
+                <div class="wine-card next" data-index="1">
+                    <div class="wine-card-image">
+                        <img src="wine-calamansi.webp" alt="Calamansi Wine Bottle" loading="lazy">
+                    </div>
+                    <div class="wine-card-content">
+                        <div class="wine-rating">★ From Tagudin, Ilocos Sur</div>
+                        <h3 class="wine-card-title">Calamansi<br><em>White Wine</em></h3>
+                        <p class="wine-card-description">A refreshing white wine made from Calamansi sourced from Tagudin, Ilocos Sur. This citrus-forward wine brings bright, zesty flavors that complement lighter fare perfectly. Perfect pairings include Grilled Fish & Seafood, Fresh Garden Salads, Sinigang na Hipon, and Lemon Butter Chicken.</p>
+                        <button class="btn btn-primary">Explore This Wine</button>
+                    </div>
+                </div>
+                
+                <!-- Wine Card 3 - Lolo Art Whiskey -->
+                <div class="wine-card" data-index="2">
+                    <div class="wine-card-image">
+                        <img src="wine-pitaya.webp" alt="Pitaya Wine Bottle" loading="lazy">
+                    </div>
+                    <div class="wine-card-content">
+                        <div class="wine-rating">★ Limited Release</div>
+                        <h3 class="wine-card-title"><em>Bignay-Pitaya</em><br>Porto Vino Red</h3>
+                        <p class="wine-card-description">Premium Filipino red wine crafted with exotic dragon fruit. Smooth and distinctive with warm, complex notes that elevate any dining experience. Perfect pairings include Dark Chocolate Desserts, Grilled Seafood, Tropical Fruit Platters, and Spiced Nuts & Charcuterie.</p>
+                        <button class="btn btn-primary">Explore This Wine</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wine-slider-nav">
+                <button class="hero-arrow" id="prevWine" aria-label="Previous wine">←</button>
+                <button class="hero-arrow" id="nextWine" aria-label="Next wine">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section products-section">
+        <h2 class="section-title">Our <em>featured</em> products</h2>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                        <img src="product-mango.webp" alt="Mango White Wine" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Mango</div>
+                        <div class="product-price">₱450</div>
+                    </div>
+                </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="product-malibugold-sd.webp" alt="Malibugold Semi-Dry Wine" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Malibugold Semi-Dry</div>
+                    <div class="product-price">₱500 (750ml)</div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="product-calamansi.webp" alt="Calamansi White Wine" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Calamansi White Wine</div>
+                    <div class="product-price">₱450 (750ml)</div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="product-pitaya.webp" alt="Bignay-Pitaya Porto Vino" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Bignay-Pitaya Porto Vino</div>
+                    <div class="product-price">₱450 (750ml)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="explore-all">
+            <a href="#collections" class="btn btn-secondary">Explore All</a>
+        </div>
+    </section>
+
+    <!-- Parallax Video Section -->
+    <section class="parallax-section" id="parallaxSection">
+        <!-- Video background for desktop - AUTOPLAY, LOOP, MUTED -->
+        <video class="parallax-video" autoplay loop muted playsinline>
+            <source src="making-wine-process.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Static image background for mobile -->
+        <picture class="parallax-bg" id="parallaxBg">
+            <source media="(min-width: 1024px)" srcset="parallax-bg-desktop.webp">
+            <source media="(min-width: 768px)" srcset="parallax-bg-tablet.webp">
+            <img src="parallax-bg-mobile.webp" alt="Wine Making Process" loading="lazy">
+        </picture>
+        
+        <div class="parallax-content">
+            <h2 class="parallax-title">The story <em>behind</em><br>the name</h2>
+            <p class="parallax-subtitle">Vino Arsan was formed with the aim of promoting Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines.</p>
+            <a href="about.html" class="btn btn-primary parallax-cta">Learn Our Story</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="testimonial-quote-icon">"</div>
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">Vino Arsan's wines are truly exceptional. The Malibugold is unlike anything I've tasted before - a perfect blend of tropical flavors that showcases the best of Filipino fruits. The craftsmanship is evident in every bottle.</p>
+                    <p class="testimonial-author">— Maria dela Cruz</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">As a wine collector, I'm always looking for unique bottles to add to my collection. Vino Arsan's fruit wines are not only delicious but also beautifully presented with stunning bottle labels featuring local fruit illustrations.</p>
+                    <p class="testimonial-author">— Carlos Reyes</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">I ordered custom bottles for our company's anniversary celebration. The team at Vino Arsan was incredibly helpful, and the personalized labels made our event truly memorable. The Calamansi wine was a hit with all our guests!</p>
+                    <p class="testimonial-author">— Jennifer Tan</p>
+                </div>
+            </div>
+            <div class="testimonial-quote-icon">"</div>
+            <div class="testimonial-nav">
+                <button class="testimonial-arrow" id="prevTestimonial" aria-label="Previous testimonial">←</button>
+                <button class="testimonial-arrow" id="nextTestimonial" aria-label="Next testimonial">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Wines Section -->
+    <section class="custom-section" id="custom">
+        <div class="custom-image">
+            <img src="custom-wines-section.jpg" alt="Custom Wine Bottles" loading="lazy">
+        </div>
+        <div class="custom-content">
+            <h2 class="custom-title">Experi<em>e</em>nce Customized<br>Eleg<em>a</em>nce</h2>
+            <p class="custom-description">Whether it's a wedding, a corporate milestone, or the ultimate gift, we'll work with you to create a bespoke case or design custom labels that turn our award-winning Filipino fruit wines into a unforgettable centerpiece.</p>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Production Process Section -->
+    <section class="section process-section">
+        <h2 class="section-title">See how our production <em>works</em></h2>
+        
+        <div class="process-grid">
+            <div class="process-item">
+                <div class="process-icon" data-number="1">
+                    <!-- Number will be shown via CSS -->
+                </div>
+                <h3 class="process-title">Select</h3>
+                <p class="process-description">We source the finest tropical fruits from provinces all over the Philippines - from Calamansi in Tagudin, Ilocos Sur, to Mulberries from Laguna, and exotic blends from South Cotabato and Quezon.</p>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-icon" data-number="2">
+                    <!-- Number will be shown via CSS -->
+                </div>
+                <h3 class="process-title"><em>Prepare</em></h3>
+                <p class="process-description">Our handcrafted approach ensures each batch is carefully prepared using traditional techniques. We blend and age our wines to create unique flavor profiles that celebrate Filipino fruits.</p>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-icon" data-number="3">
+                    <!-- Number will be shown via CSS -->
+                </div>
+                <h3 class="process-title">Get ready</h3>
+                <p class="process-description">Each bottle is beautifully presented with our signature labels featuring fruit illustrations. Our award-winning wines are ready to be enjoyed and shared with pride.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Where are your wines produced?
+                    <span class="faq-toggle">∨</span>
+                </div>
+                <div class="faq-answer">
+                    <p>All our wines are proudly handcrafted in the Philippines using fruits sourced from various provinces including Ilocos Sur, Laguna, South Cotabato, and Quezon. We support local farmers and celebrate Filipino agricultural excellence.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What makes Malibugold special?
+                    <span class="faq-toggle">∨</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Malibugold is our award-winning semi-dry red wine made from a unique blend of Mangosteen, Lipote, and Bugnay. This distinctive combination has earned international recognition and represents the best of Filipino fruit wines.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer custom labeling for events?
+                    <span class="faq-toggle">∨</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We specialize in custom wine bottles for corporate events, weddings, parties, and special occasions. Our beautiful fruit illustration labels can be personalized to make your event truly memorable.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How can I contact Vino Arsan?
+                    <span class="faq-toggle">∨</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can reach us at (632) 8242863 or email us at vinoarsanenterprises@gmail.com. Visit us at #18 Michael Rue St., Better Living Subs., Parañaque City. Follow us on Facebook (VinoArsan) and Instagram (@vino.arsan).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section - SIMPLIFIED VERSION -->
+    <section class="collections-section" id="collections">
+        <div class="collections-content">
+            <!-- Centered collection names only - NO HEADING -->
+            <div class="collections-list" id="collectionsList">
+                <div class="collection-name" data-category="red"><em>Red</em> Wine Collection</div>
+                <div class="collection-name" data-category="white"><em>White</em> Wine Collection</div>
+                <div class="collection-name" data-category="spirits"><em>Spirits</em> Collection</div>
+                <div class="collection-name" data-category="awards"><em>Award-Winning</em> Selections</div>
+            </div>
+            
+            <!-- Shop All CTA Button -->
+            <div class="shop-all-cta">
+                <a href="#" class="btn btn-shop-all" id="shopAllBtn">SHOP ALL CATEGORIES</a>
+            </div>
+            
+            <!-- Filtered Product Grid - HIDDEN BY DEFAULT -->
+            <div class="filtered-products-grid hidden" id="filteredProducts">
+                
+                <!-- RED WINES -->
+                
+                <div class="filtered-product-card" data-category="red awards">
+                    <div class="filtered-product-image">
+                        <img src="product-malibugold-sd.webp" alt="Malibugold Semi-Dry" loading="lazy">
+                    </div>
+                    <div class="filtered-product-info">
+                        <div class="filtered-product-badge">★ Award-Winning</div>
+                        <div class="filtered-product-name">Malibugold Semi-Dry</div>
+                        <div class="filtered-product-type">Red Wine • 750ml</div>
+                        <div class="filtered-product-price">₱500</div>
+                        <button class="btn btn-primary btn-small">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="filtered-product-card" data-category="red">
+                    <div class="filtered-product-image">
+                        <img src="product-malibugold-ss.webp" alt="Malibugold Semi-Sweet" loading="lazy">
+                    </div>
+                    <div class="filtered-product-info">
+                        <div class="filtered-product-name">Malibugold Semi-Sweet</div>
+                        <div class="filtered-product-type">Red Wine • 750ml</div>
+                        <div class="filtered-product-price">₱500</div>
+                        <button class="btn btn-primary btn-small">Add to Cart</button>
+                    </div>
+                </div>
+                
+                
+                <div class="filtered-product-card" data-category="red">
+                    <div class="filtered-product-image">
+                        <img src="product-pitaya.webp" alt="Pitaya Wine" loading="lazy">
+                    </div>
+                    <div class="filtered-product-info">
+                        <div class="filtered-product-name">Pitaya Red Wine</div>
+                        <div class="filtered-product-type">Red Wine • 750ml</div>
+                        <div class="filtered-product-price">₱400</div>
+                        <button class="btn btn-primary btn-small">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- WHITE WINES -->
+                <div class="filtered-product-card" data-category="white">
+                    <div class="filtered-product-image">
+                        <img src="product-calamansi.webp" alt="Calamansi White Wine" loading="lazy">
+                    </div>
+                    <div class="filtered-product-info">
+                        <div class="filtered-product-name">Calamansi</div>
+                        <div class="filtered-product-type">White Wine • 750ml</div>
+                        <div class="filtered-product-price">₱450</div>
+                        <button class="btn btn-primary btn-small">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="filtered-product-card" data-category="white">
+                    <div class="filtered-product-image">
+                        <img src="product-mango.webp" alt="Mango White Wine" loading="lazy">
+                    </div>
+                    <div class="filtered-product-info">
+                        <div class="filtered-product-name">Mango</div>
+                        <div class="filtered-product-type">White Wine • 750ml</div>
+                        <div class="filtered-product-price">₱450</div>
+                        <button class="btn btn-primary btn-small">Add to Cart</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section - Note: Placeholder grid, actual Instagram feed would require API integration -->
+    <section class="instagram-section">
+        <div class="instagram-header">
+            <h2 class="instagram-title">Follow us @vino.arsan</h2>
+        </div>
+        <div class="instagram-slider" id="instagramSlider">
+            <div class="instagram-post">
+                <img src="hero-slide-1-mobile.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="hero-slide-2-mobile.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="wine-malibugold.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="wine-calamansi.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="custom-wines-section.jpg" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="product-calamansi.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="instagram-post">
+                <img src="hero-slide-1-mobile.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="hero-slide-2-mobile.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="wine-malibugold.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="wine-calamansi.webp" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="custom-wines-section.jpg" alt="Instagram Post" loading="lazy">
+            </div>
+            <div class="instagram-post">
+                <img src="product-calamansi.webp" alt="Instagram Post" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="vino-arsan-logo.svg" alt="Vino Arsan" class="footer-logo-image">
+                </div>
+                <p class="footer-description">Proudly Handcrafted. Proudly Filipino. International Award-Winning Wine & Spirits. We promote Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines.</p>
+            </div>
+            
+            <div class="footer-links-section">
+                <h3>Our Collections</h3>
+                <ul class="footer-links">
+                    <li><a href="#collections" class="footer-link">Red Wines</a></li>
+                    <li><a href="#collections" class="footer-link">White Wines</a></li>
+                    <li><a href="#collections" class="footer-link">Spirits</a></li>
+                    <li><a href="#collections" class="footer-link">Limited Releases</a></li>
+                    <li><a href="#custom" class="footer-link">Custom Orders</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3>Contact Us</h3>
+                <p class="newsletter-description">
+                    Tel: (632) 8242863<br>
+                    Email: vinoarsanenterprises@gmail.com<br>
+                    #18 Michael Rue St., Better Living Subs.,<br>
+                    Parañaque City
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Vino Arsan. All rights reserved. Est. 2009 | Proudly Handcrafted. Proudly Filipino.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="spicy-script.js"></script>
+</body>
+</html>

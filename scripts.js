@@ -1,330 +1,904 @@
-// Vino Arsan - Interactive Functionality
+// Vino Arsan - Tropical Wine Website
+// Interactive functionality for carousels and UI elements
 
 // ============================================
-// AGE VERIFICATION
+// PAIRING CAROUSEL FUNCTIONALITY
 // ============================================
-function verifyAge(isOfAge) {
-    if (isOfAge) {
-        document.getElementById('ageVerify').classList.add('hidden');
-    } else {
-        alert('Sorry, you must be of legal drinking age to access this site.');
+let currentPairingSlide = 0;
+const pairingCards = document.querySelectorAll('.pairing-card');
+
+function movePairingCarousel(direction) {
+    // Remove active class from current card
+    pairingCards[currentPairingSlide].classList.remove('active');
+
+    // Calculate new index
+    currentPairingSlide += direction;
+
+    // Handle wrapping
+    if (currentPairingSlide >= pairingCards.length) {
+        currentPairingSlide = 0;
+    } else if (currentPairingSlide < 0) {
+        currentPairingSlide = pairingCards.length - 1;
     }
+
+    // Add active class to new card
+    pairingCards[currentPairingSlide].classList.add('active');
+}
+
+// Auto-advance pairing carousel every 5 seconds
+function startPairingCarousel() {
+    setInterval(() => {
+        movePairingCarousel(1);
+    }, 5000);
 }
 
 // ============================================
-// HERO SLIDER
+// LIMITED RELEASES CAROUSEL FUNCTIONALITY
 // ============================================
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.slider-dot');
+let currentLimitedSlide = 0;
+const limitedDots = document.querySelectorAll('.carousel-dots .dot');
 
-function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    currentSlide = n;
-    if (currentSlide >= slides.length) currentSlide = 0;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
-    
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+function moveLimitedCarousel(direction) {
+    goToLimitedSlide(currentLimitedSlide + direction);
 }
 
-function goToSlide(n) {
-    showSlide(n);
-}
-
-// Auto-advance slider every 5 seconds
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
-
-// ============================================
-// MOBILE MENU
-// ============================================
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+function goToLimitedSlide(slideIndex) {
+    // Handle wrapping
+    if (slideIndex >= limitedDots.length) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = limitedDots.length - 1;
     }
-});
 
-// ============================================
-// MOBILE SUBMENU TOGGLE
-// ============================================
-function toggleMobileMenu(event, menuId) {
-    if (window.innerWidth <= 768) {
-        event.preventDefault();
-        const menu = document.getElementById(menuId);
-        menu.classList.toggle('active');
+    // Remove active class from all dots
+    limitedDots.forEach(dot => dot.classList.remove('active'));
+
+    // Add active class to current dot
+    if (limitedDots[slideIndex]) {
+        limitedDots[slideIndex].classList.add('active');
+    }
+
+    currentLimitedSlide = slideIndex;
+
+    // Update carousel position
+    const track = document.querySelector('.limited-carousel-track');
+    if (track) {
+        const cardWidth = 250; // Width of card plus gap
+        const offset = -slideIndex * (cardWidth + 30);
+        // Optional: Add transform if you want to slide the carousel
+        // track.style.transform = `translateX(${offset}px)`;
     }
 }
 
-// ============================================
-// FILTER PRODUCTS BY CATEGORY
-// ============================================
-function filterProducts(category, pageCopy, menuTitle) {
-    const productCards = document.querySelectorAll('.product-card');
-    const pageDescription = document.getElementById('pageDescription');
-    const pageTitle = pageDescription.querySelector('.page-title');
-    const pageDescriptionContent = pageDescription.querySelector('.page-description-content');
-    const defaultTitle = document.querySelector('.default-title');
-    
-    if (category === 'all') {
-        productCards.forEach(card => {
-            card.style.display = 'block';
-            // Hide all pairing info
-            const pairingInfo = card.querySelector('.pairing-info');
-            if (pairingInfo) {
-                pairingInfo.style.display = 'none';
-            }
-        });
-        pageDescription.style.display = 'none';
-        defaultTitle.style.display = 'block';
-        return;
-    }
-    
-    // Filter products
-    let visibleCount = 0;
-    productCards.forEach(card => {
-        const categories = JSON.parse(card.getAttribute('data-categories') || '[]');
-        
-        if (categories.includes(category)) {
-            card.style.display = 'block';
-            visibleCount++;
-            
-            // Show pairing info if applicable
-            const pairingInfo = card.querySelector('.pairing-info');
-            if (pairingInfo) {
-                const specificPairing = pairingInfo.getAttribute(`data-${category}`);
-                if (specificPairing) {
-                    pairingInfo.textContent = specificPairing;
-                    pairingInfo.style.display = 'block';
-                } else {
-                    pairingInfo.style.display = 'none';
-                }
-            }
-        } else {
-            card.style.display = 'none';
-        }
-    });
-    
-    // Show page description with title if there is page copy
-    if (pageCopy && pageCopy.trim() !== '') {
-        pageTitle.textContent = menuTitle || 'Featured Wines';
-        pageDescriptionContent.innerHTML = `<p>${pageCopy}</p>`;
-        pageDescription.style.display = 'block';
-        defaultTitle.style.display = 'none';
-        
-        // Scroll to page description
-        pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-        // If no page copy, just update the default title
-        pageTitle.textContent = menuTitle || 'Featured Wines';
-        pageDescription.style.display = 'block';
-        defaultTitle.style.display = 'none';
-        pageDescriptionContent.innerHTML = '';
-        
-        // Scroll to page description
-        pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    
-    // Show message if no products found
-    if (visibleCount === 0) {
-        console.log('No products found for this category');
-    }
+// Auto-advance limited releases carousel every 6 seconds
+function startLimitedCarousel() {
+    setInterval(() => {
+        moveLimitedCarousel(1);
+    }, 6000);
 }
 
 // ============================================
-// ADD CLICK HANDLERS TO MENU LINKS
+// TESTIMONIAL CAROUSEL FUNCTIONALITY
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const menuLinks = document.querySelectorAll('.mega-menu a[data-filter]');
-    
-    menuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const category = link.getAttribute('data-filter');
-            const pageCopy = link.getAttribute('data-page-copy') || '';
-            const menuTitle = link.textContent.trim();
-            
-            // Close mega menus
-            document.querySelectorAll('.mega-menu').forEach(menu => {
-                menu.classList.remove('active');
-            });
-            
-            // Close mobile menu if open
-            if (navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-            
-            // Filter products
-            filterProducts(category, pageCopy, menuTitle);
-        });
-    });
-    
-    // Reset view button (optional - can be added to UI)
-    window.resetFilters = function() {
-        filterProducts('all', '', 'Featured Wines');
-    };
-});
+let currentTestimonial = 0;
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
 
-// ============================================
-// SHOPPING CART (BASIC)
-// ============================================
-let cart = [];
+function moveTestimonialCarousel(direction) {
+    goToTestimonialSlide(currentTestimonial + direction);
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productCard = e.target.closest('.product-card');
-            const productName = productCard.querySelector('h3').textContent;
-            const priceText = productCard.querySelector('.product-price').textContent;
-            
-            // Add to cart array
-            cart.push({
-                name: productName,
-                price: priceText
-            });
-            
-            // Update cart count
-            const cartCount = document.querySelector('.cart-count');
-            cartCount.textContent = cart.length;
-            
-            // Show feedback
-            alert(`${productName} added to cart!`);
-        });
-    });
-});
-
-// ============================================
-// SEARCH FUNCTIONALITY (BASIC)
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
-    
-    if (searchButton) {
-        searchButton.addEventListener('click', () => {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            if (searchTerm) {
-                const productCards = document.querySelectorAll('.product-card');
-                const pageDescription = document.getElementById('pageDescription');
-                const pageTitle = pageDescription.querySelector('.page-title');
-                const defaultTitle = document.querySelector('.default-title');
-                let foundCount = 0;
-                
-                productCards.forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const description = card.querySelector('.description').textContent.toLowerCase();
-                    const wineType = card.querySelector('.wine-type') ? card.querySelector('.wine-type').textContent.toLowerCase() : '';
-                    
-                    if (title.includes(searchTerm) || description.includes(searchTerm) || wineType.includes(searchTerm)) {
-                        card.style.display = 'block';
-                        foundCount++;
-                        
-                        // Hide pairing info during search
-                        const pairingInfo = card.querySelector('.pairing-info');
-                        if (pairingInfo) {
-                            pairingInfo.style.display = 'none';
-                        }
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Update title
-                pageTitle.textContent = `Search Results for "${searchTerm}" (${foundCount} found)`;
-                pageDescription.style.display = 'block';
-                pageDescription.querySelector('.page-description-content').innerHTML = '';
-                defaultTitle.style.display = 'none';
-                
-                // Scroll to page description
-                pageDescription.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-        
-        // Allow search on Enter key
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                searchButton.click();
-            }
-        });
+function goToTestimonialSlide(slideIndex) {
+    // Handle wrapping
+    if (slideIndex >= testimonialCards.length) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = testimonialCards.length - 1;
     }
-});
 
-// ============================================
-// NEWSLETTER SIGNUP
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const newsletterButton = document.querySelector('.newsletter button');
-    const newsletterInput = document.querySelector('.newsletter input');
-    
-    if (newsletterButton) {
-        newsletterButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const email = newsletterInput.value.trim();
-            
-            if (email && email.includes('@')) {
-                alert(`Thank you for subscribing with ${email}!`);
-                newsletterInput.value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
+    // Remove active class from all cards and dots
+    testimonialCards[currentTestimonial].classList.remove('active');
+    if (testimonialDots[currentTestimonial]) {
+        testimonialDots[currentTestimonial].classList.remove('active');
     }
-});
+
+    // Update current index
+    currentTestimonial = slideIndex;
+
+    // Add active class to new card and dot
+    testimonialCards[currentTestimonial].classList.add('active');
+    if (testimonialDots[currentTestimonial]) {
+        testimonialDots[currentTestimonial].classList.add('active');
+    }
+}
+
+// Auto-advance testimonial carousel every 7 seconds
+function startTestimonialCarousel() {
+    setInterval(() => {
+        moveTestimonialCarousel(1);
+    }, 7000);
+}
 
 // ============================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
+// SMOOTH SCROLLING FOR ANCHOR LINKS
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([data-filter])');
-    
+function initSmoothScrolling() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
     anchorLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            
+
             // Skip if it's just "#"
-            if (href === '#') {
+            if (href === '#' || href.length <= 1) {
+                e.preventDefault();
                 return;
             }
-            
+
             e.preventDefault();
             const target = document.querySelector(href);
-            
+
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
-                
-                // Close mobile menu if open
-                if (navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
             }
         });
     });
+}
+
+// ============================================
+// HEADER SCROLL EFFECT
+// ============================================
+function initHeaderScrollEffect() {
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
+// ============================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ============================================
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections for animation, but exclude shop-section, content-sections, and unforgettable
+    const sections = document.querySelectorAll('section:not(.shop-section):not(.content-sections):not(.unforgettable)');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+
+    // For shop page, animate individual product cards instead of the whole grid
+    const productsGrid = document.querySelector('.products-grid');
+
+    if (productsGrid) {
+        const productCards = productsGrid.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    }
+}
+
+// ============================================
+// MOBILE MENU FUNCTIONALITY
+// ============================================
+function initMobileMenu() {
+    const headerContainer = document.querySelector('.header-container');
+    const nav = document.querySelector('nav');
+
+    // Only create mobile menu button on mobile devices
+    if (window.innerWidth <= 768) {
+        // Check if button already exists
+        if (!document.querySelector('.mobile-menu-btn')) {
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.setAttribute('aria-label', 'Toggle mobile menu');
+            mobileMenuBtn.style.cssText = `
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: var(--text-dark);
+                cursor: pointer;
+                padding: 10px;
+                position: absolute;
+                right: 60px;
+                top: 50%;
+                transform: translateY(-50%);
+            `;
+
+            headerContainer.appendChild(mobileMenuBtn);
+
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+
+                if (nav.style.display === 'flex') {
+                    nav.style.cssText = `
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: var(--cream);
+                        padding: 20px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    `;
+                    mobileMenuBtn.innerHTML = '✕';
+                } else {
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    nav.style.display = 'none';
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+        }
+    } else {
+        // Remove mobile menu button on desktop
+        const existingBtn = document.querySelector('.mobile-menu-btn');
+        if (existingBtn) {
+            existingBtn.remove();
+        }
+        // Reset nav display
+        if (nav) {
+            nav.style.cssText = '';
+        }
+    }
+}
+
+// ============================================
+// KEYBOARD NAVIGATION FOR CAROUSELS
+// ============================================
+function initKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        // Get the currently focused element
+        const activeElement = document.activeElement;
+
+        // Check if a carousel button is focused
+        if (activeElement && activeElement.classList.contains('carousel-btn')) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                e.preventDefault();
+
+                const direction = e.key === 'ArrowLeft' ? -1 : 1;
+
+                // Determine which carousel
+                if (activeElement.closest('.pairing-carousel')) {
+                    movePairingCarousel(direction);
+                } else if (activeElement.closest('.limited-content')) {
+                    moveLimitedCarousel(direction);
+                } else if (activeElement.closest('.testimonials-carousel')) {
+                    moveTestimonialCarousel(direction);
+                }
+            }
+        }
+    });
+}
+
+// ============================================
+// LAZY LOADING FOR IMAGES
+// ============================================
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// ============================================
+// PERFORMANCE OPTIMIZATIONS
+// ============================================
+function initPerformanceOptimizations() {
+    // Debounce resize events
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            initMobileMenu();
+            updateTestimonialCalamansiPositions();
+        }, 250);
+    });
+
+    // Preload critical images
+    const criticalImages = [
+        'hero-bottle.webp',
+        'pairing-wine-1.webp',
+        'logo.svg'
+    ];
+
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
+// ============================================
+// PRODUCT VOLUME SELECTOR
+// ============================================
+function initProductVolumeSelector() {
+    const volumeButtons = document.querySelectorAll('.volume-btn');
+
+    volumeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the product card this button belongs to
+            const productCard = this.closest('.product-card');
+
+            // Remove active class from all buttons in this product card
+            const allButtons = productCard.querySelectorAll('.volume-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Update the price
+            const price = this.getAttribute('data-price');
+            const priceElement = productCard.querySelector('.product-price');
+
+            if (priceElement && price) {
+                priceElement.textContent = `₱${price}`;
+                // Update data-price attribute on product card for sorting
+                productCard.setAttribute('data-price', price);
+            }
+        });
+    });
+}
+
+// ============================================
+// SHOP FILTER AND SORT FUNCTIONALITY
+// ============================================
+// Global reference to filterProducts function
+let filterProducts;
+
+function initShopFilters() {
+    const productsContainer = document.getElementById('products-container');
+    if (!productsContainer) return; // Only run on shop page
+
+    const filterCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+    const sortSelect = document.getElementById('sort-products');
+
+    // Filter products function - now accessible globally
+    filterProducts = function() {
+        const products = Array.from(productsContainer.querySelectorAll('.product-card'));
+        const sectionTitle = productsContainer.querySelector('.section-title');
+
+        // Get selected filters
+        const selectedTypes = Array.from(document.querySelectorAll('input[name="wine-type"]:checked'))
+            .map(cb => cb.value);
+        const selectedPrices = Array.from(document.querySelectorAll('input[name="price-range"]:checked'))
+            .map(cb => cb.value);
+        const selectedAvailability = Array.from(document.querySelectorAll('input[name="availability"]:checked'))
+            .map(cb => cb.value);
+        const selectedFruits = Array.from(document.querySelectorAll('input[name="fruit"]:checked'))
+            .map(cb => cb.value);
+
+        let hasVisibleWhiteWines = false;
+
+        products.forEach(product => {
+            let show = true;
+
+            // Check wine type
+            if (selectedTypes.length > 0) {
+                const productType = product.getAttribute('data-type');
+                show = show && selectedTypes.includes(productType);
+            }
+
+            // Check price range
+            if (selectedPrices.length > 0) {
+                const productPrice = parseInt(product.getAttribute('data-price'));
+                let priceMatch = false;
+
+                selectedPrices.forEach(range => {
+                    const [min, max] = range.split('-').map(Number);
+                    if (productPrice >= min && productPrice <= max) {
+                        priceMatch = true;
+                    }
+                });
+
+                show = show && priceMatch;
+            }
+
+            // Check availability
+            if (selectedAvailability.length > 0) {
+                const productAvailability = product.getAttribute('data-availability');
+                show = show && selectedAvailability.includes(productAvailability);
+            }
+
+            // Check fruit variety
+            if (selectedFruits.length > 0) {
+                const productFruit = product.getAttribute('data-fruit');
+                let fruitMatch = false;
+
+                selectedFruits.forEach(fruit => {
+                    if (productFruit.includes(fruit)) {
+                        fruitMatch = true;
+                    }
+                });
+
+                show = show && fruitMatch;
+            }
+
+            // Show or hide product
+            product.style.display = show ? 'block' : 'none';
+
+            // Track if any white wines are visible
+            if (show && product.getAttribute('data-type') === 'white') {
+                hasVisibleWhiteWines = true;
+            }
+        });
+
+        // Show/hide section title based on visible white wines
+        if (sectionTitle) {
+            sectionTitle.style.display = hasVisibleWhiteWines ? 'block' : 'none';
+        }
+    }
+
+    // Sort products
+    function sortProducts() {
+        const products = Array.from(productsContainer.querySelectorAll('.product-card'));
+        const sortValue = sortSelect.value;
+
+        products.sort((a, b) => {
+            switch (sortValue) {
+                case 'price-low':
+                    return parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price'));
+
+                case 'price-high':
+                    return parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price'));
+
+                case 'name-az':
+                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+
+                case 'name-za':
+                    return b.getAttribute('data-name').localeCompare(a.getAttribute('data-name'));
+
+                case 'best-selling':
+                    // For now, keep original order for best-selling
+                    // In production, you would sort by actual sales data
+                    return 0;
+
+                default: // 'default' or 'featured'
+                    return 0;
+            }
+        });
+
+        // Re-append products in sorted order
+        products.forEach(product => {
+            productsContainer.appendChild(product);
+        });
+    }
+
+    // Add event listeners to filter checkboxes
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+    });
+
+    // Add event listener to sort select
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            sortProducts();
+            filterProducts(); // Reapply filters after sorting
+        });
+    }
+}
+
+// ============================================
+// MOBILE FILTER PANEL FUNCTIONALITY
+// ============================================
+function initMobileFilterPanel() {
+    const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+    const shopSidebar = document.getElementById('shop-sidebar');
+    const doneBtn = document.getElementById('done-filters-btn');
+    const resetBtn = document.getElementById('reset-filters-btn');
+    const closeBtn = document.getElementById('mobile-filter-close');
+
+    if (!mobileFilterBtn || !shopSidebar) return; // Only run on shop page
+
+    // Function to close filter panel
+    const closeFilterPanel = () => {
+        shopSidebar.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    };
+
+    // Open filter panel
+    mobileFilterBtn.addEventListener('click', () => {
+        shopSidebar.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close filter panel (X button)
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeFilterPanel);
+    }
+
+    // Close filter panel (Done button)
+    if (doneBtn) {
+        doneBtn.addEventListener('click', closeFilterPanel);
+    }
+
+    // Reset filters
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            // Uncheck all filter checkboxes
+            const filterCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+            filterCheckboxes.forEach(checkbox => {
+                checkbox.checked = true; // Reset to show all
+            });
+
+            // Reset sort to default
+            const sortSelect = document.getElementById('sort-products');
+            if (sortSelect) {
+                sortSelect.value = 'default';
+            }
+
+            // Trigger filter update if function is available
+            if (typeof filterProducts === 'function') {
+                filterProducts();
+            }
+        });
+    }
+}
+
+// ============================================
+// FORM HANDLING
+// ============================================
+function initFormHandling() {
+    const forms = document.querySelectorAll('form');
+
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Basic form validation
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#e74c3c';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (isValid) {
+                // Form submission logic would go here
+                console.log('Form submitted successfully');
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                form.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    });
+}
+
+// ============================================
+// ACCESSIBILITY IMPROVEMENTS
+// ============================================
+function initAccessibility() {
+    // Add ARIA labels to carousel buttons
+    const carouselButtons = document.querySelectorAll('.carousel-btn');
+    carouselButtons.forEach(btn => {
+        if (!btn.getAttribute('aria-label')) {
+            const direction = btn.classList.contains('prev') ? 'previous' : 'next';
+            btn.setAttribute('aria-label', `View ${direction} item`);
+        }
+    });
+
+    // Add focus visible styles
+    const focusableElements = document.querySelectorAll('a, button, input, textarea, select');
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid var(--tropical-green)';
+            this.style.outlineOffset = '2px';
+        });
+
+        element.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.outlineOffset = '';
+        });
+    });
+}
+
+// ============================================
+// PARALLAX EFFECT FOR DECORATIVE ELEMENTS
+// ============================================
+// DISABLED: Background patterns are now static via CSS
+// The new background pattern approach uses position: absolute with fixed positions
+// instead of parallax scrolling for better performance and matching the design reference
+function initParallaxEffect() {
+    // Function disabled - background patterns are now purely CSS-based
+    return;
+}
+
+// ============================================
+// LIMITED RELEASES SIZE SELECTOR
+// ============================================
+function initLimitedReleasesSizeSelector() {
+    const sizeButtons = document.querySelectorAll('.limited-release-item .size-price-item');
+
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the product card this button belongs to
+            const productCard = this.closest('.limited-release-item');
+
+            // Remove active class from all buttons in this product card
+            const allButtons = productCard.querySelectorAll('.size-price-item');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Store selected size and price for cart functionality
+            const size = this.getAttribute('data-size');
+            const price = this.getAttribute('data-price');
+            productCard.setAttribute('data-selected-size', size);
+            productCard.setAttribute('data-selected-price', price);
+        });
+    });
+}
+
+// ============================================
+// CART FUNCTIONALITY
+// ============================================
+let cart = [];
+
+function initCartFunctionality() {
+    // Load cart from localStorage
+    const savedCart = localStorage.getItem('vinoArsanCart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartCount();
+    }
+
+    // Add click handlers to all "ADD TO CART" buttons
+    const addToCartButtons = document.querySelectorAll('.limited-release-image-overlay .cta-button, .limited-release-item .add-to-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Get the product card
+            const productCard = this.closest('.limited-release-item');
+            if (!productCard) return;
+
+            // Get product details
+            const productName = productCard.querySelector('h3').textContent;
+            const productImage = productCard.querySelector('.limited-release-image img').src;
+            const selectedSize = productCard.getAttribute('data-selected-size') ||
+                                productCard.querySelector('.size-price-item.active').getAttribute('data-size');
+            const selectedPrice = productCard.getAttribute('data-selected-price') ||
+                                 productCard.querySelector('.size-price-item.active').getAttribute('data-price');
+
+            // Create cart item
+            const cartItem = {
+                id: Date.now(),
+                name: productName,
+                size: selectedSize,
+                price: parseInt(selectedPrice),
+                image: productImage,
+                quantity: 1
+            };
+
+            // Add to cart
+            cart.push(cartItem);
+
+            // Save to localStorage
+            localStorage.setItem('vinoArsanCart', JSON.stringify(cart));
+
+            // Update cart count
+            updateCartCount();
+
+            // Show confirmation
+            showCartNotification(`${productName} (${selectedSize}) added to cart!`);
+        });
+    });
+}
+
+function updateCartCount() {
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+    // Update cart icon badge (if exists)
+    let cartBadge = document.querySelector('.cart-badge');
+    if (!cartBadge && cartCount > 0) {
+        const cartIcon = document.querySelector('a[href="#cart"]');
+        if (cartIcon) {
+            cartBadge = document.createElement('span');
+            cartBadge.className = 'cart-badge';
+            cartBadge.style.cssText = `
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background: #5A8C6F;
+                color: white;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: 600;
+            `;
+            cartIcon.style.position = 'relative';
+            cartIcon.appendChild(cartBadge);
+        }
+    }
+
+    if (cartBadge) {
+        cartBadge.textContent = cartCount;
+        cartBadge.style.display = cartCount > 0 ? 'flex' : 'none';
+    }
+}
+
+function showCartNotification(message) {
+    // Remove existing notification
+    const existingNotification = document.querySelector('.cart-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = 'cart-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: #5A8C6F;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        animation: slideInRight 0.3s ease, slideOutRight 0.3s ease 2.7s;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+    `;
+
+    // Add CSS animation
+    if (!document.querySelector('#cart-notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'cart-notification-styles';
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    document.body.appendChild(notification);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('🍷 Vino Arsan - Tropical Wine Website Loaded');
+
+    // Initialize all functionality
+    startPairingCarousel();
+    startLimitedCarousel();
+    startTestimonialCarousel();
+    initSmoothScrolling();
+    initHeaderScrollEffect();
+    initScrollAnimations();
+    initMobileMenu();
+    initKeyboardNavigation();
+    initLazyLoading();
+    initPerformanceOptimizations();
+    initProductVolumeSelector();
+    initMobileFilterPanel(); // Initialize mobile filter panel
+    initShopFilters();
+    initFormHandling();
+    initAccessibility();
+    initParallaxEffect();
+    initLimitedReleasesSizeSelector();
+    initCartFunctionality();
+    updateTestimonialCalamansiPositions();
+
+    // Add loading complete class to body
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
+
+    console.log('✨ All features initialized successfully');
 });
+
+// ============================================
+// WINDOW RESIZE HANDLER
+// ============================================
+window.addEventListener('resize', () => {
+    initMobileMenu();
+    updateTestimonialCalamansiPositions();
+});
+
+// ============================================
+// ERROR HANDLING
+// ============================================
+window.addEventListener('error', (e) => {
+    console.error('Vino Arsan Website Error:', e.error);
+});
+
+// ============================================
+// TESTIMONIAL CALAMANSI POSITIONING
+// ============================================
+function updateTestimonialCalamansiPositions() {
+    const testimonialsSection = document.querySelector('.testimonials');
+    const calamansiElements = document.querySelectorAll('.testimonial-calamansi');
+
+    if (!testimonialsSection || calamansiElements.length === 0) return;
+
+    // Get the offset of the testimonials section from the top of the page
+    const testimonialsOffset = testimonialsSection.offsetTop;
+
+    // Set the CSS custom property on each calamansi element
+    calamansiElements.forEach(element => {
+        element.style.setProperty('--testimonials-offset', `${testimonialsOffset}px`);
+    });
+}
 
 // ============================================
 // CONSOLE WELCOME MESSAGE
 // ============================================
-console.log('%c🍷 Welcome to Vino Arsan', 'font-size: 20px; color: #C8A14A; font-weight: bold;');
-console.log('%cEst. 2009 - Crafted in the Atomic Age', 'font-size: 14px; color: #C8A14A;');
+console.log('%c🍷 Welcome to Vino Arsan', 'font-size: 20px; color: #5A8C6F; font-weight: bold;');
+console.log('%cTropical Wine Design - Crafted with Filipino Excellence', 'font-size: 14px; color: #5A8C6F;');

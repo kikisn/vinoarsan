@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vino Arsan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white-textured">
+    <!-- Main wrapper for background patterns and content -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="logo-image" />
+                    </a>
+                </div>
+                <nav>
+                    <a href="index.html">HOME</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="#pairings">PAIRINGS</a>
+                    <a href="limited-releases.html">LIMITED RELEASES</a>
+                </nav>
+                <div class="header-icons">
+                    <a href="#search" class="icon-link" aria-label="Search">
+                        <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
+                    </a>
+                    <a href="#cart" class="icon-link" aria-label="Shopping Cart">
+                        <img src="assets/icons/navigation/cart.svg" alt="Cart" class="icon-image" />
+                    </a>
+                    <a href="#account" class="icon-link" aria-label="Account">
+                        <img src="assets/icons/navigation/account.svg" alt="Account" class="icon-image" />
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="contact-hero-container">
+                <h1>Get In Touch</h1>
+                <p>We'd love to hear from you. Whether you have questions about our wines, bulk orders, custom labels, or wine-making seminars, our team is ready to help.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="contact-content-section">
+            <div class="contact-content-container">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="bulk">Bulk Orders</option>
+                                <option value="custom">Custom Labels</option>
+                                <option value="seminar">Wine-Making Seminars</option>
+                                <option value="product">Product Information</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">SEND MESSAGE</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-wrapper">
+                    <h2>Contact Information</h2>
+
+                    <div class="contact-info-block">
+                        <h3>Email</h3>
+                        <p><a href="mailto:sales@vinoarsan.com">sales@vinoarsan.com</a></p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+639178661022">+63 917 866 1022</a></p>
+                        <p><a href="tel:+6288242863">(02) 8824 2863</a></p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>What We Offer</h3>
+                        <ul class="services-list">
+                            <li>Wine, Brandy & Vinegar Production</li>
+                            <li>Wine-Making Equipment Sales</li>
+                            <li>Wine-Making Seminars & Training</li>
+                            <li>Custom Labels & Bulk Orders</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Follow Us</h3>
+                        <div class="contact-socials">
+                            <a href="#" class="social-link google" aria-label="Google Business Profile">
+                                <img src="assets/icons/social/google.svg" alt="Google" />
+                            </a>
+                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                                <img src="assets/icons/social/facebook.svg" alt="Facebook" />
+                            </a>
+                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                                <img src="assets/icons/social/instagram.svg" alt="Instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Company Section -->
+        <section class="about-company-section">
+            <div class="about-company-container">
+                <h2>About Vino Arsan Enterprises</h2>
+                <div class="about-content">
+                    <p>Vino Arsan began in 2008 as a humble hobby of Mr. Arturo Olarte, a Mechanical Engineer by profession. What started as an experiment with local berries from Nueva Ecija has grown into an internationally-awarded, legitimate beverage and liquor manufacturing company.</p>
+
+                    <div class="awards-section">
+                        <h3>Our Achievements</h3>
+                        <div class="awards-grid">
+                            <div class="award-item">
+                                <span class="award-medal">🥇</span>
+                                <p><strong>Gold Medal</strong></p>
+                                <p>2018 International Wine Making Competition</p>
+                            </div>
+                            <div class="award-item">
+                                <span class="award-medal">🥈</span>
+                                <p><strong>2 Silver Medals</strong></p>
+                                <p>2016 International Wine Making Competition</p>
+                            </div>
+                            <div class="award-item">
+                                <span class="award-medal">🥉</span>
+                                <p><strong>Bronze Medal</strong></p>
+                                <p>2016 International Wine Making Competition</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="values-section">
+                        <h3>Our Core Values</h3>
+                        <ul class="values-list">
+                            <li>Quality and Reliability</li>
+                            <li>Innovation</li>
+                            <li>Honesty and Accountability</li>
+                            <li>Respect for Nature and the Environment</li>
+                            <li>Profitability and Efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan" class="footer-logo" />
+                    </a>
+                </div>
+                <div class="footer-center">
+                    <div class="footer-socials">
+                        <a href="#" class="social-link google" aria-label="Google Business Profile">
+                            <img src="google.svg" alt="Google" />
+                        </a>
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <img src="facebook.svg" alt="Facebook" />
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <img src="instagram.svg" alt="Instagram" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="#privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="scripts.js"></script>
+    </div><!-- end main-wrapper -->
+</body>
+</html>
