@@ -36,7 +36,7 @@
                     <a href="limited-releases.html">LIMITED RELEASES</a>
                 </nav>
                 <div class="header-icons">
-                    <a href="#search" class="icon-link" aria-label="Search">
+                    <a href="#search" class="icon-link search-trigger" aria-label="Search">
                         <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
                     </a>
                     <a href="#cart" class="icon-link" aria-label="Shopping Cart">
@@ -49,8 +49,39 @@
             </div>
         </header>
 
+        <!-- Search Modal -->
+        <div id="search-modal" class="search-modal">
+            <div class="search-modal-overlay"></div>
+            <div class="search-modal-content">
+                <button class="search-modal-close" aria-label="Close search">&times;</button>
+                <div class="search-input-wrapper">
+                    <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                    <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+                </div>
+                <div id="search-results" class="search-results">
+                    <div class="search-suggestions">
+                        <h3>Popular Searches</h3>
+                        <div class="search-suggestion-tags">
+                            <button class="search-tag" data-query="Mango">Mango Wine</button>
+                            <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                            <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                            <button class="search-tag" data-query="Limited">Limited Releases</button>
+                            <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                            <button class="search-tag" data-query="White Wine">White Wines</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- About Hero Section - Parallax Style -->
         <section class="about-hero">
+
+            <!-- Background Video -->
+            <video class="process-bg-video" autoplay="" muted="" loop="" playsinline="">
+                <source src="assets/videos/making-wine-process.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="about-hero-container">
                 <h1>The story <em>behind</em><br>the name</h1>
                 <p>Vino Arsan was born as a vision to bring an unmatched wine to households where it's better tasted with loved ones in private spaces all over the Philippines.</p>
@@ -61,53 +92,13 @@
         <!-- Story Section - Custom Content Layout -->
         <section class="story-section" id="story">
             <div class="story-image">
-                <img src="assets/images/content/bottle-with-charcuterie.webp" alt="Vino Arsan Wine" loading="lazy">
+                <img src="assets/images/content/bottle-with-charcuterie-1200w.webp" alt="Vino Arsan Wine" loading="lazy">
             </div>
             <div class="story-content">
                 <h2>Our <em>Story</em> of<br>Passion & Heritage</h2>
                 <p>Vino Arsan was formed with the aim of promoting Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines. From Calamansi in Tagudin, Ilocos Sur, to exotic blends from South Cotabato and Quezon, we celebrate the rich agricultural heritage of our homeland.</p>
                 <p>Each bottle tells a story of local farmers, traditional winemaking techniques, and the unique flavors that define Filipino craftsmanship. Our award-winning wines, particularly our signature Malibugold blend made from Mangosteen, Lipote, and Bugnay, have earned international recognition.</p>
                 <p>We're proud to support local farmers and bring these exceptional wines to households across the Philippines and beyond.</p>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="about-testimonials">
-            <div class="about-testimonials-container">
-                <div class="about-testimonial-carousel">
-                    <div class="about-testimonial-wrapper">
-                        <div class="about-testimonial-track">
-                            <div class="about-testimonial-card active">
-                                <div class="about-testimonial-content">
-                                    <blockquote>"Vino Arsan's wines are truly exceptional. The Malibugold is unlike anything I've tasted before - a perfect blend of tropical flavors that showcases the best of Filipino fruits. The craftsmanship is evident in every bottle."</blockquote>
-                                    <cite>-Maria dela Cruz-</cite>
-                                </div>
-                            </div>
-                            <div class="about-testimonial-card">
-                                <div class="about-testimonial-content">
-                                    <blockquote>"As a wine collector, I'm always looking for unique bottles to add to my collection. Vino Arsan's fruit wines are not only delicious but also beautifully presented with stunning bottle labels featuring local fruit illustrations."</blockquote>
-                                    <cite>-Carlos Reyes-</cite>
-                                </div>
-                            </div>
-                            <div class="about-testimonial-card">
-                                <div class="about-testimonial-content">
-                                    <blockquote>"I ordered custom bottles for our company's anniversary celebration. The team at Vino Arsan was incredibly helpful, and the personalized labels made our event truly memorable. The Calamansi wine was a hit with all our guests!"</blockquote>
-                                    <cite>-Jennifer Tan-</cite>
-                                </div>
-                            </div>
-                            <div class="about-testimonial-card">
-                                <div class="about-testimonial-content">
-                                    <blockquote>"The mangosteen wine is absolutely incredible! Never tasted anything like it. Perfect balance of tropical sweetness and sophistication."</blockquote>
-                                    <cite>-Maria Santos-</cite>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about-testimonial-nav">
-                            <button class="about-testimonial-arrow" id="prevAboutTestimonial" aria-label="Previous testimonial">‹</button>
-                            <button class="about-testimonial-arrow" id="nextAboutTestimonial" aria-label="Next testimonial">›</button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -119,7 +110,7 @@
                 <a href="contact.html" class="cta-button">LEARN MORE</a>
             </div>
             <div class="elegance-image">
-                <img src="assets/images/hero/homepage-hero-bottle.png" alt="Custom Wine Bottles" loading="lazy">
+                <img src="assets/images/content/custom-wines-section.jpg" alt="Custom Wine Bottles" loading="lazy">
             </div>
         </section>
 
@@ -197,13 +188,13 @@
                 </div>
                 <div class="footer-center">
                     <div class="footer-socials">
-                        <a href="#" class="social-link google" aria-label="Google Business Profile">
+                        <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
                             <img src="assets/icons/social/google.svg" alt="Google" />
                         </a>
-                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                        <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
                             <img src="assets/icons/social/facebook.svg" alt="Facebook" />
                         </a>
-                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                        <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
                             <img src="assets/icons/social/instagram.svg" alt="Instagram" />
                         </a>
                     </div>

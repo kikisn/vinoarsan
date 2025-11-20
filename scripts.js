@@ -181,9 +181,29 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
+    // Check if we're on the contact page
+    const isContactPage = window.location.pathname.includes('contact.html');
+
     // Observe sections for animation, but exclude shop-section, content-sections, and unforgettable
     const sections = document.querySelectorAll('section:not(.shop-section):not(.content-sections):not(.unforgettable)');
     sections.forEach(section => {
+        // On contact page, skip animation for about-company-section but animate its content
+        if (isContactPage && section.classList.contains('about-company-section')) {
+            // Make the section background immediately visible
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+
+            // Animate the about-content container instead
+            const aboutContent = section.querySelector('.about-content');
+            if (aboutContent) {
+                aboutContent.style.opacity = '0';
+                aboutContent.style.transform = 'translateY(30px)';
+                aboutContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(aboutContent);
+            }
+            return;
+        }
+
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -853,6 +873,177 @@ function showCartNotification(message) {
 }
 
 // ============================================
+// SEARCH FUNCTIONALITY
+// ============================================
+function initSearchFunctionality() {
+    const searchModal = document.getElementById('search-modal');
+    const searchTriggers = document.querySelectorAll('.search-trigger');
+    const searchCloseBtn = document.querySelector('.search-modal-close');
+    const searchOverlay = document.querySelector('.search-modal-overlay');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchTags = document.querySelectorAll('.search-tag');
+
+    if (!searchModal) return; // Only run if search modal exists
+
+    // Sample wine data for searching (in production, this would come from a database)
+    const wineData = [
+        { name: 'Mango White Wine', category: 'White Wine', fruit: 'Mango', url: 'shop.html#mango-wine' },
+        { name: 'Calamansi White Wine', category: 'White Wine', fruit: 'Calamansi', url: 'shop.html#calamansi-wine' },
+        { name: 'Honey Lemon White Wine', category: 'White Wine', fruit: 'Honey Lemon', url: 'shop.html#honey-lemon-wine' },
+        { name: 'Dragon Fruit Red Wine', category: 'Red Wine', fruit: 'Dragon Fruit', url: 'shop.html#dragon-fruit-wine' },
+        { name: 'Bignay Medium Sweet Red Wine', category: 'Red Wine', fruit: 'Bignay', url: 'shop.html#bignay-sweet-wine' },
+        { name: 'Bignay Medium Dry Red Wine', category: 'Red Wine', fruit: 'Bignay', url: 'shop.html#bignay-dry-wine' },
+        { name: 'Lipote Medium Sweet Red Wine', category: 'Red Wine', fruit: 'Lipote', url: 'shop.html#lipote-sweet-wine' },
+        { name: 'Lipote Medium Dry Red Wine', category: 'Red Wine', fruit: 'Lipote', url: 'shop.html#lipote-dry-wine' },
+        { name: 'Malibugold Medium Sweet Red Wine', category: 'Red Wine', fruit: 'Malibugold', url: 'shop.html#malibugold-sweet-wine' },
+        { name: 'Malibugold Medium Dry Red Wine', category: 'Red Wine', fruit: 'Malibugold', url: 'shop.html#malibugold-dry-wine' },
+        { name: 'Bignay, Pitaya Red Wine', category: 'Red Wine', fruit: 'Bignay, Pitaya', url: 'shop.html#bignay-pitaya-wine' },
+        { name: 'Sangria Red Wine', category: 'Red Wine', fruit: 'Sangria', url: 'shop.html#sangria-wine' },
+        { name: 'Lolo Art Whiskey', category: 'Limited Release', fruit: 'Spirit', url: 'limited-releases.html#whiskey' },
+        { name: 'Lolo Art Brandy', category: 'Limited Release', fruit: 'Spirit', url: 'limited-releases.html#brandy' },
+        { name: 'Lolo Art Gin', category: 'Limited Release', fruit: 'Spirit', url: 'limited-releases.html#gin' },
+        { name: 'Coffee Liquor', category: 'Limited Release', fruit: 'Coffee', url: 'limited-releases.html#coffee' },
+        { name: 'Chocolate Liquor', category: 'Limited Release', fruit: 'Chocolate', url: 'limited-releases.html#chocolate' }
+    ];
+
+    // Open search modal
+    function openSearchModal() {
+        searchModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            searchInput.focus();
+        }, 100);
+    }
+
+    // Close search modal
+    function closeSearchModal() {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+        searchInput.value = '';
+        displaySuggestions();
+    }
+
+    // Display search suggestions (default view)
+    function displaySuggestions() {
+        searchResults.innerHTML = `
+            <div class="search-suggestions">
+                <h3>Popular Searches</h3>
+                <div class="search-suggestion-tags">
+                    <button class="search-tag" data-query="Mango">Mango Wine</button>
+                    <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                    <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                    <button class="search-tag" data-query="Limited">Limited Releases</button>
+                    <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                    <button class="search-tag" data-query="White Wine">White Wines</button>
+                </div>
+            </div>
+        `;
+
+        // Re-attach event listeners to new tags
+        const newTags = searchResults.querySelectorAll('.search-tag');
+        newTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                const query = this.getAttribute('data-query');
+                searchInput.value = query;
+                performSearch(query);
+            });
+        });
+    }
+
+    // Perform search
+    function performSearch(query) {
+        if (!query || query.trim() === '') {
+            displaySuggestions();
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase();
+        const results = wineData.filter(wine =>
+            wine.name.toLowerCase().includes(lowerQuery) ||
+            wine.category.toLowerCase().includes(lowerQuery) ||
+            wine.fruit.toLowerCase().includes(lowerQuery)
+        );
+
+        if (results.length === 0) {
+            searchResults.innerHTML = `
+                <div class="search-no-results">
+                    <p>No results found for "${query}"</p>
+                    <p style="margin-top: 10px; font-size: 14px; opacity: 0.7;">Try searching for wine types, fruits, or categories</p>
+                </div>
+            `;
+            return;
+        }
+
+        const resultsHTML = results.map(wine => `
+            <a href="${wine.url}" class="search-result-item">
+                <div class="search-result-info">
+                    <div class="search-result-title">${wine.name}</div>
+                    <div class="search-result-category">${wine.category}</div>
+                </div>
+            </a>
+        `).join('');
+
+        searchResults.innerHTML = `
+            <div class="search-results-list">
+                <h3 style="font-family: 'Fondamento', serif; font-size: 20px; color: var(--dark-green); margin-bottom: 15px;">
+                    Search Results (${results.length})
+                </h3>
+                ${resultsHTML}
+            </div>
+        `;
+    }
+
+    // Event listeners for opening search modal
+    searchTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openSearchModal();
+        });
+    });
+
+    // Event listener for closing search modal
+    if (searchCloseBtn) {
+        searchCloseBtn.addEventListener('click', closeSearchModal);
+    }
+
+    if (searchOverlay) {
+        searchOverlay.addEventListener('click', closeSearchModal);
+    }
+
+    // Event listener for search input
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            performSearch(e.target.value);
+        });
+
+        // Handle Enter key
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch(searchInput.value);
+            }
+        });
+    }
+
+    // Event listeners for suggestion tags
+    searchTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            const query = this.getAttribute('data-query');
+            searchInput.value = query;
+            performSearch(query);
+        });
+    });
+
+    // Close search modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+            closeSearchModal();
+        }
+    });
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -877,6 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxEffect();
     initLimitedReleasesSizeSelector();
     initCartFunctionality();
+    initSearchFunctionality(); // Initialize search functionality
     updateTestimonialCalamansiPositions();
 
     // Add loading complete class to body

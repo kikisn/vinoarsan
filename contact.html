@@ -29,7 +29,7 @@
                     <a href="limited-releases.html">LIMITED RELEASES</a>
                 </nav>
                 <div class="header-icons">
-                    <a href="#search" class="icon-link" aria-label="Search">
+                    <a href="#search" class="icon-link search-trigger" aria-label="Search">
                         <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
                     </a>
                     <a href="#cart" class="icon-link" aria-label="Shopping Cart">
@@ -42,20 +42,42 @@
             </div>
         </header>
 
+        <!-- Search Modal -->
+        <div id="search-modal" class="search-modal">
+            <div class="search-modal-overlay"></div>
+            <div class="search-modal-content">
+                <button class="search-modal-close" aria-label="Close search">&times;</button>
+                <div class="search-input-wrapper">
+                    <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                    <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+                </div>
+                <div id="search-results" class="search-results">
+                    <div class="search-suggestions">
+                        <h3>Popular Searches</h3>
+                        <div class="search-suggestion-tags">
+                            <button class="search-tag" data-query="Mango">Mango Wine</button>
+                            <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                            <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                            <button class="search-tag" data-query="Limited">Limited Releases</button>
+                            <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                            <button class="search-tag" data-query="White Wine">White Wines</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Contact Hero Section -->
-        <section class="contact-hero">
+        <section class="contact-hero bg-white-textured">
             <div class="contact-hero-container">
-                <h1>Get In Touch</h1>
-                <p>We'd love to hear from you. Whether you have questions about our wines, bulk orders, custom labels, or wine-making seminars, our team is ready to help.</p>
+                <h1>Send Us a Message</h1>
             </div>
         </section>
 
         <!-- Contact Content Section -->
-        <section class="contact-content-section">
+        <section class="contact-content-section bg-white-textured">
             <div class="contact-content-container">
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <h2>Send Us a Message</h2>
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
@@ -130,13 +152,13 @@
                     <div class="contact-info-block">
                         <h3>Follow Us</h3>
                         <div class="contact-socials">
-                            <a href="#" class="social-link google" aria-label="Google Business Profile">
+                            <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
                                 <img src="assets/icons/social/google.svg" alt="Google" />
                             </a>
-                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
                                 <img src="assets/icons/social/facebook.svg" alt="Facebook" />
                             </a>
-                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
                                 <img src="assets/icons/social/instagram.svg" alt="Instagram" />
                             </a>
                         </div>
@@ -144,6 +166,11 @@
                 </div>
             </div>
         </section>
+
+        <!-- Hero Border Separator -->
+        <div class="shop-hero-border-wrapper">
+            <img src="assets/decorative/borders/hero-border-contact.svg" alt="about section border" class="shop-hero-border" />
+        </div>
 
         <!-- About Company Section -->
         <section class="about-company-section">
@@ -197,14 +224,14 @@
                 </div>
                 <div class="footer-center">
                     <div class="footer-socials">
-                        <a href="#" class="social-link google" aria-label="Google Business Profile">
-                            <img src="google.svg" alt="Google" />
+                        <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
+                            <img src="assets/icons/social/google.svg" alt="Google" />
                         </a>
-                        <a href="#" class="social-link facebook" aria-label="Facebook">
-                            <img src="facebook.svg" alt="Facebook" />
+                        <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
+                            <img src="assets/icons/social/facebook.svg" alt="Facebook" />
                         </a>
-                        <a href="#" class="social-link instagram" aria-label="Instagram">
-                            <img src="instagram.svg" alt="Instagram" />
+                        <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
+                            <img src="assets/icons/social/instagram.svg" alt="Instagram" />
                         </a>
                     </div>
                 </div>

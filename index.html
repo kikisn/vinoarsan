@@ -54,7 +54,7 @@
                 <a href="limited-releases.html">LIMITED RELEASES</a>
             </nav>
             <div class="header-icons">
-                <a href="#search" class="icon-link" aria-label="Search">
+                <a href="#search" class="icon-link search-trigger" aria-label="Search">
                     <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
                 </a>
                 <a href="#cart" class="icon-link" aria-label="Shopping Cart">
@@ -66,6 +66,31 @@
             </div>
         </div>
     </header>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-overlay"></div>
+        <div class="search-modal-content">
+            <button class="search-modal-close" aria-label="Close search">&times;</button>
+            <div class="search-input-wrapper">
+                <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+            </div>
+            <div id="search-results" class="search-results">
+                <div class="search-suggestions">
+                    <h3>Popular Searches</h3>
+                    <div class="search-suggestion-tags">
+                        <button class="search-tag" data-query="Mango">Mango Wine</button>
+                        <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                        <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                        <button class="search-tag" data-query="Limited">Limited Releases</button>
+                        <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                        <button class="search-tag" data-query="White Wine">White Wines</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -585,13 +610,13 @@
             </div>
             <div class="footer-center">
                 <div class="footer-socials">
-                    <a href="#" class="social-link google" aria-label="Google Business Profile">
+                    <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
                         <img src="assets/icons/social/google.svg" alt="Google" />
                     </a>
-                    <a href="#" class="social-link facebook" aria-label="Facebook">
+                    <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
                         <img src="assets/icons/social/facebook.svg" alt="Facebook" />
                     </a>
-                    <a href="#" class="social-link instagram" aria-label="Instagram">
+                    <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
                         <img src="assets/icons/social/instagram.svg" alt="Instagram" />
                     </a>
                 </div>
