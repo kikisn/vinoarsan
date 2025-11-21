@@ -181,8 +181,9 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    // Check if we're on the contact page
+    // Check if we're on the contact page or limited-releases page
     const isContactPage = window.location.pathname.includes('contact.html');
+    const isLimitedReleasesPage = window.location.pathname.includes('limited-releases.html');
 
     // Observe sections for animation, but exclude shop-section, content-sections, and unforgettable
     const sections = document.querySelectorAll('section:not(.shop-section):not(.content-sections):not(.unforgettable)');
@@ -204,6 +205,16 @@ function initScrollAnimations() {
             return;
         }
 
+        // On limited-releases page, skip animation for background sections
+        if (isLimitedReleasesPage &&
+            (section.classList.contains('limited-releases-hero') ||
+             section.classList.contains('limited-releases-grid-section'))) {
+            // Make the section backgrounds immediately visible
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+            return;
+        }
+
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -222,6 +233,18 @@ function initScrollAnimations() {
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+    }
+
+    // For limited-releases page, animate only the grid container
+    if (isLimitedReleasesPage) {
+        const limitedGridContainer = document.querySelector('.limited-releases-grid-container');
+
+        if (limitedGridContainer) {
+            limitedGridContainer.style.opacity = '0';
+            limitedGridContainer.style.transform = 'translateY(30px)';
+            limitedGridContainer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(limitedGridContainer);
+        }
     }
 }
 
