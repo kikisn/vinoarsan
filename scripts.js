@@ -60,13 +60,26 @@ function goToLimitedSlide(slideIndex) {
 
     currentLimitedSlide = slideIndex;
 
-    // Update carousel position
+    // Update carousel position for mobile (show/hide cards)
     const track = document.querySelector('.limited-carousel-track');
-    if (track) {
-        const cardWidth = 250; // Width of card plus gap
-        const offset = -slideIndex * (cardWidth + 30);
-        // Optional: Add transform if you want to slide the carousel
-        // track.style.transform = `translateX(${offset}px)`;
+    const cards = document.querySelectorAll('.limited-card');
+
+    if (track && cards.length > 0) {
+        // On mobile (width <= 768px), show only one card at a time
+        if (window.innerWidth <= 768) {
+            cards.forEach((card, index) => {
+                if (index === slideIndex) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        } else {
+            // On desktop, show all cards
+            cards.forEach(card => {
+                card.style.display = 'flex';
+            });
+        }
     }
 }
 
@@ -1134,6 +1147,11 @@ function updateTestimonialCalamansiPositions() {
         element.style.setProperty('--testimonials-offset', `${testimonialsOffset}px`);
     });
 }
+
+// ============================================
+// CONTENT SECTION FRUIT POSITIONING (Mobile)
+// ============================================
+// Content fruit positioning removed - now handled purely with CSS
 
 // ============================================
 // CONSOLE WELCOME MESSAGE
