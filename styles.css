@@ -684,7 +684,6 @@ nav a:focus-visible {
 /* Content Sections */
 .content-sections {
     padding: 100px 0;
-    position: relative;
     z-index: 2;
 }
 
@@ -702,7 +701,7 @@ nav a:focus-visible {
 .content-fruit-decoration {
     position: absolute;
     z-index: 1;
-    opacity: 1.0;
+    opacity: 0.3;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -2851,6 +2850,11 @@ footer {
     .unforgettable {
         scroll-snap-align: start;
         scroll-snap-stop: normal;
+    }
+
+    /* Enable relative positioning for content-sections in mobile view only */
+    .content-sections {
+        position: relative;
     }
 
     /*
