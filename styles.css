@@ -133,7 +133,7 @@ h4 {
 }
 
 /* Mobile Typography */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     h1 {
         font-size: 2.25rem;
     }
@@ -169,7 +169,7 @@ h4 {
 .hero-fruit-mulberry,
 .hero-fruit-calamansi {
     position: absolute;
-    z-index: 5;
+    z-index: 1;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -388,6 +388,7 @@ nav a:focus-visible {
     gap: 30px;
     position: relative;
     z-index: 2;
+    overflow: hidden;
 }
 
 .hero-bottle {
@@ -1345,73 +1346,31 @@ nav a:focus-visible {
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
-    --testimonials-offset: 0px; /* Will be set dynamically by JavaScript */
+    z-index: 1;
 }
 
-/* Calamansi (Testimonial 1) - Higher z-index per spec */
 .testimonial-calamansi-1 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 25.16rem;
-    height: 31.45rem;
-    left: -1.0%;
-    top: calc(var(--testimonials-offset) + 18.25rem);
-    transform: rotate(2.03deg);
-    z-index: 3;
 }
 
-/* Calamansi (Testimonial 2) - Higher z-index per spec */
 .testimonial-calamansi-2 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 28.01rem;
-    height: 35.02rem;
-    left: 72.6%;
-    top: calc(var(--testimonials-offset) + 7.66rem);
-    transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
-    z-index: 3;
 }
 
-/* Calamansi (Testimonial 3) */
 .testimonial-calamansi-3 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 26.27rem;
-    height: 32.84rem;
-    left: 48.6%;
-    top: calc(var(--testimonials-offset) + 18.06rem);
-    transform: rotate(-48.45deg);
-    z-index: 1;
 }
 
-/* Calamansi (Testimonial 4) */
 .testimonial-calamansi-4 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 26.52rem;
-    height: 33.14rem;
-    left: 66.9%;
-    top: calc(var(--testimonials-offset) - 8.94rem);
-    transform: rotate(2.03deg);
-    z-index: 1;
 }
 
-/* Calamansi (Testimonial 5) */
 .testimonial-calamansi-5 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 20.98rem;
-    height: 26.23rem;
-    left: 3.3%;
-    top: calc(var(--testimonials-offset) - 0.54rem);
-    transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
-    z-index: 1;
 }
 
-/* Calamansi (Testimonial 6) */
 .testimonial-calamansi-6 {
     background-image: url('assets/decorative/fruits/calamansi.webp');
-    width: 18.07rem;
-    height: 22.59rem;
-    left: 23.1%;
-    top: calc(var(--testimonials-offset) + 22.56rem);
-    transform: rotate(2.03deg);
-    z-index: 1;
 }
 
 .testimonial-content blockquote {
@@ -1429,43 +1388,6 @@ nav a:focus-visible {
     color: var(--white);
     font-style: normal;
     font-weight: 400;
-}
-
-.testimonial-flowers,
-.testimonial-leaf {
-    position: absolute;
-    opacity: 0.6;
-    z-index: 1;
-}
-
-.testimonial-flowers {
-    width: 150px;
-    height: auto;
-}
-
-.testimonial-flowers.left {
-    bottom: 50px;
-    left: 0;
-}
-
-.testimonial-flowers.right {
-    bottom: 50px;
-    right: 0;
-}
-
-.testimonial-leaf {
-    width: 180px;
-    height: auto;
-}
-
-.testimonial-leaf.left {
-    top: 0;
-    left: 0;
-}
-
-.testimonial-leaf.right {
-    top: 0;
-    right: 0;
 }
 
 /* Unforgettable Section */
@@ -1546,7 +1468,7 @@ nav a:focus-visible {
     color: var(--gold-cta);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .contact-item {
     text-align: center !important;
   }
@@ -2113,7 +2035,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .contact-hero {
         padding: 140px 20px 0px;
         min-height: 10vh;
@@ -2835,7 +2757,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 399px) {
     /* Enable scroll snap for mobile view */
     html {
         scroll-snap-type: y proximity;
@@ -2863,65 +2785,51 @@ footer {
      * Conversion: vw = (figma_rem / 24.56) * 100vw (where 24.56rem = 393px design width)
      * Vertical positioning uses original rem values from Figma specs
      */
-    /* Adjust Hero fruit patterns for mobile - Updated from Figma frame (393×6166.44px) */
-    /* Parent dimensions: 393px (24.56rem) × 6166.44px (385.40rem) */
+    /* Adjust Hero fruit patterns for mobile - Updated from Figma frame (375×6320px) */
+    /* Parent dimensions: 375px × 6320px */
 
-    /* Hero_dragonfruit_1 */
+    /* Hero_dragonfruit_1 - left: calc(50% - 88.54px/2 - 117.14px) = calc(50% - 161.41px) */
     .hero-fruit-dragonfruit {
-        width: 5.44rem !important;
-        height: 8.12rem !important;
-        left: calc(50% - 5.44rem/2 - (7.20 / 24.56 * 100vw)) !important;
-        bottom: 331.60rem !important;
-        top: auto !important;
-        right: auto !important;
+        width: 5.53rem !important;             /* 88.54px / 16 */
+        height: 8.27rem !important;            /* 132.25px / 16 */
+        left: 7%;                              /* (187.5 - 161.41) / 375 = 6.96% */
+        top: 51.4rem !important;               /* (6320 - 5397.87) / 16 = 57.63rem, adjusted */
         z-index: 1 !important;
         transform: matrix(-0.96, 0.28, 0.28, 0.96, 0, 0) !important;
     }
 
     /* hero_mango */
     .hero-fruit-mango {
-        width: 6.19rem !important;
-        height: 7.93rem !important;
-        left: calc(18.18 / 24.56 * 100vw) !important;
-        top: 34.80rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 6.3rem !important;              /* 100.76px / 16 */
+        height: 8.07rem !important;            /* 129.11px / 16 */
+        left: 78.9%;                           /* 295.89px / 375 */
+        top: 35.4rem !important;               /* 566.41px / 16 */
         z-index: 1 !important;
         transform: rotate(36.99deg) !important;
     }
 
     /* hero_calamansi_2 (using hero-fruit-calamansi) */
     .hero-fruit-calamansi {
-        width: auto !important;
-        height: auto !important;
-        left: calc(-3.19 / 24.56 * 100vw) !important;
-        right: calc(21.41 / 24.56 * 100vw) !important;
-        top: 17.15rem !important;
-        bottom: 359.20rem !important;
+        left: -13% !important;
+        top: 17.6rem !important;               /* 4.45% of 6320px = 281.24px / 16 */
         z-index: 1 !important;
         transform: rotate(167.09deg) !important;
     }
 
     /* hero_bugnay (using hero-fruit-bignay) */
     .hero-fruit-bignay {
-        width: auto !important;
-        height: auto !important;
-        left: calc(2.66 / 24.56 * 100vw) !important;
-        right: calc(14.16 / 24.56 * 100vw) !important;
-        top: 5.20rem !important;
-        bottom: 370.72rem !important;
+        left: 10.81% !important;
+        top: 5.3rem !important;                /* 1.35% of 6320px = 85.32px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
 
     /* Hero_Mulberry_1 (using hero-fruit-mulberry) */
     .hero-fruit-mulberry {
-        width: 6.719rem !important;
-        height: 8.096rem !important;
-        left: calc(16.797 / 24.56 * 100vw) !important;
-        top: 5.701rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 6.84rem !important;             /* 109.38px / 16 */
+        height: 8.24rem !important;            /* 131.78px / 16 */
+        left: 72.9% !important;                /* 273.44px / 375 */
+        top: 5.8rem !important;                /* 92.79px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
@@ -2934,32 +2842,26 @@ footer {
     /* Show and position the 3 additional hero fruits on mobile */
     .hero-fruit-dragonfruit-2 {
         display: block !important;
-        left: calc(19.96 / 24.56 * 100vw) !important;
-        right: calc(-0.84 / 24.56 * 100vw) !important;
-        top: 15.11rem !important;
-        bottom: 362.16rem !important;
+        left: 81.28% !important;
+        top: 15.4rem !important;               /* 3.92% of 6320px = 247.74px / 16 */
         z-index: 1 !important;
         transform: rotate(-17.88deg) !important;
     }
 
     .hero-fruit-calamansi-1 {
         display: block !important;
-        left: calc(15.02 / 24.56 * 100vw) !important;
-        right: calc(3.22 / 24.56 * 100vw) !important;
-        top: 45.67rem !important;
-        bottom: 332.10rem !important;
+        left: 61.16% !important;
+        top: 46.9rem !important;               /* 11.85% of 6320px = 748.92px / 16 */
         z-index: 1 !important;
         transform: rotate(-21.1deg) !important;
     }
 
     .hero-fruit-mulberry-2 {
         display: block !important;
-        width: 6.719rem !important;
-        height: 8.096rem !important;
-        left: calc(-2.424 / 24.56 * 100vw) !important;
-        top: 36.103rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 6.84rem !important;             /* 109.38px / 16 */
+        height: 8.24rem !important;            /* 131.78px / 16 */
+        left: -10.5% !important;               /* -39.45px / 375 */
+        top: 36.7rem !important;               /* 587.7px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
@@ -2976,130 +2878,110 @@ footer {
         visibility: visible !important;
     }
 
-    /* calamansi_content_1 - spec: 174.65px x 218.32px at 296px left, 1337px top */
+    /* calamansi_content_1 */
     .content-fruit-calamansi {
         background-image: url('assets/decorative/fruits/calamansi.webp') !important;
-        width: 40.6% !important;     /* 174.65/430 */
-        height: 13.645rem !important;
-        left: 68.84% !important;
-        top: 83.5625rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 46.6% !important;                /* 174.65px / 375 */
+        height: 13.6rem !important;             /* 218.32px / 16 */
+        left: 75.1% !important;                 /* 281.73px / 375 */
+        top: 220.7rem !important;               /* 3530.59px / 16 */
         z-index: 1 !important;
         transform: rotate(-15.82deg) !important;
     }
 
-    /* calamansi_content_2 - spec: 187.11px x 233.89px at -11.17px left, -35.77px top */
+    /* calamansi_content_2 */
     .content-fruit-calamansi-2 {
         background-image: url('assets/decorative/fruits/calamansi.webp') !important;
-        width: 43.5% !important;     /* 187.11/430 */
-        height: 14.618rem !important;
-        left: -2.60% !important;
-        top: -2.236rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 49.9% !important;                /* 187.11px / 375 */
+        height: 14.6rem !important;             /* 233.89px / 16 */
+        left: -5.4% !important;                 /* -20.17px / 375 */
+        top: 130.5rem !important;               /* 2087.23px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
 
-    /* Bignay_content - spec: 192.82px x 276.05px at 291px left, -57px top */
+    /* Bignay_content */
     .content-fruit-bugnay {
         background-image: url('assets/decorative/fruits/bugnay.webp') !important;
-        width: 44.8% !important;     /* 192.82/430 */
-        height: 17.253rem !important;
-        left: 67.67% !important;
-        top: -3.5625rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 51.4% !important;                /* 192.65px / 375 */
+        height: 17.3rem !important;             /* 276.05px / 16 */
+        left: 67.5% !important;                 /* 253.11px / 375 */
+        top: 129.1rem !important;               /* 2066px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
 
-    /* dragonfruit_content - spec: 129.11px x 184.98px at -58.57px left, 414.17px top */
+    /* dragonfruit_content */
     .content-fruit-dragonfruit {
         background-image: url('assets/decorative/fruits/dragonfruit.webp') !important;
-        width: 30% !important;       /* 129.11/430 */
-        height: 11.561rem !important;
-        left: -13.62% !important;
-        top: 25.886rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 34.4% !important;                /* 128.95px / 375 */
+        height: 11.6rem !important;             /* 184.96px / 16 */
+        left: -18% !important;                  /* -67.57px / 375 */
+        top: 158.6rem !important;               /* 2537.17px / 16 */
         z-index: 1 !important;
         transform: matrix(-0.96, -0.28, -0.28, 0.96, 0, 0) !important;
     }
 
-    /* Mango_content - spec: 199.12px x 248.97px at -91px left, 1047px top */
+    /* Mango_content */
     .content-fruit-mango {
         background-image: url('assets/decorative/fruits/mango.webp') !important;
-        width: 46.3% !important;     /* 199.12/430 */
-        height: 15.561rem !important;
-        left: -21.16% !important;
-        top: 65.4375rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 53.1% !important;                /* 199.12px / 375 */
+        height: 15.6rem !important;             /* 248.97px / 16 */
+        left: -26.1% !important;                /* -98px / 375 */
+        top: 201.7rem !important;               /* 3227.18px / 16 */
         z-index: 1 !important;
         transform: matrix(-0.93, 0.36, 0.36, 0.93, 0, 0) !important;
     }
 
-    /* mangosteen_content - spec: 215.54px x 287.02px at 107px left, 1523px top */
+    /* mangosteen_content */
     .content-fruit-mangosteen {
         background-image: url('assets/decorative/fruits/mangosteen.webp') !important;
-        width: 50.1% !important;     /* 215.54/430 */
-        height: 17.939rem !important;
-        left: 24.88% !important;
-        top: 95.1875rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 57.5% !important;                /* 215.54px / 375 */
+        height: 17.9rem !important;             /* 287.02px / 16 */
+        left: 26.7% !important;                 /* 100.16px / 375 */
+        top: 235.2rem !important;               /* 3762.64px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
 
-    /* Mulberry_content - spec: 166.32px x 210.75px at 252px left, 639px top */
+    /* Mulberry_content */
     .content-fruit-mulberry {
         background-image: url('assets/decorative/fruits/mulberry.webp') !important;
-        width: 38.7% !important;     /* 166.32/430 */
-        height: 13.172rem !important;
-        left: 58.60% !important;
-        top: 39.9375rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 44.4% !important;                /* 166.32px / 375 */
+        height: 13.2rem !important;             /* 210.75px / 16 */
+        left: 55.4% !important;                 /* 207.87px / 375 */
+        top: 180rem !important;                 /* 2880.31px / 16 */
         z-index: 2 !important;
         transform: rotate(21.61deg) !important;
     }
 
-    /* Adjust Testimonial calamansi patterns for mobile - REM-based positioning from specs */
+    /* Adjust Testimonial calamansi patterns for mobile */
 
     /* calamansi_testimonial_1 */
     .testimonial-calamansi-1 {
-        width: 18.92rem !important;
-        height: 23.66rem !important;
-        left: calc(-6.83 / 24.56 * 100vw) !important;
-        top: 321.96rem !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: rotate(2.03deg) !important;
+        width: 27.7rem !important;              /* 442.88px / 16 */
+        height: 34.6rem !important;             /* 553.6px / 16 */
+        left: -45.9% !important;                /* -172px / 375 */
+        top: 307.6rem !important;               /* 4921px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
     /* calamansi_testimonial_2 */
     .testimonial-calamansi-2 {
-        width: 16.42rem !important;
-        height: 20.52rem !important;
-        left: calc(14.32 / 24.56 * 100vw) !important;
-        top: 297.52rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 16.1rem !important;              /* 257.7px / 16 */
+        height: 20.1rem !important;             /* 322.13px / 16 */
+        left: 62.3% !important;                 /* 233.66px / 375 */
+        top: 298.6rem !important;               /* 4778.34px / 16 */
         z-index: 1 !important;
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
     /* calamansi_testimonial_3 */
     .testimonial-calamansi-3 {
-        width: 16.90rem !important;
-        height: 21.13rem !important;
-        left: calc(8.52 / 24.56 * 100vw) !important;
-        top: 324.43rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 18.5rem !important;              /* 295.42px / 16 */
+        height: 23.1rem !important;             /* 369.27px / 16 */
+        left: 33.1% !important;                 /* 124px / 375 */
+        top: 322.7rem !important;               /* 5163px / 16 */
         z-index: 3 !important;
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0) !important;
     }
@@ -3107,14 +2989,12 @@ footer {
     /* calamansi_testimonial_5 */
     .testimonial-calamansi-5 {
         display: block !important;
-        width: 19.45rem !important;
-        height: 24.31rem !important;
-        left: calc(-8.02 / 24.56 * 100vw) !important;
-        top: 295.50rem !important;
-        right: auto !important;
-        bottom: auto !important;
+        width: 19.1rem !important;              /* 305.2px / 16 */
+        height: 23.8rem !important;             /* 381.5px / 16 */
+        left: -63.5% !important;                /* -238px / 375 */
+        top: 288.8rem !important;               /* 4620px / 16 */
         z-index: 1 !important;
-        transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
+        transform: matrix(-0.93, 0.38, 0.38, 0.93, 0, 0) !important;
     }
 
     /* Hide calamansi-4 and calamansi-6 on mobile (not in spec) */
@@ -3312,20 +3192,6 @@ footer {
 
     .testimonial-content blockquote {
         font-size: 18px;
-    }
-
-    .testimonial-calamansi {
-        width: 80px;
-    }
-
-    .testimonial-calamansi.top-left {
-        top: -20px;
-        left: -20px;
-    }
-
-    .testimonial-calamansi.top-right {
-        top: -20px;
-        right: -20px;
     }
 
     .contact-info {
@@ -3746,7 +3612,7 @@ footer {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .search-modal-content {
         margin: 20px;
         padding: 30px 20px;
@@ -3771,5 +3637,1059 @@ footer {
         font-size: 28px;
         top: 10px;
         right: 10px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE FRUIT DECORATIONS - ADDITIONAL BREAKPOINTS
+   Based on Figma specifications from new_fruit_decor_positions.md
+
+   UNIT CONVERSION STRATEGY:
+   -------------------------
+   Following hybrid approach for consistent responsive behavior across all breakpoints:
+
+   1. WIDTH: Percentage (%)
+      - Formula: (figma_px_width / viewport_width) × 100
+      - Example: 442.88px on 375px viewport = (442.88 / 375) × 100 = 118.1%
+      - Scales proportionally with viewport width
+
+   2. HEIGHT: rem units
+      - Formula: figma_px_height / 16 (16px = 1rem default)
+      - Example: 553.6px = 553.6 / 16 = 34.6rem
+      - Maintains consistent proportions across breakpoints
+
+   3. HORIZONTAL POSITIONING (left only):
+      - If Figma spec shows %: Keep as percentage
+      - If Figma spec shows px:
+        * Mobile/Desktop/Tablet: Convert to % using (px / viewport_width) × 100
+
+   4. VERTICAL POSITIONING (top only):
+      - Small values (< 1000px): Convert to rem (px / 16)
+      - Large values (> 1000px): Convert to rem for document flow positioning
+
+   5. TRANSFORM VALUES: Keep as-is (degrees for rotate, coefficients for matrix)
+
+   BREAKPOINTS COVERED:
+   --------------------
+   - Mobile Small: ≤ 399px (existing styles based on 375px design)
+   - Mobile Large: 400px - 767px (based on 430px design)
+   - Tablet Portrait: 768px - 1023px
+   - Tablet Landscape: 1024px - 1279px
+   - Desktop Small: 1280px - 1439px
+   - Desktop Medium: 1440px - 1919px
+   - Desktop Large: 1920px - 2559px
+   - Desktop XL: ≥ 2560px
+   ========================================================================== */
+
+/* Mobile Large: 430×6268px - Larger mobile devices */
+@media (min-width: 400px) and (max-width: 767px) {
+    /* Hero Section */
+    .hero-fruit-bignay {
+        width: 31.5%;              /* 135.49px / 430 */
+        height: 13.1rem;           /* 209.41px / 16 */
+        left: 10.81%;
+        top: 5.3rem;               /* 1.35% of 6268px = 84.62px / 16 */
+    }
+
+    .hero-fruit-calamansi-2 {
+        width: 25.8%;              /* 111.07px / 430 */
+        height: 11.1rem;           /* 175.93px / 16 */
+        left: -13%;
+        top: 17.5rem;              /* 4.45% of 6268px = 278.93px / 16 */
+        transform: rotate(167.09deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 25.7%;              /* 110.74px / 430 */
+        height: 11rem;             /* 176.22px / 16 */
+        left: 61.16%;
+        right: 13.1%;
+        top: 46.5rem;              /* 11.85% of 6268px = 742.76px / 16 */
+        transform: rotate(-21.1deg);
+    }
+
+    .hero-fruit-mango {
+        width: 23.4%;              /* 100.76px / 430 */
+        height: 8.1rem;            /* 129.11px / 16 */
+        left: 68.8%;               /* 295.89px / 430 */
+        top: 35.4rem;              /* 566.41px / 16 */
+        transform: rotate(36.99deg);
+    }
+
+    .hero-fruit-dragonfruit-2 {
+        width: 22.2%;              /* 95.25px / 430 */
+        height: 13.3rem;           /* 212.83px / 16 */
+        left: 81.28%;
+        right: -3.43%;
+        top: 15.3rem;              /* 3.92% of 6268px = 245.71px / 16 */
+        transform: rotate(-17.88deg);
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 20.6%;              /* 88.54px / 430 */
+        height: 8.3rem;            /* 132.25px / 16 */
+        left: 6.4%;                /* calc(50% - 88.54px/2 - 117.14px) = ~27.5px / 430 */
+        top: 54.4rem;              /* (6268 - 5397.87) / 16 = 870.13 / 16 */
+        transform: matrix(-0.96, 0.28, 0.28, 0.96, 0, 0);
+    }
+
+    .hero-fruit-mulberry-2 {
+        width: 25.4%;              /* 109.38px / 430 */
+        height: 8.2rem;            /* 131.78px / 16 */
+        left: -9.2%;               /* -39.45px / 430 */
+        top: 36.7rem;              /* 587.7px / 16 */
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 44.3%;              /* 190.37px / 430 */
+        height: 14.9rem;           /* 237.96px / 16 */
+        left: -11.9%;              /* -51.16px / 430 */
+        top: 129.7rem;             /* 2075px / 16 */
+    }
+
+    .content-fruit-bignay {
+        width: 45.6%;              /* 196.09px / 430 */
+        height: 17.5rem;           /* 280.74px / 16 */
+        left: 61.1%;               /* 262.84px / 430 */
+        top: 128.4rem;             /* 2054px / 16 */
+    }
+
+    .content-fruit-dragonfruit {
+        width: 30.5%;              /* 131.3px / 430 */
+        height: 11.8rem;           /* 188.02px / 16 */
+        left: -15.4%;              /* -66.16px / 430 */
+        top: 159.3rem;             /* 2549px / 16 */
+        transform: matrix(-0.96, -0.28, -0.28, 0.96, 0, 0);
+    }
+
+    .content-fruit-mango {
+        width: 47.1%;              /* 202.61px / 430 */
+        height: 15.8rem;           /* 253.27px / 16 */
+        left: -23.8%;              /* -102.35px / 430 */
+        top: 200.9rem;             /* 3213.77px / 16 */
+        transform: matrix(-0.93, 0.36, 0.36, 0.93, 0, 0);
+    }
+
+    .content-fruit-calamansi-1 {
+        width: 41.3%;              /* 177.69px / 430 */
+        height: 13.9rem;           /* 222.12px / 16 */
+        left: 66%;                 /* 283.84px / 430 */
+        top: 215.4rem;             /* 3447px / 16 */
+        transform: rotate(-15.82deg);
+    }
+
+    .content-fruit-mulberry {
+        width: 39.3%;              /* 169.21px / 430 */
+        height: 13.4rem;           /* 214.42px / 16 */
+        left: 51.8%;               /* 222.84px / 430 */
+        top: 178.1rem;             /* 2849px / 16 */
+        transform: rotate(21.61deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 51%;                /* 219.29px / 430 */
+        height: 18.3rem;           /* 292.01px / 16 */
+        left: 24.1%;               /* 103.84px / 430 */
+        top: 229.8rem;             /* 3676px / 16 */
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 76.1%;              /* 327.27px / 430 */
+        height: 25.6rem;           /* 409.08px / 16 */
+        left: -33.5%;              /* -144.15px / 430 */
+        top: 316.3rem;             /* 5060.31px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 62.2%;              /* 267.28px / 430 */
+        height: 20.9rem;           /* 334.1px / 16 */
+        left: 57.6%;               /* 247.84px / 430 */
+        top: 299.9rem;             /* 4798px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 73.6%;              /* 316.54px / 430 */
+        height: 24.7rem;           /* 395.67px / 16 */
+        left: -41.9%;              /* -180.16px / 430 */
+        top: 290rem;               /* 4640px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 71.3%;              /* 306.39px / 430 */
+        height: 23.9rem;           /* 382.99px / 16 */
+        left: 30.9%;               /* 132.87px / 430 */
+        top: 321.8rem;             /* 5148.91px / 16 */
+        transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0);
+    }
+}
+
+/* Desktop XL: 2560×1080px - Largest screens */
+@media (min-width: 2560px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 13.9%;             
+        height: 27.8rem;          
+        left: 12.2%;                
+        top: -3rem;              
+        transform: rotate(14.62deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 16.9%;              /* 433.51px / 2560 */
+        height: 38.8rem;           /* 620.64px / 16 */
+        left: 67.7%;               /* 1734px / 2560 */
+        top: -8.9rem;              /* -143px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 15.4%;              /* 393.81px / 2560 */
+        height: 38.6rem;           /* 618.37px / 16 */
+        left: -6.9%;               /* -176px / 2560 */
+        top: 35.9rem;              /* 575px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 24.1%;              /* Calculated from left/right: 84.96% to 89.39% */
+        height: 17.6rem;           /* Estimated from aspect ratio */
+        left: 84.96%;
+        right: -4.43%;
+        top: 6.1rem;               /* 9% of 1080px = 97.2px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 15%;                /* 385.29px / 2560 */
+        height: 29.9rem;           /* 479.21px / 16 */
+        left: 85.9%;               /* 2200.49px / 2560 */
+        top: 13.4rem;              /* 214px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 13.7%;
+        height: 27.4rem;
+        left: -2.08%;
+        right: 86.41%;
+        top: 0.8rem;               /* 1.18% of 1080px = 12.74px / 16 */
+        transform: matrix(0.47, -0.88, -0.9, -0.44, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 19.3%;              /* 494.22px / 2560 */
+        height: 38.6rem;           /* 617.78px / 16 */
+        left: 1.2%;                /* 30.5px / 2560 */
+        top: 86.5rem;              /* 1384.34px / 16 */
+        transform: rotate(-128.18deg);
+    }
+
+    .content-fruit-mango {
+        width: 15.9%;              /* 407.49px / 2560 */
+        height: 31.8rem;           /* 509.36px / 16 */
+        left: 32.4%;               /* 828.47px / 2560 */
+        top: 127.3rem;             /* 2036.55px / 16 */
+        transform: rotate(-29.31deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 16.5%;              /* 423.18px / 2560 */
+        height: 33.5rem;           /* 536.24px / 16 */
+        left: 12.7%;               /* 324px / 2560 */
+        top: 158.1rem;             /* 2530px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 18.7%;              /* 478.74px / 2560 */
+        height: 42.8rem;           /* 685.38px / 16 */
+        left: 65.3%;               /* 1671.47px / 2560 */
+        top: 95.5rem;              /* 1527.73px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 13.7%;              /* 350.14px / 2560 */
+        height: 27.7rem;           /* 443.68px / 16 */
+        left: 83.9%;               /* 2148px / 2560 */
+        top: 136.6rem;             /* 2185px / 16 */
+        transform: rotate(20.01deg);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 35.1rem;            /* 898.85px / 16 (using rem for testimonials) */
+        height: 70.2rem;           /* 1123.56px / 16 */
+        left: 0%;
+        top: 244.9rem;
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 52.9rem;            /* 845.82px / 16 */
+        height: 66.1rem;           /* 1057.28px / 16 */
+        left: 76.4%;               /* 1955.94px / 2560 */
+        top: 229.7rem;             /* 3675.27px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 49.6rem;            /* 793.14px / 16 */
+        height: 62rem;             /* 991.43px / 16 */
+        left: 45.4%;               /* 1162.46px / 2560 */
+        top: 245.39rem;            /* 3926.19px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 50rem;              /* 800.61px / 16 */
+        height: 62.5rem;           /* 1000.76px / 16 */
+        left: 67.5%;               /* 1727.59px / 2560 */
+        top: 198.5rem;             /* 3176px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 34.7rem;            /* 554.72px / 16 */
+        height: 43.3rem;           /* 693.4px / 16 */
+        left: 9.6%;                /* 244.58px / 2560 */
+        top: 219.96rem;            /* 3519.42px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 34.1rem;            /* 545.62px / 16 */
+        height: 42.6rem;           /* 682.02px / 16 */
+        left: 30%;                 /* 766.85px / 2560 */
+        top: 255.07rem;            /* 4081.13px / 16 */
+        transform: rotate(2.03deg);
+    }
+}
+
+/* Desktop Large: 1920×1080px - Standard large desktop (base styles) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 16.1%;              /* 309.14px / 1920 */
+        height: 24.2rem;           /* 386.43px / 16 */
+        left: 12.3%;               /* 236.57px / 1920 */
+        top: -5.75rem;             /* -92px / 16 */
+        border-radius: 14.8rem;    /* 237.38px / 16 */
+        transform: rotate(14.62deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 16.9%;              /* 325.14px / 1920 */
+        height: 29.1rem;           /* 465.48px / 16 */
+        left: 67.6%;               /* 1298.76px / 1920 */
+        top: -2.5rem;              /* -40.08px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 16.6%;              /* 319.56px / 1920 */
+        height: 31.4rem;           /* 501.78px / 16 */
+        left: -6.7%;               /* -128px / 1920 */
+        top: 31.1rem;              /* 497.75px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 26.9%;              /* Calculated from percentages */
+        height: 18.6rem;
+        left: 83.87%;
+        right: -4.94%;
+        top: 29.9rem;              /* 9.62% of 4981px = 479.17px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 16.3%;              /* 312.64px / 1920 */
+        height: 24.3rem;           /* 388.85px / 16 */
+        left: 84.9%;               /* 1631.06px / 1920 */
+        top: 10.4rem;              /* 166.13px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 19.2%;              /* Calculated from percentages */
+        height: 14.7rem;
+        left: -4.99%;
+        right: 90.2%;
+        top: 5.1rem;               /* 1.65% of 4981px = 82.19px / 16 */
+        transform: matrix(0.47, -0.88, -0.9, -0.44, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 19.3%;              /* 369.79px / 1920 */
+        height: 28.9rem;           /* 462.23px / 16 */
+        left: 6.3%;                /* 120.94px / 1920 */
+        top: 97.2rem;              /* 1555px / 16 */
+        transform: rotate(-128.18deg);
+    }
+
+    .content-fruit-mango {
+        width: 15.9%;              /* 304.89px / 1920 */
+        height: 23.8rem;           /* 381.12px / 16 */
+        left: 37.4%;               /* 718px / 1920 */
+        top: 127.7rem;             /* 2043px / 16 */
+        transform: rotate(-29.31deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 16.5%;              /* 316.63px / 1920 */
+        height: 25.1rem;           /* 401.23px / 16 */
+        left: 21.7%;               /* 417px / 1920 */
+        top: 157.3rem;             /* 2517px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 18.7%;              /* 358.2px / 1920 */
+        height: 32.1rem;           /* 512.82px / 16 */
+        left: 70.2%;               /* 1348.75px / 1920 */
+        top: 103.9rem;             /* 1662.28px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 13.6%;              /* 261.98px / 1920 */
+        height: 20.7rem;           /* 331.97px / 16 */
+        left: 84.9%;               /* 1631px / 1920 */
+        top: 134.4rem;             /* 2151px / 16 */
+        transform: rotate(20.01deg);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 42.1rem;            /* 674.13px / 16 */
+        height: 52.7rem;           /* 842.67px / 16 */
+        left: -2%;                 /* -39px / 1920 */
+        top: 250.99rem;            /* 4015.84px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 39.7rem;            /* 634.37px / 16 */
+        height: 49.6rem;           /* 792.96px / 16 */
+        left: 74.4%;               /* 1427.95px / 1920 */
+        top: 239.53rem;            /* 3832.45px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 37.2rem;            /* 594.86px / 16 */
+        height: 46.5rem;           /* 743.57px / 16 */
+        left: 43.4%;               /* 832.84px / 1920 */
+        top: 251.29rem;            /* 4020.64px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 37.5rem;            /* 600.45px / 16 */
+        height: 46.9rem;           /* 750.57px / 16 */
+        left: 65.5%;               /* 1256.69px / 1920 */
+        top: 216.13rem;            /* 3458px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 35.1rem;            /* 562.28px / 16 */
+        height: 43.9rem;           /* 702.85px / 16 */
+        left: 4.1%;                /* 78px / 1920 */
+        top: 221.44rem;            /* 3543px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 25.6rem;            /* 409.21px / 16 */
+        height: 32rem;             /* 511.52px / 16 */
+        left: 27.9%;               /* 536.14px / 1920 */
+        top: 258.55rem;            /* 4136.85px / 16 */
+        transform: rotate(2.03deg);
+    }
+}
+
+/* Desktop Medium: 1440×900px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 16.9%;              /* 243.92px / 1440 */
+        height: 19.1rem;           /* 304.9px / 16 */
+        left: 11.3%;               /* 162.65px / 1440 */
+        top: -4.3rem;              /* -69px / 16 */
+        border-radius: 11.7rem;    /* 187.299px / 16 */
+        transform: rotate(14.62deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 17.8%;              /* 256.54px / 1440 */
+        height: 23rem;             /* 367.28px / 16 */
+        left: 69.5%;               /* 1000.75px / 1440 */
+        top: -1.75rem;             /* -28.03px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 17.5%;              /* 252.14px / 1440 */
+        height: 24.7rem;           /* 395.92px / 16 */
+        left: -8.7%;               /* -125px / 1440 */
+        top: 24.8rem;              /* 396.33px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 31.2%;
+        height: 19.5rem;
+        left: 86.57%;
+        right: -8.73%;
+        top: 30.8rem;              /* 10.19% of 4843px = 493.5px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 17.1%;              /* 246.68px / 1440 */
+        height: 19.2rem;           /* 306.82px / 16 */
+        left: 87.7%;               /* 1262.95px / 1440 */
+        top: 8.4rem;               /* 134.67px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 23.8%;
+        height: 15rem;
+        left: -6.91%;
+        right: 90.73%;
+        top: 5.5rem;               /* 1.81% of 4843px = 87.66px / 16 */
+        transform: matrix(0.45, -0.89, -0.89, -0.46, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 21.8%;              /* 314.09px / 1440 */
+        height: 24.5rem;           /* 392.61px / 16 */
+        left: 0.5%;                /* 7px / 1440 */
+        top: 89.4rem;              /* 1431px / 16 */
+        transform: rotate(-128.18deg);
+    }
+
+    .content-fruit-mango {
+        width: 18%;                /* 258.97px / 1440 */
+        height: 20.2rem;           /* 323.71px / 16 */
+        left: 29.6%;               /* 426.62px / 1440 */
+        top: 116.2rem;             /* 1858.5px / 16 */
+        transform: rotate(-29.31deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 18.7%;              /* 268.94px / 1440 */
+        height: 21.3rem;           /* 340.79px / 16 */
+        left: 17.8%;               /* 256.75px / 1440 */
+        top: 145.1rem;             /* 2322px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 21.1%;              /* 304.25px / 1440 */
+        height: 27.2rem;           /* 435.58px / 16 */
+        left: 72.9%;               /* 1049.88px / 1440 */
+        top: 95.1rem;              /* 1522.12px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 15.5%;              /* 222.52px / 1440 */
+        height: 17.6rem;           /* 281.97px / 16 */
+        left: 83.1%;               /* 1197.25px / 1440 */
+        top: 121.6rem;             /* 1945.65px / 16 */
+        transform: rotate(20.01deg);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 29.4rem;            /* 471.14px / 16 */
+        height: 36.8rem;           /* 588.93px / 16 */
+        left: 0%;
+        top: 245.06rem;             /* 3920.99px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 32.8rem;            /* 524.63px / 16 */
+        height: 41rem;             /* 655.79px / 16 */
+        left: 74.49%;               /* 1072.64px / 1440 */
+        top: 232.11rem;             /* 3713.79px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 30.7rem;            /* 491.95px / 16 */
+        height: 38.4rem;           /* 614.94px / 16 */
+        left: 40.39%;               /* 581.59px / 1440 */
+        top: 244.28rem;             /* 3908.55px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 31rem;              /* 496.58px / 16 */
+        height: 38.8rem;           /* 620.73px / 16 */
+        left: 64.7%;               /* 931.75px / 1440 */
+        top: 212.69rem;
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 24.6rem;            /* 392.97px / 16 */
+        height: 30.7rem;           /* 491.21px / 16 */
+        left: -1.91%;                /* -27.56px / 1440 */
+        top: 222.53rem;              /* 3560.47px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 21.2rem;            /* 338.42px / 16 */
+        height: 26.4rem;           /* 423.03px / 16 */
+        left: 20.88%;               /* 300.66px / 1440 */
+        top: 249.57rem;             /* 590.11px / 16 */
+        transform: rotate(2.03deg);
+    }
+}
+
+/* Desktop Small: 1280×4619px */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 16.9%;              /* 216.42px / 1280 */
+        height: 16.9rem;           /* 270.53px / 16 */
+        left: 15.5%;               /* 199px / 1280 */
+        top: -4.4rem;              /* -71px / 16 */
+        border-radius: 10.4rem;    /* 166.183px / 16 */
+        transform: rotate(14.62deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 17.8%;              /* 227.62px / 1280 */
+        height: 20.4rem;           /* 325.87px / 16 */
+        left: 68.8%;               /* 880px / 1280 */
+        top: -3.6rem;              /* -57px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 17.5%;              /* 223.71px / 1280 */
+        height: 22rem;             /* 351.28px / 16 */
+        left: -8.8%;               /* -112px / 1280 */
+        top: 26.9rem;              /* 430px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 31.8%;
+        height: 18.7rem;
+        left: 86.57%;
+        right: -8.73%;
+        top: 29.4rem;              /* 10.19% of 4619px = 470.7px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 17.1%;              /* 218.87px / 1280 */
+        height: 17rem;             /* 272.22px / 16 */
+        left: 87.5%;               /* 1120.56px / 1280 */
+        top: 7.5rem;               /* 119.49px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 21.3%;              /* (1 - (-6.91% + 89.75%)) * 1280 = 272.64px / 1280 */
+        height: 15rem;
+        left: -6.91%;
+        right: 89.75%;
+        top: 5.2rem;               /* 1.81% of 4619px = 83.6px / 16 */
+        transform: matrix(0.43, -0.9, -0.87, -0.49, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 21%;                /* 268.33px / 1280 */
+        height: 21rem;             /* 335.41px / 16 */
+        left: 7.3%;                /* 93.82px / 1280 */
+        top: 76.6rem;              /* 1224.91px / 16 */
+        transform: rotate(-128.18deg);
+    }
+
+    .content-fruit-mango {
+        width: 18%;                /* 229.77px / 1280 */
+        height: 18rem;             /* 287.22px / 16 */
+        left: 29.6%;               /* 378.52px / 1280 */
+        top: 103.1rem;             /* 1648.97px / 16 */
+        transform: rotate(-29.31deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 24.7%;              /* 316px / 1280 */
+        height: 25.1rem;           /* 401px / 16 */
+        left: 17.8%;               /* 228px / 1280 */
+        top: 128.8rem;             /* 2060px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 21.1%;              /* 269.95px / 1280 */
+        height: 24.2rem;           /* 386.47px / 16 */
+        left: 72.8%;               /* 931.51px / 1280 */
+        top: 84.4rem;              /* 1350.52px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 15.4%;              /* 197.43px / 1280 */
+        height: 15.6rem;           /* 250.18px / 16 */
+        left: 83%;                 /* 1062.27px / 1280 */
+        top: 107.9rem;             /* 1726.3px / 16 */
+        transform: rotate(20.01deg);
+    }
+
+    .content-fruit-dragonfruit {
+        width: 22.4%;              /* 287.17px / 1280 */
+        height: 25.7rem;           /* 411.23px / 16 */
+        left: -8.9%;               /* -113.57px / 1280 */
+        top: 103.1rem;             /* 1648.97px / 16 */
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 26.1rem;            /* 418.03px / 16 */
+        height: 32.7rem;           /* 522.53px / 16 */
+        left: -4.1%;               /* -53px / 1280 */
+        top: 230.79rem;            /* 3692.59px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 29.1rem;            /* 465.48px / 16 */
+        height: 36.4rem;           /* 581.85px / 16 */
+        left: 75%;                 /* 959.93px / 1280 */
+        top: 219.30rem;            /* 3508.75px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 27.3rem;            /* 436.49px / 16 */
+        height: 34.1rem;           /* 545.61px / 16 */
+        left: 41%;                 /* 524.24px / 1280 */
+        top: 230.10rem;            /* 3681.56px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 27.5rem;            /* 440.6px / 16 */
+        height: 34.4rem;           /* 550.75px / 16 */
+        left: 65.2%;               /* 834.92px / 1280 */
+        top: 202.06rem;            /* 3233px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 21.8rem;            /* 348.67px / 16 */
+        height: 27.2rem;           /* 435.83px / 16 */
+        left: -1.3%;               /* -16.23px / 1280 */
+        top: 210.79rem;            /* 3372.71px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 18.8rem;            /* 300.27px / 16 */
+        height: 23.5rem;           /* 375.34px / 16 */
+        left: 21.5%;               /* 274.99px / 1280 */
+        top: 234.79rem;            /* 3756.58px / 16 */
+        transform: rotate(2.03deg);
+    }
+}
+
+/* Tablet Landscape */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 22.8%;              /* 233.52px / 1024 */
+        height: 18.2rem;           /* 291.9px / 16 */
+        left: 14.9%;               /* 152.3px / 1024 */
+        top: -4.2rem;              /* -67px / 16 */
+        transform: rotate(5.63deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 22.1%;              /* 226px / 1024 */
+        height: 20.3rem;           /* 324px / 16 */
+        left: 62.6%;               /* 641px / 1024 */
+        top: -3.2rem;              /* -51px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 17.4%;              /* 178.71px / 1024 */
+        height: 17.5rem;           /* 280.61px / 16 */
+        left: -8.7%;               /* -89px / 1024 */
+        top: 29.3rem;              /* 469px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 26.5%;
+        height: 16rem;
+        left: 82.71%;
+        right: -8.2%;
+        top: 34.2rem;              /* 8.91% of 6142px = 547.25px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 18.5%;              /* 189.63px / 1024 */
+        height: 14.7rem;           /* 235.85px / 16 */
+        left: 83.9%;               /* 859px / 1024 */
+        top: 15.4rem;              /* 247px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 20.2%;
+        height: 11.8rem;
+        left: -9.18%;
+        right: 88.99%;
+        top: 9rem;                 /* 2.34% of 6142px = 143.72px / 16 */
+        transform: matrix(0.45, -0.89, -0.89, -0.46, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 31%;                /* 317.51px / 1024 */
+        height: 24.8rem;           /* 396.88px / 16 */
+        left: -5.8%;               /* -59px / 1024 */
+        top: 93.3rem;              /* 1492px / 16 */
+    }
+
+    .content-fruit-mango {
+        width: 33%;                /* 337.92px / 1024 */
+        height: 26.4rem;           /* 422.41px / 16 */
+        left: -16.1%;              /* -165px / 1024 */
+        top: 162.6rem;             /* 2602px / 16 */
+        transform: rotate(-29.31deg);
+    }
+
+    .content-fruit-mangosteen {
+        width: 35.7%;              /* 365.74px / 1024 */
+        height: 30.4rem;           /* 487.03px / 16 */
+        left: 16.6%;               /* 170px / 1024 */
+        top: 192rem;               /* 3071px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 31.9%;              /* 327.05px / 1024 */
+        height: 29.3rem;           /* 468.22px / 16 */
+        left: 72.3%;               /* 740px / 1024 */
+        top: 91rem;                /* 1456px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 23.2%;              /* 237.56px / 1024 */
+        height: 18.8rem;           /* 301.03px / 16 */
+        left: 72.3%;               /* 740px / 1024 */
+        top: 139.7rem;             /* 2235px / 16 */
+        transform: rotate(21.61deg);
+    }
+
+    .content-fruit-dragonfruit {
+        width: 24.8%;              /* 253.9px / 1024 */
+        height: 22.7rem;           /* 363.58px / 16 */
+        left: -10.1%;              /* -103px / 1024 */
+        top: 126.6rem;             /* 2025px / 16 */
+        transform: matrix(-0.96, -0.28, -0.28, 0.96, 0, 0);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 24.5rem;            /* 392.29px / 16 */
+        height: 30.6rem;           /* 490.36px / 16 */
+        left: -5.7%;               /* -58.32px / 1024 */
+        top: 324.74rem;            /* 5195.84px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 23.2rem;            /* 371.84px / 16 */
+        height: 29.1rem;           /* 464.8px / 16 */
+        left: 75.4%;               /* 772px / 1024 */
+        top: 320.94rem;            /* 5135px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 21.8rem;            /* 348.68px / 16 */
+        height: 27.2rem;           /* 435.85px / 16 */
+        left: 42.1%;               /* 431px / 1024 */
+        top: 328.88rem;            /* 5262px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 22rem;              /* 351.96px / 16 */
+        height: 27.5rem;           /* 439.95px / 16 */
+        left: 71.3%;               /* 730px / 1024 */
+        top: 300.44rem;            /* 4807px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 21.6rem;            /* 345.53px / 16 */
+        height: 27rem;             /* 431.91px / 16 */
+        left: -7.1%;               /* -73px / 1024 */
+        top: 301.19rem;            /* 4819px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 18rem;              /* 287.77px / 16 */
+        height: 22.5rem;           /* 359.71px / 16 */
+        left: 22.7%;               /* 232px / 1024 */
+        top: 333.19rem;            /* 5331px / 16 */
+        transform: rotate(2.03deg);
+    }
+}
+
+/* Tablet Portrait: 768×1024px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Hero Section */
+    .hero-fruit-mango {
+        width: 28.3%;              /* 217.24px / 768 */
+        height: 17rem;             /* 271.56px / 16 */
+        left: 18%;                 /* 138px / 768 */
+        top: -1.3rem;              /* -21px / 16 */
+        border-radius: 6.4rem;     /* 102.072px / 16 */
+        transform: rotate(5.63deg);
+    }
+
+    .hero-fruit-bignay {
+        width: 25.9%;              /* 199px / 768 */
+        height: 17.8rem;           /* 285px / 16 */
+        left: 57.7%;               /* 443px / 768 */
+        top: -0.4rem;              /* -6px / 16 */
+    }
+
+    .hero-fruit-dragonfruit {
+        width: 19.6%;              /* 150.49px / 768 */
+        height: 14.8rem;           /* 236.3px / 16 */
+        left: -9.1%;               /* -70px / 768 */
+        top: 27.1rem;              /* 434px / 16 */
+        transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
+    }
+
+    .hero-fruit-mangosteen {
+        width: 20.5%;
+        height: 11.8rem;
+        left: 71.23%;
+        right: 8.24%;
+        top: 31.3rem;              /* 9.53% of 5262px = 501.46px / 16 */
+    }
+
+    .hero-fruit-mulberry {
+        width: 27.4%;              /* 210.17px / 768 */
+        height: 16.3rem;           /* 261.4px / 16 */
+        left: 79.8%;               /* 613px / 768 */
+        top: 10.9rem;              /* 175px / 16 */
+        transform: rotate(7.79deg);
+    }
+
+    .hero-fruit-calamansi {
+        width: 20.6%;
+        height: 11.8rem;
+        left: -10.32%;
+        right: 89.71%;
+        top: 9.1rem;               /* 2.77% of 5262px = 145.76px / 16 */
+        transform: matrix(0.46, -0.89, -0.89, -0.45, 0, 0);
+    }
+
+    /* Content Section */
+    .content-fruit-calamansi-2 {
+        width: 31.3%;              /* 240.73px / 768 */
+        height: 18.8rem;           /* 300.91px / 16 */
+        left: -7.6%;               /* -58.63px / 768 */
+        top: 93.9rem;              /* 1502.29px / 16 */
+    }
+
+    .content-fruit-mango {
+        width: 33.4%;              /* 256.21px / 768 */
+        height: 20rem;             /* 320.26px / 16 */
+        left: -18.1%;              /* -139px / 768 */
+        top: 146.5rem;             /* 2343.88px / 16 */
+        transform: matrix(-0.93, 0.36, 0.36, 0.93, 0, 0);
+    }
+
+    .content-fruit-mangosteen {
+        width: 36.1%;              /* 277.3px / 768 */
+        height: 23.1rem;           /* 369.26px / 16 */
+        left: 15%;                 /* 114.99px / 768 */
+        top: 168.7rem;             /* 2699.47px / 16 */
+    }
+
+    .content-fruit-bugnay {
+        width: 32.3%;              /* 247.96px / 768 */
+        height: 22.2rem;           /* 355px / 16 */
+        left: 71.2%;               /* 547.16px / 768 */
+        top: 92.2rem;              /* 1475px / 16 */
+    }
+
+    .content-fruit-mulberry {
+        width: 23.4%;              /* 180.11px / 768 */
+        height: 14.3rem;           /* 228.24px / 16 */
+        left: 71.2%;               /* 547.16px / 768 */
+        top: 129.1rem;             /* 2065.62px / 16 */
+        transform: rotate(21.61deg);
+    }
+
+    .content-fruit-dragonfruit {
+        width: 25.1%;              /* 192.5px / 768 */
+        height: 17.2rem;           /* 275.66px / 16 */
+        left: -12%;                /* -91.99px / 768 */
+        top: 119.2rem;             /* 1906.41px / 16 */
+        transform: matrix(-0.96, -0.28, -0.28, 0.96, 0, 0);
+    }
+
+    /* Testimonial Section */
+    .testimonial-calamansi-1 {
+        width: 21.6rem;            /* 345.28px / 16 */
+        height: 27rem;             /* 431.6px / 16 */
+        left: -11.5%;              /* -88.08px / 768 */
+        top: 269.5rem;             /* 4312.25px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-2 {
+        width: 20.5rem;            /* 327.28px / 16 */
+        height: 25.6rem;           /* 409.1px / 16 */
+        left: 83.7%;               /* 642.74px / 768 */
+        top: 266.2rem;             /* 4258.7px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-3 {
+        width: 19.2rem;            /* 306.9px / 16 */
+        height: 24rem;             /* 383.62px / 16 */
+        left: 44.6%;               /* 342.61px / 768 */
+        top: 273.2rem;             /* 4370.48px / 16 */
+        transform: rotate(-48.45deg);
+    }
+
+    .testimonial-calamansi-4 {
+        width: 19.4rem;            /* 309.79px / 16 */
+        height: 24.2rem;           /* 387.23px / 16 */
+        left: 78.9%;               /* 605.78px / 768 */
+        top: 248.1rem;             /* 3970px / 16 */
+        transform: rotate(2.03deg);
+    }
+
+    .testimonial-calamansi-5 {
+        width: 19rem;              /* 304.12px / 16 */
+        height: 23.8rem;           /* 380.15px / 16 */
+        left: -13.2%;              /* -101px / 768 */
+        top: 248.8rem;             /* 3980.56px / 16 */
+        transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
+    }
+
+    .testimonial-calamansi-6 {
+        width: 15.8rem;            /* 253.28px / 16 */
+        height: 19.8rem;           /* 316.6px / 16 */
+        left: 21.8%;               /* 167.45px / 768 */
+        top: 276.9rem;             /* 4431.21px / 16 */
+        transform: rotate(2.03deg);
     }
 }
