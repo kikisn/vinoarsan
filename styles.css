@@ -165,16 +165,19 @@ h4 {
 .hero-fruit-mango,
 .hero-fruit-bignay,
 .hero-fruit-dragonfruit,
+.hero-fruit-dragonfruit-2,
 .hero-fruit-mangosteen,
 .hero-fruit-mulberry,
-.hero-fruit-calamansi {
+.hero-fruit-mulberry-2,
+.hero-fruit-calamansi,
+.hero-fruit-calamansi-1 {
     position: absolute;
     z-index: 1;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
-    opacity: 0.80;
+    opacity: 0.60;
     display: block;
 }
 
@@ -389,12 +392,6 @@ nav a:focus-visible {
     position: relative;
     z-index: 2;
     overflow: hidden;
-}
-
-.hero-bottle {
-    height: 300px;
-    width: auto;
-    object-fit: contain;
 }
 
 .hero-content {
@@ -685,7 +682,6 @@ nav a:focus-visible {
 /* Content Sections */
 .content-sections {
     padding: 100px 0;
-    z-index: 2;
 }
 
 .content-background-layer {
@@ -694,7 +690,7 @@ nav a:focus-visible {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: -1 !important;
     opacity: 0.8;
 }
 
@@ -702,7 +698,7 @@ nav a:focus-visible {
 .content-fruit-decoration {
     position: absolute;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.4;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1235,7 +1231,7 @@ nav a:focus-visible {
     z-index: 2;
 }
 
-/* Testimonial Carousel Buttons positioned outside testimonials section */
+/* Testimonial Carousel Buttons */
 .testimonials-carousel-btn {
     position: absolute;
     top: 50%;
@@ -1244,11 +1240,11 @@ nav a:focus-visible {
 }
 
 .testimonials-carousel-btn.prev {
-    left: 20px;
+    left: -60px;
 }
 
 .testimonials-carousel-btn.next {
-    right: 20px;
+    right: -60px;
 }
 
 .testimonials-container {
@@ -2788,36 +2784,40 @@ footer {
     /* Adjust Hero fruit patterns for mobile - Updated from Figma frame (375×6320px) */
     /* Parent dimensions: 375px × 6320px */
 
-    /* Hero_dragonfruit_1 - left: calc(50% - 88.54px/2 - 117.14px) = calc(50% - 161.41px) */
+    /* Hero_dragonfruit_1 */
     .hero-fruit-dragonfruit {
-        width: 5.53rem !important;             /* 88.54px / 16 */
-        height: 8.27rem !important;            /* 132.25px / 16 */
-        left: 7%;                              /* (187.5 - 161.41) / 375 = 6.96% */
-        top: 51.4rem !important;               /* (6320 - 5397.87) / 16 = 57.63rem, adjusted */
+        width: 5.44rem !important;             
+        height: 8.12rem !important;            
+        left: 11.92%;                              
+        top: 46.24rem !important;              
         z-index: 1 !important;
         transform: matrix(-0.96, 0.28, 0.28, 0.96, 0, 0) !important;
     }
 
     /* hero_mango */
     .hero-fruit-mango {
-        width: 6.3rem !important;              /* 100.76px / 16 */
-        height: 8.07rem !important;            /* 129.11px / 16 */
-        left: 78.9%;                           /* 295.89px / 375 */
-        top: 35.4rem !important;               /* 566.41px / 16 */
+        width: 6.4rem !important;              /* 100.76px / 16 */
+        height: 8.21rem !important;            /* 129.11px / 16 */
+        left: 81.27%;                           /* 295.89px / 375 */
+        top: 36.49rem !important;               /* 566.41px / 16 */
         z-index: 1 !important;
         transform: rotate(36.99deg) !important;
     }
 
     /* hero_calamansi_2 (using hero-fruit-calamansi) */
     .hero-fruit-calamansi {
-        left: -13% !important;
-        top: 17.6rem !important;               /* 4.45% of 6320px = 281.24px / 16 */
+        width: 8.37rem!important;
+        height: 13.68rem!important;
+        left: -18.71% !important;
+        top: 12.59rem !important;               
         z-index: 1 !important;
         transform: rotate(167.09deg) !important;
     }
 
     /* hero_bugnay (using hero-fruit-bignay) */
     .hero-fruit-bignay {
+        height: 9.49rem;                       /* 151.79px / 16 */
+        width: 7.75rem;                       /* 123.98px / 16 */
         left: 10.81% !important;
         top: 5.3rem !important;                /* 1.35% of 6320px = 85.32px / 16 */
         z-index: 1 !important;
@@ -2828,8 +2828,8 @@ footer {
     .hero-fruit-mulberry {
         width: 6.84rem !important;             /* 109.38px / 16 */
         height: 8.24rem !important;            /* 131.78px / 16 */
-        left: 72.9% !important;                /* 273.44px / 375 */
-        top: 5.8rem !important;                /* 92.79px / 16 */
+        left: 64.7% !important;                /* 242.52px / 375*/
+        top: 5.53rem !important;                /* 88.42px / 16 */
         z-index: 1 !important;
         transform: none !important;
     }
@@ -2839,43 +2839,34 @@ footer {
         display: none !important;
     }
 
-    /* Show and position the 3 additional hero fruits on mobile */
     .hero-fruit-dragonfruit-2 {
         display: block !important;
-        left: 81.28% !important;
-        top: 15.4rem !important;               /* 3.92% of 6320px = 247.74px / 16 */
+        width: 5.85rem!important;
+        height: 8.7rem!important;
+        left: 82.93% !important;
+        top: 20.81rem !important;               
         z-index: 1 !important;
         transform: rotate(-17.88deg) !important;
     }
 
     .hero-fruit-calamansi-1 {
         display: block !important;
-        left: 61.16% !important;
-        top: 46.9rem !important;               /* 11.85% of 6320px = 748.92px / 16 */
+        width: 6.77rem !important;
+        height: 11.03rem !important;
+        left: 67.39% !important;
+        top: 45.24rem !important;              
         z-index: 1 !important;
         transform: rotate(-21.1deg) !important;
     }
 
     .hero-fruit-mulberry-2 {
         display: block !important;
-        width: 6.84rem !important;             /* 109.38px / 16 */
-        height: 8.24rem !important;            /* 131.78px / 16 */
-        left: -10.5% !important;               /* -39.45px / 375 */
-        top: 36.7rem !important;               /* 587.7px / 16 */
+        width: 6.77rem !important;           
+        height: 11.03rem !important;           
+        left: -15.71% !important;               
+        top: 36.78rem !important;               
         z-index: 1 !important;
         transform: none !important;
-    }
-
-    /* Adjust ImageContent fruit patterns for mobile */
-    .content-fruit-decoration {
-        display: block !important;
-        position: absolute !important;
-        pointer-events: none;
-        background-size: contain !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
-        opacity: 1 !important;
-        visibility: visible !important;
     }
 
     /* calamansi_content_1 */
@@ -2947,7 +2938,7 @@ footer {
     /* Mulberry_content */
     .content-fruit-mulberry {
         background-image: url('assets/decorative/fruits/mulberry.webp') !important;
-        width: 44.4% !important;                /* 166.32px / 375 */
+        width: 10.4rem !important;               
         height: 13.2rem !important;             /* 210.75px / 16 */
         left: 55.4% !important;                 /* 207.87px / 375 */
         top: 180rem !important;                 /* 2880.31px / 16 */
@@ -2970,29 +2961,29 @@ footer {
     .testimonial-calamansi-2 {
         width: 16.1rem !important;              /* 257.7px / 16 */
         height: 20.1rem !important;             /* 322.13px / 16 */
-        left: 62.3% !important;                 /* 233.66px / 375 */
-        top: 298.6rem !important;               /* 4778.34px / 16 */
+        left: 59.02% !important;                 /* 233.66px / 375 */
+        top: 300.4rem !important;               /* 4778.34px / 16 */
         z-index: 1 !important;
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
     /* calamansi_testimonial_3 */
     .testimonial-calamansi-3 {
-        width: 18.5rem !important;              /* 295.42px / 16 */
-        height: 23.1rem !important;             /* 369.27px / 16 */
-        left: 33.1% !important;                 /* 124px / 375 */
-        top: 322.7rem !important;               /* 5163px / 16 */
-        z-index: 3 !important;
+        width: 18.5rem !important;             
+        height: 23.1rem !important;             
+        left: 33.1% !important;                 
+        top: 322.7rem !important;               
+        z-index: 1 !important;
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0) !important;
     }
 
     /* calamansi_testimonial_5 */
     .testimonial-calamansi-5 {
         display: block !important;
-        width: 19.1rem !important;              /* 305.2px / 16 */
-        height: 23.8rem !important;             /* 381.5px / 16 */
-        left: -63.5% !important;                /* -238px / 375 */
-        top: 288.8rem !important;               /* 4620px / 16 */
+        width: 19.1rem !important;             
+        height: 23.8rem !important;         
+        left: -52% !important;    
+        top: 293rem !important; 
         z-index: 1 !important;
         transform: matrix(-0.93, 0.38, 0.38, 0.93, 0, 0) !important;
     }
@@ -3047,6 +3038,7 @@ footer {
     .hero {
         padding: 100px 20px 140px;
         min-height: auto;
+        z-index: 10;
     }
 
     .hero-container {
@@ -3055,6 +3047,8 @@ footer {
 
     .hero-bottle {
         height: 220px;
+        top: 20.65rem!important;      /* 330.42 px / 16 */
+        left: 26.23%!important;        /* 98.38px / 375 */
     }
 
     .hero p {
@@ -3345,7 +3339,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Hero fruit patterns removed - using 768px breakpoint specs for all mobile devices */
 
     .hero-bottle {
         height: 288px;
@@ -3353,10 +3346,6 @@ footer {
 
     .hero p {
         font-size: 14px;
-    }
-
-    .content-fruit-decoration {
-        opacity: 0.4!important;
     }
 
     .pairing-card-images {
@@ -3398,6 +3387,14 @@ footer {
     .product-name {
         font-size: 16px;
         min-height: 42px;
+    }
+
+    .testimonials-carousel-btn.prev {
+        left: 10px;
+    }
+
+    .testimonials-carousel-btn.next {
+        right: 10px;
     }
 }
 
