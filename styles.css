@@ -426,7 +426,6 @@ nav a:focus-visible {
     display: none;
 }
 
-/* CTA Button - Tropical Theme */
 .cta-button {
     display: inline-block;
     padding: 14px 32px;
@@ -442,6 +441,7 @@ nav a:focus-visible {
     font-weight: 400;
     border-radius: 25px;
     cursor: pointer;
+    width: fit-content;
 }
 
 /* Default CTA hover - glowing red with outline */
@@ -1480,22 +1480,11 @@ nav a:focus-visible {
 /* Footer */
 footer {
     background-color: #f1ebe1;
-    background-image:
-        radial-gradient(circle at 30% 30%, rgba(237, 231, 220, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(232, 226, 215, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(245, 239, 228, 0.2) 0%, transparent 40%),
-        repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.008) 3px, rgba(0, 0, 0, 0.008) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0, 0, 0, 0.008) 3px, rgba(0, 0, 0, 0.008) 4px),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(245, 241, 232, 0.2) 100%);
-    background-size:
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100px 100px,
-        100px 100px,
-        100% 100%;
+    background-image: url("assets/backgrounds/old-wall.png");
     padding: 40px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2 !important;
 }
 
 .footer-container {
@@ -2952,41 +2941,37 @@ footer {
 
     /* calamansi_testimonial_1 */
     .testimonial-calamansi-1 {
-        width: 27.7rem !important;              /* 442.88px / 16 */
-        height: 34.6rem !important;             /* 553.6px / 16 */
-        left: -45.9% !important;                /* -172px / 375 */
-        top: 307.6rem !important;               /* 4921px / 16 */
+        width: 124.136%;              
+        height: 36.37rem;
+        left: -50.93%;               
+        top: 322.75rem !important;         
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
     /* calamansi_testimonial_2 */
     .testimonial-calamansi-2 {
-        width: 16.1rem !important;              /* 257.7px / 16 */
-        height: 20.1rem !important;             /* 322.13px / 16 */
-        left: 59.02% !important;                 /* 233.66px / 375 */
-        top: 300.4rem !important;               /* 4778.34px / 16 */
-        z-index: 1 !important;
+        width: 68.72%;
+        height: 20.13rem;
+        left: 62.31%;
+        top: 315.46rem;
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
     /* calamansi_testimonial_3 */
     .testimonial-calamansi-3 {
-        width: 18.5rem !important;             
-        height: 23.1rem !important;             
-        left: 33.1% !important;                 
-        top: 322.7rem !important;               
-        z-index: 1 !important;
+        width: 78.78%;             
+        height: 23.08rem;   
+        left: 28.27%;               
+        top: 339.69rem;               
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0) !important;
     }
 
     /* calamansi_testimonial_5 */
     .testimonial-calamansi-5 {
-        display: block !important;
-        width: 19.1rem !important;             
-        height: 23.8rem !important;         
-        left: -52% !important;    
-        top: 293rem !important; 
-        z-index: 1 !important;
+        width: 81.39%;             
+        height: 23.84rem;        
+        left: -63.47%;    
+        top: 305.75rem; 
         transform: matrix(-0.93, 0.38, 0.38, 0.93, 0, 0) !important;
     }
 
@@ -3808,32 +3793,32 @@ footer {
     .testimonial-calamansi-1 {
         width: 76.1%;              /* 327.27px / 430 */
         height: 25.6rem;           /* 409.08px / 16 */
-        left: -33.5%;              /* -144.15px / 430 */
-        top: 316.3rem;             /* 5060.31px / 16 */
+        left: -30.7%;              /* -144.15px / 430 */
+        top: 319.52rem;             /* 5060.31px / 16 */
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-2 {
         width: 62.2%;              /* 267.28px / 430 */
         height: 20.9rem;           /* 334.1px / 16 */
-        left: 57.6%;               /* 247.84px / 430 */
-        top: 299.9rem;             /* 4798px / 16 */
+        left: 60.43%;               /* 247.84px / 430 */
+        top: 303.13rem;             /* 4798px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-5 {
         width: 73.6%;              /* 316.54px / 430 */
         height: 24.7rem;           /* 395.67px / 16 */
-        left: -41.9%;              /* -180.16px / 430 */
-        top: 290rem;               /* 4640px / 16 */
+        left: -39.11%;              /* -180.16px / 430 */
+        top: 293.25rem;               /* 4640px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-3 {
         width: 71.3%;              /* 306.39px / 430 */
         height: 23.9rem;           /* 382.99px / 16 */
-        left: 30.9%;               /* 132.87px / 430 */
-        top: 321.8rem;             /* 5148.91px / 16 */
+        left: 33.69%;               /* 132.87px / 430 */
+        top: 325.06rem;             /* 5148.91px / 16 */
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0);
     }
 }
@@ -3852,138 +3837,148 @@ footer {
     }
 
     .hero-fruit-mango {
-        width: 13.9%;             
-        height: 27.8rem;          
-        left: 12.2%;                
-        top: -3rem;              
+        width: 16.1%;              
+        height: 24.2rem;           
+        left: 12.3%;               
+        top: -5.75rem;             
+        border-radius: 14.8rem;   
         transform: rotate(14.62deg);
     }
 
     .hero-fruit-bignay {
-        width: 16.9%;              /* 433.51px / 2560 */
-        height: 38.8rem;           /* 620.64px / 16 */
-        left: 67.7%;               /* 1734px / 2560 */
-        top: -8.9rem;              /* -143px / 16 */
+        width: 16.9%;             
+        height: 38.79rem;          
+        left: 67.6%;           
+        top: -2.5rem;
     }
 
     .hero-fruit-dragonfruit {
-        width: 15.4%;              /* 393.81px / 2560 */
-        height: 38.6rem;           /* 618.37px / 16 */
-        left: -6.9%;               /* -176px / 2560 */
-        top: 35.9rem;              /* 575px / 16 */
+        width: 15.4%;             
+        height: 38.65rem;          
+        left: -6.9%;                      
+        top: 35.94rem;              
         transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
     }
 
     .hero-fruit-mangosteen {
-        width: 24.1%;              /* Calculated from left/right: 84.96% to 89.39% */
-        height: 17.6rem;           /* Estimated from aspect ratio */
-        left: 84.96%;
-        right: -4.43%;
-        top: 6.1rem;               /* 9% of 1080px = 97.2px / 16 */
+        width: 21.06%;
+        height: 28.39rem;
+        left: 84.47%;
+        top: 42.98rem;              
     }
 
     .hero-fruit-mulberry {
-        width: 15%;                /* 385.29px / 2560 */
-        height: 29.9rem;           /* 479.21px / 16 */
-        left: 85.9%;               /* 2200.49px / 2560 */
-        top: 13.4rem;              /* 214px / 16 */
+        width: 15.05%;             
+        height: 29.95rem;           
+        left: 85.96%;               
+        top: 13.4rem;                      
         transform: rotate(7.79deg);
     }
 
     .hero-fruit-calamansi {
-        width: 13.7%;
+        width: 13.67%;              
         height: 27.4rem;
-        left: -2.08%;
-        right: 86.41%;
-        top: 0.8rem;               /* 1.18% of 1080px = 12.74px / 16 */
+        left: -5.08%;
+        top: 6.06rem;               
         transform: matrix(0.47, -0.88, -0.9, -0.44, 0, 0);
     }
 
     /* Content Section */
+    .content-fruit-calamansi {
+        display: none;
+    }
+
     .content-fruit-calamansi-2 {
-        width: 19.3%;              /* 494.22px / 2560 */
-        height: 38.6rem;           /* 617.78px / 16 */
-        left: 1.2%;                /* 30.5px / 2560 */
-        top: 86.5rem;              /* 1384.34px / 16 */
+        width: 19.31%;              
+        height: 38.61rem;           
+        left: 1.19%;                
+        top: 86.5rem;            
         transform: rotate(-128.18deg);
     }
 
     .content-fruit-mango {
-        width: 15.9%;              /* 407.49px / 2560 */
-        height: 31.8rem;           /* 509.36px / 16 */
-        left: 32.4%;               /* 828.47px / 2560 */
-        top: 127.3rem;             /* 2036.55px / 16 */
+        width: 15.9%;                /* 258.97px / 1440 */
+        height: 31.84rem;           /* 323.71px / 16 */
+        left: 32.36%;               
+        top: 127.28rem;             /* 1858.5px / 16 */
         transform: rotate(-29.31deg);
     }
 
     .content-fruit-mangosteen {
-        width: 16.5%;              /* 423.18px / 2560 */
-        height: 33.5rem;           /* 536.24px / 16 */
-        left: 12.7%;               /* 324px / 2560 */
-        top: 158.1rem;             /* 2530px / 16 */
+        width: 16.53%;              /* 268.94px / 1440 */
+        height: 33.5rem;           /* 340.79px / 16 */
+        left: 12.66%;               /* 256.75px / 1440 */
+        top: 158.125rem;             /* 2322px / 16 */
     }
 
     .content-fruit-bugnay {
-        width: 18.7%;              /* 478.74px / 2560 */
-        height: 42.8rem;           /* 685.38px / 16 */
-        left: 65.3%;               /* 1671.47px / 2560 */
-        top: 95.5rem;              /* 1527.73px / 16 */
+        width: 21.1%;              /* 304.25px / 1440 */
+        height: 27.2rem;           /* 435.58px / 16 */
+        left: 72.9%;               /* 1049.88px / 1440 */
+        top: 100.6rem;              /* 1522.12px / 16 */
     }
 
     .content-fruit-mulberry {
-        width: 13.7%;              /* 350.14px / 2560 */
-        height: 27.7rem;           /* 443.68px / 16 */
-        left: 83.9%;               /* 2148px / 2560 */
-        top: 136.6rem;             /* 2185px / 16 */
+        width: 13.7%;              /* 222.52px / 1440 */
+        height: 27.73rem;           /* 281.97px / 16 */
+        left: 83.9%;               /* 1197.25px / 1440 */
+        top: 136.56rem;             /* 1945.65px / 16 */
         transform: rotate(20.01deg);
+    }
+
+    .content-fruit-dragonfruit {
+        width: 16.7%;              
+        height: 28.63rem;          
+        left: -5.1%;               
+        top: 131.81rem;            
     }
 
     /* Testimonial Section */
     .testimonial-calamansi-1 {
-        width: 35.1rem;            /* 898.85px / 16 (using rem for testimonials) */
-        height: 70.2rem;           /* 1123.56px / 16 */
+        width: 35.1%;            
+        height: 70.2rem;           
         left: 0%;
-        top: 244.9rem;
+        top: 245rem;
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-2 {
-        width: 52.9rem;            /* 845.82px / 16 */
-        height: 66.1rem;           /* 1057.28px / 16 */
-        left: 76.4%;               /* 1955.94px / 2560 */
-        top: 229.7rem;             /* 3675.27px / 16 */
+        width: 33.04%;            
+        height: 66.1rem;           
+        left: 76.4%;               
+        top: 229.7rem;            
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-3 {
-        width: 49.6rem;            /* 793.14px / 16 */
-        height: 62rem;             /* 991.43px / 16 */
-        left: 45.4%;               /* 1162.46px / 2560 */
-        top: 245.39rem;            /* 3926.19px / 16 */
+        width: 31%;           
+        height: 62rem;            
+        left: 50.4%;              
+        top: 245.39rem;            
         transform: rotate(-48.45deg);
     }
 
     .testimonial-calamansi-4 {
-        width: 50rem;              /* 800.61px / 16 */
-        height: 62.5rem;           /* 1000.76px / 16 */
-        left: 67.5%;               /* 1727.59px / 2560 */
-        top: 198.5rem;             /* 3176px / 16 */
+        width: 31.3%;              
+        height: 62.55rem;           
+        left: 67.5%;               
+        top: 198.5rem;             
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-5 {
-        width: 34.7rem;            /* 554.72px / 16 */
-        height: 43.3rem;           /* 693.4px / 16 */
-        left: 9.6%;                /* 244.58px / 2560 */
-        top: 219.96rem;            /* 3519.42px / 16 */
+        width: 21.67%;           
+        height: 43.3rem;          
+        left: 9.6%;                
+        top: 219.96rem;            
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-6 {
-        width: 34.1rem;            /* 545.62px / 16 */
-        height: 42.6rem;           /* 682.02px / 16 */
-        left: 30%;                 /* 766.85px / 2560 */
-        top: 255.07rem;            /* 4081.13px / 16 */
+        width: 34.1rem;            
+        height: 42.6rem;         
+        left: 30%;           
+        top: 255.07rem;            
         transform: rotate(2.03deg);
     }
 }
@@ -3993,7 +3988,7 @@ footer {
     /* Hero Section */
 
     .hero-bottle {
-        height: 318.63px;
+        height: 420.43px;
     }
 
     .hero-fruit-mulberry-2 {
@@ -4020,32 +4015,30 @@ footer {
         width: 16.6%;              /* 319.56px / 1920 */
         height: 31.4rem;           /* 501.78px / 16 */
         left: -6.7%;               /* -128px / 1920 */
-        top: 31.1rem;              /* 497.75px / 16 */
+        top: 38.98rem;              /* 497.75px / 16 */
         transform: matrix(-0.95, -0.32, -0.32, 0.95, 0, 0);
     }
 
     .hero-fruit-mangosteen {
-        width: 26.9%;              /* Calculated from percentages */
-        height: 18.6rem;
-        left: 83.87%;
-        right: -4.94%;
-        top: 29.9rem;              /* 9.62% of 4981px = 479.17px / 16 */
+        width: 21.06%;
+        height: 28.39rem;
+        left: 84.47%;
+        top: 42.98rem;              
     }
 
     .hero-fruit-mulberry {
         width: 16.3%;              /* 312.64px / 1920 */
         height: 24.3rem;           /* 388.85px / 16 */
-        left: 84.9%;               /* 1631.06px / 1920 */
-        top: 10.4rem;              /* 166.13px / 16 */
+        left: 86.2%;               /* 1631.06px / 1920 */
+        top: 10.6rem;              /* 166.13px / 16 */
         transform: rotate(7.79deg);
     }
 
     .hero-fruit-calamansi {
-        width: 19.2%;              /* Calculated from percentages */
-        height: 14.7rem;
+        width: 14.8%;              
+        height: 22.24rem;
         left: -4.99%;
-        right: 90.2%;
-        top: 5.1rem;               /* 1.65% of 4981px = 82.19px / 16 */
+        top: 6.32rem;               /* 1.65% of 4981px = 82.19px / 16 */
         transform: matrix(0.47, -0.88, -0.9, -0.44, 0, 0);
     }
 
@@ -4056,6 +4049,10 @@ footer {
         left: 6.3%;                /* 120.94px / 1920 */
         top: 97.2rem;              /* 1555px / 16 */
         transform: rotate(-128.18deg);
+    }
+
+    .content-fruit-calamansi {
+        display: none;
     }
 
     .content-fruit-mango {
@@ -4088,6 +4085,13 @@ footer {
         transform: rotate(20.01deg);
     }
 
+    .content-fruit-dragonfruit {
+        width: 16.7%;              
+        height: 28.63rem;          
+        left: -5.1%;               
+        top: 131.81rem;            
+    }
+
     /* Testimonial Section */
     .testimonial-calamansi-1 {
         width: 42.1rem;            /* 674.13px / 16 */
@@ -4108,7 +4112,7 @@ footer {
     .testimonial-calamansi-3 {
         width: 37.2rem;            /* 594.86px / 16 */
         height: 46.5rem;           /* 743.57px / 16 */
-        left: 43.4%;               /* 832.84px / 1920 */
+        left: 50.4%;               /* 832.84px / 1920 */
         top: 251.29rem;            /* 4020.64px / 16 */
         transform: rotate(-48.45deg);
     }
@@ -4175,7 +4179,7 @@ footer {
         width: 27.73%;
         height: 29.46rem;
         left: 79.39%;
-        top: 30.4rem;              /* 10.19% of 4843px = 493.5px / 16 */
+        top: 30.4rem;              
     }
 
     .hero-fruit-mulberry {
@@ -4207,7 +4211,7 @@ footer {
         width: 21.8%;              /* 314.09px / 1440 */
         height: 24.5rem;           /* 392.61px / 16 */
         left: 7.3%;                
-        top: 76.6rem;            
+        top: 96.6rem;            
         transform: rotate(-128.18deg);
     }
 
@@ -4215,7 +4219,7 @@ footer {
         width: 18%;                /* 258.97px / 1440 */
         height: 20.2rem;           /* 323.71px / 16 */
         left: 40.6%;               
-        top: 116.2rem;             /* 1858.5px / 16 */
+        top: 136.2rem;             /* 1858.5px / 16 */
         transform: rotate(-29.31deg);
     }
 
@@ -4223,22 +4227,29 @@ footer {
         width: 18.7%;              /* 268.94px / 1440 */
         height: 21.3rem;           /* 340.79px / 16 */
         left: 17.8%;               /* 256.75px / 1440 */
-        top: 145.1rem;             /* 2322px / 16 */
+        top: 165.1rem;             /* 2322px / 16 */
     }
 
     .content-fruit-bugnay {
         width: 21.1%;              /* 304.25px / 1440 */
         height: 27.2rem;           /* 435.58px / 16 */
         left: 72.9%;               /* 1049.88px / 1440 */
-        top: 80.6rem;              /* 1522.12px / 16 */
+        top: 100.6rem;              /* 1522.12px / 16 */
     }
 
     .content-fruit-mulberry {
         width: 15.5%;              /* 222.52px / 1440 */
         height: 17.6rem;           /* 281.97px / 16 */
         left: 85.1%;               /* 1197.25px / 1440 */
-        top: 121.6rem;             /* 1945.65px / 16 */
+        top: 141.6rem;             /* 1945.65px / 16 */
         transform: rotate(20.01deg);
+    }
+
+    .content-fruit-dragonfruit {
+        width: 16.7%;              
+        height: 28.63rem;          
+        left: -5.1%;               
+        top: 131.81rem;            
     }
 
     /* Testimonial Section */
@@ -4246,7 +4257,7 @@ footer {
         width: 29.4rem;            
         height: 36.8rem;           
         left: 0%;
-        top: 235.06rem;            
+        top: 255.06rem;            
         transform: rotate(2.03deg);
     }
 
@@ -4254,7 +4265,7 @@ footer {
         width: 32.8rem;            
         height: 41rem;             
         left: 74.49%;               
-        top: 222.11rem;             
+        top: 242.11rem;             
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4262,7 +4273,7 @@ footer {
         width: 30.7rem;            
         height: 38.4rem;           
         left: 48.39%;               
-        top: 234.28rem;            
+        top: 254.28rem;            
         transform: rotate(-48.45deg);
     }
 
@@ -4270,7 +4281,7 @@ footer {
         width: 31rem;             
         height: 38.8rem;           
         left: 64.7%;              
-        top: 202.69rem;
+        top: 222.69rem;
         transform: rotate(2.03deg);
     }
 
@@ -4278,7 +4289,7 @@ footer {
         width: 24.6rem;            
         height: 30.7rem;           
         left: -1.91%;               
-        top: 212.53rem;             
+        top: 232.53rem;             
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4286,7 +4297,7 @@ footer {
         width: 21.2rem;           
         height: 26.4rem;           
         left: 20.88%;               
-        top: 239.57rem;       
+        top: 259.57rem;       
         transform: rotate(2.03deg);
     }
 }
@@ -4407,7 +4418,7 @@ footer {
         width: 26.1rem;            /* 418.03px / 16 */
         height: 32.7rem;           /* 522.53px / 16 */
         left: -4.1%;               /* -53px / 1280 */
-        top: 230.79rem;            /* 3692.59px / 16 */
+        top: 250.79rem;            /* 3692.59px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -4415,7 +4426,7 @@ footer {
         width: 29.1rem;            /* 465.48px / 16 */
         height: 36.4rem;           /* 581.85px / 16 */
         left: 75%;                 /* 959.93px / 1280 */
-        top: 225.30rem;            /* 3508.75px / 16 */
+        top: 245.30rem;            /* 3508.75px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4423,7 +4434,7 @@ footer {
         width: 27.3rem;            /* 436.49px / 16 */
         height: 34.1rem;           /* 545.61px / 16 */
         left: 46%;                
-        top: 230.10rem;            /* 3681.56px / 16 */
+        top: 250.10rem;            /* 3681.56px / 16 */
         transform: rotate(-48.45deg);
     }
 
@@ -4431,7 +4442,7 @@ footer {
         width: 27.5rem;            /* 440.6px / 16 */
         height: 34.4rem;           /* 550.75px / 16 */
         left: 65.2%;               /* 834.92px / 1280 */
-        top: 204.9rem;            /* 3233px / 16 */
+        top: 224.9rem;            /* 3233px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -4439,7 +4450,7 @@ footer {
         width: 21.8rem;            /* 348.67px / 16 */
         height: 27.2rem;           /* 435.83px / 16 */
         left: -1.3%;               /* -16.23px / 1280 */
-        top: 210.79rem;            /* 3372.71px / 16 */
+        top: 230.79rem;            /* 3372.71px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4447,7 +4458,7 @@ footer {
         width: 18.8rem;            /* 300.27px / 16 */
         height: 23.5rem;           /* 375.34px / 16 */
         left: 21.5%;               /* 274.99px / 1280 */
-        top: 234.79rem;            /* 3756.58px / 16 */
+        top: 264.79rem;            /* 3756.58px / 16 */
         transform: rotate(2.03deg);
     }
 }
@@ -4455,6 +4466,11 @@ footer {
 /* Tablet Landscape */
 @media (min-width: 1024px) and (max-width: 1279px) {
     /* Hero Section */
+
+    .hero-bottle {
+        height: 226.25px;
+    }
+
     .hero-fruit-mango {
         width: 22.8%;              /* 233.52px / 1024 */
         height: 18.2rem;           /* 291.9px / 16 */
@@ -4562,50 +4578,50 @@ footer {
 
     /* Testimonial Section */
     .testimonial-calamansi-1 {
-        width: 24.5rem;            /* 392.29px / 16 */
-        height: 30.6rem;           /* 490.36px / 16 */
-        left: -5.7%;               /* -58.32px / 1024 */
-        top: 334.74rem;            /* 5195.84px / 16 */
+        width: 38.31%;  
+        height: 30.6rem;          
+        left: -5.7%;              
+        top: 344.74rem;       
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-2 {
-        width: 23.2rem;            /* 371.84px / 16 */
-        height: 29.1rem;           /* 464.8px / 16 */
-        left: 75.4%;               /* 772px / 1024 */
-        top: 330.94rem;            /* 5135px / 16 */
+        width: 36.31%;          
+        height: 29.05rem;          
+        left: 75.39%;               
+        top: 340.94rem;        
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-3 {
-        width: 21.8rem;            /* 348.68px / 16 */
+        width: 34.05%;         
         height: 27.2rem;           /* 435.85px / 16 */
-        left: 50.1%;               /* 431px / 1024 */
-        top: 338.88rem;            /* 5262px / 16 */
+        left: 52.09%;               /* 431px / 1024 */
+        top: 348.88rem;            /* 5262px / 16 */
         transform: rotate(-48.45deg);
     }
 
     .testimonial-calamansi-4 {
-        width: 22rem;              /* 351.96px / 16 */
+        width: 34.37%;            
         height: 27.5rem;           /* 439.95px / 16 */
         left: 71.3%;               /* 730px / 1024 */
-        top: 310.44rem;            /* 4807px / 16 */
+        top: 320.44rem;            /* 4807px / 16 */
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-5 {
-        width: 21.6rem;            /* 345.53px / 16 */
-        height: 27rem;             /* 431.91px / 16 */
+        width: 33.74%;           
+        height: 26.99rem;             /* 431.91px / 16 */
         left: -7.1%;               /* -73px / 1024 */
-        top: 311.19rem;            /* 4819px / 16 */
+        top: 331.19rem;            /* 4819px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-6 {
-        width: 18rem;              /* 287.77px / 16 */
-        height: 22.5rem;           /* 359.71px / 16 */
+        width: 28.1%;            
+        height: 22.48rem;           /* 359.71px / 16 */
         left: 22.7%;               /* 232px / 1024 */
-        top: 343.19rem;            /* 5331px / 16 */
+        top: 353.19rem;            /* 5331px / 16 */
         transform: rotate(2.03deg);
     }
 }
@@ -4652,9 +4668,10 @@ footer {
         transform: rotate(7.79deg);
     }
 
-    .hero-fruit-mulberry-2 {
+    .hero-fruit-mulberry-2, .hero-fruit-dragonfruit-2,  .hero-fruit-calamansi-1 {
         display: none;
     }
+
 
     .hero-fruit-calamansi {
         width: 20.6%;
@@ -4719,50 +4736,50 @@ footer {
 
     /* Testimonial Section */
     .testimonial-calamansi-1 {
-        width: 21.6rem;            /* 345.28px / 16 */
-        height: 27rem;             /* 431.6px / 16 */
-        left: -11.5%;              /* -88.08px / 768 */
-        top: 269.5rem;             /* 4312.25px / 16 */
+        width: 44.96%;           
+        height: 27rem;          
+        left: -11.5%;      
+        top: 279.5rem;    
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-2 {
-        width: 20.5rem;            /* 327.28px / 16 */
-        height: 25.6rem;           /* 409.1px / 16 */
-        left: 83.7%;               /* 642.74px / 768 */
-        top: 266.2rem;             /* 4258.7px / 16 */
+        width: 42.6%;           
+        height: 25.6rem;          
+        left: 83.7%;        
+        top: 276.2rem; 
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-3 {
-        width: 39.96%;            /* 306.9px / 16 */
-        height: 23.98rem;             /* 383.62px / 16 */
-        left: 55.6%;               /* 342.61px / 768 */
-        top: 275.2rem;             /* 4370.48px / 16 */
+        width: 39.96%;        
+        height: 23.98rem;    
+        left: 54.6%;              
+        top: 283.2rem;
         transform: rotate(-48.45deg);
     }
 
     .testimonial-calamansi-4 {
-        width: 19.4rem;            /* 309.79px / 16 */
-        height: 24.2rem;           /* 387.23px / 16 */
-        left: 78.9%;               /* 605.78px / 768 */
-        top: 248.1rem;             /* 3970px / 16 */
+        width: 40.34%;           
+        height: 24.2rem;          
+        left: 78.9%;        
+        top: 258.1rem;             
         transform: rotate(2.03deg);
     }
 
     .testimonial-calamansi-5 {
-        width: 19rem;              /* 304.12px / 16 */
-        height: 23.8rem;           /* 380.15px / 16 */
-        left: -13.2%;              /* -101px / 768 */
-        top: 248.8rem;             /* 3980.56px / 16 */
+        width: 39.6%;        
+        height: 23.8rem;          
+        left: -13.2%;             
+        top: 258.8rem;      
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
     .testimonial-calamansi-6 {
-        width: 15.8rem;            /* 253.28px / 16 */
-        height: 19.8rem;           /* 316.6px / 16 */
-        left: 21.8%;               /* 167.45px / 768 */
-        top: 276.9rem;             /* 4431.21px / 16 */
+        width: 32.98%;   
+        height: 19.8rem;      
+        left: 21.8%;      
+        top: 287rem;      
         transform: rotate(2.03deg);
     }
 }
