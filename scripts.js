@@ -2,6 +2,59 @@
 // Interactive functionality for carousels and UI elements
 
 // ============================================
+// AGE VERIFICATION FUNCTIONALITY
+// ============================================
+(function() {
+    const AGE_VERIFIED_KEY = 'vinoArsanAgeVerified';
+    const modal = document.getElementById('age-verification-modal');
+    const yesBtn = document.getElementById('age-yes-btn');
+    const noBtn = document.getElementById('age-no-btn');
+
+    // Check if user has already verified their age
+    function checkAgeVerification() {
+        const isVerified = localStorage.getItem(AGE_VERIFIED_KEY);
+
+        if (!isVerified) {
+            // Show modal after a brief delay for better UX
+            setTimeout(() => {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }, 300);
+        }
+    }
+
+    // Handle YES button click
+    function handleYesClick() {
+        // Store verification in localStorage
+        localStorage.setItem(AGE_VERIFIED_KEY, 'true');
+
+        // Hide modal with animation
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Re-enable scrolling
+    }
+
+    // Handle NO button click
+    function handleNoClick() {
+        // Redirect to a safe page or show message
+        alert('You must be of legal drinking age to access this website.');
+        // Redirect to Google or another appropriate page
+        window.location.href = 'https://www.google.com';
+    }
+
+    // Attach event listeners
+    if (yesBtn) {
+        yesBtn.addEventListener('click', handleYesClick);
+    }
+
+    if (noBtn) {
+        noBtn.addEventListener('click', handleNoClick);
+    }
+
+    // Check age verification on page load
+    checkAgeVerification();
+})();
+
+// ============================================
 // PAIRING CAROUSEL FUNCTIONALITY
 // ============================================
 let currentPairingSlide = 0;

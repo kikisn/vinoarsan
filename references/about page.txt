@@ -1,0 +1,643 @@
+   <section class="about-history">
+        <div class="container">
+            <h2 class="section-title animate">Our Story</h2>
+            <div class="history-content">
+                <div class="history-text">
+                    <h3 class="history-subtitle">Established 2009 • Proudly Handcrafted • Proudly Filipino</h3>
+                    <p class="history-description">
+                        Vino Arsan first started as a hobby in 2008 by Mr. Arturo Olarte, a Mechanical Engineer by profession. During his time in one of his project sites in Nueva Ecija, he found local berries (Bugnay/Bignay and Lipote) which had color and tannin content similar to grapes.
+                    </p>
+                    <p class="history-description">
+                        Surprised that these berries had no commercial value and were not being used for consumption, he first turned them to juice. Because of its red wine-like color, he experimented in fermenting it into wine. From then, along with his son Josh Olarte, they attended wine making seminars and trainings in the US to further hone their craft.
+                    </p>
+                    <p class="history-description">
+                        In order to know the quality and taste of their red wine against international standards, they joined the 2016 International Wine Making Competition by Wine Maker Magazine, where they won <strong>2 Silver Medals and 1 Bronze Medal</strong> out of more than 2,981 entries. Then in May 2018, they placed <strong>Gold Medal</strong> for their Malibug (Mango-Lipote-Bugnay) Red Wine Entry.
+                    </p>
+                </div>
+                
+                <!-- Awards Banner -->
+                <div class="awards-banner">
+                    <h3 class="awards-title">International Recognition</h3>
+                    <div class="awards-images">
+                        <a href="https://winemakermag.com/wp-content/uploads/16-Wine-Comp-Results-.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                            <img src="./index_files/2016-winemaker.jpg" alt="2016 WineMaker Magazine Competition - 2 Silver &amp; 1 Bronze">
+                            <p class="award-caption">2016: 2 Silver &amp; 1 Bronze Medals</p>
+                        </a>
+                        <a href="https://winemakermag.com/wp-content/uploads/18compresults1.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                            <img src="./index_files/2018-winemaker.jpg" alt="2018 WineMaker Magazine Competition - Gold Medal">
+                            <p class="award-caption">2018: Gold Medal Winner</p>
+                        </a>
+                    </div>
+                    <p class="awards-description">Competing against over 2,981 entries worldwide in the prestigious WineMaker Magazine International Amateur Wine Competition</p>
+                </div>
+                
+                <div class="timeline-diagram">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-events">
+                        <div class="timeline-event animate-in">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-year">2008</div>
+                            <div class="timeline-content">
+                                <h4>Discovery</h4>
+                                <p>Found local berries with wine potential in Nueva Ecija</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event animate-in">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-year">2009</div>
+                            <div class="timeline-content">
+                                <h4>Est.</h4>
+                                <p>Official founding &amp; US wine training</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event animate-in">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-year">2016</div>
+                            <div class="timeline-content">
+                                <h4>Intl. Awards</h4>
+                                <p>2 Silver &amp; 1 Bronze medals from WineMaker</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event animate-in">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-year">2018</div>
+                            <div class="timeline-content">
+                                <h4>Gold Medal</h4>
+                                <p>Top honor for Malibug wine from WineMaker</p>
+                            </div>
+                        </div>
+                        <div class="timeline-event animate-in">
+                            <div class="timeline-circle"></div>
+                            <div class="timeline-year">Present</div>
+                            <div class="timeline-content">
+                                <h4>Full Enterprise</h4>
+                                <p>Wine, brandy, equipment &amp; seminars</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+/* ============================================
+   ABOUT HISTORY SECTION
+   ============================================ */
+.about-history {
+    background: var(--sage-green);
+    padding: 20px 0;
+    position: relative;
+}
+
+.about-history .section-title,
+.about-history h2,
+.about-history h3,
+.about-history p,
+.about-history .history-description,
+.about-history .highlight-text {
+    color: var(--warm-gold);
+}
+
+.history-content {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.history-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.history-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--vintage-brown);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.history-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* ============================================
+   AWARDS BANNER
+   ============================================ */
+.awards-banner {
+    background: rgba(199, 168, 89, 0.15);
+    border: 2px solid var(--sun-gold);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.awards-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--sun-gold);
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.awards-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.award-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.award-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(199, 168, 89, 0.3);
+}
+
+.award-badge img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.award-caption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: var(--warm-gold);
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+.awards-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--warm-gold);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+.history-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(244, 208, 63, 0.1);
+    border-left: 4px solid var(--sun-gold);
+    border-radius: 4px;
+}
+
+.highlight-icon {
+    font-size: 24px;
+    color: var(--sun-gold);
+}
+
+.highlight-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.highlight-text strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--vintage-brown);
+    font-weight: 600;
+}
+
+.highlight-text span {
+    font-size: 14px;
+    color: var(--text);
+    font-style: italic;
+}
+
+.history-image {
+    position: relative;
+}
+
+.history-image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--gold), var(--sun-gold));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.history-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('background-texture.jpg') center/cover;
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+}
+
+.image-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 2;
+    position: relative;
+}
+
+.image-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: var(--vintage-brown);
+    font-style: italic;
+    margin-top: 10px;
+    z-index: 2;
+    position: relative;
+}
+
+/* ============================================
+   ANIMATED TIMELINE DIAGRAM
+   ============================================ */
+
+.timeline-diagram {
+    position: relative;
+    max-width: 1000px;
+    margin: 0px;
+    padding: 0px;
+    min-height: 600px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 18%;
+    left: 50px;
+    right: 50px;
+    height: 3px;
+    background: #E9D0A5;
+}
+
+.timeline-events {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.timeline-event {
+    position: relative;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex: 1;
+    max-width: 190px;
+    height: 600px;
+}
+
+.timeline-event.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-event:nth-child(1).animate-in { transition-delay: 0.2s; }
+.timeline-event:nth-child(2).animate-in { transition-delay: 0.4s; }
+.timeline-event:nth-child(3).animate-in { transition-delay: 0.6s; }
+.timeline-event:nth-child(4).animate-in { transition-delay: 0.8s; }
+.timeline-event:nth-child(5).animate-in { transition-delay: 1.0s; }
+
+/* Year positioned at 20% from top */
+.timeline-year {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--font-size-utility);
+    font-weight: 600;
+    color: #E9D0A5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(233, 208, 165, 0.1);
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 2px solid #E9D0A5;
+    white-space: nowrap;
+}
+
+/* Circle positioned at 18% (on the line) */
+.timeline-circle {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E9D0A5;
+    z-index: 3;
+    border: 3px solid #6B7D5C;
+}
+
+/* Content positioned below the circle */
+.timeline-content {
+    position: absolute;
+    top: 26%;
+    left: 0;
+    right: 0;
+    background: rgba(233, 208, 165, 0.1);
+    padding: 22px 16px;
+    border-radius: 20px;
+    border: 2px solid rgba(233, 208, 165, 0.3);
+    min-height: 180px;
+}
+
+.timeline-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.0625rem;
+    color: #E9D0A5;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.timeline-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    color: #E9D0A5;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .timeline-diagram {
+        margin: 40px auto;
+        padding: 40px 0;
+        min-height: 520px;
+    }
+    
+    .timeline-event {
+        max-width: 145px;
+        height: 520px;
+    }
+    
+    .timeline-year {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .timeline-content {
+        padding: 16px 12px;
+        min-height: 160px;
+        top: 26%;
+    }
+    
+    .timeline-content h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .timeline-content p {
+        font-size: 11.5px;
+        line-height: 1.5;
+    }
+    
+    /* Awards banner tablet optimization */
+    .awards-banner {
+        padding: 30px 20px;
+        margin: 35px auto;
+    }
+    
+    .awards-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+    
+    .awards-images {
+        gap: 25px;
+        flex-direction: column;
+    }
+    
+    .award-badge img {
+        max-width: 220px;
+    }
+    
+    .award-caption {
+        font-size: 14px;
+    }
+    
+    .awards-description {
+        font-size: 13px;
+    }
+    
+    .history-subtitle {
+        font-size: 22px;
+    }
+    
+    .history-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-diagram {
+        min-height: 480px;
+    }
+    
+    .timeline-event {
+        max-width: 110px;
+        height: 480px;
+    }
+    
+    .timeline-year {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+    
+    .timeline-content {
+        padding: 14px 10px;
+        min-height: 150px;
+        top: 26%;
+    }
+    
+    .timeline-content h4 {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .timeline-content p {
+        font-size: 10.5px;
+        line-height: 1.5;
+    }
+    
+    /* Awards banner mobile optimization */
+    .awards-banner {
+        padding: 25px 15px;
+        margin: 30px auto;
+    }
+    
+    .awards-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .awards-images {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .award-badge {
+        padding: 15px;
+    }
+    
+    .award-badge img {
+        max-width: 200px;
+    }
+    
+    .award-caption {
+        font-size: 13px;
+    }
+    
+    .awards-description {
+        font-size: 12px;
+    }
+}
+
+/* Small desktop / Tablet optimization (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .timeline-diagram {
+        margin: 40px auto;
+        padding: 30px 0;
+        min-height: 560px;
+    }
+    
+    .timeline-event {
+        max-width: 165px;
+        height: 560px;
+    }
+    
+    .timeline-year {
+        font-size: 13px;
+        padding: 7px 11px;
+    }
+    
+    .timeline-content {
+        padding: 18px 14px;
+        min-height: 170px;
+        top: 26%;
+    }
+    
+    .timeline-content h4 {
+        font-size: 15px;
+        margin-bottom: 9px;
+    }
+    
+    .timeline-content p {
+        font-size: 12.5px;
+        line-height: 1.55;
+    }
+    
+    .timeline-circle {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Awards banner small desktop optimization */
+    .awards-banner {
+        padding: 35px 25px;
+        margin: 45px auto;
+    }
+    
+    .awards-title {
+        font-size: 28px;
+    }
+    
+    .awards-images {
+        gap: 30px;
+    }
+    
+    .award-badge img {
+        max-width: 250px;
+    }
+    
+    .award-caption {
+        font-size: 15px;
+    }
+    
+    .awards-description {
+        font-size: 13px;
+    }
+}
+
+.wine-process {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+/* Background Video Styling */
+.process-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+// ============================================
+// SCROLL-TRIGGERED ANIMATIONS
+// ============================================
+function initScrollAnimations() {
+    const timelineEvents = document.querySelectorAll('.timeline-event');
+
+    // Observe timeline events
+    timelineEvents.forEach(event => {
+        observer.observe(event);
+    });
+}

@@ -575,3 +575,453 @@
         font-size: 16px;
     }
 }
+
+/* ============================================
+   ABOUT HISTORY SECTION
+   ============================================ */
+.about-history {
+    background-color: #3e5425;
+    background-image: url("assets/backgrounds/xv.png");
+    padding: 80px 0;
+    position: relative;
+}
+
+.about-history .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.about-history .section-title {
+    font-family: 'Fondamento', cursive;
+    font-size: 48px;
+    color: var(--cream);
+    text-align: left;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.history-content {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.history-text {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.history-subtitle {
+    font-family: 'Fondamento', cursive;
+    font-size: 28px;
+    color: var(--gold-cta);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.history-description {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--cream);
+    margin-bottom: 25px;
+}
+
+.history-description strong {
+    color: var(--gold-cta);
+    font-weight: 600;
+}
+
+/* ============================================
+   AWARDS BANNER
+   ============================================ */
+.awards-banner {
+    background: rgba(199, 151, 69, 0.15);
+    border: 2px solid var(--gold-cta);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.awards-title {
+    font-family: 'Fondamento', cursive;
+    font-size: 32px;
+    color: var(--gold-cta);
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.awards-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.award-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(241, 235, 225, 0.1);
+}
+
+.award-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(199, 151, 69, 0.3);
+}
+
+.award-badge img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.award-caption {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    color: var(--gold-cta);
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+.awards-description {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================
+   ANIMATED TIMELINE DIAGRAM
+   ============================================ */
+.timeline-diagram {
+    position: relative;
+    max-width: 1000px;
+    margin: 0px;
+    padding: 0px;
+    min-height: 400px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 18%;
+    left: 50px;
+    right: 50px;
+    height: 3px;
+    background: var(--gold-cta);
+}
+
+.timeline-events {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.timeline-event {
+    position: relative;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex: 1;
+    max-width: 190px;
+    height: auto;
+    min-height: 400px;
+}
+
+.timeline-event.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-event:nth-child(1).animate-in { transition-delay: 0.2s; }
+.timeline-event:nth-child(2).animate-in { transition-delay: 0.4s; }
+.timeline-event:nth-child(3).animate-in { transition-delay: 0.6s; }
+.timeline-event:nth-child(4).animate-in { transition-delay: 0.8s; }
+.timeline-event:nth-child(5).animate-in { transition-delay: 1.0s; }
+
+/* Year positioned at top */
+.timeline-year {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold-cta);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(199, 151, 69, 0.1);
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 2px solid var(--gold-cta);
+    white-space: nowrap;
+}
+
+/* Circle positioned at 18% (on the line) */
+.timeline-circle {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gold-cta);
+    z-index: 3;
+    border: 3px solid var(--dark-green);
+}
+
+/* Content positioned below the circle */
+.timeline-content {
+    position: absolute;
+    top: 26%;
+    left: 0;
+    right: 0;
+    background: rgba(199, 151, 69, 0.1);
+    padding: 18px 14px;
+    border-radius: 20px;
+    border: 2px solid rgba(199, 151, 69, 0.3);
+    min-height: auto;
+}
+
+.timeline-content h4 {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 17px;
+    color: var(--gold-cta);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.timeline-content p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+    color: var(--cream);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS - HISTORY SECTION
+   ============================================ */
+@media (max-width: 768px) {
+    .about-history {
+        padding: 60px 0;
+    }
+
+    .about-history .container {
+        padding: 0 20px;
+    }
+
+    .about-history .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .timeline-diagram {
+        display: none;
+    }
+
+    /* Awards banner tablet optimization */
+    .awards-banner {
+        padding: 30px 20px;
+        margin: 35px auto;
+    }
+
+    .awards-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .awards-images {
+        gap: 25px;
+        flex-direction: column;
+    }
+
+    .award-badge img {
+        max-width: 220px;
+    }
+
+    .award-caption {
+        font-size: 14px;
+    }
+
+    .awards-description {
+        font-size: 13px;
+    }
+
+    .history-subtitle {
+        font-size: 22px;
+    }
+
+    .history-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-history .section-title {
+        font-size: 28px;
+    }
+
+    .timeline-diagram {
+        min-height: 350px;
+    }
+
+    .timeline-event {
+        max-width: 110px;
+        height: auto;
+        min-height: 350px;
+    }
+
+    .timeline-year {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    .timeline-content {
+        padding: 14px 10px;
+        min-height: auto;
+        top: 26%;
+    }
+
+    .timeline-content h4 {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .timeline-content p {
+        font-size: 10.5px;
+        line-height: 1.5;
+    }
+
+    /* Awards banner mobile optimization */
+    .awards-banner {
+        padding: 25px 15px;
+        margin: 30px auto;
+    }
+
+    .awards-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .awards-images {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .award-badge {
+        padding: 15px;
+    }
+
+    .award-badge img {
+        max-width: 200px;
+    }
+
+    .award-caption {
+        font-size: 13px;
+    }
+
+    .awards-description {
+        font-size: 12px;
+    }
+
+    .history-subtitle {
+        font-size: 18px;
+    }
+
+    .history-description {
+        font-size: 14px;
+    }
+}
+
+/* Small desktop / Tablet optimization (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .timeline-diagram {
+        margin: 40px auto;
+        padding: 30px 0;
+        min-height: 380px;
+    }
+
+    .timeline-event {
+        max-width: 165px;
+        height: auto;
+        min-height: 380px;
+    }
+
+    .timeline-year {
+        font-size: 13px;
+        padding: 7px 11px;
+    }
+
+    .timeline-content {
+        padding: 16px 12px;
+        min-height: auto;
+        top: 26%;
+    }
+
+    .timeline-content h4 {
+        font-size: 15px;
+        margin-bottom: 9px;
+    }
+
+    .timeline-content p {
+        font-size: 12.5px;
+        line-height: 1.55;
+    }
+
+    .timeline-circle {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Awards banner small desktop optimization */
+    .awards-banner {
+        padding: 35px 25px;
+        margin: 45px auto;
+    }
+
+    .awards-title {
+        font-size: 28px;
+    }
+
+    .awards-images {
+        gap: 30px;
+    }
+
+    .award-badge img {
+        max-width: 250px;
+    }
+
+    .award-caption {
+        font-size: 15px;
+    }
+
+    .awards-description {
+        font-size: 13px;
+    }
+}

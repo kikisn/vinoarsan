@@ -17,6 +17,22 @@
     <link rel="stylesheet" href="about-styles.css">
 </head>
 <body class="bg-white-textured">
+    <!-- Age Verification Modal -->
+    <div id="age-verification-modal" class="age-verification-modal">
+        <div class="age-verification-overlay"></div>
+        <div class="age-verification-content">
+            <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="age-verification-logo" />
+            <h2>Welcome to Vino Arsan</h2>
+            <p>You must be of legal drinking age to enter this site.</p>
+            <p class="age-verification-question">Are you 18 years or older?</p>
+            <div class="age-verification-buttons">
+                <button id="age-yes-btn" class="age-btn age-yes">YES</button>
+                <button id="age-no-btn" class="age-btn age-no">NO</button>
+            </div>
+            <p class="age-verification-disclaimer">By entering this site, you agree to our terms of use and privacy policy.</p>
+        </div>
+    </div>
+
     <!-- Main wrapper for background patterns and content -->
     <div class="main-wrapper">
         <!-- Header -->
@@ -89,31 +105,89 @@
             </div>
         </section>
 
-        <!-- Story Section - Custom Content Layout -->
-        <section class="story-section" id="story">
-            <div class="story-image">
-                <img src="assets/images/content/bottle-with-charcuterie-1200w.webp" alt="Vino Arsan Wine" loading="lazy">
-            </div>
-            <div class="story-content">
-                <h2>Our <em>Story</em> of<br>Passion & Heritage</h2>
-                <p>Vino Arsan was formed with the aim of promoting Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines. From Calamansi in Tagudin, Ilocos Sur, to exotic blends from South Cotabato and Quezon, we celebrate the rich agricultural heritage of our homeland.</p>
-                <p>Each bottle tells a story of local farmers, traditional winemaking techniques, and the unique flavors that define Filipino craftsmanship. Our award-winning wines, particularly our signature Malibugold blend made from Mangosteen, Lipote, and Bugnay, have earned international recognition.</p>
-                <p>We're proud to support local farmers and bring these exceptional wines to households across the Philippines and beyond.</p>
+        <!-- Our Story Section -->
+        <section class="about-history">
+            <div class="container">
+                <h2 class="section-title animate">Our Story</h2>
+                <div class="history-content">
+                    <div class="history-text">
+                        <h3 class="history-subtitle">Established 2009 • Proudly Handcrafted • Proudly Filipino</h3>
+                        <p class="history-description">
+                            Vino Arsan first started as a hobby in 2008 by Mr. Arturo Olarte, a Mechanical Engineer by profession. During his time in one of his project sites in Nueva Ecija, he found local berries (Bugnay/Bignay and Lipote) which had color and tannin content similar to grapes.
+                        </p>
+                        <p class="history-description">
+                            Surprised that these berries had no commercial value and were not being used for consumption, he first turned them to juice. Because of its red wine-like color, he experimented in fermenting it into wine. From then, along with his son Josh Olarte, they attended wine making seminars and trainings in the US to further hone their craft.
+                        </p>
+                        <p class="history-description">
+                            In order to know the quality and taste of their red wine against international standards, they joined the 2016 International Wine Making Competition by Wine Maker Magazine, where they won <strong>2 Silver Medals and 1 Bronze Medal</strong> out of more than 2,981 entries. Then in May 2018, they placed <strong>Gold Medal</strong> for their Malibug (Mango-Lipote-Bugnay) Red Wine Entry.
+                        </p>
+                    </div>
+
+                    <!-- Awards Banner -->
+                    <div class="awards-banner">
+                        <h3 class="awards-title">International Recognition</h3>
+                        <div class="awards-images">
+                            <a href="https://winemakermag.com/wp-content/uploads/16-Wine-Comp-Results-.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                                <img src="assets/images/content/2016-winemaker.jpg" alt="2016 WineMaker Magazine Competition - 2 Silver & 1 Bronze">
+                                <p class="award-caption">2016: 2 Silver & 1 Bronze Medals</p>
+                            </a>
+                            <a href="https://winemakermag.com/wp-content/uploads/18compresults1.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                                <img src="assets/images/content/2018-winemaker.jpg" alt="2018 WineMaker Magazine Competition - Gold Medal">
+                                <p class="award-caption">2018: Gold Medal Winner</p>
+                            </a>
+                        </div>
+                        <p class="awards-description">Competing against over 2,981 entries worldwide in the prestigious WineMaker Magazine International Amateur Wine Competition</p>
+                    </div>
+
+                    <div class="timeline-diagram">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-events">
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2008</div>
+                                <div class="timeline-content">
+                                    <h4>Discovery</h4>
+                                    <p>Found local berries with wine potential in Nueva Ecija</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2009</div>
+                                <div class="timeline-content">
+                                    <h4>Est.</h4>
+                                    <p>Official founding & US wine training</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2016</div>
+                                <div class="timeline-content">
+                                    <h4>Intl. Awards</h4>
+                                    <p>2 Silver & 1 Bronze medals from WineMaker</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2018</div>
+                                <div class="timeline-content">
+                                    <h4>Gold Medal</h4>
+                                    <p>Top honor for Malibug wine from WineMaker</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">Present</div>
+                                <div class="timeline-content">
+                                    <h4>Full Enterprise</h4>
+                                    <p>Wine, brandy, equipment & seminars</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <!-- Custom Elegance Section -->
-        <section class="custom-elegance-section">
-            <div class="elegance-content">
-                <h2>Experience Customized<br><em>Elegance</em></h2>
-                <p>Whether it's a wedding, a corporate milestone, or the ultimate gift, work with us to give an elevated surprise wine, a unique case, or design custom labels that turns every award-winning bottle into a lasting, unforgettable memory.</p>
-                <a href="contact.html" class="cta-button">LEARN MORE</a>
-            </div>
-            <div class="elegance-image">
-                <img src="assets/images/content/custom-wines-section.jpg" alt="Custom Wine Bottles" loading="lazy">
-            </div>
-        </section>
-
+        
         <!-- Production Process Section -->
         <section class="about-process-section">
             <div class="about-process-container">
@@ -137,6 +211,32 @@
                         <p>It's just like the scientific method: you experiment on stock batches first, then after extensive in-house and public testing, we'll assure you we're serving a consistent, celebrated wine when we bring it to the counter and deliver it to our customers.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+
+        <!-- Story Section - Custom Content Layout -->
+        <section class="story-section" id="story">
+            <div class="story-image">
+                <img src="assets/images/content/bottle-with-charcuterie-1200w.webp" alt="Vino Arsan Wine" loading="lazy">
+            </div>
+            <div class="story-content">
+                <h2>Our <em>Story</em> of<br>Passion & Heritage</h2>
+                <p>Vino Arsan was formed with the aim of promoting Filipino handcrafted wines and spirits from fruits sourced from provinces all over the Philippines. From Calamansi in Tagudin, Ilocos Sur, to exotic blends from South Cotabato and Quezon, we celebrate the rich agricultural heritage of our homeland.</p>
+                <p>Each bottle tells a story of local farmers, traditional winemaking techniques, and the unique flavors that define Filipino craftsmanship. Our award-winning wines, particularly our signature Malibugold blend made from Mangosteen, Lipote, and Bugnay, have earned international recognition.</p>
+                <p>We're proud to support local farmers and bring these exceptional wines to households across the Philippines and beyond.</p>
+            </div>
+        </section>
+
+        <!-- Custom Elegance Section -->
+        <section class="custom-elegance-section">
+            <div class="elegance-content">
+                <h2>Experience Customized<br><em>Elegance</em></h2>
+                <p>Whether it's a wedding, a corporate milestone, or the ultimate gift, work with us to give an elevated surprise wine, a unique case, or design custom labels that turns every award-winning bottle into a lasting, unforgettable memory.</p>
+                <a href="contact.html" class="cta-button">LEARN MORE</a>
+            </div>
+            <div class="elegance-image">
+                <img src="assets/images/content/custom-wines-section.jpg" alt="Custom Wine Bottles" loading="lazy">
             </div>
         </section>
 

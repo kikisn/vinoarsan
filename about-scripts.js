@@ -72,3 +72,36 @@ window.addEventListener('scroll', () => {
 
     lastScroll = currentScroll;
 });
+
+// ============================================
+// SCROLL-TRIGGERED ANIMATIONS FOR TIMELINE
+// ============================================
+function initScrollAnimations() {
+    const timelineEvents = document.querySelectorAll('.timeline-event');
+
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                // Optional: stop observing after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe timeline events
+    timelineEvents.forEach(event => {
+        observer.observe(event);
+    });
+}
+
+// Initialize animations when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+    initScrollAnimations();
+}
