@@ -1,0 +1,20 @@
+Pairing Page
+
+(H1): Finding the Perfect Wine Pairing
+Chart the perfect course for your palate
+CTA button: See the pairing guide
+
+(H2): Match the Weight of Your Dish
+A great pairing starts by matching the body of your drink to the weight of your food. Choose a light, refreshing spirit like a botanical gin or a crisp citrus-forward white wine for delicate dishes such as seafood or salads. For heartier meals like grilled meats or rich stews, opt for a bold red wine or a warming, aged spirit to stand up to the stronger flavors without being overwhelmed.
+
+(H2): Balance the Dominant Taste
+Focus on the main flavor of your dish and choose a drink that either complements or contrasts it. For spicy or sweet foods, a medium-sweet fruit wine can provide a pleasant, balancing counterpoint. For rich, creamy, or fatty dishes, a drink with brighter acidity—like a medium-dry wine—will cleanse your palate beautifully. Remember, the best pairing is ultimately the one you find most enjoyable, so feel free to trust your taste and experiment.
+
+Pairing Guides: 
+Lolo Art Whiskey - A bold and spirited expression that captures the essence of Filipino craftsmanship. Rich and warming, this whiskey pairs beautifully with cigar accompaniments and contemplative moments. Perfect pairings include Dark Chocolate Truffles, Smoked Meats & Cured Ham, Toasted Nuts Medley, and Premium Cigars.
+Malibugold Medium Dry Red Wine - A refined medium-dry red wine made from the rare Malibugold fruit with bright acidity and subtle complexity. Elegant and versatile, this wine transitions seamlessly from appetizers to main courses. Perfect pairings include Grilled Fish with Herbs, Spring Rolls, Mixed Green Salad, and Light Pasta with Olive Oil.
+Malibugold Medium Sweet Red Wine - A luscious medium-sweet red wine celebrating the natural sweetness of Malibugold fruit. Smooth and approachable with balanced acidity, this wine is perfect for those who enjoy fruit-forward flavors. Perfect pairings include Spiced Duck Breast, Roasted Root Vegetables, Aged Cheddar, and Honey-Glazed Chicken.
+Bignay, Pitaya Red Wine - Premium Filipino red wine crafted with a blend of exotic Bignay and Pitaya (dragon fruit). Smooth and distinctive with warm, complex notes that elevate any dining experience. Perfect pairings include Dark Chocolate Desserts, Grilled Seafood, Tropical Fruit Platters, and Spiced Nuts & Charcuterie.
+Calamansi White Wine - A refreshing white wine made from Calamansi sourced from Tagudin, Ilocos Sur. Citrus-forward with bright, zesty flavors that complement lighter fare perfectly. Perfect pairings include Grilled Fish & Seafood, Fresh Garden Salads, Sinigang na Hipon, and Lemon Butter Chicken.
+Mango White Wine - A bright and aromatic white wine celebrating the sweetness of Philippine mangoes. Refreshing with tropical nuance and balanced acidity, this wine captures the essence of island living. Perfect pairings include Grilled White Fish, Mango Salsa & Ceviche, Coconut Shrimp, and Thai Mango Salad.
+

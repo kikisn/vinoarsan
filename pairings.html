@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Pairings - Vino Arsan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pairings-styles.css">
+</head>
+<body class="bg-white-textured">
+    <!-- Main wrapper for background patterns and content -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="logo-image" />
+                    </a>
+                </div>
+                <nav>
+                    <a href="index.html">HOME</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="pairings.html">PAIRINGS</a>
+                    <a href="limited-releases.html">LIMITED RELEASES</a>
+                </nav>
+                <div class="header-icons">
+                    <a href="#search" class="icon-link search-trigger" aria-label="Search">
+                        <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
+                    </a>
+                    <a href="#cart" class="icon-link" aria-label="Shopping Cart">
+                        <img src="assets/icons/navigation/cart.svg" alt="Cart" class="icon-image" />
+                    </a>
+                    <a href="#account" class="icon-link" aria-label="Account">
+                        <img src="assets/icons/navigation/account.svg" alt="Account" class="icon-image" />
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Modal -->
+        <div id="search-modal" class="search-modal">
+            <div class="search-modal-overlay"></div>
+            <div class="search-modal-content">
+                <button class="search-modal-close" aria-label="Close search">&times;</button>
+                <div class="search-input-wrapper">
+                    <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                    <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+                </div>
+                <div id="search-results" class="search-results">
+                    <div class="search-suggestions">
+                        <h3>Popular Searches</h3>
+                        <div class="search-suggestion-tags">
+                            <button class="search-tag" data-query="Mango">Mango Wine</button>
+                            <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                            <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                            <button class="search-tag" data-query="Limited">Limited Releases</button>
+                            <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                            <button class="search-tag" data-query="White Wine">White Wines</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pairings Hero Section -->
+        <section class="pairings-hero">
+            <div class="pairings-hero-container">
+                <div class="pairings-hero-content">
+                    <h1>Chart the perfect course for your palate</h1>
+                    <p>Pair Your Fruit Wine, Discover Our Map to a More Interesting Glass.</p>
+                    <a href="#guide" class="hero-cta">How To</a>
+                </div>
+                <div class="pairings-hero-illustration">
+                    <img src="assets/decorative/pairings/natives-broiling-fish.webp" alt="Traditional cooking methods" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Block 1: Match the Weight of Your Dish -->
+        <section class="pairing-content-block layout-right" id="guide">
+            <div class="pairing-block-container">
+                <div class="pairing-block-illustration">
+                    <img src="assets/decorative/pairings/natives-making-meat-stew.webp" alt="Making traditional stew" />
+                </div>
+                <div class="pairing-block-content">
+                    <h2>Match the Weight of Your Dish</h2>
+                    <p>A great pairing starts by matching the body of your drink to the weight of your food. Choose a light, refreshing spirit like a botanical gin or a crisp citrus-forward white wine for delicate dishes such as seafood or salads. For heartier meals like grilled meats or rich stews, opt for a bold red wine or a warming, aged spirit to stand up to the stronger flavors without being overwhelmed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Block 2: Balance the Dominant Taste -->
+        <section class="pairing-content-block layout-left">
+            <div class="pairing-block-container">
+                <div class="pairing-block-content">
+                    <h2>Balance the Dominant Taste</h2>
+                    <p>Focus on the main flavor of your dish and choose a drink that either complements or contrasts it. For spicy or sweet foods, a medium-sweet fruit wine can provide a pleasant, balancing counterpoint. For rich, creamy, or fatty dishes, a drink with brighter acidity—like a medium-dry wine—will cleanse your palate beautifully. Remember, the best pairing is ultimately the one you find most enjoyable, so feel free to trust your taste and experiment.</p>
+                </div>
+                <div class="pairing-block-illustration">
+                    <img src="assets/decorative/pairings/enjoying-fire-drawing.webp" alt="Gathering around fire" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="pairings-filter-section">
+            <div class="pairings-filter-container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Pairings</button>
+                    <button class="filter-tab" data-filter="red">Red Wines</button>
+                    <button class="filter-tab" data-filter="white">White Wines</button>
+                    <button class="filter-tab" data-filter="spirits">Spirits</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pairings Grid Section -->
+        <section class="pairings-grid-section">
+            <div class="pairings-grid-container">
+
+                <!-- Pairing Card 1: Lolo Art Whiskey -->
+                <div class="pairing-card" data-type="spirits">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-lolo-art-whiskey-800w.webp" alt="Lolo Art Whiskey" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Lolo Art Whiskey</h3>
+                        <span class="pairing-category">Spirit • International</span>
+                        <p class="pairing-description">A bold and spirited expression that captures the essence of Filipino craftsmanship. Rich and warming, this whiskey pairs beautifully with cigar accompaniments and contemplative moments.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Dark Chocolate Truffles</span>
+                            <span class="pairing-tag">Smoked Meats & Cured Ham</span>
+                            <span class="pairing-tag">Toasted Nuts Medley</span>
+                            <span class="pairing-tag">Premium Cigars</span>
+                        </div>
+                        <a href="limited-releases.html" class="pairing-cta">Shop This Spirit</a>
+                    </div>
+                </div>
+
+                <!-- Pairing Card 2: Malibugold Medium Dry -->
+                <div class="pairing-card" data-type="red">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-malibugold-dry-800w.webp" alt="Malibugold Medium Dry" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Malibugold Medium Dry Red Wine</h3>
+                        <span class="pairing-category">Red Wine</span>
+                        <p class="pairing-description">A refined medium-dry red wine made from the rare Malibugold fruit with bright acidity and subtle complexity. Elegant and versatile, this wine transitions seamlessly from appetizers to main courses.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Grilled Fish with Herbs</span>
+                            <span class="pairing-tag">Spring Rolls</span>
+                            <span class="pairing-tag">Mixed Green Salad</span>
+                            <span class="pairing-tag">Light Pasta with Olive Oil</span>
+                        </div>
+                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                    </div>
+                </div>
+
+                <!-- Pairing Card 3: Malibugold Medium Sweet -->
+                <div class="pairing-card" data-type="red">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-malibugold-sweet-800w.webp" alt="Malibugold Medium Sweet" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Malibugold Medium Sweet Red Wine</h3>
+                        <span class="pairing-category">Red Wine</span>
+                        <p class="pairing-description">A luscious medium-sweet red wine celebrating the natural sweetness of Malibugold fruit. Smooth and approachable with balanced acidity, this wine is perfect for those who enjoy fruit-forward flavors.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Spiced Duck Breast</span>
+                            <span class="pairing-tag">Roasted Root Vegetables</span>
+                            <span class="pairing-tag">Aged Cheddar</span>
+                            <span class="pairing-tag">Honey-Glazed Chicken</span>
+                        </div>
+                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                    </div>
+                </div>
+
+                <!-- Pairing Card 4: Bignay, Pitaya -->
+                <div class="pairing-card" data-type="red">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-bignay-pitaya-800w.webp" alt="Bignay, Pitaya Wine" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Bignay, Pitaya Red Wine</h3>
+                        <span class="pairing-category">Red Wine</span>
+                        <p class="pairing-description">Premium Filipino red wine crafted with a blend of exotic Bignay and Pitaya (dragon fruit). Smooth and distinctive with warm, complex notes that elevate any dining experience.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Dark Chocolate Desserts</span>
+                            <span class="pairing-tag">Grilled Seafood</span>
+                            <span class="pairing-tag">Tropical Fruit Platters</span>
+                            <span class="pairing-tag">Spiced Nuts & Charcuterie</span>
+                        </div>
+                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                    </div>
+                </div>
+
+                <!-- Pairing Card 5: Calamansi -->
+                <div class="pairing-card" data-type="white">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-calamansi-800w.webp" alt="Calamansi Wine" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Calamansi White Wine</h3>
+                        <span class="pairing-category">White Wine</span>
+                        <p class="pairing-description">A refreshing white wine made from Calamansi sourced from Tagudin, Ilocos Sur. Citrus-forward with bright, zesty flavors that complement lighter fare perfectly.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Grilled Fish & Seafood</span>
+                            <span class="pairing-tag">Fresh Garden Salads</span>
+                            <span class="pairing-tag">Sinigang na Hipon</span>
+                            <span class="pairing-tag">Lemon Butter Chicken</span>
+                        </div>
+                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                    </div>
+                </div>
+
+                <!-- Pairing Card 6: Mango -->
+                <div class="pairing-card" data-type="white">
+                    <div class="pairing-visual">
+                        <div class="pairing-wine-bottle">
+                            <img src="assets/images/products/product-mango-800w.webp" alt="Mango Wine" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="pairing-content">
+                        <h3>Mango White Wine</h3>
+                        <span class="pairing-category">White Wine</span>
+                        <p class="pairing-description">A bright and aromatic white wine celebrating the sweetness of Philippine mangoes. Refreshing with tropical nuance and balanced acidity, this wine captures the essence of island living.</p>
+                        <div class="pairing-tags">
+                            <span class="pairing-tag">Grilled White Fish</span>
+                            <span class="pairing-tag">Mango Salsa & Ceviche</span>
+                            <span class="pairing-tag">Coconut Shrimp</span>
+                            <span class="pairing-tag">Thai Mango Salad</span>
+                        </div>
+                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="pairings-cta-section">
+            <div class="pairings-cta-container">
+                <h2>Ready to Start Your Pairing Journey?</h2>
+                <p>Explore our full collection of tropical wines and find your perfect match.</p>
+                <a href="shop.html" class="cta-button">Shop All Wines</a>
+            </div>
+        </section>
+
+        <!-- Image Credits Section -->
+        <section class="image-credits-section">
+            <div class="image-credits-container">
+                <h3>Image Credits</h3>
+                <p>Historical illustrations on this page are sourced from the Public Domain Image Archive / Harvard University:</p>
+                <ul class="credits-list">
+                    <li>
+                        Traditional fish broiling: Image sourced from the <a href="https://pdimagearchive.org/images/3732d4a5-c563-4bb6-bdfa-8385f868918e" target="_blank" rel="noopener noreferrer">Public Domain Image Archive / Harvard University</a>
+                    </li>
+                    <li>
+                        Traditional meat stew preparation: Image sourced from the <a href="https://pdimagearchive.org/images/30f9a9b4-95d6-446f-9a26-4b5a056d8b2c" target="_blank" rel="noopener noreferrer">Public Domain Image Archive / Harvard University</a>
+                    </li>
+                    <li>
+                        Gathering around fire: Image sourced from the <a href="https://pdimagearchive.org/images/061a5441-dd16-46f8-8601-78f672fde4c7" target="_blank" rel="noopener noreferrer">Public Domain Image Archive / Harvard University</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan" class="footer-logo" />
+                    </a>
+                </div>
+                <div class="footer-center">
+                    <div class="footer-socials">
+                        <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
+                            <img src="assets/icons/social/google.svg" alt="Google" />
+                        </a>
+                        <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
+                            <img src="assets/icons/social/facebook.svg" alt="Facebook" />
+                        </a>
+                        <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
+                            <img src="assets/icons/social/instagram.svg" alt="Instagram" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="#privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="scripts.js"></script>
+        <script src="pairings-scripts.js"></script>
+    </div><!-- end main-wrapper -->
+</body>
+</html>

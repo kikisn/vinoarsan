@@ -417,7 +417,6 @@ function initPerformanceOptimizations() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             initMobileMenu();
-            updateTestimonialCalamansiPositions();
         }, 250);
     });
 
@@ -1105,7 +1104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLimitedReleasesSizeSelector();
     initCartFunctionality();
     initSearchFunctionality(); // Initialize search functionality
-    updateTestimonialCalamansiPositions();
 
     // Add loading complete class to body
     setTimeout(() => {
@@ -1120,7 +1118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 window.addEventListener('resize', () => {
     initMobileMenu();
-    updateTestimonialCalamansiPositions();
 });
 
 // ============================================
@@ -1130,23 +1127,6 @@ window.addEventListener('error', (e) => {
     console.error('Vino Arsan Website Error:', e.error);
 });
 
-// ============================================
-// TESTIMONIAL CALAMANSI POSITIONING
-// ============================================
-function updateTestimonialCalamansiPositions() {
-    const testimonialsSection = document.querySelector('.testimonials');
-    const calamansiElements = document.querySelectorAll('.testimonial-calamansi');
-
-    if (!testimonialsSection || calamansiElements.length === 0) return;
-
-    // Get the offset of the testimonials section from the top of the page
-    const testimonialsOffset = testimonialsSection.offsetTop;
-
-    // Set the CSS custom property on each calamansi element
-    calamansiElements.forEach(element => {
-        element.style.setProperty('--testimonials-offset', `${testimonialsOffset}px`);
-    });
-}
 
 // ============================================
 // CONTENT SECTION FRUIT POSITIONING (Mobile)
