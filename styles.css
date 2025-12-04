@@ -851,7 +851,8 @@ nav a:focus-visible {
 .limited-releases {
     padding: 200px 0;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     z-index: 3;
 }
 
@@ -942,6 +943,8 @@ nav a:focus-visible {
     justify-content: center;
     gap: 20px;
     position: relative;
+    width: 100%;
+    max-width: 100%;
 }
 
 .limited-carousel-wrapper-home .carousel-btn {
@@ -975,6 +978,9 @@ nav a:focus-visible {
 
 .limited-carousel {
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
 }
 
 .limited-carousel-track {
@@ -1201,8 +1207,12 @@ nav a:focus-visible {
 .carousel-dots {
     display: flex;
     gap: 10px;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .carousel-dots .dot {
@@ -3136,7 +3146,8 @@ footer {
         width: 100%;
         max-width: min(250px, calc(100vw - 120px));
         position: relative;
-        overflow: hidden;
+        overflow: visible;
+        padding-bottom: 50px;
     }
 
     .limited-carousel-track {
@@ -3159,11 +3170,17 @@ footer {
         flex-shrink: 0;
     }
 
-    .carousel-dots {
+    .limited-carousel .carousel-dots {
         display: flex;
         justify-content: center;
         gap: 8px;
         margin-top: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -40px;
+        width: auto;
+        max-width: none;
     }
 
     .testimonial-content {

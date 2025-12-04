@@ -1,55 +1,4 @@
-// Pairings Page - Filter and Interaction Functionality
-
-// ============================================
-// FILTER FUNCTIONALITY
-// ============================================
-function initPairingsFilter() {
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    const pairingCards = document.querySelectorAll('.pairing-card');
-
-    filterTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs
-            filterTabs.forEach(t => t.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-
-            // Get filter value
-            const filterValue = this.getAttribute('data-filter');
-
-            // Filter cards
-            pairingCards.forEach(card => {
-                const cardTypes = card.getAttribute('data-type');
-                
-                if (filterValue === 'all') {
-                    // Show all cards
-                    card.classList.remove('hidden');
-                    setTimeout(() => {
-                        card.style.display = 'block';
-                    }, 10);
-                } else if (cardTypes.includes(filterValue)) {
-                    // Show matching cards
-                    card.classList.remove('hidden');
-                    setTimeout(() => {
-                        card.style.display = 'block';
-                    }, 10);
-                } else {
-                    // Hide non-matching cards
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Smooth scroll to grid after filter
-            const gridSection = document.querySelector('.pairings-grid-section');
-            if (gridSection && filterValue !== 'all') {
-                setTimeout(() => {
-                    gridSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        });
-    });
-}
+// Pairings Page - Interaction Functionality
 
 // ============================================
 // SMOOTH SCROLL FOR NAVIGATION
@@ -90,8 +39,7 @@ function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
@@ -99,18 +47,12 @@ function initScrollAnimations() {
     // Observe pairing cards
     const pairingCards = document.querySelectorAll('.pairing-card');
     pairingCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
 
     // Observe tip cards
     const tipCards = document.querySelectorAll('.tip-card');
-    tipCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    tipCards.forEach((card) => {
         observer.observe(card);
     });
 }
@@ -229,24 +171,6 @@ function initHeaderScrollEffect() {
 }
 
 // ============================================
-// CARD HOVER EFFECTS
-// ============================================
-function initCardHoverEffects() {
-    const pairingCards = document.querySelectorAll('.pairing-card');
-
-    pairingCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            // Add subtle scale effect on hover
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-}
-
-// ============================================
 // LAZY LOADING FOR IMAGES
 // ============================================
 function initLazyLoading() {
@@ -272,12 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🍷 Vino Arsan - Pairings Page Loaded');
 
     // Initialize all functionality
-    initPairingsFilter();
     initSmoothScroll();
     initScrollAnimations();
     initMobileMenu();
     initHeaderScrollEffect();
-    initCardHoverEffects();
     initLazyLoading();
 
     console.log('✨ Pairings page features initialized');

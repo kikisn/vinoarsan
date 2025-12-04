@@ -257,9 +257,9 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border: 2px solid var(--text-dark);
+    border: 2px solid var(--cream);
     background: transparent;
-    color: var(--text-dark);
+    color: var(--cream);
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -298,6 +298,13 @@
 /* ============================================
    PAIRING CARD
    ============================================ */
+/* Override global carousel .pairing-card styles for pairings page */
+.pairings-grid-section .pairing-card {
+    display: block !important;
+    background-color: var(--white);
+    background-image: none !important;
+}
+
 .pairing-card {
     background: var(--white);
     border-radius: 12px;
@@ -317,19 +324,20 @@
     background: linear-gradient(135deg, #f8f5ef 0%, #ede7dc 100%);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
 .pairing-wine-bottle {
     position: relative;
     z-index: 2;
-    width: 150px;
+    width: 180px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
+    flex-shrink: 0;
 }
 
 .pairing-wine-bottle img {
@@ -344,7 +352,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: calc(100% - 180px);
     height: 100%;
     overflow: hidden;
 }
@@ -749,14 +757,15 @@
 }
 
 /* ============================================
-   FILTER ANIMATION
+   CARD ANIMATIONS
    ============================================ */
 .pairing-card {
-    animation: fadeIn 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.pairing-card.hidden {
-    display: none;
+.pairing-card.visible {
+    animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {

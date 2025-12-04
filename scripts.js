@@ -89,7 +89,8 @@ function startPairingCarousel() {
 // LIMITED RELEASES CAROUSEL FUNCTIONALITY
 // ============================================
 let currentLimitedSlide = 0;
-const limitedDots = document.querySelectorAll('.carousel-dots .dot');
+const limitedCards = document.querySelectorAll('.limited-card');
+const limitedDots = document.querySelectorAll('.limited-carousel .carousel-dots .dot');
 
 function moveLimitedCarousel(direction) {
     goToLimitedSlide(currentLimitedSlide + direction);
@@ -97,43 +98,46 @@ function moveLimitedCarousel(direction) {
 
 function goToLimitedSlide(slideIndex) {
     // Handle wrapping
-    if (slideIndex >= limitedDots.length) {
+    if (slideIndex >= limitedCards.length) {
         slideIndex = 0;
     } else if (slideIndex < 0) {
-        slideIndex = limitedDots.length - 1;
+        slideIndex = limitedCards.length - 1;
     }
-
-    // Remove active class from all dots
-    limitedDots.forEach(dot => dot.classList.remove('active'));
-
-    // Add active class to current dot
-    if (limitedDots[slideIndex]) {
-        limitedDots[slideIndex].classList.add('active');
-    }
-
-    currentLimitedSlide = slideIndex;
 
     // Update carousel position for mobile (show/hide cards)
-    const track = document.querySelector('.limited-carousel-track');
-    const cards = document.querySelectorAll('.limited-card');
-
-    if (track && cards.length > 0) {
-        // On mobile (width <= 768px), show only one card at a time
-        if (window.innerWidth <= 768) {
-            cards.forEach((card, index) => {
-                if (index === slideIndex) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        } else {
-            // On desktop, show all cards
-            cards.forEach(card => {
+    if (window.innerWidth <= 768) {
+        limitedCards.forEach((card, index) => {
+            if (index === slideIndex) {
                 card.style.display = 'flex';
-            });
-        }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    } else {
+        // On desktop, show all cards
+        limitedCards.forEach(card => {
+            card.style.display = 'flex';
+        });
     }
+
+    // Remove active class from current dot
+    if (limitedDots[currentLimitedSlide]) {
+        limitedDots[currentLimitedSlide].classList.remove('active');
+    }
+
+    // Update current index
+    currentLimitedSlide = slideIndex;
+
+    // Add active class to new dot
+    if (limitedDots[currentLimitedSlide]) {
+        limitedDots[currentLimitedSlide].classList.add('active');
+    }
+}
+
+// Initialize limited carousel on load and resize
+function initLimitedCarousel() {
+    // Initialize the first slide
+    goToLimitedSlide(0);
 }
 
 // Auto-advance limited releases carousel every 6 seconds
@@ -142,6 +146,11 @@ function startLimitedCarousel() {
         moveLimitedCarousel(1);
     }, 6000);
 }
+
+// Handle resize to update carousel display
+window.addEventListener('resize', () => {
+    goToLimitedSlide(currentLimitedSlide);
+});
 
 // ============================================
 // TESTIMONIAL CAROUSEL FUNCTIONALITY
@@ -254,6 +263,13 @@ function initScrollAnimations() {
     // Observe sections for animation, but exclude shop-section, content-sections, and unforgettable
     const sections = document.querySelectorAll('section:not(.shop-section):not(.content-sections):not(.unforgettable)');
     sections.forEach(section => {
+        // On contact page, skip animation for about-history section
+        if (isContactPage && section.classList.contains('about-history')) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+            return;
+        }
+
         // On contact page, skip animation for about-company-section but animate its content
         if (isContactPage && section.classList.contains('about-company-section')) {
             // Make the section background immediately visible
@@ -1139,7 +1155,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all functionality
     startPairingCarousel();
-    startLimitedCarousel();
+    initLimitedCarousel(); // Initialize limited carousel first
+    startLimitedCarousel(); // Then start auto-advance
     startTestimonialCarousel();
     initSmoothScrolling();
     initHeaderScrollEffect();

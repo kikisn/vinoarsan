@@ -1,28 +1,33 @@
 // About Page - Testimonials Carousel
-let currentAboutTestimonial = 0;
 const aboutTestimonials = document.querySelectorAll('.about-testimonial-card');
-const totalAboutTestimonials = aboutTestimonials.length;
+const nextAboutTestimonial = document.getElementById('nextAboutTestimonial');
+const prevAboutTestimonial = document.getElementById('prevAboutTestimonial');
 
-function showAboutTestimonial(index) {
-    aboutTestimonials.forEach(testimonial => testimonial.classList.remove('active'));
-    aboutTestimonials[index].classList.add('active');
+if (aboutTestimonials.length > 0 && nextAboutTestimonial && prevAboutTestimonial) {
+    let currentAboutTestimonial = 0;
+    const totalAboutTestimonials = aboutTestimonials.length;
+
+    function showAboutTestimonial(index) {
+        aboutTestimonials.forEach(testimonial => testimonial.classList.remove('active'));
+        aboutTestimonials[index].classList.add('active');
+    }
+
+    nextAboutTestimonial.addEventListener('click', () => {
+        currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
+        showAboutTestimonial(currentAboutTestimonial);
+    });
+
+    prevAboutTestimonial.addEventListener('click', () => {
+        currentAboutTestimonial = (currentAboutTestimonial - 1 + totalAboutTestimonials) % totalAboutTestimonials;
+        showAboutTestimonial(currentAboutTestimonial);
+    });
+
+    // Auto-rotate testimonials every 6 seconds
+    setInterval(() => {
+        currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
+        showAboutTestimonial(currentAboutTestimonial);
+    }, 6000);
 }
-
-document.getElementById('nextAboutTestimonial').addEventListener('click', () => {
-    currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
-    showAboutTestimonial(currentAboutTestimonial);
-});
-
-document.getElementById('prevAboutTestimonial').addEventListener('click', () => {
-    currentAboutTestimonial = (currentAboutTestimonial - 1 + totalAboutTestimonials) % totalAboutTestimonials;
-    showAboutTestimonial(currentAboutTestimonial);
-});
-
-// Auto-rotate testimonials every 6 seconds
-setInterval(() => {
-    currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
-    showAboutTestimonial(currentAboutTestimonial);
-}, 6000);
 
 // FAQ Accordion
 const aboutFaqItems = document.querySelectorAll('.about-faq-item');
