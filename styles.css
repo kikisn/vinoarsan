@@ -901,6 +901,7 @@ nav a:focus-visible {
     align-items: center;
     position: relative;
     z-index: 2;
+    width: fit-content !important;
 }
 
 .limited-content {
@@ -937,69 +938,27 @@ nav a:focus-visible {
     box-shadow: 0 0 20px rgba(199, 151, 69, 0.6);
 }
 
-.limited-carousel-wrapper-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-}
-
-.limited-carousel-wrapper-home .carousel-btn {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--white);
-    border: none;
-    color: var(--dark-bg);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-    flex-shrink: 0;
-    z-index: 10;
-}
-
-.limited-carousel-wrapper-home .carousel-btn:hover {
-    background: var(--tropical-green);
-    color: var(--white);
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(90, 140, 111, 0.5);
-}
-
-.limited-carousel-wrapper-home .carousel-btn:active {
-    transform: scale(0.95);
-}
-
-.limited-carousel {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    overflow: visible;
-}
-
-.limited-carousel-track {
-    display: flex;
+/* Limited Releases Grid - Homepage */
+.limited-grid-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .limited-card {
     position: relative;
-    width: 350px;
-    min-height: 500px;
+    width: 100%;
+    min-height: 150px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     background: var(--white);
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .limited-card img {
@@ -1008,68 +967,7 @@ nav a:focus-visible {
     object-fit: cover;
 }
 
-.limited-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    color: var(--dark-bg);
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-}
-
 /* Limited Card Content Styles for Homepage Carousel */
-.limited-card-image {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 8px 8px 0 0;
-}
-
-.limited-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.limited-card-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease;
-}
-
-.limited-card:hover .limited-card-image-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.limited-card-image-overlay .cta-button {
-    width: 100%;
-    padding: 10px 20px;
-    border: 2px solid var(--white);
-    background: var(--white);
-    color: var(--text-dark);
-    font-size: 10px;
-}
-
-.limited-card-image-overlay .cta-button:hover {
-    background: var(--red);
-    border-color: var(--red);
-    color: var(--white);
-    transform: translateY(-2px);
-}
 
 .limited-card-content {
     padding: 20px;
@@ -1089,48 +987,6 @@ nav a:focus-visible {
     color: var(--text-dark);
     line-height: 1.5;
     margin-bottom: 15px;
-}
-
-.limited-sizes {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-}
-
-.size-option {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 11px;
-    padding: 6px 12px;
-    border: 1px solid var(--text-dark);
-    background: transparent;
-    color: var(--text-dark);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.size-option:hover {
-    background: var(--text-dark);
-    color: var(--white);
-}
-
-.size-option.active {
-    background: var(--text-dark);
-    color: var(--white);
-    font-weight: 600;
-}
-
-.limited-price {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-
-.limited-card-content .cta-button {
-    display: none;
 }
 
 /* Limited Releases Grid Page Styles */
@@ -2330,18 +2186,9 @@ footer {
         gap: 40px;
     }
 
-    .limited-carousel-wrapper-home {
-        gap: 20px;
-    }
-
-    .limited-carousel-wrapper-home .carousel-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .limited-card {
-        width: 200px;
-        height: 250px;
+    .limited-grid-home {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 
     .limited-releases-grid-container {
@@ -2429,17 +2276,9 @@ footer {
         text-align: center;
     }
 
-    .limited-carousel-wrapper-home {
-        gap: 15px;
-    }
-
-    .limited-carousel-wrapper-home .carousel-btn {
-        width: 35px;
-        height: 35px;
-    }
-
-    .limited-carousel-track {
-        flex-wrap: wrap;
+    .limited-grid-home {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .limited-releases-grid-container {
@@ -2875,58 +2714,11 @@ footer {
         gap: 40px;
     }
 
-    /* Limited Releases Carousel - Single Card Display */
-    .limited-carousel-wrapper-home {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        width: 100%;
-        max-width: 100%;
-        padding: 0 10px;
-        box-sizing: border-box;
-    }
-
-    .limited-carousel {
-        width: 100%;
-        max-width: min(250px, calc(100vw - 120px));
-        position: relative;
-        overflow: visible;
-        padding-bottom: 50px;
-    }
-
-    .limited-carousel-track {
-        display: flex;
-        justify-content: flex-start;
-        gap: 0;
-        transition: transform 0.3s ease;
-    }
-
-    .limited-card {
-        width: 100%;
-        min-height: 420px;
-        flex-shrink: 0;
-    }
-
-    .limited-carousel-wrapper-home .carousel-btn {
-        position: static;
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-    }
-
-    .limited-carousel .carousel-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 10px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -40px;
-        width: auto;
-        max-width: none;
+    /* Limited Releases Grid - Mobile */
+    .limited-grid-home {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
     }
 
     .testimonial-content {
@@ -3101,15 +2893,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .limited-carousel-track {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .limited-card {
-        width: 100%;
-        max-width: 280px;
-        height: 320px;
+    .limited-grid-home {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
     }
 
     .shop-hero {

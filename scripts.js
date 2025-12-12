@@ -86,71 +86,9 @@ function startPairingCarousel() {
 }
 
 // ============================================
-// LIMITED RELEASES CAROUSEL FUNCTIONALITY
+// LIMITED RELEASES SECTION - REMOVED CAROUSEL
 // ============================================
-let currentLimitedSlide = 0;
-const limitedCards = document.querySelectorAll('.limited-card');
-const limitedDots = document.querySelectorAll('.limited-carousel .carousel-dots .dot');
-
-function moveLimitedCarousel(direction) {
-    goToLimitedSlide(currentLimitedSlide + direction);
-}
-
-function goToLimitedSlide(slideIndex) {
-    // Handle wrapping
-    if (slideIndex >= limitedCards.length) {
-        slideIndex = 0;
-    } else if (slideIndex < 0) {
-        slideIndex = limitedCards.length - 1;
-    }
-
-    // Update carousel position for mobile (show/hide cards)
-    if (window.innerWidth <= 768) {
-        limitedCards.forEach((card, index) => {
-            if (index === slideIndex) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    } else {
-        // On desktop, show all cards
-        limitedCards.forEach(card => {
-            card.style.display = 'flex';
-        });
-    }
-
-    // Remove active class from current dot
-    if (limitedDots[currentLimitedSlide]) {
-        limitedDots[currentLimitedSlide].classList.remove('active');
-    }
-
-    // Update current index
-    currentLimitedSlide = slideIndex;
-
-    // Add active class to new dot
-    if (limitedDots[currentLimitedSlide]) {
-        limitedDots[currentLimitedSlide].classList.add('active');
-    }
-}
-
-// Initialize limited carousel on load and resize
-function initLimitedCarousel() {
-    // Initialize the first slide
-    goToLimitedSlide(0);
-}
-
-// Auto-advance limited releases carousel every 6 seconds
-function startLimitedCarousel() {
-    setInterval(() => {
-        moveLimitedCarousel(1);
-    }, 6000);
-}
-
-// Handle resize to update carousel display
-window.addEventListener('resize', () => {
-    goToLimitedSlide(currentLimitedSlide);
-});
+// Carousel functionality removed - now displays 3 static cards
 
 // ============================================
 // TESTIMONIAL CAROUSEL FUNCTIONALITY
@@ -1155,8 +1093,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all functionality
     startPairingCarousel();
-    initLimitedCarousel(); // Initialize limited carousel first
-    startLimitedCarousel(); // Then start auto-advance
     startTestimonialCarousel();
     initSmoothScrolling();
     initHeaderScrollEffect();
