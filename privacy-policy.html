@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Vino Arsan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Privacy Policy Specific Styles */
+        .privacy-policy-page {
+            background-color: #f1ebe1;
+            background-image: url("assets/backgrounds/old-wall.png");
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .privacy-policy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privacy-policy-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--dark-green);
+        }
+
+        .privacy-policy-header h1 {
+            font-family: 'Fondamento', cursive;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .privacy-policy-header .last-updated {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 14px;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        .privacy-policy-content h2 {
+            font-family: 'Fondamento', cursive;
+            color: var(--dark-green);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .privacy-policy-content h3 {
+            font-family: 'Fondamento', cursive;
+            color: var(--sage-green);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .privacy-policy-content p {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .privacy-policy-content ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .privacy-policy-content li {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .privacy-policy-content strong {
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        .privacy-policy-content a {
+            color: var(--red);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .privacy-policy-content a:hover {
+            color: var(--dark-green);
+        }
+
+        .privacy-policy-divider {
+            border: 0;
+            height: 1px;
+            background: rgba(62, 84, 37, 0.2);
+            margin: 40px 0;
+        }
+
+        .contact-section {
+            background: rgba(62, 84, 37, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border-left: 4px solid var(--dark-green);
+        }
+
+        .contact-section h2 {
+            margin-top: 0;
+        }
+
+        .important-notice {
+            background: rgba(173, 52, 62, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid var(--red);
+        }
+
+        .important-notice p {
+            margin-bottom: 10px;
+        }
+
+        .important-notice p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 767px) {
+            .privacy-policy-container {
+                padding: 40px 20px 60px;
+            }
+
+            .privacy-policy-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .privacy-policy-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .privacy-policy-content p,
+            .privacy-policy-content li {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="privacy-policy-page">
+    <!-- Age Verification Modal -->
+    <div id="age-verification-modal" class="age-verification-modal">
+        <div class="age-verification-overlay"></div>
+        <div class="age-verification-content">
+            <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="age-verification-logo" />
+            <h2>Welcome to Vino Arsan</h2>
+            <p>You must be of legal drinking age to enter this site.</p>
+            <p class="age-verification-question">Are you 18 years or older?</p>
+            <div class="age-verification-buttons">
+                <button id="age-yes-btn" class="age-btn age-yes">YES</button>
+                <button id="age-no-btn" class="age-btn age-no">NO</button>
+            </div>
+            <p class="age-verification-disclaimer">By entering this site, you agree to our terms of use and privacy policy.</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="logo-image" />
+                </a>
+            </div>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="shop.html">SHOP</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="about.html">ABOUT</a>
+                <a href="pairings.html">PAIRINGS</a>
+                <a href="limited-releases.html">LIMITED RELEASES</a>
+            </nav>
+            <div class="header-icons">
+                <a href="#search" class="icon-link search-trigger" aria-label="Search">
+                    <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-overlay"></div>
+        <div class="search-modal-content">
+            <button class="search-modal-close" aria-label="Close search">&times;</button>
+            <div class="search-input-wrapper">
+                <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+            </div>
+            <div id="search-results" class="search-results">
+                <div class="search-suggestions">
+                    <h3>Popular Searches</h3>
+                    <div class="search-suggestion-tags">
+                        <button class="search-tag" data-query="Mango">Mango Wine</button>
+                        <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                        <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                        <button class="search-tag" data-query="Limited">Limited Releases</button>
+                        <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                        <button class="search-tag" data-query="White Wine">White Wines</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Content -->
+    <div class="privacy-policy-container">
+        <div class="privacy-policy-header">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated"><strong>Vino Arsan</strong><br>Last Updated: December 12, 2025</p>
+        </div>
+
+        <div class="privacy-policy-content">
+            <section>
+                <h2>1. Introduction</h2>
+                <p>Vino Arsan ("we," "our," or "us") operates this store and website, including all related information, content, features, tools, products and services (the "Services"). Vino Arsan is powered by Shopify, which enables us to provide the Services to you through our Buy Button integration and checkout functionality hosted at vino-arsan-2.myshopify.com.</p>
+                <p>This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase or other transaction using the Services or otherwise communicate with us.</p>
+                <p>This policy complies with the Republic Act No. 10173, also known as the Data Privacy Act of 2012 (DPA), and its Implementing Rules and Regulations (IRR).</p>
+                <div class="important-notice">
+                    <p><strong>Please read this Privacy Policy carefully.</strong> By using and accessing any of the Services, you acknowledge that you have read this Privacy Policy and understand the collection, use, and disclosure of your information as described herein. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to the collection, processing, and disclosure of your personal information.</p>
+                </div>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>2. Personal Information We Collect or Process</h2>
+                <p>When we use the term "personal information," we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified, so that it cannot identify or be reasonably linked to you.</p>
+                <p>We may collect or process the following categories of personal information, including inferences drawn from this personal information, depending on how you interact with the Services, where you live, and as permitted or required by applicable law:</p>
+                <ul>
+                    <li><strong>Contact details</strong> including your name, address, billing address, shipping address, phone number, and email address</li>
+                    <li><strong>Financial information</strong> including credit card, debit card, and financial account numbers, payment card information, financial account information, transaction details, form of payment (GCash, Maya, credit card, cash on delivery), payment confirmation and other payment details</li>
+                    <li><strong>Account information</strong> including your username, password, security questions, preferences and settings (if you create an account)</li>
+                    <li><strong>Transaction information</strong> including the items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel and your past transactions</li>
+                    <li><strong>Age verification information</strong> including date of birth or government-issued ID details to verify you are 18 years or older (required for alcohol sales)</li>
+                    <li><strong>Communications with us</strong> including the information you include in communications with us, for example, when sending a customer support inquiry</li>
+                    <li><strong>Device information</strong> including information about your device, browser, or network connection, your IP address, and other unique identifiers</li>
+                    <li><strong>Usage information</strong> including information regarding your interaction with the Services, including how and when you interact with or navigate the Services</li>
+                </ul>
+
+                <h3>Personal Information Sources</h3>
+                <p>We may collect personal information from the following sources:</p>
+                <ul>
+                    <li><strong>Directly from you</strong> including when you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information</li>
+                    <li><strong>Automatically through the Services</strong> including from your device when you use our products or services or visit our websites, and through the use of cookies and similar technologies</li>
+                    <li><strong>From our service providers</strong> including when we engage them to enable certain technology and when they collect or process your personal information on our behalf</li>
+                    <li><strong>From Shopify</strong> when you interact with our Buy Buttons or complete checkout on our Shopify-hosted pages</li>
+                    <li><strong>From our partners or other third parties</strong></li>
+                </ul>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>3. How We Use Your Personal Information</h2>
+                <p>Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:</p>
+
+                <h3>3.1 Provide, Tailor, and Improve the Services</h3>
+                <p>We use your personal information to provide you with the Services, including to perform our contract with you, to process your payments, to fulfill your orders, to remember your preferences and items you are interested in, to send notifications to you related to your account, to process purchases, returns, exchanges or other transactions, to create, maintain and otherwise manage your account, to arrange for shipping, to facilitate any returns and exchanges, to enable you to post reviews, and to create a customized shopping experience for you, such as recommending products related to your purchases. This may include using your personal information to better tailor and improve the Services.</p>
+
+                <h3>3.2 Marketing and Advertising</h3>
+                <p>We use your personal information for marketing and promotional purposes, such as to send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements for products or services on the Services or other websites, including based on items you previously have purchased or added to your cart and other activity on the Services.</p>
+
+                <h3>3.3 Security and Fraud Prevention</h3>
+                <p>We use your personal information to authenticate your account, to provide a secure payment and shopping experience, detect, investigate or take action regarding possible fraudulent, illegal, unsafe, or malicious activity, protect public safety, and to secure our services. If you choose to use the Services and register an account, you are responsible for keeping your account credentials safe. We highly recommend that you do not share your username, password or other access details with anyone else.</p>
+
+                <h3>3.4 Communicating with You</h3>
+                <p>We use your personal information to provide you with customer support, to be responsive to you, to provide effective services to you and to maintain our business relationship with you.</p>
+
+                <h3>3.5 Age Verification (Legal Requirement for Alcohol Sales)</h3>
+                <p>We are legally required to verify that all customers purchasing our wine products are 18 years of age or older in compliance with Philippine alcohol sale regulations. We use your age verification information solely for this compliance purpose.</p>
+
+                <h3>3.6 Legal Reasons</h3>
+                <p>We use your personal information to comply with applicable law or respond to valid legal process, including requests from law enforcement or government agencies (National Privacy Commission, Bureau of Internal Revenue), to investigate or participate in civil discovery, potential or actual litigation, or other adversarial legal proceedings, and to enforce or investigate potential violations of our terms or policies.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>4. How We Disclose Personal Information</h2>
+                <p>In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:</p>
+                <ul>
+                    <li><strong>With Shopify, vendors and other third parties</strong> who perform services on our behalf (e.g. IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping). When you click our Buy Buttons or complete checkout, your information is transmitted to and processed by Shopify at vino-arsan-2.myshopify.com.</li>
+                    <li><strong>With business and marketing partners</strong> to provide marketing services and advertise to you. For example, we use Shopify to support personalized advertising with third-party services based on your online activity with different merchants and websites. Our business and marketing partners will use your information in accordance with their own privacy notices.</li>
+                    <li><strong>With payment processors</strong> including PayMongo for processing GCash, Maya, and credit card payments</li>
+                    <li><strong>With shipping and delivery services</strong> for order fulfillment</li>
+                    <li><strong>When you direct, request us or otherwise consent</strong> to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations</li>
+                    <li><strong>With our affiliates</strong> or otherwise within our corporate group</li>
+                    <li><strong>In connection with a business transaction</strong> such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests from Philippine government agencies), to enforce any applicable terms of service or policies, and to protect or defend the Services, our rights, and the rights of our users or others</li>
+                </ul>
+
+                <h3>Opt-Out Rights</h3>
+                <p>Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites. You can exercise your rights to opt-out of those uses by contacting us at sales@vinoarsan.com.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>5. Relationship with Shopify and Buy Button Integration</h2>
+                <div class="important-notice">
+                    <p><strong>Important:</strong> Our e-commerce functionality is powered by Shopify through Buy Button integration. When you interact with our Buy Buttons or complete a purchase, you are also interacting with Shopify's services.</p>
+                </div>
+
+                <h3>How Our Buy Buttons Work</h3>
+                <p>Our website (hosted on GitHub Pages) uses Shopify Buy Buttons embedded on our product pages. When you:</p>
+                <ul>
+                    <li>Click "Add to Cart" on our website</li>
+                    <li>View your shopping cart</li>
+                    <li>Proceed to checkout</li>
+                </ul>
+                <p>You are redirected to our Shopify-hosted checkout page at <strong>vino-arsan-2.myshopify.com</strong>, where Shopify collects and processes your personal information to complete your purchase.</p>
+
+                <h3>Shopify's Role as Service Provider and Data Controller</h3>
+                <p>The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit to the Services will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside, in order to provide and improve the Services for you.</p>
+                <p>In addition, to help protect, grow, and improve our business, we use certain Shopify enhanced features that incorporate data and information obtained from your interactions with our Store, along with other merchants and with Shopify. To provide these enhanced features, Shopify may make use of personal information collected about your interactions with our store, along with other merchants, and with Shopify.</p>
+                <p><strong>In these circumstances, Shopify is responsible for the processing of your personal information,</strong> including for responding to your requests to exercise your rights over use of your personal information for these purposes.</p>
+
+                <h3>Your Rights Regarding Shopify Data Processing</h3>
+                <p>To learn more about how Shopify uses your personal information and any rights you may have, you can visit:</p>
+                <ul>
+                    <li><strong>Shopify Consumer Privacy Policy:</strong> <a href="https://www.shopify.com/legal/privacy/customers" target="_blank" rel="noopener noreferrer">https://www.shopify.com/legal/privacy/customers</a></li>
+                    <li><strong>Shopify Privacy Portal:</strong> <a href="https://privacy.shopify.com/en" target="_blank" rel="noopener noreferrer">https://privacy.shopify.com/en</a></li>
+                </ul>
+                <p>Depending on where you live, you may exercise certain rights with respect to your personal information through Shopify's Privacy Portal.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>6. Age Verification for Alcohol Sales (Philippine Legal Requirement)</h2>
+                <div class="important-notice">
+                    <p><strong>Important:</strong> Our products contain alcohol and are only available to individuals 18 years of age or older in compliance with Philippine law.</p>
+                </div>
+                <ul>
+                    <li>We require age verification before completing any purchase</li>
+                    <li>We may request a valid government-issued ID for verification purposes</li>
+                    <li>Age verification information is used solely to confirm legal drinking age eligibility</li>
+                    <li>We reserve the right to refuse service to anyone who cannot provide adequate proof of legal drinking age</li>
+                    <li>Age verification data is handled in accordance with this Privacy Policy and the Data Privacy Act of 2012</li>
+                </ul>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>7. Third Party Websites and Links</h2>
+                <p>The Services may provide links to websites or other online platforms operated by third parties (including social media platforms like Facebook). If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies and other terms and conditions.</p>
+                <p>We do not guarantee and are not responsible for the privacy or security of such sites, including the accuracy, completeness, or reliability of information found on these sites. Information you provide on public or semi-public venues, including information you share on third-party social networking platforms may also be viewable by other users of the Services and/or users of those third-party platforms without limitation as to its use by us or by a third party. Our inclusion of such links does not, by itself, imply any endorsement of the content on such platforms or of their owners or operators, except as disclosed on the Services.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>8. Cookies and Tracking Technologies</h2>
+                <p>Our website and Shopify checkout pages use cookies and similar technologies to enhance your experience and enable e-commerce functionality.</p>
+
+                <h3>Types of Cookies We Use</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for Buy Button functionality, shopping cart operation, and checkout process</li>
+                    <li><strong>Shopify Cookies:</strong> Enables secure checkout, payment processing, and order management on vino-arsan-2.myshopify.com</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our website and Shopify store</li>
+                    <li><strong>Marketing Cookies:</strong> Facebook Pixel for tracking conversions and ad performance</li>
+                    <li><strong>Preference Cookies:</strong> Remember your language and regional preferences</li>
+                </ul>
+
+                <h3>Managing Cookies</h3>
+                <p>You can control cookies through your browser settings. Note that disabling cookies may affect website functionality, prevent items from being added to your cart, and block your ability to complete purchases.</p>
+
+                <h3>Facebook Pixel</h3>
+                <p>We use Facebook Pixel to:</p>
+                <ul>
+                    <li>Measure ad campaign effectiveness</li>
+                    <li>Track conversions from Facebook ads</li>
+                    <li>Create custom audiences for targeted advertising</li>
+                </ul>
+                <p>To opt out of Facebook tracking, visit your Facebook ad preferences or use the Global Privacy Control opt-out preference signal.</p>
+
+                <h3>Global Privacy Control</h3>
+                <p>If you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will automatically treat this as a request to opt-out for the device and browser that you use to visit the website. If we are able to associate the device sending the signal to a Shopify account, we will apply the opt-out request to the account as well. To learn more about Global Privacy Control, visit <a href="https://globalprivacycontrol.org/" target="_blank" rel="noopener noreferrer">https://globalprivacycontrol.org/</a></p>
+                <p>We do not recognize other "Do Not Track" signals that may be sent from your web browser or device.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>9. Data Security and Retention</h2>
+
+                <h3>Security Measures</h3>
+                <p>Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee "perfect security." In addition, any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us.</p>
+                <p>We implement appropriate technical and organizational measures to protect your personal information:</p>
+                <ul>
+                    <li><strong>Encryption:</strong> SSL/TLS encryption for data transmission on our website and Shopify checkout</li>
+                    <li><strong>Secure Payment Processing:</strong> PCI-DSS compliant payment processors (PayMongo, Shopify Payments)</li>
+                    <li><strong>Access Controls:</strong> Limited access to personal data on a need-to-know basis</li>
+                    <li><strong>Shopify Security:</strong> Shopify maintains security measures for data processed through their platform</li>
+                </ul>
+
+                <h3>Data Retention</h3>
+                <p>How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, to provide you with Services, comply with legal obligations (including Philippine Bureau of Internal Revenue requirements), resolve disputes or enforce other applicable contracts and policies.</p>
+                <p><strong>Retention Periods:</strong></p>
+                <ul>
+                    <li><strong>Order Information:</strong> 10 years (Philippine tax compliance requirement per BIR regulations)</li>
+                    <li><strong>Marketing Consent:</strong> Until you withdraw consent</li>
+                    <li><strong>Account Information:</strong> Until you request deletion or as required by law</li>
+                    <li><strong>Payment Data:</strong> Retained by payment processors per their policies and PCI-DSS requirements</li>
+                </ul>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>10. Your Rights and Choices</h2>
+                <p>Depending on where you live, you may have some or all of the rights listed below in relation to your personal information. However, these rights are not absolute, may apply only in certain circumstances and, in certain cases, we may decline your request as permitted by law.</p>
+
+                <h3>Under the Philippine Data Privacy Act of 2012:</h3>
+                <ul>
+                    <li><strong>Right to Be Informed:</strong> You have the right to know how we collect, use, and share your personal data</li>
+                    <li><strong>Right to Access:</strong> You may request access to personal information that we hold about you</li>
+                    <li><strong>Right to Object:</strong> You can object to the processing of your personal data for direct marketing purposes</li>
+                    <li><strong>Right to Erasure/Blocking:</strong> You may request deletion or blocking of your personal data, subject to legal retention requirements (such as the 10-year BIR requirement)</li>
+                    <li><strong>Right to Rectification:</strong> You may request correction of inaccurate personal information we maintain about you</li>
+                    <li><strong>Right to Data Portability:</strong> You may request transfer of your data in a structured, commonly used format</li>
+                    <li><strong>Right to Lodge a Complaint:</strong> You can file a complaint with the National Privacy Commission (see Section 17)</li>
+                </ul>
+
+                <h3>Additional Rights (Depending on Your Location):</h3>
+                <ul>
+                    <li><strong>Right to Opt out of Sale or Sharing for Targeted Advertising:</strong> Depending on where you reside, you may have a right to opt out of the "sale" or "share" of your personal information or to opt out of the processing of your personal information for purposes considered to be "targeted advertising", as defined in applicable privacy laws</li>
+                    <li><strong>Managing Communication Preferences:</strong> We may send you promotional emails, and you may opt out of receiving these at any time by using the unsubscribe option displayed in our emails to you. If you opt out, we may still send you non-promotional emails, such as those about your account or orders that you have made</li>
+                </ul>
+
+                <h3>How to Exercise Your Rights</h3>
+                <p>You may exercise any of these rights by:</p>
+                <ul>
+                    <li>Contacting us at <strong><a href="mailto:sales@vinoarsan.com">sales@vinoarsan.com</a></strong></li>
+                    <li>Writing to us at <strong>18 Michael Rua, Parañaque, PH-00, 1711, PH</strong></li>
+                    <li>For Shopify-related rights: Visit <a href="https://privacy.shopify.com/en" target="_blank" rel="noopener noreferrer">https://privacy.shopify.com/en</a></li>
+                </ul>
+                <p>We will not discriminate against you for exercising any of these rights. We may need to verify your identity before we can process your requests, as permitted or required under applicable law. In accordance with applicable laws, you may designate an authorized agent to make requests on your behalf to exercise your rights. Before accepting such a request from an agent, we will require that the agent provide proof you have authorized them to act on your behalf, and we may need you to verify your identity directly with us.</p>
+                <p>We will respond to your request in a timely manner as required under applicable law (within 30 days for Philippine DPA requests).</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>11. Marketing Communications</h2>
+
+                <h3>11.1 Opt-In</h3>
+                <p>We will only send marketing emails if you have opted in to receive them.</p>
+
+                <h3>11.2 Opt-Out</h3>
+                <p>You can unsubscribe from marketing communications at any time by:</p>
+                <ul>
+                    <li>Clicking the "unsubscribe" link in any marketing email</li>
+                    <li>Emailing us at <a href="mailto:sales@vinoarsan.com">sales@vinoarsan.com</a></li>
+                    <li>Updating your communication preferences in your account settings</li>
+                </ul>
+
+                <h3>11.3 Transactional Emails</h3>
+                <p>You cannot opt out of essential transactional emails (order confirmations, shipping updates) as these are necessary for order fulfillment.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>12. International Transfers</h2>
+                <p>Please note that we may transfer, store and process your personal information outside the Philippines. Information you submit to the Services will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside, in order to provide and improve the Services for you.</p>
+                <p>If we transfer your personal information out of the European Economic Area or the United Kingdom, we will rely on recognized transfer mechanisms like the European Commission's Standard Contractual Clauses, or any equivalent contracts issued by the relevant competent authority of the UK, as relevant, unless the data transfer is to a country that has been determined to provide an adequate level of protection.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>13. Children's Privacy</h2>
+                <p>Our products and services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from minors. If we discover we have collected data from someone under 18, we will delete it immediately.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>14. Complaints</h2>
+                <p>If you have complaints about how we process your personal information, please contact us using the contact details provided below. Depending on where you live, you may have the right to appeal our decision by contacting us using the contact details set out below, or lodge your complaint with your local data protection authority.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>15. Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the "Last updated" date and provide notice as required by applicable law.</p>
+                <p>Your continued use of our website after changes constitutes acceptance of the updated policy.</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section class="contact-section">
+                <h2>16. Contact Us</h2>
+                <p>Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you:</p>
+                <p><strong>Email:</strong> <a href="mailto:sales@vinoarsan.com">sales@vinoarsan.com</a><br>
+                <strong>Phone:</strong> <a href="tel:+639178661022">+63 917 866 1022</a> / <a href="tel:+6288242863">(02) 8824 2863</a><br>
+                <strong>Address:</strong> 18 Michael Rua, Parañaque, PH-00, 1711, PH</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section>
+                <h2>17. Legal Basis for Processing (Philippine Data Privacy Act)</h2>
+                <p>Under the Data Privacy Act of 2012, we process your personal data based on:</p>
+                <ul>
+                    <li><strong>Consent:</strong> You have given clear consent for us to process your personal data for specific purposes (e.g., marketing communications)</li>
+                    <li><strong>Contract:</strong> Processing is necessary to fulfill our contract with you (order fulfillment)</li>
+                    <li><strong>Legal Obligation:</strong> Processing is necessary to comply with Philippine laws (age verification for alcohol sales, BIR tax compliance)</li>
+                    <li><strong>Legitimate Interests:</strong> Processing is necessary for our legitimate business interests (fraud prevention, website security)</li>
+                </ul>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <section class="contact-section">
+                <h2>18. National Privacy Commission (Philippine Data Protection Authority)</h2>
+                <p>If you wish to file a complaint or have concerns about our data practices, you may contact:</p>
+                <p><strong>National Privacy Commission</strong><br>
+                5th Floor, Philippine International Convention Center (PICC)<br>
+                Vicente Sotto St., Pasay City, Metro Manila 1307<br>
+                <strong>Email:</strong> <a href="mailto:info@privacy.gov.ph">info@privacy.gov.ph</a><br>
+                <strong>Website:</strong> <a href="https://www.privacy.gov.ph" target="_blank" rel="noopener noreferrer">www.privacy.gov.ph</a><br>
+                <strong>Hotline:</strong> (02) 8234-2228</p>
+            </section>
+
+            <hr class="privacy-policy-divider">
+
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background: rgba(62, 84, 37, 0.05); border-radius: 8px;">
+                <p><strong>This Privacy Policy is effective as of December 12, 2025.</strong></p>
+                <p style="margin-top: 15px; font-size: 14px;">
+                Compliance: Data Privacy Act of 2012 (RA 10173), Shopify Privacy Standards</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <a href="index.html">
+                    <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan" class="footer-logo" />
+                </a>
+            </div>
+            <div class="footer-center">
+                <div class="footer-socials">
+                    <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
+                        <img src="assets/icons/social/google.svg" alt="Google" />
+                    </a>
+                    <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
+                        <img src="assets/icons/social/facebook.svg" alt="Facebook" />
+                    </a>
+                    <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
+                        <img src="assets/icons/social/instagram.svg" alt="Instagram" />
+                    </a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
