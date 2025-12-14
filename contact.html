@@ -89,6 +89,15 @@
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
                     <form class="contact-form" id="contactForm">
+                        <!-- Honeypot field (hidden from users, visible to bots) -->
+                        <div class="honeypot-field" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <!-- Hidden timestamp field -->
+                        <input type="hidden" id="formTimestamp" name="timestamp" value="">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -123,7 +132,11 @@
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
-                        <button type="submit" class="cta-button">SEND MESSAGE</button>
+
+                        <!-- Form messages -->
+                        <div id="formMessages" class="form-messages" role="alert"></div>
+
+                        <button type="submit" class="cta-button" id="submitBtn">SEND MESSAGE</button>
                     </form>
                 </div>
 

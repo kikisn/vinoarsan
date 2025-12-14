@@ -670,35 +670,135 @@ function initMobileFilterPanel() {
 }
 
 // ============================================
-// FORM HANDLING
+// CONTACT FORM HANDLING
 // ============================================
-function initFormHandling() {
-    const forms = document.querySelectorAll('form');
+function initContactFormHandling() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return; // Only run if contact form exists
 
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+    const formMessages = document.getElementById('formMessages');
+    const submitBtn = document.getElementById('submitBtn');
+    const timestampField = document.getElementById('formTimestamp');
 
-            // Basic form validation
-            const inputs = form.querySelectorAll('input[required], textarea[required]');
-            let isValid = true;
+    // Set timestamp when page loads
+    if (timestampField) {
+        timestampField.value = Math.floor(Date.now() / 1000);
+    }
 
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#e74c3c';
-                } else {
-                    input.style.borderColor = '';
-                }
+    // Function to show messages
+    function showMessage(message, type) {
+        if (!formMessages) return;
+
+        formMessages.textContent = message;
+        formMessages.className = 'form-messages ' + type;
+        formMessages.style.display = 'block';
+
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                formMessages.style.display = 'none';
+            }, 5000);
+        }
+    }
+
+    // Function to clear field errors
+    function clearFieldErrors() {
+        const fields = contactForm.querySelectorAll('input, textarea, select');
+        fields.forEach(field => {
+            field.classList.remove('error');
+        });
+    }
+
+    // Function to show field errors
+    function showFieldErrors(errors) {
+        clearFieldErrors();
+        Object.keys(errors).forEach(fieldName => {
+            const field = contactForm.querySelector(`[name="${fieldName}"]`);
+            if (field) {
+                field.classList.add('error');
+            }
+        });
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Clear previous messages and errors
+        if (formMessages) {
+            formMessages.style.display = 'none';
+        }
+        clearFieldErrors();
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'SENDING...';
+
+        // Collect form data
+        const formData = {
+            firstName: contactForm.firstName.value.trim(),
+            lastName: contactForm.lastName.value.trim(),
+            email: contactForm.email.value.trim(),
+            phone: contactForm.phone.value.trim(),
+            subject: contactForm.subject.value,
+            message: contactForm.message.value.trim(),
+            website: contactForm.website.value, // Honeypot field
+            timestamp: contactForm.timestamp.value
+        };
+
+        try {
+            // Send data to PHP handler
+            const response = await fetch('contact-handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
             });
 
-            if (isValid) {
-                // Form submission logic would go here
-                console.log('Form submitted successfully');
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                form.reset();
+            const result = await response.json();
+
+            if (result.success) {
+                // Show success message
+                showMessage(result.message, 'success');
+
+                // Reset form
+                contactForm.reset();
+
+                // Reset timestamp
+                if (timestampField) {
+                    timestampField.value = Math.floor(Date.now() / 1000);
+                }
+
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
-                alert('Please fill in all required fields.');
+                // Show error message
+                showMessage(result.message, 'error');
+
+                // Show field-specific errors if any
+                if (result.errors && Object.keys(result.errors).length > 0) {
+                    showFieldErrors(result.errors);
+                }
+
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at sales@vinoarsan.com', 'error');
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'SEND MESSAGE';
+        }
+    });
+
+    // Real-time field validation - remove error class when user starts typing
+    const fields = contactForm.querySelectorAll('input, textarea, select');
+    fields.forEach(field => {
+        field.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                this.classList.remove('error');
             }
         });
     });
@@ -1104,7 +1204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductVolumeSelector();
     initMobileFilterPanel(); // Initialize mobile filter panel
     initShopFilters();
-    initFormHandling();
+    initContactFormHandling(); // Initialize contact form
     initAccessibility();
     initParallaxEffect();
     initLimitedReleasesSizeSelector();
