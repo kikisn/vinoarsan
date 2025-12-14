@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pairings-styles.css">
+    <script async defer src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
 </head>
 <body class="bg-white-textured">
     <!-- Age Verification Modal -->
@@ -127,7 +128,7 @@
                 <div class="pairing-card" data-type="spirits">
                     <div class="pairing-visual">
                         <div class="pairing-wine-bottle">
-                            <img src="assets/images/products/product-lolo-art-whiskey.png" alt="Lolo Art Whiskey" loading="lazy">
+                            <img src="assets/images/products/product-lolo-art-whiskey.webp" alt="Lolo Art Whiskey" loading="lazy">
                         </div>
                         <div class="pairing-food-image">
                             <img src="assets/images/content/chocolate-dessert.jpg" alt="Dark Chocolate Truffles" loading="lazy">
@@ -146,7 +147,7 @@
                             <span class="pairing-tag">Toasted Nuts Medley</span>
                             <span class="pairing-tag">Premium Cigars</span>
                         </div>
-                        <a href="limited-releases.html" class="pairing-cta">Shop This Spirit</a>
+                        <div id="product-component-basic-whiskey"></div>
                     </div>
                 </div>
 
@@ -173,7 +174,7 @@
                             <span class="pairing-tag">Mixed Green Salad</span>
                             <span class="pairing-tag">Light Pasta with Olive Oil</span>
                         </div>
-                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                        <div id="product-component-basic-malibugold-dry-red"></div>
                     </div>
                 </div>
 
@@ -200,7 +201,7 @@
                             <span class="pairing-tag">Aged Cheddar</span>
                             <span class="pairing-tag">Honey-Glazed Chicken</span>
                         </div>
-                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                        <div id="product-component-basic-malibugold-sweet-red"></div>
                     </div>
                 </div>
 
@@ -227,7 +228,7 @@
                             <span class="pairing-tag">Tropical Fruit Platters</span>
                             <span class="pairing-tag">Spiced Nuts & Charcuterie</span>
                         </div>
-                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                        <div id="product-component-basic-bignay-pitaya"></div>
                     </div>
                 </div>
 
@@ -254,7 +255,7 @@
                             <span class="pairing-tag">Sinigang na Hipon</span>
                             <span class="pairing-tag">Lemon Butter Chicken</span>
                         </div>
-                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                        <div id="product-component-basic-calamansi"></div>
                     </div>
                 </div>
 
@@ -281,7 +282,7 @@
                             <span class="pairing-tag">Coconut Shrimp</span>
                             <span class="pairing-tag">Thai Mango Salad</span>
                         </div>
-                        <a href="shop.html" class="pairing-cta">Shop This Wine</a>
+                        <div id="product-component-basic-mango"></div> 
                     </div>
                 </div>
 
@@ -343,6 +344,7 @@
             </div>
         </footer>
 
+        <script src="assets/js/shopify-init.js"></script>
         <script src="scripts.js"></script>
         <script src="pairings-scripts.js"></script>
     </div><!-- end main-wrapper -->

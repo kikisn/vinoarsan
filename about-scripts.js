@@ -110,3 +110,52 @@ if (document.readyState === 'loading') {
 } else {
     initScrollAnimations();
 }
+
+// ============================================
+// PARALLAX EFFECT FOR AWARDS IMAGE BANNER
+// ============================================
+function initParallaxEffect() {
+    const awardsBanner = document.querySelector('.awards-image-banner');
+    const awardsImage = document.querySelector('.awards-image-banner img');
+
+    if (!awardsBanner || !awardsImage) return;
+
+    function updateParallax() {
+        const bannerRect = awardsBanner.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if banner is in viewport
+        if (bannerRect.top < windowHeight && bannerRect.bottom > 0) {
+            // Calculate scroll progress through the banner
+            // 0 when banner top enters viewport, 1 when banner bottom leaves viewport
+            const scrollProgress = (windowHeight - bannerRect.top) / (windowHeight + bannerRect.height);
+
+            // Apply parallax transform
+            // Move image up to 50px as user scrolls
+            const parallaxOffset = (scrollProgress - 0.5) * 50;
+            awardsImage.style.transform = `translate(-50%, calc(-50% + ${parallaxOffset}px))`;
+        }
+    }
+
+    // Use requestAnimationFrame for smooth performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Initial call
+    updateParallax();
+}
+
+// Initialize parallax when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParallaxEffect);
+} else {
+    initParallaxEffect();
+}

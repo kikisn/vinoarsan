@@ -38,6 +38,16 @@ const LIMITED_PRODUCTS = [
     { id: '8162434580514', containerId: 'product-component-1765468691192' }      // Coffee Liquor
 ];
 
+const BASIC_PRODUCTS = [
+    {id: '8162473410594', containerId: 'product-component-basic-whiskey'},              // Lolo Art Whiskey
+    {id: '8162473181218', containerId: 'product-component-basic-malibugold-dry-red'},   // Malibugold Medium Dry
+    {id: '8162473148450', containerId: 'product-component-basic-malibugold-sweet-red'}, // Malibugold Sweet
+    {id: '8162433728546', containerId: 'product-component-basic-bignay-pitaya'},        // Bignay Pitaya
+    { id: '8162473213986', containerId: 'product-component-basic-calamansi'},           // Calamansi
+    { id: '8162473246754', containerId: 'product-component-basic-mango'}                // Mango  
+];
+
+
 // Shared style configuration for regular shop products (red theme)
 const SHOP_STYLES = {
     product: {
@@ -420,6 +430,41 @@ const LIMITED_STYLES = {
     }
 };
 
+// Pairing Page Buy Buttons (Basic Layout)
+const BASIC_STYLES = {
+    product: {
+        styles: {
+            product: {
+                'max-width': '100%',
+                'margin': '0',
+                'padding': '0'
+            },
+            button: {
+                'font-family': 'Open Sans, sans-serif',
+                'background-color': '#ad343e',
+                ':hover': {
+                    'background-color': '#9c2f38'
+                },
+                'border-radius': '25px'
+            }
+        },
+        buttonDestination: 'cart',
+        contents: {
+            img: false,
+            title: false,
+            price: false,
+            options: false
+        },
+        text: {
+            button: 'Add to cart'
+        },
+        googleFonts: ['Open Sans']
+    },
+    cart: SHOP_STYLES.cart,   // reuse cart styles safely
+    toggle: SHOP_STYLES.toggle
+};
+
+
 // Initialize products function
 function initializeShopifyProducts(products, styles) {
     const scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
@@ -469,10 +514,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Detect which page we're on by checking for specific containers
     const isShopPage = document.getElementById('product-component-1765469425904') !== null;
     const isLimitedPage = document.getElementById('product-component-1765468771524') !== null;
+    const isBasicPage = document.getElementById('product-component-basic-whiskey') !== null;
 
     if (isShopPage) {
         initializeShopifyProducts(SHOP_PRODUCTS, SHOP_STYLES);
     } else if (isLimitedPage) {
         initializeShopifyProducts(LIMITED_PRODUCTS, LIMITED_STYLES);
-    }
+    } else if (isBasicPage) {
+    initializeShopifyProducts(BASIC_PRODUCTS, BASIC_STYLES);
+}
 });
