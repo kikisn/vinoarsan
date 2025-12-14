@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vino Arsan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="bg-white-textured">
+    <!-- Age Verification Modal -->
+    <div id="age-verification-modal" class="age-verification-modal">
+        <div class="age-verification-overlay"></div>
+        <div class="age-verification-content">
+            <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="age-verification-logo" />
+            <h2>Welcome to Vino Arsan</h2>
+            <p>You must be of legal drinking age to enter this site.</p>
+            <p class="age-verification-question">Are you 18 years or older?</p>
+            <div class="age-verification-buttons">
+                <button id="age-yes-btn" class="age-btn age-yes">YES</button>
+                <button id="age-no-btn" class="age-btn age-no">NO</button>
+            </div>
+            <p class="age-verification-disclaimer">By entering this site, you agree to our terms of use and privacy policy.</p>
+        </div>
+    </div>
+
+    <!-- Main wrapper for background patterns and content -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan Logo" class="logo-image" />
+                    </a>
+                </div>
+                <nav>
+                    <a href="index.html">HOME</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="contact.html">CONTACT</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="pairings.html">PAIRINGS</a>
+                    <a href="limited-releases.html">LIMITED RELEASES</a>
+                </nav>
+                <div class="header-icons">
+                    <a href="#search" class="icon-link search-trigger" aria-label="Search">
+                        <img src="assets/icons/navigation/search.svg" alt="Search" class="icon-image" />
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Modal -->
+        <div id="search-modal" class="search-modal">
+            <div class="search-modal-overlay"></div>
+            <div class="search-modal-content">
+                <button class="search-modal-close" aria-label="Close search">&times;</button>
+                <div class="search-input-wrapper">
+                    <img src="assets/icons/navigation/search.svg" alt="" class="search-input-icon" />
+                    <input type="text" id="search-input" class="search-input" placeholder="Search for wines, fruits, or categories..." autocomplete="off" />
+                </div>
+                <div id="search-results" class="search-results">
+                    <div class="search-suggestions">
+                        <h3>Popular Searches</h3>
+                        <div class="search-suggestion-tags">
+                            <button class="search-tag" data-query="Mango">Mango Wine</button>
+                            <button class="search-tag" data-query="Calamansi">Calamansi Wine</button>
+                            <button class="search-tag" data-query="Dragon Fruit">Dragon Fruit Wine</button>
+                            <button class="search-tag" data-query="Limited">Limited Releases</button>
+                            <button class="search-tag" data-query="Red Wine">Red Wines</button>
+                            <button class="search-tag" data-query="White Wine">White Wines</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Hero Section -->
+        <section class="contact-hero bg-white-textured">
+            <div class="contact-hero-container">
+                <h1>Send Us a Message</h1>
+            </div>
+        </section>
+
+        <!-- Contact Content Section -->
+        <section class="contact-content-section bg-white-textured">
+            <div class="contact-content-container">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <!-- Honeypot field (hidden from users, visible to bots) -->
+                        <div class="honeypot-field" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="bulk">Bulk Orders</option>
+                                <option value="custom">Custom Labels</option>
+                                <option value="seminar">Wine-Making Seminars</option>
+                                <option value="product">Product Information</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <!-- Form messages -->
+                        <div id="formMessages" class="form-messages" role="alert"></div>
+
+                        <button type="submit" class="cta-button" id="submitBtn">SEND MESSAGE</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-wrapper">
+                    <h2>Contact Information</h2>
+
+                    <div class="contact-info-block">
+                        <h3>Email</h3>
+                        <p><a href="mailto:sales@vinoarsan.com">sales@vinoarsan.com</a></p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+639178661022">+63 917 866 1022</a></p>
+                        <p><a href="tel:+6288242863">(02) 8824 2863</a></p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>What We Offer</h3>
+                        <ul class="services-list">
+                            <li>Wine, Brandy & Vinegar Production</li>
+                            <li>Wine-Making Equipment Sales</li>
+                            <li>Wine-Making Seminars & Training</li>
+                            <li>Custom Labels & Bulk Orders</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h3>Follow Us</h3>
+                        <div class="contact-socials">
+                            <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
+                                <img src="assets/icons/social/google.svg" alt="Google" />
+                            </a>
+                            <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
+                                <img src="assets/icons/social/facebook.svg" alt="Facebook" />
+                            </a>
+                            <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
+                                <img src="assets/icons/social/instagram.svg" alt="Instagram" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Border Separator -->
+        <div class="shop-hero-border-wrapper">
+            <img src="assets/decorative/borders/hero-border-contact.svg" alt="about section border" class="shop-hero-border" />
+        </div>
+
+        <!-- Our Story Section -->
+        <section class="about-history">
+            <div class="container">
+                <h2 class="section-title animate">Our Story</h2>
+                <div class="history-content">
+                    <div class="history-text">
+                        <h3 class="history-subtitle">Established 2009 • Proudly Handcrafted • Proudly Filipino</h3>
+                        <p class="history-description">
+                            Vino Arsan first started as a hobby in 2008 by Mr. Arturo Olarte, a Mechanical Engineer by profession. During his time in one of his project sites in Nueva Ecija, he found local berries (Bugnay/Bignay and Lipote) which had color and tannin content similar to grapes.
+                        </p>
+                        <p class="history-description">
+                            Surprised that these berries had no commercial value and were not being used for consumption, he first turned them to juice. Because of its red wine-like color, he experimented in fermenting it into wine. From then, along with his son Josh Olarte, they attended wine making seminars and trainings in the US to further hone their craft.
+                        </p>
+                        <p class="history-description">
+                            In order to know the quality and taste of their red wine against international standards, they joined the 2016 International Wine Making Competition by Wine Maker Magazine, where they won <strong>2 Silver Medals and 1 Bronze Medal</strong> out of more than 2,981 entries. Then in May 2018, they placed <strong>Gold Medal</strong> for their Malibug (Mango-Lipote-Bugnay) Red Wine Entry.
+                        </p>
+                    </div>
+
+                    <!-- Awards Banner -->
+                    <div class="awards-banner">
+                        <h3 class="awards-title">International Recognition</h3>
+                        <div class="awards-images">
+                            <a href="https://winemakermag.com/wp-content/uploads/16-Wine-Comp-Results-.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                                <img src="assets/images/content/2016-winemaker.jpg" alt="2016 WineMaker Magazine Competition - 2 Silver & 1 Bronze">
+                                <p class="award-caption">2016: 2 Silver & 1 Bronze Medals</p>
+                            </a>
+                            <a href="https://winemakermag.com/wp-content/uploads/18compresults1.pdf" target="_blank" rel="noopener noreferrer" class="award-badge">
+                                <img src="assets/images/content/2018-winemaker.jpg" alt="2018 WineMaker Magazine Competition - Gold Medal">
+                                <p class="award-caption">2018: Gold Medal Winner</p>
+                            </a>
+                        </div>
+                        <p class="awards-description">Competing against over 2,981 entries worldwide in the prestigious WineMaker Magazine International Amateur Wine Competition</p>
+                    </div>
+
+                    <div class="timeline-diagram">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-events">
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2008</div>
+                                <div class="timeline-content">
+                                    <h4>Discovery</h4>
+                                    <p>Found local berries with wine potential in Nueva Ecija</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2009</div>
+                                <div class="timeline-content">
+                                    <h4>Est.</h4>
+                                    <p>Official founding & US wine training</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2016</div>
+                                <div class="timeline-content">
+                                    <h4>Intl. Awards</h4>
+                                    <p>2 Silver & 1 Bronze medals from WineMaker</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">2018</div>
+                                <div class="timeline-content">
+                                    <h4>Gold Medal</h4>
+                                    <p>Top honor for Malibug wine from WineMaker</p>
+                                </div>
+                            </div>
+                            <div class="timeline-event animate-in">
+                                <div class="timeline-circle"></div>
+                                <div class="timeline-year">Present</div>
+                                <div class="timeline-content">
+                                    <h4>Full Enterprise</h4>
+                                    <p>Wine, brandy, equipment & seminars</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <a href="index.html">
+                        <img src="assets/icons/logo/vino-arsan-logo.svg" alt="Vino Arsan" class="footer-logo" />
+                    </a>
+                </div>
+                <div class="footer-center">
+                    <div class="footer-socials">
+                        <a href="https://maps.app.goo.gl/AGRvseDL69hDnxnL8" class="social-link google" aria-label="Google Business Profile">
+                            <img src="assets/icons/social/google.svg" alt="Google" />
+                        </a>
+                        <a href="https://www.facebook.com/VinoArsan" class="social-link facebook" aria-label="Facebook">
+                            <img src="assets/icons/social/facebook.svg" alt="Facebook" />
+                        </a>
+                        <a href="https://www.instagram.com/vino.arsan/" class="social-link instagram" aria-label="Instagram">
+                            <img src="assets/icons/social/instagram.svg" alt="Instagram" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="scripts.js"></script>
+        <script src="contact-emailjs.js"></script>
+    </div><!-- end main-wrapper -->
+</body>
+</html>

@@ -185,6 +185,7 @@ const SHOP_STYLES = {
             total: 'Subtotal',
             button: 'Checkout'
         },
+        popup: false,
         googleFonts: ['Open Sans']
     },
     toggle: {
@@ -305,23 +306,23 @@ const LIMITED_STYLES = {
             },
             title: {
                 'font-family': 'Open Sans, sans-serif',
-                'color': '#f1ebe1'
+                'color': '#1a1a1a'
             },
             price: {
                 'font-family': 'Open Sans, sans-serif',
-                'color': '#f1ebe1'
+                'color': '#1a1a1a'
             },
             compareAt: {
                 'font-family': 'Open Sans, sans-serif',
-                'color': '#f1ebe1'
+                'color': '#1a1a1a'
             },
             unitPrice: {
                 'font-family': 'Open Sans, sans-serif',
-                'color': '#f1ebe1'
+                'color': '#1a1a1a'
             },
             description: {
                 'font-family': 'Open Sans, sans-serif',
-                'color': '#f1ebe1'
+                'color': '#1a1a1a'
             }
         },
         googleFonts: ['Open Sans'],
@@ -375,6 +376,7 @@ const LIMITED_STYLES = {
             total: 'Subtotal',
             button: 'Checkout'
         },
+        popup: false,
         googleFonts: ['Open Sans']
     },
     toggle: {
