@@ -28,3 +28,10 @@ npm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# PHP dependencies
+vendor/
+composer.lock
+
+# Email configuration (contains SMTP credentials)
+email-config.php

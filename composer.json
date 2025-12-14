@@ -1,0 +1,12 @@
+{
+    "name": "vinoarsan/contact-form",
+    "description": "Vino Arsan Contact Form with SMTP Email",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "VinoArsan\\": "src/"
+        }
+    }
+}
