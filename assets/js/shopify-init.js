@@ -5,46 +5,45 @@
 
 // Shopify Configuration
 const SHOPIFY_CONFIG = {
-    domain: 'vino-arsan-2.myshopify.com',
-    storefrontAccessToken: 'a85d0da9e9fbe12f67e8fd5d6f4aa47f',
+    domain: 'vino-arsan-wines.myshopify.com',
+    storefrontAccessToken: '8d05e526d4b10cadc6498ed1021a4ee2',
     moneyFormat: '%E2%82%B1%7B%7Bamount%7D%7D'
 };
 
 // Shop Page Products (Regular wines with red theme)
 const SHOP_PRODUCTS = [
-    { id: '8162473148450', containerId: 'product-component-1765469425904' },     // Malibugold Medium Sweet
-    { id: '8162473181218', containerId: 'product-component-1765469338020' },     // Malibugold Medium Dry
-    { id: '8162433728546', containerId: 'product-component-1765464924746' },     // Bignay Pitaya
-    { id: '8162473213986', containerId: 'product-component-1765468384103' },     // Calamansi
-    { id: '8162473246754', containerId: 'product-component-1765469447150' },     // Mango
-    { id: '8162433925154', containerId: 'product-component-1765469006136' },     // Dragonfruit
-    { id: '8162433990690', containerId: 'product-component-1765469095232' },     // Honey Wine
-    { id: '8162473312290', containerId: 'product-component-1765469121501' },     // Lipote Bugnay Semi-Dry
-    { id: '8162473345058', containerId: 'product-component-1765469235285' },     // Lipote Bugnay Semi-Sweet
-    { id: '8162473377826', containerId: 'product-component-1765469279179' },     // Lipote Dry
-    { id: '8162434220066', containerId: 'product-component-1765469471937' },     // Mescolare Sangria
-    { id: '8162434252834', containerId: 'product-component-1765469498168' },     // Mulberry Wine
-    { id: '8162434285602', containerId: 'product-component-1765469526239' },     // Rambutan Wine
-    { id: '8162434318370', containerId: 'product-component-1765469547800' },     // Watermelon Wine
-    { id: '8162434351138', containerId: 'product-component-1765469034637' }      // Guyabano Wine
+    { id: '15438704279625', containerId: 'product-component-1765816272421' },     // Malibugold Medium Sweet
+    { id: '15438704312393', containerId: 'product-component-1765816443654' },     // Malibugold Medium Dry
+    { id: '15438704345161', containerId: 'product-component-1765816043174' },     // Bignay Pitaya
+    { id: '15438704377929', containerId: 'product-component-1765816634996' },     // Calamansi
+    { id: '15438704410697', containerId: 'product-component-1765816710916' },     // Mango
+    { id: '15438704443465', containerId: 'product-component-1765816767567' },     // Dragonfruit
+    { id: '15438704509001', containerId: 'product-component-1765816823931' },     // Honey Wine
+    { id: '15438704574537', containerId: 'product-component-1765816896564' },     // Lipote Bugnay Semi-Dry
+    { id: '15438704640073', containerId: 'product-component-1765816938144' },     // Lipote Dry
+    { id: '15438704672841', containerId: 'product-component-1765816984831' },     // Mescolare Sangria
+    { id: '15438704705609', containerId: 'product-component-1765817021817' },     // Mulberry Wine
+    { id: '15438704738377', containerId: 'product-component-1765817058266' },     // Rambutan Wine
+    { id: '15438704771145', containerId: 'product-component-1765817086746' },     // Watermelon Wine
+    { id: '15438704803913', containerId: 'product-component-1765817117147' }      // Guyabano Wine
 ];
 
 // Limited Releases Page Products (Spirits with gold theme)
 const LIMITED_PRODUCTS = [
-    { id: '8162473410594', containerId: 'product-component-1765468771524' },     // Lolo Art Whiskey
-    { id: '8162473443362', containerId: 'product-component-1765468882369' },     // Lolo Art Brandy
-    { id: '8162473508898', containerId: 'product-component-1765468817586' },     // Lolo Art Gin
-    { id: '8162434547746', containerId: 'product-component-1765468711143' },     // Chocolate Liquor
-    { id: '8162434580514', containerId: 'product-component-1765468691192' }      // Coffee Liquor
+    { id: '15438704836681', containerId: 'product-component-1765817264835' },     // Lolo Art Whiskey
+    { id: '15438704869449', containerId: 'product-component-1765817296980' },     // Lolo Art Brandy
+    { id: '15438704902217', containerId: 'product-component-1765817333679' },     // Lolo Art Gin
+    { id: '15438705000521', containerId: 'product-component-1765817374753' },     // Chocolate Liquor
+    { id: '15438705033289', containerId: 'product-component-1765817403183' }      // Coffee Liquor
 ];
 
 const BASIC_PRODUCTS = [
-    {id: '8162473410594', containerId: 'product-component-basic-whiskey'},              // Lolo Art Whiskey
-    {id: '8162473181218', containerId: 'product-component-basic-malibugold-dry-red'},   // Malibugold Medium Dry
-    {id: '8162473148450', containerId: 'product-component-basic-malibugold-sweet-red'}, // Malibugold Sweet
-    {id: '8162433728546', containerId: 'product-component-basic-bignay-pitaya'},        // Bignay Pitaya
-    { id: '8162473213986', containerId: 'product-component-basic-calamansi'},           // Calamansi
-    { id: '8162473246754', containerId: 'product-component-basic-mango'}                // Mango  
+    { id: '15438704836681', containerId: 'product-component-basic-whiskey'},              // Lolo Art Whiskey
+    { id: '15438704312393', containerId: 'product-component-basic-malibugold-dry-red'},   // Malibugold Medium Dry
+    { id: '15438704279625', containerId: 'product-component-basic-malibugold-sweet-red'}, // Malibugold Sweet
+    { id: '15438704345161', containerId: 'product-component-basic-bignay-pitaya'},        // Bignay Pitaya
+    { id: '15438704377929', containerId: 'product-component-basic-calamansi'},           // Calamansi
+    { id: '15438704410697', containerId: 'product-component-basic-mango'}                // Mango  
 ];
 
 
