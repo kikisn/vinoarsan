@@ -2597,8 +2597,8 @@ footer {
     .testimonial-calamansi-1 {
         width: 124.136%;              
         height: 36.37rem;
-        left: -50.93%;               
-        top: 322.75rem !important;         
+        left: -70.93%;               
+        top: 382.75rem !important;         
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
@@ -2607,7 +2607,7 @@ footer {
         width: 68.72%;
         height: 20.13rem;
         left: 62.31%;
-        top: 315.46rem;
+        top: 375.46rem;
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0) !important;
     }
 
@@ -2616,7 +2616,7 @@ footer {
         width: 78.78%;             
         height: 23.08rem;   
         left: 28.27%;               
-        top: 339.69rem;               
+        top: 399.69rem;               
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0) !important;
     }
 
@@ -2624,8 +2624,8 @@ footer {
     .testimonial-calamansi-5 {
         width: 81.39%;             
         height: 23.84rem;        
-        left: -63.47%;    
-        top: 305.75rem; 
+        left: -43.47%;    
+        top: 365.75rem; 
         transform: matrix(-0.93, 0.38, 0.38, 0.93, 0, 0) !important;
     }
 
@@ -3403,7 +3403,7 @@ footer {
         width: 76.1%;              /* 327.27px / 430 */
         height: 25.6rem;           /* 409.08px / 16 */
         left: -30.7%;              /* -144.15px / 430 */
-        top: 319.52rem;             /* 5060.31px / 16 */
+        top: 369.52rem;             /* 5060.31px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -3411,7 +3411,7 @@ footer {
         width: 62.2%;              /* 267.28px / 430 */
         height: 20.9rem;           /* 334.1px / 16 */
         left: 60.43%;               /* 247.84px / 430 */
-        top: 303.13rem;             /* 4798px / 16 */
+        top: 353.13rem;             /* 4798px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -3419,7 +3419,7 @@ footer {
         width: 73.6%;              /* 316.54px / 430 */
         height: 24.7rem;           /* 395.67px / 16 */
         left: -39.11%;              /* -180.16px / 430 */
-        top: 293.25rem;               /* 4640px / 16 */
+        top: 343.25rem;               /* 4640px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -3427,7 +3427,7 @@ footer {
         width: 71.3%;              /* 306.39px / 430 */
         height: 23.9rem;           /* 382.99px / 16 */
         left: 33.69%;               /* 132.87px / 430 */
-        top: 325.06rem;             /* 5148.91px / 16 */
+        top: 375.06rem;             /* 5148.91px / 16 */
         transform: matrix(-0.99, 0.1, 0.1, 0.99, 0, 0);
     }
 }
@@ -3866,7 +3866,7 @@ footer {
         width: 29.4rem;            
         height: 36.8rem;           
         left: 0%;
-        top: 255.06rem;            
+        top: 225.06rem;            
         transform: rotate(2.03deg);
     }
 
@@ -3874,7 +3874,7 @@ footer {
         width: 32.8rem;            
         height: 41rem;             
         left: 74.49%;               
-        top: 242.11rem;             
+        top: 212.11rem;             
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -3882,7 +3882,7 @@ footer {
         width: 30.7rem;            
         height: 38.4rem;           
         left: 48.39%;               
-        top: 254.28rem;            
+        top: 224.28rem;            
         transform: rotate(-48.45deg);
     }
 
@@ -3890,7 +3890,7 @@ footer {
         width: 31rem;             
         height: 38.8rem;           
         left: 64.7%;              
-        top: 222.69rem;
+        top: 192.69rem;
         transform: rotate(2.03deg);
     }
 
@@ -3898,7 +3898,7 @@ footer {
         width: 24.6rem;            
         height: 30.7rem;           
         left: -1.91%;               
-        top: 232.53rem;             
+        top: 202.53rem;             
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -3906,7 +3906,7 @@ footer {
         width: 21.2rem;           
         height: 26.4rem;           
         left: 20.88%;               
-        top: 259.57rem;       
+        top: 229.57rem;       
         transform: rotate(2.03deg);
     }
 }
@@ -4027,7 +4027,7 @@ footer {
         width: 26.1rem;            /* 418.03px / 16 */
         height: 32.7rem;           /* 522.53px / 16 */
         left: -4.1%;               /* -53px / 1280 */
-        top: 250.79rem;            /* 3692.59px / 16 */
+        top: 220.79rem!important;            /* 3692.59px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -4035,7 +4035,7 @@ footer {
         width: 29.1rem;            /* 465.48px / 16 */
         height: 36.4rem;           /* 581.85px / 16 */
         left: 75%;                 /* 959.93px / 1280 */
-        top: 245.30rem;            /* 3508.75px / 16 */
+        top: 215.30rem!important;            /* 3508.75px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4043,7 +4043,7 @@ footer {
         width: 27.3rem;            /* 436.49px / 16 */
         height: 34.1rem;           /* 545.61px / 16 */
         left: 46%;                
-        top: 250.10rem;            /* 3681.56px / 16 */
+        top: 230.10rem!important;            /* 3681.56px / 16 */
         transform: rotate(-48.45deg);
     }
 
@@ -4051,7 +4051,7 @@ footer {
         width: 27.5rem;            /* 440.6px / 16 */
         height: 34.4rem;           /* 550.75px / 16 */
         left: 65.2%;               /* 834.92px / 1280 */
-        top: 224.9rem;            /* 3233px / 16 */
+        top: 194.9rem!important;            /* 3233px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -4059,7 +4059,7 @@ footer {
         width: 21.8rem;            /* 348.67px / 16 */
         height: 27.2rem;           /* 435.83px / 16 */
         left: -1.3%;               /* -16.23px / 1280 */
-        top: 230.79rem;            /* 3372.71px / 16 */
+        top: 200.79rem!important;            /* 3372.71px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4067,7 +4067,7 @@ footer {
         width: 18.8rem;            /* 300.27px / 16 */
         height: 23.5rem;           /* 375.34px / 16 */
         left: 21.5%;               /* 274.99px / 1280 */
-        top: 264.79rem;            /* 3756.58px / 16 */
+        top: 234.79rem!important;            /* 3756.58px / 16 */
         transform: rotate(2.03deg);
     }
 }
@@ -4190,7 +4190,7 @@ footer {
         width: 38.31%;  
         height: 30.6rem;          
         left: -5.7%;              
-        top: 344.74rem;       
+        top: 314.74rem;       
         transform: rotate(2.03deg);
     }
 
@@ -4198,7 +4198,7 @@ footer {
         width: 36.31%;          
         height: 29.05rem;          
         left: 75.39%;               
-        top: 340.94rem;        
+        top: 310.94rem;        
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4206,7 +4206,7 @@ footer {
         width: 34.05%;         
         height: 27.2rem;           /* 435.85px / 16 */
         left: 52.09%;               /* 431px / 1024 */
-        top: 348.88rem;            /* 5262px / 16 */
+        top: 318.88rem;            /* 5262px / 16 */
         transform: rotate(-48.45deg);
     }
 
@@ -4214,7 +4214,7 @@ footer {
         width: 34.37%;            
         height: 27.5rem;           /* 439.95px / 16 */
         left: 71.3%;               /* 730px / 1024 */
-        top: 320.44rem;            /* 4807px / 16 */
+        top: 250.44rem;            /* 4807px / 16 */
         transform: rotate(2.03deg);
     }
 
@@ -4222,7 +4222,7 @@ footer {
         width: 33.74%;           
         height: 26.99rem;             /* 431.91px / 16 */
         left: -7.1%;               /* -73px / 1024 */
-        top: 331.19rem;            /* 4819px / 16 */
+        top: 261.19rem;            /* 4819px / 16 */
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4230,7 +4230,7 @@ footer {
         width: 28.1%;            
         height: 22.48rem;           /* 359.71px / 16 */
         left: 22.7%;               /* 232px / 1024 */
-        top: 353.19rem;            /* 5331px / 16 */
+        top: 323.19rem;            /* 5331px / 16 */
         transform: rotate(2.03deg);
     }
 }
@@ -4348,7 +4348,7 @@ footer {
         width: 44.96%;           
         height: 27rem;          
         left: -11.5%;      
-        top: 279.5rem;    
+        top: 329.5rem;    
         transform: rotate(2.03deg);
     }
 
@@ -4356,7 +4356,7 @@ footer {
         width: 42.6%;           
         height: 25.6rem;          
         left: 83.7%;        
-        top: 276.2rem; 
+        top: 326.2rem; 
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4364,7 +4364,7 @@ footer {
         width: 39.96%;        
         height: 23.98rem;    
         left: 54.6%;              
-        top: 283.2rem;
+        top: 333.2rem;
         transform: rotate(-48.45deg);
     }
 
@@ -4372,7 +4372,7 @@ footer {
         width: 40.34%;           
         height: 24.2rem;          
         left: 78.9%;        
-        top: 258.1rem;             
+        top: 308.1rem;             
         transform: rotate(2.03deg);
     }
 
@@ -4380,7 +4380,7 @@ footer {
         width: 39.6%;        
         height: 23.8rem;          
         left: -13.2%;             
-        top: 258.8rem;      
+        top: 308.8rem;      
         transform: matrix(-1, 0.04, 0.04, 1, 0, 0);
     }
 
@@ -4388,7 +4388,7 @@ footer {
         width: 32.98%;
         height: 19.8rem;
         left: 21.8%;
-        top: 287rem;
+        top: 337rem;
         transform: rotate(2.03deg);
     }
 }
@@ -4573,7 +4573,7 @@ footer {
     font-family: 'Fondamento', cursive;
     font-size: 48px;
     color: var(--cream);
-    text-align: left;
+    text-align: center;
     margin-bottom: 60px;
     font-weight: 400;
 }

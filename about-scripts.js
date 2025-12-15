@@ -1,34 +1,3 @@
-// About Page - Testimonials Carousel
-const aboutTestimonials = document.querySelectorAll('.about-testimonial-card');
-const nextAboutTestimonial = document.getElementById('nextAboutTestimonial');
-const prevAboutTestimonial = document.getElementById('prevAboutTestimonial');
-
-if (aboutTestimonials.length > 0 && nextAboutTestimonial && prevAboutTestimonial) {
-    let currentAboutTestimonial = 0;
-    const totalAboutTestimonials = aboutTestimonials.length;
-
-    function showAboutTestimonial(index) {
-        aboutTestimonials.forEach(testimonial => testimonial.classList.remove('active'));
-        aboutTestimonials[index].classList.add('active');
-    }
-
-    nextAboutTestimonial.addEventListener('click', () => {
-        currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
-        showAboutTestimonial(currentAboutTestimonial);
-    });
-
-    prevAboutTestimonial.addEventListener('click', () => {
-        currentAboutTestimonial = (currentAboutTestimonial - 1 + totalAboutTestimonials) % totalAboutTestimonials;
-        showAboutTestimonial(currentAboutTestimonial);
-    });
-
-    // Auto-rotate testimonials every 6 seconds
-    setInterval(() => {
-        currentAboutTestimonial = (currentAboutTestimonial + 1) % totalAboutTestimonials;
-        showAboutTestimonial(currentAboutTestimonial);
-    }, 6000);
-}
-
 // FAQ Accordion
 const aboutFaqItems = document.querySelectorAll('.about-faq-item');
 
@@ -111,6 +80,105 @@ if (document.readyState === 'loading') {
     initScrollAnimations();
 }
 
+
+// ============================================
+// MOBILE MENU FUNCTIONALITY
+// ============================================
+function initMobileMenu() {
+    const headerContainer = document.querySelector('.header-container');
+    const nav = document.querySelector('nav');
+    const headerIcons = document.querySelector('.header-icons');
+
+    // Only create mobile menu button on mobile devices
+    if (window.innerWidth <= 768) {
+        // Check if button already exists
+        if (!document.querySelector('.mobile-menu-btn')) {
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.setAttribute('aria-label', 'Toggle mobile menu');
+            mobileMenuBtn.style.cssText = `
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: var(--text-dark);
+                cursor: pointer;
+                padding: 10px;
+                grid-column: 2;
+                justify-self: end;
+                z-index: 10;
+            `;
+
+            headerContainer.appendChild(mobileMenuBtn);
+
+            // Clone header icons for mobile menu if not already done
+            if (nav && !nav.querySelector('.mobile-nav-icons')) {
+                const mobileIcons = headerIcons.cloneNode(true);
+                mobileIcons.className = 'mobile-nav-icons';
+                mobileIcons.style.cssText = `
+                    display: flex;
+                    gap: 20px;
+                    justify-content: center;
+                    padding-top: 20px;
+                    margin-top: 20px;
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                `;
+                nav.appendChild(mobileIcons);
+            }
+
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = nav.style.display === 'flex';
+                nav.style.display = isOpen ? 'none' : 'flex';
+
+                if (!isOpen) {
+                    nav.style.cssText = `
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: var(--cream);
+                        padding: 20px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        z-index: 999;
+                    `;
+                    mobileMenuBtn.innerHTML = '✕';
+                } else {
+                    nav.style.display = 'none';
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    nav.style.display = 'none';
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+        }
+    } else {
+        // Remove mobile menu button on desktop
+        const existingBtn = document.querySelector('.mobile-menu-btn');
+        if (existingBtn) {
+            existingBtn.remove();
+        }
+        // Remove cloned icons from nav
+        const mobileNavIcons = nav?.querySelector('.mobile-nav-icons');
+        if (mobileNavIcons) {
+            mobileNavIcons.remove();
+        }
+        // Reset nav display
+        if (nav) {
+            nav.style.cssText = '';
+        }
+    }
+}
+
 // ============================================
 // PARALLAX EFFECT FOR AWARDS IMAGE BANNER
 // ============================================
@@ -159,3 +227,9 @@ if (document.readyState === 'loading') {
 } else {
     initParallaxEffect();
 }
+
+// Initialize mobile menu
+initMobileMenu();
+
+// Re-initialize on window resize
+window.addEventListener('resize', initMobileMenu);
