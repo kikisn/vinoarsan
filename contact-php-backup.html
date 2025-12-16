@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Vino Arsan</title>
+    <link rel="icon" type="image/png" href="VA-favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body class="bg-white-textured">
 
@@ -88,7 +87,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Contact Hero Section -->
         <section class="contact-hero bg-white-textured">
             <div class="contact-hero-container">
@@ -107,6 +105,9 @@
                             <label for="website">Website</label>
                             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                         </div>
+
+                        <!-- Hidden timestamp field -->
+                        <input type="hidden" id="formTimestamp" name="timestamp" value="">
 
                         <div class="form-row">
                             <div class="form-group">
@@ -162,7 +163,7 @@
                     <div class="contact-info-block">
                         <h3>Phone</h3>
                         <p><a href="tel:+639178661022">+63 917 866 1022</a></p>
-                        <p><a href="tel:+6288242863">(02) 8824 2863</a></p>
+                        <p><a href="tel:+63288242863">(02) 8824 2863</a></p>
                     </div>
 
                     <div class="contact-info-block">
@@ -316,7 +317,6 @@
         </footer>
 
         <script src="scripts.js"></script>
-        <script src="contact-emailjs.js"></script>
     </div><!-- end main-wrapper -->
 
     <!-- Facebook Messenger SDK -->
