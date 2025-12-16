@@ -10,8 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script async defer src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js"></script>
+        <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1378117470358124');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1378117470358124&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-white-textured">
+
+    <!-- Facebook Messenger Chat Plugin -->
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "1942935165950857");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
     <!-- Age Verification Modal -->
     <div id="age-verification-modal" class="age-verification-modal">
         <div class="age-verification-overlay"></div>
@@ -498,5 +525,23 @@
     <script src="assets/js/shopify-init.js"></script>
     <script src="scripts.js"></script>
     </div><!-- end main-wrapper -->
+
+    <!-- Facebook Messenger SDK -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 </html>
