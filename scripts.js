@@ -1242,5 +1242,5 @@ window.addEventListener('error', (e) => {
 // ============================================
 // CONSOLE WELCOME MESSAGE
 // ============================================
-console.log('%c🍷 Welcome to Vino Arsan', 'font-size: 20px; color: #5A8C6F; font-weight: bold;');
-console.log('%cTropical Wine Design - Crafted with Filipino Excellence', 'font-size: 14px; color: #5A8C6F;');
+console.log('%c Welcome to Vino Arsan', 'font-size: 20px; color: #5A8C6F; font-weight: bold;');
+console.log('%cTropical Wines - Crafted with Filipino Excellence', 'font-size: 14px; color: #5A8C6F;');
