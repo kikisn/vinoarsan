@@ -785,7 +785,7 @@ function initContactFormHandling() {
             }
         } catch (error) {
             console.error('Form submission error:', error);
-            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at sales@vinoarsan.com', 'error');
+            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at vinoarsanenterprises@gmail.com', 'error');
         } finally {
             // Re-enable submit button
             submitBtn.disabled = false;

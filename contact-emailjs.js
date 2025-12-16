@@ -123,7 +123,7 @@
             phone: formData.get('phone') || 'Not provided',
             subject: subjectMap[formData.get('subject')] || formData.get('subject'),
             message: formData.get('message'),
-            to_email: 'sales@vinoarsan.com',
+            to_email: 'vinoarsanenterprises@gmail.com',
             submission_date: new Date().toLocaleString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -154,7 +154,7 @@
 
             // Show error message
             showMessage(
-                'Sorry, there was an error sending your message. Please try again or email us directly at sales@vinoarsan.com',
+                'Sorry, there was an error sending your message. Please try again or email us directly at vinoarsanenterprises@gmail.com',
                 'error'
             );
         } finally {

@@ -255,6 +255,12 @@ const LIMITED_STYLES = {
                     'margin-bottom': '50px'
                 }
             },
+            'img-wrapper': {
+                'flex-shrink': '0'
+            },
+            'product__variant-selectors': {
+                'margin-top': 'auto'
+            },
             button: {
                 'font-family': 'Open Sans, sans-serif',
                 'color': '#1a1a1a',
@@ -528,6 +534,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (isLimitedPage) {
         initializeShopifyProducts(LIMITED_PRODUCTS, LIMITED_STYLES);
     } else if (isBasicPage) {
-    initializeShopifyProducts(BASIC_PRODUCTS, BASIC_STYLES);
-}
+        initializeShopifyProducts(BASIC_PRODUCTS, BASIC_STYLES);
+    }
 });

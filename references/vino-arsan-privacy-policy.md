@@ -127,7 +127,7 @@ In certain circumstances, we may disclose your personal information to third par
 - **In connection with a business transaction** such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests from Philippine government agencies), to enforce any applicable terms of service or policies, and to protect or defend the Services, our rights, and the rights of our users or others
 
 ### Opt-Out Rights
-Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites. You can exercise your rights to opt-out of those uses by contacting us at sales@vinoarsan.com.
+Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites. You can exercise your rights to opt-out of those uses by contacting us at vinoarsanenterprises@gmail.com.
 
 ---
 
@@ -201,7 +201,7 @@ Depending on where you live, you may have some or all of the rights listed below
 
 ### How to Exercise Your Rights
 You may exercise any of these rights by:
-- Contacting us at **sales@vinoarsan.com**
+- Contacting us at **vinoarsanenterprises@gmail.com**
 - Writing to us at **18 Michael Rua, Parañaque, PH-00, 1711, PH**
 - For Shopify-related rights: Visit https://privacy.shopify.com/en
 
@@ -261,7 +261,7 @@ Your continued use of our website after changes constitutes acceptance of the up
 
 Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you:
 
-**Email:** sales@vinoarsan.com  
+**Email:** vinoarsanenterprises@gmail.com
 **Phone:** [INSERT PHONE NUMBER]  
 **Address:** 18 Michael Rua, Parañaque, PH-00, 1711, PH  
 **Website:** [INSERT WEBSITE URL]

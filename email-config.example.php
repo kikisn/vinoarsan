@@ -10,7 +10,7 @@
 
 return [
     // Email Recipients
-    'recipient_email' => 'sales@vinoarsan.com',
+    'recipient_email' => 'vinoarsanenterprises@gmail.com',
     'recipient_name' => 'Vino Arsan Sales Team',
 
     // SMTP Configuration

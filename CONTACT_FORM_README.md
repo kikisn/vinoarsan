@@ -2,7 +2,7 @@
 
 ## Overview
 The contact form has been successfully implemented with the following features:
-- Email submission to sales@vinoarsan.com
+- Email submission to vinoarsanenterprises@gmail.com
 - Anti-spam protection (honeypot field + timestamp validation)
 - Client-side and server-side validation
 - User-friendly error messages
@@ -23,7 +23,7 @@ The contact form has been successfully implemented with the following features:
 - Honeypot spam detection
 - Timestamp validation (requires minimum 3 seconds to fill form)
 - Suspicious pattern detection in messages
-- Sends formatted HTML emails to sales@vinoarsan.com
+- Sends formatted HTML emails to vinoarsanenterprises@gmail.com
 - Returns JSON responses
 
 ### 3. scripts.js
@@ -62,7 +62,7 @@ Edit `contact-handler.php` and update these settings:
 
 ```php
 // Line 13-14: Configure email addresses
-$recipient_email = 'sales@vinoarsan.com';  // Email where form submissions go
+$recipient_email = 'vinoarsanenterprises@gmail.com';  // Email where form submissions go
 $from_email = 'noreply@vinoarsan.com';     // From email (use your domain email)
 ```
 
@@ -76,7 +76,7 @@ $from_email = 'noreply@vinoarsan.com';     // From email (use your domain email)
 2. Fill out the form with test data
 3. Submit and verify:
    - Success message appears
-   - Email arrives at sales@vinoarsan.com
+   - Email arrives at vinoarsanenterprises@gmail.com
    - Email formatting looks correct
 
 #### 4. Test Anti-Spam Features
