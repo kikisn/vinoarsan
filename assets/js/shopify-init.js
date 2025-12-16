@@ -71,7 +71,9 @@ const SHOP_STYLES = {
                 ':focus': {
                     'background-color': '#9c2f38'
                 },
-                'border-radius': '25px'
+                'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
             }
         },
         buttonDestination: 'modal',
@@ -120,7 +122,9 @@ const SHOP_STYLES = {
                 ':focus': {
                     'background-color': '#9c2f38'
                 },
-                'border-radius': '25px'
+                'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
             },
             title: {
                 'font-family': 'Open Sans, sans-serif',
@@ -262,7 +266,9 @@ const LIMITED_STYLES = {
                 ':focus': {
                     'background-color': '#b3883e'
                 },
-                'border-radius': '25px'
+                'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
             }
         },
         buttonDestination: 'modal',
@@ -311,7 +317,9 @@ const LIMITED_STYLES = {
                 ':focus': {
                     'background-color': '#b3883e'
                 },
-                'border-radius': '25px'
+                'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
             },
             title: {
                 'font-family': 'Open Sans, sans-serif',
@@ -444,7 +452,7 @@ const BASIC_STYLES = {
                 ':hover': {
                     'background-color': '#9c2f38'
                 },
-                'border-radius': '25px'
+                'border-radius': '25px',
             }
         },
         buttonDestination: 'cart',
