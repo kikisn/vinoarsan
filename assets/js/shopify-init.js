@@ -511,8 +511,8 @@ function initializeShopifyProducts(products, styles) {
 // Auto-initialize based on page
 document.addEventListener('DOMContentLoaded', function() {
     // Detect which page we're on by checking for specific containers
-    const isShopPage = document.getElementById('product-component-1765469425904') !== null;
-    const isLimitedPage = document.getElementById('product-component-1765468771524') !== null;
+    const isShopPage = document.getElementById('product-component-1765816272421') !== null;
+    const isLimitedPage = document.getElementById('product-component-1765817264835') !== null;
     const isBasicPage = document.getElementById('product-component-basic-whiskey') !== null;
 
     if (isShopPage) {
