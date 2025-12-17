@@ -15,6 +15,7 @@ const SHOP_PRODUCTS = [
     { id: '15438704279625', containerId: 'product-component-1765816272421' },     // Malibugold Medium Sweet
     { id: '15438704312393', containerId: 'product-component-1765816443654' },     // Malibugold Medium Dry
     { id: '15438704345161', containerId: 'product-component-1765816043174' },     // Bignay Pitaya
+    { id: '15439910764617', containerId: 'product-component-1765955413462' },     // Bignay Dry
     { id: '15438704377929', containerId: 'product-component-1765816634996' },     // Calamansi
     { id: '15438704410697', containerId: 'product-component-1765816710916' },     // Mango
     { id: '15438704443465', containerId: 'product-component-1765816767567' },     // Dragonfruit
