@@ -31,8 +31,9 @@ const SHOP_PRODUCTS = [
 
 // Limited Releases Page Products (Spirits with gold theme)
 const LIMITED_PRODUCTS = [
+    { id: '15440258203721', containerId: 'product-component-1765982031122' },     // Lolo Art Brandy
     { id: '15438704836681', containerId: 'product-component-1765817264835' },     // Lolo Art Whiskey
-    { id: '15438704869449', containerId: 'product-component-1765817296980' },     // Lolo Art Brandy
+    { id: '15438704869449', containerId: 'product-component-1765817296980' },     // Lolo Art Coco Brandy
     { id: '15438704902217', containerId: 'product-component-1765817333679' },     // Lolo Art Gin
     { id: '15438705000521', containerId: 'product-component-1765817374753' },     // Chocolate Liquor
     { id: '15438705033289', containerId: 'product-component-1765817403183' }      // Coffee Liquor

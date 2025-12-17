@@ -485,7 +485,6 @@ function initShopFilters() {
     if (!productsContainer) return; // Only run on shop page
 
     const filterCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
-    const sortSelect = document.getElementById('sort-products');
 
     // Filter products function - now accessible globally
     filterProducts = function() {
@@ -563,53 +562,10 @@ function initShopFilters() {
         }
     }
 
-    // Sort products
-    function sortProducts() {
-        const products = Array.from(productsContainer.querySelectorAll('.product-card'));
-        const sortValue = sortSelect.value;
-
-        products.sort((a, b) => {
-            switch (sortValue) {
-                case 'price-low':
-                    return parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price'));
-
-                case 'price-high':
-                    return parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price'));
-
-                case 'name-az':
-                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
-
-                case 'name-za':
-                    return b.getAttribute('data-name').localeCompare(a.getAttribute('data-name'));
-
-                case 'best-selling':
-                    // For now, keep original order for best-selling
-                    // In production, you would sort by actual sales data
-                    return 0;
-
-                default: // 'default' or 'featured'
-                    return 0;
-            }
-        });
-
-        // Re-append products in sorted order
-        products.forEach(product => {
-            productsContainer.appendChild(product);
-        });
-    }
-
     // Add event listeners to filter checkboxes
     filterCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filterProducts);
     });
-
-    // Add event listener to sort select
-    if (sortSelect) {
-        sortSelect.addEventListener('change', () => {
-            sortProducts();
-            filterProducts(); // Reapply filters after sorting
-        });
-    }
 }
 
 // ============================================
