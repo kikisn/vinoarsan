@@ -45,6 +45,13 @@
 
     <!-- Facebook Messenger Chat Plugin -->
     <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "1942935165950857");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
 
     <script>
     window.fbAsyncInit = function() {
@@ -62,14 +69,6 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <!-- Chat Plugin Configuration -->
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "1942935165950857");
-      chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Age Verification Modal -->
