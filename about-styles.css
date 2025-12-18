@@ -960,128 +960,216 @@
 }
 
 /* ============================================
-   AWARDS IMAGE BANNER WITH PARALLAX
+   AWARDS COLLAGE
    ============================================ */
-.awards-image-banner {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
+.awards-collage {
+    margin-top: 0px;
+    padding: 20px 0;
+}
+
+.awards-collage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.awards-collage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.awards-collage-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(199, 151, 69, 0.4);
+}
+
+/* First image takes left column, both rows */
+.awards-collage-img:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    min-height: 400px;
+}
+
+/* Second image takes top right */
+.awards-collage-img:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 190px;
+}
+
+/* Third image takes bottom right */
+.awards-collage-img:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 190px;
+}
+
+/* ============================================
+   AWARDS LIGHTBOX
+   ============================================ */
+.awards-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.awards-lightbox.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px!important;
+    padding: 20px;
 }
 
-.awards-image-banner img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 900px;
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    width: auto;
     height: auto;
     object-fit: contain;
-    will-change: transform;
-    transition: transform 0.1s ease-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(199, 151, 69, 0.5);
+    animation: zoomIn 0.3s ease;
 }
 
-/* Responsive adjustments for awards image banner */
-@media (max-width: 1024px) {
-    .awards-image-banner {
-        height: 400px;
-    }
-
-    .awards-image-banner img {
-        width: 80%;
-        max-width: 700px;
-    }
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--cream);
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    line-height: 1;
+    user-select: none;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--gold-cta);
+    transform: scale(1.1);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--cream);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+/* Responsive adjustments for awards collage */
 @media (max-width: 768px) {
-    .awards-image-banner {
-        height: 350px;
+    .awards-collage {
+        margin-top: 40px;
+        padding: 30px 0;
     }
 
-    .awards-image-banner img {
-        width: 90%;
-        max-width: 500px;
+    .awards-collage-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .awards-collage-img:nth-child(1),
+    .awards-collage-img:nth-child(2),
+    .awards-collage-img:nth-child(3) {
+        grid-column: 1;
+        grid-row: auto;
+        min-height: 250px;
+    }
+
+    /* Lightbox mobile adjustments */
+    .lightbox-close {
+        top: 15px;
+        right: 20px;
+        font-size: 40px;
+    }
+
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 85vh;
+    }
+
+    .lightbox-caption {
+        font-size: 14px;
+        bottom: 20px;
+        padding: 8px 15px;
+        max-width: 90%;
     }
 }
 
 @media (max-width: 480px) {
-    .awards-image-banner {
-        height: 300px;
+    .awards-collage {
+        margin-top: 30px;
+        padding: 20px 0;
     }
 
-    .awards-image-banner img {
-        width: 95%;
-        max-width: 350px;
-    }
-}
-
-/* Small desktop / Tablet optimization (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .timeline-diagram {
-        margin: 40px auto;
-        padding: 30px 0;
-        min-height: 380px;
+    .awards-collage-grid {
+        gap: 12px;
+        padding: 0 15px;
     }
 
-    .timeline-event {
-        max-width: 165px;
-        height: auto;
-        min-height: 380px;
+    .awards-collage-img:nth-child(1),
+    .awards-collage-img:nth-child(2),
+    .awards-collage-img:nth-child(3) {
+        min-height: 200px;
     }
 
-    .timeline-year {
-        font-size: 13px;
-        padding: 7px 11px;
+    /* Lightbox small mobile adjustments */
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+        font-size: 35px;
     }
 
-    .timeline-content {
-        padding: 16px 12px;
-        min-height: auto;
-        top: 26%;
+    .lightbox-content {
+        max-width: 98%;
+        max-height: 80vh;
     }
 
-    .timeline-content h4 {
-        font-size: 15px;
-        margin-bottom: 9px;
+    .lightbox-caption {
+        font-size: 12px;
+        bottom: 15px;
+        padding: 6px 12px;
+        max-width: 95%;
     }
 
-    .timeline-content p {
-        font-size: 12.5px;
-        line-height: 1.55;
-    }
-
-    .timeline-circle {
-        width: 18px;
-        height: 18px;
-    }
-
-    /* Awards banner small desktop optimization */
-    .awards-banner {
-        padding: 35px 25px;
-        margin: 45px auto;
-    }
-
-    .awards-title {
-        font-size: 28px;
-    }
-
-    .awards-images {
-        gap: 30px;
-    }
-
-    .award-badge img {
-        max-width: 250px;
-    }
-
-    .award-caption {
-        font-size: 15px;
-    }
-
-    .awards-description {
-        font-size: 13px;
+    .awards-lightbox.active {
+        padding: 10px;
     }
 }

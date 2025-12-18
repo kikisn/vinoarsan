@@ -188,15 +188,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Awards Collage -->
+                    <div class="awards-collage">
+                        <div class="awards-collage-grid">
+                            <img src="assets/images/about-page/awards/winemaker-award-medals.webp" alt="Winemaker Award Medals" class="awards-collage-img" onclick="openLightbox(this)">
+                            <img src="assets/images/about-page/awards/lolo-art-brand-medal.webp" alt="Lolo Art Brand Medal" class="awards-collage-img" onclick="openLightbox(this)">
+                            <img src="assets/images/about-page/awards/winemaker-awards.webp" alt="Winemaker Awards Certificates" class="awards-collage-img" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+
+                    <!-- Lightbox Modal -->
+                    <div id="awards-lightbox" class="awards-lightbox">
+                        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                        <img class="lightbox-content" id="lightbox-img" alt="Award Image">
+                        <div class="lightbox-caption" id="lightbox-caption"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Winemaker Awards Banner -->
-        <section class="awards-image-banner">
-            <img src="assets/images/content/winemaker-awards.webp" alt="WineMaker International Competition Awards - Bronze and Silver Medals" loading="lazy">
-        </section>
-        
         <!-- Production Process Section -->
         <section class="about-process-section">
             <div class="about-process-container">

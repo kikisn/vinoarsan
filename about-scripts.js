@@ -233,3 +233,53 @@ initMobileMenu();
 
 // Re-initialize on window resize
 window.addEventListener('resize', initMobileMenu);
+
+// ============================================
+// AWARDS LIGHTBOX FUNCTIONALITY
+// ============================================
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById('awards-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    if (lightbox && lightboxImg && lightboxCaption) {
+        lightbox.classList.add('active');
+        lightboxImg.src = imgElement.src;
+        lightboxCaption.textContent = imgElement.alt;
+
+        // Prevent body scroll when lightbox is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('awards-lightbox');
+
+    if (lightbox) {
+        lightbox.classList.remove('active');
+
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
+}
+
+// Close lightbox when clicking outside the image
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('awards-lightbox');
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            // Close if clicking the background (not the image or caption)
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+});
