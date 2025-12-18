@@ -41,6 +41,8 @@ const LIMITED_PRODUCTS = [
 
 const BASIC_PRODUCTS = [
     { id: '15438704836681', containerId: 'product-component-basic-whiskey'},              // Lolo Art Whiskey
+    { id: '15440258203721', containerId: 'product-component-basic-brandy' },              // Lolo Art Brandy
+    { id: '15438704902217', containerId: 'product-component-basic-gin' },             // Lolo Art Gin
     { id: '15438704312393', containerId: 'product-component-basic-malibugold-dry-red'},   // Malibugold Medium Dry
     { id: '15438704279625', containerId: 'product-component-basic-malibugold-sweet-red'}, // Malibugold Sweet
     { id: '15438704345161', containerId: 'product-component-basic-bignay-pitaya'},        // Bignay Pitaya
@@ -450,33 +452,84 @@ const BASIC_STYLES = {
     product: {
         styles: {
             product: {
-                'max-width': '100%',
-                'margin': '0',
-                'padding': '0'
+                '@media (min-width: 601px)': {
+                    'max-width': 'calc(25% - 20px)',
+                    'margin-left': '20px',
+                    'margin-bottom': '50px'
+                }
             },
             button: {
                 'font-family': 'Open Sans, sans-serif',
-                'background-color': '#ad343e',
                 ':hover': {
                     'background-color': '#9c2f38'
                 },
+                'background-color': '#ad343e',
+                ':focus': {
+                    'background-color': '#9c2f38'
+                },
                 'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
             }
         },
         buttonDestination: 'cart',
         contents: {
             img: false,
             title: false,
-            price: false,
-            options: false
+            price: false
         },
         text: {
             button: 'Add to cart'
         },
         googleFonts: ['Open Sans']
     },
-    cart: SHOP_STYLES.cart,   // reuse cart styles safely
-    toggle: SHOP_STYLES.toggle
+    productSet: {
+        styles: {
+            products: {
+                '@media (min-width: 601px)': {
+                    'margin-left': '-20px'
+                }
+            }
+        }
+    },
+    modalProduct: {
+        contents: {
+            img: false,
+            imgWithCarousel: true,
+            button: false,
+            buttonWithQuantity: true
+        },
+        styles: {
+            product: {
+                '@media (min-width: 601px)': {
+                    'max-width': '100%',
+                    'margin-left': '0px',
+                    'margin-bottom': '0px'
+                }
+            },
+            button: {
+                'font-family': 'Open Sans, sans-serif',
+                ':hover': {
+                    'background-color': '#9c2f38'
+                },
+                'background-color': '#ad343e',
+                ':focus': {
+                    'background-color': '#9c2f38'
+                },
+                'border-radius': '25px',
+                'padding-left': '24px',
+                'padding-right': '24px'
+            }
+        },
+        googleFonts: ['Open Sans'],
+        text: {
+            button: 'Add to cart'
+        }
+    },
+    option: {},
+    cart: SHOP_STYLES.cart,      // reuse cart styles from SHOP_STYLES
+    toggle: SHOP_STYLES.toggle,  // reuse toggle styles from SHOP_STYLES
+    lineItem: SHOP_STYLES.lineItem  // reuse lineItem styles from SHOP_STYLES
 };
 
 
