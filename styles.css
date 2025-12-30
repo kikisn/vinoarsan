@@ -928,7 +928,7 @@ nav a:focus-visible {
 .limited-content .cta-button {
     background: var(--gold-cta);
     border-color: var(--gold-cta);
-    color: var(--white);
+    color: var(--dark-bg);
 }
 
 .limited-content .cta-button:hover {
@@ -1439,6 +1439,20 @@ footer {
     line-height: 1.7;
     color: var(--cream);
     font-weight: 300;
+}
+
+.limited-release-item {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
 }
 
 
@@ -2227,6 +2241,25 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+
+.product-card {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100%;
+    object-fit: contain;
 }
 
 

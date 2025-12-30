@@ -59,9 +59,9 @@ const SHOP_STYLES = {
                 'background-color': '#f1ebe1',
                 'padding-bottom': '20px',
                 '@media (min-width: 601px)': {
-                    'max-width': 'calc(25% - 20px)',
-                    'margin-left': '20px',
-                    'margin-bottom': '50px'
+                    'max-width': '100%',
+                    'margin-left': '0px',
+                    'margin-bottom': '0px'
                 }
             },
             button: {
@@ -112,6 +112,7 @@ const SHOP_STYLES = {
                 '@media (min-width: 601px)': {
                     'max-width': '100%',
                     'margin-left': '0px',
+                    'margin-right': '0px',
                     'margin-bottom': '0px'
                 }
             },
@@ -254,9 +255,9 @@ const LIMITED_STYLES = {
                 'background-color': '#f1ebe1',
                 'padding-bottom': '20px',
                 '@media (min-width: 601px)': {
-                    'max-width': 'calc(25% - 20px)',
-                    'margin-left': '20px',
-                    'margin-bottom': '50px'
+                    'max-width': '100%',
+                    'margin-left': '0px',
+                    'margin-bottom': '0px'
                 }
             },
             'img-wrapper': {
@@ -504,6 +505,7 @@ const BASIC_STYLES = {
                 '@media (min-width: 601px)': {
                     'max-width': '100%',
                     'margin-left': '0px',
+                    'margin-right': '0px',
                     'margin-bottom': '0px'
                 }
             },
