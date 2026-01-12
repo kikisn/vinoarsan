@@ -19,11 +19,10 @@ jobs:
       - name: Install dependencies
         run: python -m pip install instaloader
 
-      # ✅ RESTORE SESSION FIRST (CRITICAL)
+      # ✅ RESTORE SESSION TO CURRENT DIRECTORY (CRITICAL FIX)
       - name: Restore Instagram session
         run: |
-          mkdir -p ~/.config/instaloader
-          echo "${{ secrets.INSTAGRAM_SESSION_B64 }}" | base64 --decode > ~/.config/instaloader/session-vino.arsan
+          echo "${{ secrets.INSTAGRAM_SESSION_B64 }}" | base64 --decode > session-vino.arsan
 
       # ✅ NOW FETCH POSTS
       - name: Fetch Instagram posts
