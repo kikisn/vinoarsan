@@ -23,7 +23,7 @@ jobs:
       - name: Restore Instagram session
         run: |
           mkdir -p /tmp/.instaloader-runner
-          echo "${{ secrets.INSTAGRAM_SESSION_B64 }}" | base64 --decode > /tmp/.instaloader-runner/session-vino.arsan
+          echo "${{ secrets.INSTAGRAM_SESSION_B64 }}" | base64 --decode > echo "${{ secrets.INSTAGRAM_SESSION_B64 }}" | base64 --decode > ~/.config/instaloader/session-poulette.anna
 
       # ✅ NOW FETCH POSTS
       - name: Fetch Instagram posts
