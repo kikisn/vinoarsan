@@ -3,7 +3,7 @@ name: Fetch Instagram Posts
 on:
   workflow_dispatch:
   push:
-    branches: [redesign-tropical]
+    branches: [redesign-tropical, main]
 
 jobs:
   build:
