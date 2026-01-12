@@ -18,7 +18,9 @@ try:
         request_timeout=60,
     )
 
-    # IMPORTANT: do NOT log in, but also do not use fast queries
+    # ✅ LOAD SAVED SESSION (CRITICAL)
+    L.load_session_from_file("vino.arsan")
+
     profile = instaloader.Profile.from_username(L.context, USERNAME)
 
     posts = []
