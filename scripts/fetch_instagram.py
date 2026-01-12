@@ -2,14 +2,12 @@ import instaloader
 import json
 from pathlib import Path
 import sys
-import os
 
-USERNAME = "vino.arsan"
+TARGET_USERNAME = "vino.arsan"
+LOGIN_USERNAME = "poulette.anna"
 POST_LIMIT = 10
 
 try:
-    session_file = "session-vino.arsan"
-    
     L = instaloader.Instaloader(
         download_pictures=False,
         download_videos=False,
@@ -17,34 +15,15 @@ try:
         download_comments=False,
         save_metadata=False,
         quiet=False,
-        max_connection_attempts=3,
+        max_connection_attempts=1,
         request_timeout=60,
     )
 
-    # ✅ Try to load session
-    session_loaded = False
-    if os.path.exists(session_file):
-        try:
-            L.load_session_from_file(USERNAME, session_file)
-            session_loaded = True
-            print("✅ Session loaded successfully")
-        except Exception as e:
-            print(f"⚠️ Could not load session: {e}")
-    
-    # If no session or session invalid, try with password from environment
-    if not session_loaded:
-        password = os.environ.get("INSTAGRAM_PASSWORD")
-        if password:
-            print("🔐 Attempting login with password...")
-            L.login(USERNAME, password)
-        else:
-            raise Exception("No valid session and no password provided")
+    # ✅ Load session created locally
+    L.load_session_from_file(LOGIN_USERNAME)
+    print("✅ Session loaded")
 
-    # Test if we're actually logged in by trying to access profile
-    try:
-        profile = instaloader.Profile.from_username(L.context, USERNAME)
-    except instaloader.exceptions.LoginRequiredException:
-        raise Exception("Session expired and login required. Please recreate the session file.")
+    profile = instaloader.Profile.from_username(L.context, TARGET_USERNAME)
 
     posts = []
     for post in profile.get_posts():
@@ -60,7 +39,7 @@ try:
     print(f"✅ Instagram posts fetched successfully ({len(posts)} posts)")
 
 except Exception as e:
-    print("❌ ERROR fetching Instagram posts:")
+    print("❌ ERROR fetching Instagram posts")
     print(str(e))
-    print("\n💡 Solution: Recreate your session file locally and update INSTAGRAM_SESSION_B64 secret")
+    print("\n💡 Fix: recreate the session locally and update INSTAGRAM_SESSION_B64")
     sys.exit(1)
