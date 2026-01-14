@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 a:focus,
@@ -5035,3 +5034,39 @@ footer {
         font-size: 13px;
     }
 }
+
+/*instagram grid - homepage*/
+#instagram {
+  padding: 4rem 0;
+  margin: 30px;
+}
+#instagram h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+.ig-grid a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.ig-grid img,
+.ig-grid video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+/* Hover effect */
+.ig-grid a:hover img,
+.ig-grid a:hover video {
+  transform: scale(1.05);
+}
+

@@ -5,16 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSP meta tag to allow Facebook scripts -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://sdks.shopifycdn.com https://cdn.jsdelivr.net https://*.shopify.com https://*.myshopify.com https://ajax.googleapis.com https://*.googleapis.com http://fonts.googleapis.com;
-        frame-src https://www.facebook.com https://*.facebook.com https://*.shopify.com https://*.myshopify.com;
-        connect-src 'self' https://*.facebook.com https://*.facebook.net https://api.emailjs.com https://*.shopify.com https://*.myshopify.com https://monorail-edge.shopifysvc.com;
-        img-src 'self' data: https:;
-        style-src 'self' 'unsafe-inline' https://*.googleapis.com https://fonts.googleapis.com https://sdks.shopifycdn.com http://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com https://*.gstatic.com;
-        upgrade-insecure-requests;
-    ">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+
+  script-src
+    'self'
+    'unsafe-inline'
+    'unsafe-eval'
+    https://connect.facebook.net
+    https://sdks.shopifycdn.com
+    https://cdn.jsdelivr.net
+    https://*.shopify.com
+    https://*.myshopify.com
+    https://ajax.googleapis.com
+    https://*.googleapis.com
+    http://fonts.googleapis.com
+    https://www.instagram.com;
+
+  frame-src
+    https://www.facebook.com
+    https://*.facebook.com
+    https://*.shopify.com
+    https://*.myshopify.com
+    https://www.instagram.com;
+
+  connect-src
+    'self'
+    https://*.facebook.com
+    https://*.facebook.net
+    https://api.emailjs.com
+    https://*.shopify.com
+    https://*.myshopify.com
+    https://monorail-edge.shopifysvc.com
+    https://www.instagram.com;
+
+  img-src
+    'self'
+    data:
+    https:
+    https://*.instagram.com
+    https://*.fbcdn.net;
+
+  style-src
+    'self'
+    'unsafe-inline'
+    https://*.googleapis.com
+    https://fonts.googleapis.com
+    https://sdks.shopifycdn.com
+    http://fonts.googleapis.com
+    https://www.instagram.com;
+
+  font-src
+    'self'
+    https://fonts.gstatic.com
+    https://*.gstatic.com;
+
+  upgrade-insecure-requests;
+">
+
 
     <title>Vino Arsan - Tropical Wines</title>
     <link rel="icon" type="image/png" href="VA-favicon.png">
@@ -499,15 +547,69 @@
         </div>
     </section>
 
-     <!-- IG widget Section
-    <link rel="stylesheet" href="/assets/instagram.css">
+        <!-- IG widget Section -->
+    <section id="instagram">
+    <h2>Latest on Instagram</h2>
 
-    <h2>Follow Us on Instagram to Stay Up to Date!</h2>
+    <div class="ig-grid">
 
-    <div id="instagram-grid"></div>
+        <a href="https://www.instagram.com/p/DS1I7msErDz/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-01.jpg" alt="Vino Arsan Instagram post">
+        </a>
 
-    <script src="/assets/js/instagram.js"></script>
- -->
+        <a href="https://www.instagram.com/p/DSZkQT4kkOs/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-02.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https://www.instagram.com/p/DSZjfVjErfp/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-03.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https://www.instagram.com/p/DSZitAIkget/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-04.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https:www.instagram.com/p/DRZq8GCkmIm/" target="_blank" rel="noopener">
+        <video
+            src="/assets/images/instagram/ig-05.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+        ></video>
+        </a>
+
+
+        <a href="https://www.instagram.com/reel/DOD98VEk707/" target="_blank" rel="noopener">
+        <video
+            src="/assets/images/instagram/ig-06.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+        ></video>
+        </a>
+        
+        <a href="https://www.instagram.com/p/DKye_6uy0tF/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-07.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https://www.instagram.com/p/DCtUwYizECg/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-08.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https://www.instagram.com/p/DKye_6uy0tF" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-09.jpg" alt="Vino Arsan Instagram post">
+        </a>
+
+        <a href="https://www.instagram.com/p/CrC5iQHOyRd/" target="_blank" rel="noopener">
+        <img src="/assets/images/instagram/ig-10.jpg" alt="Vino Arsan Instagram post">
+        </a>
+    </div>
+    </section>
+
+
+
 
     <!-- Footer -->
     <footer>
@@ -536,6 +638,7 @@
         </div>
     </footer>
     
+    <script async src="https://platform.instagram.com/en_US/embeds.js"></script>
     <script src="assets/js/shopify-init.js"></script>
     <script src="scripts.js"></script>
     </div><!-- end main-wrapper -->
