@@ -2244,7 +2244,7 @@ footer {
 
 .product-card {
     position: relative;
-    width: 100%;
+    width: 90%;
     min-height: 150px;
     border-radius: 8px;
     overflow: hidden;
@@ -2379,7 +2379,7 @@ footer {
 
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 25px;
     }
 
     .shop-section-container {
@@ -2863,8 +2863,7 @@ footer {
     }
 
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .shop-section {
@@ -2967,6 +2966,13 @@ footer {
 
     .product-price {
         font-size: 18px;
+    }
+    
+    .shopify-buy__cart-toggle {
+    right: 12px !important;
+    left: auto !important;
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
     }
 }
 
