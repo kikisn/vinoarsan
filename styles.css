@@ -2971,8 +2971,12 @@ footer {
     .shopify-buy__cart-toggle {
     right: 12px !important;
     left: auto !important;
-    max-width: calc(100vw - 24px);
     box-sizing: border-box;
+    }
+
+    .shopify-buy__cart-toggle,
+    .shopify-buy__cart-toggle * {
+        max-width: 100%;
     }
 }
 
