@@ -128,7 +128,7 @@ h4 {
 .hero-fruit-dragonfruit-2,
 .hero-fruit-calamansi-1,
 .hero-fruit-mulberry-2 {
-    display: none;
+    display: none!important;
 }
 
 /* Mobile Typography */
@@ -5046,7 +5046,7 @@ footer {
 }
 .ig-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 .ig-grid a {
